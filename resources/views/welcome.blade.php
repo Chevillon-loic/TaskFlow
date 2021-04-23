@@ -81,11 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-<<<<<<< HEAD
                     TaskFlow
-=======
-                    Laravel
->>>>>>> refs/remotes/origin/dev
                 </div>
 
                 <div class="links">
