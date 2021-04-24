@@ -28,6 +28,10 @@
                 margin: 30px;
                 color: $black;
             }
+            label {
+                color: rgb(116, 116, 116);
+                padding: 5px 0;
+            }
             input {
                 outline: none;
                 border: none;
@@ -57,9 +61,37 @@
             }
         }
     }
+    a {
+        margin-left: calc(590px / 2 - 150px);
+        margin-top: 10px;
+        outline: none;
+        color: whitesmoke;
+        font-size: 1rem;
+        letter-spacing: 1.5px;
+        border: 2px solid $secondary;
+        background-color: $secondary;
+        border-radius: 5px;
+        padding: 7px 0;
+        width: 150px;
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
 
     #profilePicture {
         height: 100px;
+        width: 100px;
         border-radius: 100%;
+    }
+
+    #grayBackground {
+        height: 100vh;
+        background-color: #999999bd;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        display: none;
     }
 }

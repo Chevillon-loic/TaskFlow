@@ -28,6 +28,11 @@
   color: #292929;
 }
 
+.mainContainer .profileModificationForm .profileModificationFormIn label {
+  color: #747474;
+  padding: 5px 0;
+}
+
 .mainContainer .profileModificationForm .profileModificationFormIn input {
   outline: none;
   border: none;
@@ -58,8 +63,38 @@
   transform: scale(1.05);
 }
 
+.mainContainer a {
+  margin-left: calc(590px / 2 - 150px);
+  margin-top: 10px;
+  outline: none;
+  color: whitesmoke;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  border: 2px solid #a558c0;
+  background-color: #a558c0;
+  border-radius: 5px;
+  padding: 7px 0;
+  width: 150px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.mainContainer a:hover {
+  transform: scale(1.05);
+}
+
 .mainContainer #profilePicture {
   height: 100px;
+  width: 100px;
   border-radius: 100%;
+}
+
+.mainContainer #grayBackground {
+  height: 100vh;
+  background-color: #999999bd;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: none;
 }
 

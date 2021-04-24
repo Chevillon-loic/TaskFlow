@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Provide many Board for User
+    public function board()
+    {
+        return $this->hasMany(Board::class);
+    }
 }
