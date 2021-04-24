@@ -1,10 +1,13 @@
+// Variables
+@import "variables";
+
 main {
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 70px;
 }
-
+//Page Welcome
 .WelcomeMainContent {
     display: flex;
     justify-content: space-around;
@@ -35,6 +38,98 @@ main {
         width: 700px;
         img {
             height: 450px;
+        }
+    }
+}
+
+//Page Register
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img {
+        height: auto;
+        width: 40%;
+        margin: 20px 30% 50px;
+    }
+    .pBottom a {
+        color: $black;
+    }
+    .registerForm,
+    .connectionForm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+        width: 600px;
+        border-radius: 10px;
+        background: linear-gradient(to right, $secondary, $primary);
+        .registerFormIN,
+        .connectionFormIN {
+            height: 490px;
+            width: 590px;
+            border-radius: 7px;
+            background-color: rgb(251, 251, 251);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h2 {
+                font-size: 1.1rem;
+                font-weight: 500;
+                text-align: center;
+                margin: 30px;
+                color: $black;
+            }
+            img {
+                margin: 0;
+            }
+            label {
+                color: rgb(116, 116, 116);
+                padding: 5px 0;
+            }
+            input:not(#remember) {
+                outline: none;
+                border: none;
+                background-color: #e7e7e7;
+                width: 450px;
+                padding: 7px;
+                font-size: 1rem;
+                margin-bottom: 15px;
+            }
+            #remember,
+            .form-check-label {
+                cursor: pointer;
+            }
+            button {
+                margin-left: calc(590px / 2 - 150px);
+                margin-top: 10px;
+                outline: none;
+                color: whitesmoke;
+                font-size: 1rem;
+                letter-spacing: 1.5px;
+                border: 2px solid $secondary;
+                background-color: $secondary;
+                border-radius: 5px;
+                padding: 7px 0;
+                width: 150px;
+                cursor: pointer;
+                transition: 0.5s;
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+            .connectBTN {
+                margin-top: 10px;
+            }
+
+            //ERRORS
+            .invalid-feedback {
+                font-size: 0.9rem;
+                width: 450px;
+                color: $red;
+            }
         }
     }
 }

@@ -137,10 +137,10 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp64\www\taskflow\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\wamp64\www\taskflow\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\wamp64\www\taskflow\resources\sass\welcome.scss */"./resources/sass/welcome.scss");
-module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\sass\home.scss */"./resources/sass/home.scss");
+__webpack_require__(/*! /var/www/taskflow.webo/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /var/www/taskflow.webo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/taskflow.webo/resources/sass/welcome.scss */"./resources/sass/welcome.scss");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/sass/home.scss */"./resources/sass/home.scss");
 
 
 /***/ })

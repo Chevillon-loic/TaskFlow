@@ -8,5 +8,5 @@
     <div class="container">
         <h1>Mes tableaux</h1>
 
-        </div>
-    @endsection
+    </div>
+@endsection

@@ -28,7 +28,9 @@
                 @if (Route::has('login'))
                     <div>
                         @auth
-                            <a href="{{ url('/home') }}">Home</a>
+                            <a class="linkToProfile" href="{{ route('home') }}">
+                                <img src="{{ asset('img/user.png') }}" alt="">
+                                <span>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span></a>
                         @else
                             <a href="{{ route('login') }}">Connection</a>
                             @if (Route::has('register'))
@@ -40,16 +42,20 @@
             </nav>
         </div>
     @else
-        <div id="navbarNotConnected">
-            <nav>
-                <div>
-                    <a class="connectionBtn" href="{{ route('login') }}">CONNEXION</a>
-                    <a class="registerBtn" href="{{ route('register') }}">INSCRIPTION</a>
-                </div>
-            </nav>
-        </div>
+        @if (Str::contains(url()->current(), ['login', 'register']))
+            <div id="navbarforRnC">
+            </div>
+        @else
+            <div id="navbarNotConnected">
+                <nav>
+                    <div>
+                        <a class="connectionBtn" href="{{ route('login') }}">CONNEXION</a>
+                        <a class="registerBtn" href="{{ route('register') }}">INSCRIPTION</a>
+                    </div>
+                </nav>
+            </div>
+        @endif
     @endauth
-
     <main>
         @yield('content')
     </main>
