@@ -75,6 +75,7 @@
             }
             button:not(#closeProfileModification) {
                 @include buttonStyle();
+                margin-left: calc(590px / 2 - 150px);
             }
         }
     }

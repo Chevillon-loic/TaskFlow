@@ -18,19 +18,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'BoardController@index')->name('home.index');
+Route::get('/home', 'HomeController@index')->name('home.index');
 
-Route::get('show}', 'BoardController@show')->name('home.show');
+Route::get('show}', 'HomeController@show')->name('home.show');
 
-Route::post('store', 'BoardController@store')->name('board.store');
+Route::post('store', 'HomeController@store')->name('home.store');
 
-Route::put('/home/update/', 'BoardController@index')->name('home.update');
+Route::put('/home/update/', 'HomeController@index')->name('home.update');
 
-Route::delete('/home/delete/', 'BoardController@index')->name('home.delete');
+Route::delete('/home/delete/', 'HomeController@index')->name('home.delete');
 
-Route::get('/home/create/', 'BoardController@create')->name('home.create');
+Route::get('/home/create/', 'HomeController@create')->name('home.create');
 
-Route::get('/home/edit/', 'BoardController@edit')->name('home.edit');
+Route::get('/home/edit/', 'HomeController@edit')->name('home.edit');
 
 
 //Main Routes (for Views)

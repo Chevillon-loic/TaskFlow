@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Board;
 use Illuminate\Http\Request;
 
 class BoardController extends Controller
@@ -14,10 +13,6 @@ class BoardController extends Controller
      */
     public function index()
     {
-        $boards = Board::select(['id', 'label', 'color']);
-        return view("home", [
-            'boards' => $boards->get()
-        ]);
     }
 
     /**
@@ -27,7 +22,6 @@ class BoardController extends Controller
      */
     public function create()
     {
-        return view('home');
     }
 
     /**
@@ -38,17 +32,6 @@ class BoardController extends Controller
      */
     public function store(Request $request)
     {
-
-        $board = new Board();
-        $board->owner_id = \Auth::user()->id;
-        $board->guest_id = \Auth::user()->id;
-        $board->label = $request->label;
-        $board->color = $request->color;
-        $board->save();
-
-        return back()->with([
-            'success' => 'Contenu envoyé avec succès !',
-        ]);
     }
 
     /**
