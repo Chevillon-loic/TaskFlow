@@ -29,6 +29,7 @@ class CreateBoardsTable extends Migration
                 ->on('users');
 
             $table->string('label', 64);
+            $table->string('color', 10);
 
             $table->timestamps();
         });
