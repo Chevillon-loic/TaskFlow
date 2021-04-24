@@ -57,6 +57,7 @@
   width: 150px;
   cursor: pointer;
   transition: 0.5s;
+  margin-left: calc(590px / 2 - 150px);
 }
 
 .mainContainer .profileModificationForm .profileModificationFormIn button:not(#closeProfileModification):hover {
