@@ -8,27 +8,31 @@
 @section('content')
 <div class="mainContainer">
 
+    <h1>MON PROFIL</h1>
+
 
 
     <div class="profile">
 
         <img id="profilePicture" src="{{Auth::user()->picture}}" alt="Photo de profil">
-        <p>{{ Auth::user()->first_name }}</p>
-        <p>{{ Auth::user()->last_name }}</p>
-        <p>{{ Auth::user()->email }}</p>
+        <p>Nom</p> <p>{{ Auth::user()->first_name }}</p>
+        <p>Prénom</p> <p>{{ Auth::user()->last_name }}</p>
+        <p>Adresse mail </p> <p>{{ Auth::user()->email }}</p>
 
-        <button id="buttonProfileModification">Modification</button>
+        <div class="container-buttons">
+            <button id="buttonProfileModification">Modification</button>
 
-        {{-- disconnect button --}}
-    <a class="dropdown-item" href="{{ route('logout') }}"
-    onclick="event.preventDefault();
-        document.getElementById('logout-form').submit();">
-    Se déconecter
-</a>
+                {{-- disconnect button --}}
+            <a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+            Se déconecter
+            </a>
 
-<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-    @csrf
-</form>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </div>
     </div>
 
     <div id="grayBackground">
