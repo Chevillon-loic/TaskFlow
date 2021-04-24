@@ -3,6 +3,16 @@
 @section('content')
 <h1>profil</h1>
 
+<a class="dropdown-item" href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+        Se déconecter
+    </a>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+
 <div>
     <img src="{{Auth::user()->picture}}" alt="Photo de profil">
     <p>{{ Auth::user()->first_name }}</p>

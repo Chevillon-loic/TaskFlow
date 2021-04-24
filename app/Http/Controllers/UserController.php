@@ -70,6 +70,16 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::select(['id', 'email'])->where('id', $id)->first();
+        $user->last_name = $request->last_name;
+        $user->first_name = $request->first_name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->picture = $request->picture;
+        $user->save();
+
+        return back()->with([
+            'success' => 'Contenu modifié avec succès !'
+        ]);
     }
 
     /**
