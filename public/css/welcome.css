@@ -17,16 +17,17 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 800px;
+  width: 700px;
 }
 
 .WelcomeMainContent .leftWelcomeMainContent img {
-  height: 80px;
-  margin: 50px;
+  height: auto;
+  width: 70%;
+  margin: 50px 15%;
 }
 
 .WelcomeMainContent .leftWelcomeMainContent .pWelcomeMainContent {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   line-height: 40px;
   width: 80%;
   align-self: center;
@@ -36,10 +37,10 @@ main {
 .WelcomeMainContent .rightWelcomeMainContent {
   display: flex;
   justify-content: center;
-  width: 800px;
+  width: 700px;
 }
 
 .WelcomeMainContent .rightWelcomeMainContent img {
-  height: 500px;
+  height: 450px;
 }
 
