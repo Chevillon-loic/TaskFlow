@@ -14,13 +14,15 @@
 
             @foreach ($boards as $board)
                 <div style="background-color:{{ $board->color }} " class="card-board">
-                    <p> {{ $board->label }}</p>
+                    <div class="card-board-tr">
+                        <p> {{ $board->label }}</p>
+                    </div>
                 </div>
             @endforeach
 
             <div class="card-board">
                 <button id="btnModal">
-                    <p>Créer un nouveau tableau</p>
+                    <span> <span class="plus">+</span><br> CRÉER UN <br>NOUVEAU TABLEAU</span>
                 </button>
             </div>
 
@@ -28,25 +30,55 @@
 
                 <!-- Modal content -->
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="close">&times;</span>
-                        <h2>Ajouter un tableau</h2>
-                    </div>
 
                     <div class="modal-form">
-                        <form action="{{ route('home.store') }}" method="POST">
-                            @csrf
 
+                        <div class="modal-left">
+                            <span class="close">&times;</span>
+                            <form action="{{ route('home.store') }}" method="POST">
+                                @csrf
+                                <input name="label" type="text" placeholder="Ajoutez un titre au tableau">
+                        </div>
+                        <div class="modal-right">
+                            <label for="color1" class="color color1">
+                                <input type="radio" name="color" id="color1" value="#755286">
+                            </label>
 
-                            <label for="">Nom du tableau</label>
-                            <input name="label" type="text">
-                            <label for="">Couleur</label>
-                            <input type="color" name="color">
+                            <label for="color2" class="color color2">
+                                <input type="radio" name="color" id="color2" value="#7ba78b">
+                            </label>
 
+                            <label for="color3" class="color color3">
+                                <input type="radio" name="color" id="color3" value="#b37b2c">
+                            </label>
 
-                            <input type="submit">
-                        </form>
+                            <label for="color4" class="color color4">
+                                <input type="radio" name="color" id="color4" value="#ac4275">
+                            </label>
+
+                            <label for="color5" class="color color5">
+                                <input type="radio" name="color" id="color5" value="#517f39">
+                            </label>
+
+                            <label for="color6" class="color color6">
+                                <input type="radio" name="color" id="color6" value="#61676b">
+                            </label>
+
+                            <label for="color7" class="color color7">
+                                <input type="radio" name="color" id="color7" value="#1d70b4">
+                            </label>
+
+                            <label for="color8" class="color color8">
+                                <input type="radio" name="color" id="color8" value="#963c2b">
+                            </label>
+
+                            <label for="color9" class="color color9">
+                                <input type="radio" name="color" id="color9" value="#3a94ae">
+                            </label>
+                        </div>
                     </div>
+                    <input type="submit">
+                    </form>
                 </div>
 
             </div>
