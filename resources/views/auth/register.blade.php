@@ -2,22 +2,11 @@
 
 @section('content')
     <div class="container">
+        <div class="registerForm">
+
+        </div>
         <form method="POST" action="{{ route('register') }}">
             @csrf
-            <div>
-                <label for="first_name">Prénom</label>
-                <div>
-                    <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror"
-                        name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
-
-                    @error('first_name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-            </div>
-
             <div>
                 <label for="last_name">Nom</label>
                 <div>
@@ -33,7 +22,21 @@
             </div>
 
             <div>
-                <label for="email">{{ __('E-Mail Address') }}</label>
+                <label for="first_name">Prénom</label>
+                <div>
+                    <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror"
+                        name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
+
+                    @error('first_name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div>
+                <label for="email">Email</label>
 
                 <div>
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
@@ -48,7 +51,7 @@
             </div>
 
             <div>
-                <label for="password">{{ __('Password') }}</label>
+                <label for="password">Mot de passe</label>
 
                 <div>
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
@@ -63,7 +66,7 @@
             </div>
 
             <div>
-                <label for="password-confirm">{{ __('Confirm Password') }}</label>
+                <label for="password-confirm">Confirmation du mot de passe</label>
 
                 <div>
                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required
@@ -74,7 +77,7 @@
             <div>
                 <div>
                     <button type="submit" class="btn btn-primary">
-                        {{ __('Register') }}
+                        S'incrire
                     </button>
                 </div>
             </div>
