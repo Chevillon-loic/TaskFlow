@@ -56,6 +56,8 @@
             </div>
         @endif
     @endauth
+
+
     <main>
         @yield('content')
     </main>
