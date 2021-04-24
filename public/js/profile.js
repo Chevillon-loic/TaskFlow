@@ -95,8 +95,12 @@
 
 var buttonProfileModification = document.getElementById('buttonProfileModification');
 var grayBackground = document.getElementById('grayBackground');
+var buttonClose = document.getElementById('closeProfileModification');
 buttonProfileModification.addEventListener('click', function (e) {
-  grayBackground.style.display = "block";
+  grayBackground.style.display = "flex";
+});
+buttonClose.addEventListener('click', function (e) {
+  grayBackground.style.display = "none";
 });
 
 /***/ }),
