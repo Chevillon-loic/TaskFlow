@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Board;
 use Illuminate\Http\Request;
 
-class BoardController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,6 @@ class BoardController extends Controller
      */
     public function index()
     {
-        $boards = Board::select(['id', 'label', 'color']);
-        return view("home", [
-            'boards' => $boards->get()
-        ]);
     }
 
     /**
@@ -27,7 +23,6 @@ class BoardController extends Controller
      */
     public function create()
     {
-        return view('home');
     }
 
     /**
@@ -38,31 +33,6 @@ class BoardController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(
-            //Label Validation
-            [
-                'label' => 'required|string',
-                'color' => 'required|string'
-            ],
-            [
-                'label.required' => 'Un label est requis.',
-                'color.required' => 'Une couleur est requise.'
-            ],
-            [
-                'label' => 'Label'
-            ]
-        );
-
-        $board = new Board();
-        $board->owner_id = \Auth::user()->id;
-        $board->guest_id = \Auth::user()->id;
-        $board->label = $request->label;
-        $board->color = $request->color;
-        $board->save();
-
-        return back()->with([
-            'success' => 'Contenu envoyé avec succès !',
-        ]);
     }
 
     /**

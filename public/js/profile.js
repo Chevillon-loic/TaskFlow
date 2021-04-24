@@ -81,95 +81,38 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// Modal for home Page to Add Board
-var modal = document.getElementById("displayModal");
-var btn = document.getElementById("btnModal");
-var span = document.getElementsByClassName("close")[0];
-
-btn.onclick = function () {
-  modal.style.display = "block";
-};
-
-span.onclick = function () {
-  modal.style.display = "none";
-};
-
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
-
-/***/ }),
-
-/***/ "./resources/sass/app.scss":
+/***/ "./resources/js/profile.js":
 /*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
+  !*** ./resources/js/profile.js ***!
   \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+var buttonProfileModification = document.getElementById('buttonProfileModification');
+var grayBackground = document.getElementById('grayBackground');
+var buttonClose = document.getElementById('closeProfileModification');
+buttonProfileModification.addEventListener('click', function (e) {
+  grayBackground.style.display = "flex";
+});
+buttonClose.addEventListener('click', function (e) {
+  grayBackground.style.display = "none";
+});
 
 /***/ }),
 
-/***/ "./resources/sass/home.scss":
-/*!**********************************!*\
-  !*** ./resources/sass/home.scss ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/sass/profile.scss":
-/*!*************************************!*\
-  !*** ./resources/sass/profile.scss ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/sass/welcome.scss":
-/*!*************************************!*\
-  !*** ./resources/sass/welcome.scss ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!****************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/welcome.scss ./resources/sass/home.scss ./resources/sass/profile.scss ***!
-  \****************************************************************************************************************************************************/
+/***/ 1:
+/*!***************************************!*\
+  !*** multi ./resources/js/profile.js ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/taskflow.webo/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /var/www/taskflow.webo/resources/sass/app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /var/www/taskflow.webo/resources/sass/welcome.scss */"./resources/sass/welcome.scss");
-__webpack_require__(/*! /var/www/taskflow.webo/resources/sass/home.scss */"./resources/sass/home.scss");
-module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/sass/profile.scss */"./resources/sass/profile.scss");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/profile.js */"./resources/js/profile.js");
 
 
 /***/ })
