@@ -112,17 +112,6 @@ window.onclick = function (event) {
   }
 };
 
-var btnColor = document.getElementById('selectColor');
-var blue = document.getElementById('colorBlue');
-var red = document.getElementById('colorRed');
-var card = document.getElementById("create-card");
-
-btnColor.inputMode = function () {
-  if (blue == true) {
-    card.style.backgroundColor = blue.value;
-  }
-};
-
 /***/ }),
 
 /***/ "./resources/sass/app.scss":

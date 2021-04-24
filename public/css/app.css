@@ -58,6 +58,33 @@
 }
 
 #navbar .logo {
-  height: 40px;
+  height: 30px;
+  margin-top: 5px;
+}
+
+#navbar .linkToProfile {
+  display: flex;
+  align-items: center;
+  color: whitesmoke;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+#navbar .linkToProfile img {
+  height: 25px;
+  margin-right: 10px;
+}
+
+#navbarforRnC {
+  position: sticky;
+  top: 0;
+  height: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #a558c0, #23b5b5);
+  padding: 0 20px;
 }
 

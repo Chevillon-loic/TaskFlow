@@ -44,3 +44,136 @@ main {
   height: 450px;
 }
 
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainContainer img {
+  height: auto;
+  width: 40%;
+  margin: 20px 30% 50px;
+}
+
+.mainContainer .pBottom a {
+  color: #292929;
+}
+
+.mainContainer .registerForm,
+.mainContainer .connectionForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 600px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #a558c0, #23b5b5);
+}
+
+.mainContainer .registerForm .registerFormIN,
+.mainContainer .registerForm .connectionFormIN,
+.mainContainer .connectionForm .registerFormIN,
+.mainContainer .connectionForm .connectionFormIN {
+  height: 490px;
+  width: 590px;
+  border-radius: 7px;
+  background-color: #fbfbfb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainContainer .registerForm .registerFormIN h2,
+.mainContainer .registerForm .connectionFormIN h2,
+.mainContainer .connectionForm .registerFormIN h2,
+.mainContainer .connectionForm .connectionFormIN h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 30px;
+  color: #292929;
+}
+
+.mainContainer .registerForm .registerFormIN img,
+.mainContainer .registerForm .connectionFormIN img,
+.mainContainer .connectionForm .registerFormIN img,
+.mainContainer .connectionForm .connectionFormIN img {
+  margin: 0;
+}
+
+.mainContainer .registerForm .registerFormIN label,
+.mainContainer .registerForm .connectionFormIN label,
+.mainContainer .connectionForm .registerFormIN label,
+.mainContainer .connectionForm .connectionFormIN label {
+  color: #747474;
+  padding: 5px 0;
+}
+
+.mainContainer .registerForm .registerFormIN input:not(#remember),
+.mainContainer .registerForm .connectionFormIN input:not(#remember),
+.mainContainer .connectionForm .registerFormIN input:not(#remember),
+.mainContainer .connectionForm .connectionFormIN input:not(#remember) {
+  outline: none;
+  border: none;
+  background-color: #e7e7e7;
+  width: 450px;
+  padding: 7px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.mainContainer .registerForm .registerFormIN #remember,
+.mainContainer .registerForm .registerFormIN .form-check-label,
+.mainContainer .registerForm .connectionFormIN #remember,
+.mainContainer .registerForm .connectionFormIN .form-check-label,
+.mainContainer .connectionForm .registerFormIN #remember,
+.mainContainer .connectionForm .registerFormIN .form-check-label,
+.mainContainer .connectionForm .connectionFormIN #remember,
+.mainContainer .connectionForm .connectionFormIN .form-check-label {
+  cursor: pointer;
+}
+
+.mainContainer .registerForm .registerFormIN button,
+.mainContainer .registerForm .connectionFormIN button,
+.mainContainer .connectionForm .registerFormIN button,
+.mainContainer .connectionForm .connectionFormIN button {
+  margin-left: calc(590px / 2 - 150px);
+  margin-top: 10px;
+  outline: none;
+  color: whitesmoke;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  border: 2px solid #a558c0;
+  background-color: #a558c0;
+  border-radius: 5px;
+  padding: 7px 0;
+  width: 150px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.mainContainer .registerForm .registerFormIN button:hover,
+.mainContainer .registerForm .connectionFormIN button:hover,
+.mainContainer .connectionForm .registerFormIN button:hover,
+.mainContainer .connectionForm .connectionFormIN button:hover {
+  transform: scale(1.05);
+}
+
+.mainContainer .registerForm .registerFormIN .connectBTN,
+.mainContainer .registerForm .connectionFormIN .connectBTN,
+.mainContainer .connectionForm .registerFormIN .connectBTN,
+.mainContainer .connectionForm .connectionFormIN .connectBTN {
+  margin-top: 10px;
+}
+
+.mainContainer .registerForm .registerFormIN .invalid-feedback,
+.mainContainer .registerForm .connectionFormIN .invalid-feedback,
+.mainContainer .connectionForm .registerFormIN .invalid-feedback,
+.mainContainer .connectionForm .connectionFormIN .invalid-feedback {
+  font-size: 0.9rem;
+  width: 450px;
+  color: #e3342f;
+}
+

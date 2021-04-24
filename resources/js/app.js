@@ -16,14 +16,7 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-let btnColor = document.getElementById('selectColor')
-let blue = document.getElementById('colorBlue')
-let red = document.getElementById('colorRed')
-let card = document.getElementById("create-card")
 
-btnColor.inputMode = function(){
-    if (blue == true){
-        card.style.backgroundColor = blue.value
-    }
 
-}
+
+

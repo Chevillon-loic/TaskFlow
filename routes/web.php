@@ -14,21 +14,26 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'BoardController@index')->name('home.index');
+
+Route::get('show}', 'BoardController@show')->name('home.show');
+
+Route::post('store', 'BoardController@store')->name('board.store');
+
+Route::put('/home/update/', 'BoardController@index')->name('home.update');
+
+Route::delete('/home/delete/', 'BoardController@index')->name('home.delete');
+
+Route::get('/home/create/', 'BoardController@create')->name('home.create');
+
+Route::get('/home/edit/', 'BoardController@edit')->name('home.edit');
 
 
 //Main Routes (for Views)
+Route::get('/profile', 'UserController@index')->name('user.index')->middleware('auth.basic');
 
-
-// Routes for Boards
-Route::get('/home', 'BoardController@index')->name('board.index');
-Route::get('/board/show', 'BoardController@show')->name('board.show');
-Route::post('/board/store', 'BoardController@store')->name('board.store');
-Route::put('/board/update', 'BoardController@index')->name('board.update');
-Route::delete('/board/delete}', 'BoardController@index')->name('board.delete');
-Route::get('/board/create', 'BoardController@create')->name('board.create');
-Route::get('/board/edit/', 'BoardController@edit')->name('board.edit');
+Route::post('profile/update', 'UserController@update')->name('user.update');

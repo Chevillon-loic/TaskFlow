@@ -30,27 +30,17 @@
                 <span class="close">&times;</span>
                 <h2>Ajouter un tableau</h2>
               </div>
-              <div class="modal-body">
-                    <div id="create-card" class="card-board">
-                        <p>Un titre</p>
-                    </div>
-              </div>
+
               <div class="modal-form">
                 <form action="{{route('board.store')}}" method="POST">
                     @csrf
 
+
                     <label  for="">Nom du tableau</label>
                     <input name="label" type="text">
+<label for="">Couleur</label>
+<input type="color" name="color">
 
-                    <label class="container">bleu
-                        <input value="blue" type="radio" id="colorBlue" name="radio">
-
-                      </label>
-
-                      <label class="container">Rouge
-                        <input value="red" type="radio" id="ColorRed" name="radio">
-
-                      </label>
 
                     <input type="submit">
                 </form>
