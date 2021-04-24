@@ -8,16 +8,7 @@
 @section('content')
 <div class="mainContainer">
 
-    {{-- disconnect button --}}
-    <a class="dropdown-item" href="{{ route('logout') }}"
-        onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();">
-        Se déconecter
-    </a>
 
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-        @csrf
-    </form>
 
     <div class="profile">
 
@@ -27,11 +18,23 @@
         <p>{{ Auth::user()->email }}</p>
 
         <button id="buttonProfileModification">Modification</button>
+
+        {{-- disconnect button --}}
+    <a class="dropdown-item" href="{{ route('logout') }}"
+    onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">
+    Se déconecter
+</a>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
     </div>
 
     <div id="grayBackground">
         <div class="profileModificationForm">
             <div class="profileModificationFormIn">
+                <button id="closeProfileModification">x</button>
                 <h2>Modifier votre profil</h2>
                 <form action="profile/update" method="POST">
                 @csrf

@@ -8,6 +8,7 @@
   width: 600px;
   border-radius: 10px;
   background: linear-gradient(to right, #a558c0, #23b5b5);
+  margin: auto;
 }
 
 .mainContainer .profileModificationForm .profileModificationFormIn {
@@ -43,8 +44,7 @@
   margin-bottom: 15px;
 }
 
-.mainContainer .profileModificationForm .profileModificationFormIn button {
-  margin-left: calc(590px / 2 - 150px);
+.mainContainer .profileModificationForm .profileModificationFormIn button:not(#closeProfileModification) {
   margin-top: 10px;
   outline: none;
   color: whitesmoke;
@@ -59,12 +59,11 @@
   transition: 0.5s;
 }
 
-.mainContainer .profileModificationForm .profileModificationFormIn button:hover {
+.mainContainer .profileModificationForm .profileModificationFormIn button:not(#closeProfileModification):hover {
   transform: scale(1.05);
 }
 
 .mainContainer a {
-  margin-left: calc(590px / 2 - 150px);
   margin-top: 10px;
   outline: none;
   color: whitesmoke;
@@ -83,10 +82,29 @@
   transform: scale(1.05);
 }
 
-.mainContainer #profilePicture {
+.mainContainer .profile #profilePicture {
   height: 100px;
   width: 100px;
   border-radius: 100%;
+}
+
+.mainContainer .profile #buttonProfileModification {
+  margin-top: 10px;
+  outline: none;
+  color: whitesmoke;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  border: 2px solid #a558c0;
+  background-color: #a558c0;
+  border-radius: 5px;
+  padding: 7px 0;
+  width: 150px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.mainContainer .profile #buttonProfileModification:hover {
+  transform: scale(1.05);
 }
 
 .mainContainer #grayBackground {
