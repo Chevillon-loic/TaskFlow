@@ -1,0 +1,39 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 70px;
+}
+
+.WelcomeMainContent {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    .leftWelcomeMainContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 800px;
+        img {
+            height: 80px;
+            margin: 50px;
+        }
+        .pWelcomeMainContent {
+            font-size: 1.5rem;
+            line-height: 40px;
+            width: 80%;
+            align-self: center;
+            text-align: justify;
+        }
+    }
+    .rightWelcomeMainContent {
+        display: flex;
+        justify-content: center;
+        width: 800px;
+        img {
+            height: 500px;
+        }
+    }
+}

@@ -1,8 +1,63 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 // Variables
-@import 'variables';
+@import "variables";
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+//Navbar
+
+#navbarNotConnected {
+    position: sticky;
+    top: 0;
+    height: 70px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: linear-gradient(to right, $secondary, $primary);
+    padding: 0 50px;
+    a {
+        display: inline-block;
+        margin: 10px;
+        text-decoration: none;
+        color: whitesmoke;
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        transition: 0.3s;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+    .connectionBtn {
+        border: 2px solid whitesmoke;
+        border-radius: 5px;
+        padding: 8px 22px;
+    }
+    .registerBtn {
+        border: 2px solid $secondary;
+        background-color: $secondary;
+        border-radius: 5px;
+        padding: 8px 22px;
+    }
+}
+
+#navbar {
+    position: sticky;
+    top: 0;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, $secondary, $primary);
+    padding: 0 20px;
+    .logo {
+        height: 40px;
+    }
+}
