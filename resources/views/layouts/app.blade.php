@@ -23,7 +23,7 @@
     <!-- Navbar -->
     @auth
         <div id="navbar">
-            <a href="{{ route('home.index') }}"><img class="logo" src="{{ asset('img/logoColor.png') }}" alt="Logo"></a>
+            <a href="{{ route('home.index') }}"><img class="logo" src="{{ asset('img/logoWhite.png') }}" alt="Logo"></a>
             <nav>
                 @if (Route::has('login'))
                     <div>
