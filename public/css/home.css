@@ -1,6 +1,140 @@
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;
 
 0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);.container {
-  color: red;
+  background: #ffffff;
+  margin: 20px;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  height: 87vh;
+  /* Add Animation */
+}
+
+.container h1 {
+  padding-top: 40px;
+  padding-left: 40px;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  color: #a558c0;
+}
+
+.container .content-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.container .content-board .card-board {
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 300px;
+  height: 150px;
+}
+
+.container .content-board .card-board p {
+  text-align: center;
+  margin-top: 65px;
+}
+
+.container #btnModal {
+  width: 100%;
+  height: 100%;
+  background-color: #c4c4c4;
+  border: none;
+  cursor: pointer;
+}
+
+.container .btnColor {
+  color: black;
+}
+
+.container ul {
+  list-style: none;
+}
+
+.container .modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+.container .modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 40%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.container .close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.container .close:hover,
+.container .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.container .modal-header {
+  padding: 2px 16px;
+  background-color: #a558c0;
+  color: white;
+}
+
+.container .modal-body {
+  padding: 2px 16px;
 }
 

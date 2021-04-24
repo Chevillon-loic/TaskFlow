@@ -93,7 +93,35 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+// Modal for home Page to Add Board
+var modal = document.getElementById("displayModal");
+var btn = document.getElementById("btnModal");
+var span = document.getElementsByClassName("close")[0];
 
+btn.onclick = function () {
+  modal.style.display = "block";
+};
+
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+var btnColor = document.getElementById('selectColor');
+var blue = document.getElementById('colorBlue');
+var red = document.getElementById('colorRed');
+var card = document.getElementById("create-card");
+
+btnColor.inputMode = function () {
+  if (blue == true) {
+    card.style.backgroundColor = blue.value;
+  }
+};
 
 /***/ }),
 

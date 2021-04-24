@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Board extends Model
 {
-    //
+    // Provide one user for Board
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
 }
