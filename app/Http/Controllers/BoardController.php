@@ -38,6 +38,20 @@ class BoardController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(
+            //Label Validation
+            [
+                'label' => 'required|string',
+                'color' => 'required|string'
+            ],
+            [
+                'label.required' => 'Un label est requis.',
+                'color.required' => 'Une couleur est requise.'
+            ],
+            [
+                'label' => 'Label'
+            ]
+        );
 
         $board = new Board();
         $board->owner_id = \Auth::user()->id;

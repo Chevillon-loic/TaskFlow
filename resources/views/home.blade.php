@@ -41,6 +41,10 @@
 <label for="">Couleur</label>
 <input type="color" name="color">
 
+@foreach ($errors->get('label') as $e)
+    <div class="messError">Warning{{$e}}</div>
+    @endforeach
+
 
                     <input type="submit">
                 </form>
