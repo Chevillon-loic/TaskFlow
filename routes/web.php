@@ -21,3 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //Main Routes (for Views)
+Route::get('/profile', 'UserController@index')->name('profile.index')->middleware('auth.basic');
+
+Route::post('profile/update', 'UserController@update')->name('profile.update');
