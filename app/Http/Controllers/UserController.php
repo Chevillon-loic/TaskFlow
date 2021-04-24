@@ -70,11 +70,26 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $user = User::where('id', \Auth::user()->id)->first();
-        $user->last_name = $request->last_name;
-        $user->first_name = $request->first_name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->picture = $request->picture;
+        if ($request->last_name) {
+            $user->last_name = $request->last_name;
+        }
+
+        if ($request->first_name) {
+            $user->first_name = $request->first_name;
+        }
+
+        if ($request->email) {
+            $user->email = $request->email;
+        }
+
+        if ($request->password) {
+            $user->password = $request->password;
+        }
+
+        if ($request->picture) {
+            $user->picture = $request->picture;
+        }
+
         $user->save();
 
         return back()->with([
