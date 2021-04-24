@@ -23,12 +23,12 @@
     <!-- Navbar -->
     @auth
         <div id="navbar">
-            <img class="logo" src="{{ asset('img/logoColor.png') }}" alt="Logo">
+            <a href="{{ route('home.index') }}"><img class="logo" src="{{ asset('img/logoColor.png') }}" alt="Logo"></a>
             <nav>
                 @if (Route::has('login'))
                     <div>
                         @auth
-                            <a class="linkToProfile" href="{{ route('home') }}">
+                            <a class="linkToProfile" href="{{ route('user.index') }}">
                                 <img src="{{ asset('img/user.png') }}" alt="">
                                 <span>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span></a>
                         @else

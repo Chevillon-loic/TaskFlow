@@ -17,10 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home.index');
 
 
 //Main Routes (for Views)
-Route::get('/profile', 'UserController@index')->name('profile.index')->middleware('auth.basic');
+Route::get('/profile', 'UserController@index')->name('user.index')->middleware('auth.basic');
 
-Route::post('profile/update', 'UserController@update')->name('profile.update');
+Route::post('profile/update', 'UserController@update')->name('user.update');
