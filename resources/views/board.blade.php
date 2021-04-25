@@ -7,26 +7,41 @@
 
 @section('content')
     <h2>{{ $board->label }}</h2>
+
+    @foreach ($columns as $column)
+        <div class="columnContainer" style="border: 2px solid black">
+            <span class="columnTitle">
+                <p>{{ $column->label }}</p>
+                <p>X</p>
+            </span>
+            <div class="ticketContainer">
+                @foreach ($tickets as $ticket)
+                    @if ($ticket->column_id == $column->id)
+                        <span class="ticket">
+                            {{ $ticket->task }}
+                        </span>
+                    @endif
+                @endforeach
+                <div class="addTicket">
+                    <button id="btnAddTicket">+ Ajoutez un ticket</button>
+                    <input type="hidden" id="columnId" value="{{ $column->id }}">
+                </div>
+            </div>
+        </div>
+    @endforeach
+
     <div class="addColumn">
         <button id="btnAddList">+ Ajoutez une liste</button>
     </div>
 
-    <br>
-
-    <div class="addTicket">
-        <button id="btnAddTicket">+ Ajoutez un ticket</button>
-    </div>
-
-    <br>
-
     <div class="addComment">
         <button id="btnAddComment">+ Ajoutez un commentaire</button>
     </div>
+
 @endsection
 
 
 <script>
-
     let board = @json($board);
     let column = @json($column);
     let user = @json($user);

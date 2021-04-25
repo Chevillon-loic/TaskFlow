@@ -15,9 +15,7 @@ BTNADDLIST.addEventListener("click", async function(e) {
     const options = {
         method: "POST",
         headers: {
-            "Content-Type": "application/json",
-            "X-Requested-With": "XMLHttpRequest",
-            "X-CSRF-TOKEN": token
+            "Content-Type": "application/json"
         },
         body: JSON.stringify(body)
     };
