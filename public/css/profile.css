@@ -100,6 +100,17 @@
 }
 
 .mainContainer .profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 600px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #a558c0, #23b5b5);
+  margin: auto;
+}
+
+.mainContainer .profile .profileIn {
   height: 490px;
   width: 590px;
   border-radius: 7px;
@@ -109,13 +120,33 @@
   align-items: center;
 }
 
-.mainContainer .profile #profilePicture {
-  height: 100px;
-  width: 100px;
+.mainContainer .profile .profileIn #profilePicture {
+  margin-top: 3vh;
+  height: 150px;
+  width: 150px;
   border-radius: 100%;
 }
 
-.mainContainer .profile #buttonProfileModification {
+.mainContainer .profile .profileIn .bloc-infos {
+  display: flex;
+  flex-direction: row;
+}
+
+.mainContainer .profile .profileIn .bloc-infos .bloc-left {
+  margin: 3vh 2vh;
+}
+
+.mainContainer .profile .profileIn .bloc-infos .bloc-left p {
+  color: #23b5b5;
+  font-weight: 800;
+}
+
+.mainContainer .profile .profileIn .bloc-infos .bloc-right {
+  margin: 3vh 2vh;
+  font-weight: 700;
+}
+
+.mainContainer .profile .profileIn #buttonProfileModification {
   margin-top: 10px;
   outline: none;
   color: whitesmoke;
@@ -130,7 +161,7 @@
   transition: 0.5s;
 }
 
-.mainContainer .profile #buttonProfileModification:hover {
+.mainContainer .profile .profileIn #buttonProfileModification:hover {
   transform: scale(1.05);
 }
 

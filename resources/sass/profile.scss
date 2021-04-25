@@ -84,21 +84,49 @@
     }
 
     .profile {
-        height: 490px;
-        width: 590px;
-        border-radius: 7px;
-        background-color: rgb(251, 251, 251);
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        #profilePicture {
-            height: 100px;
-            width: 100px;
-            border-radius: 100%;
-        }
+        height: 500px;
+        width: 600px;
+        border-radius: 10px;
+        background: linear-gradient(to right, #a558c0, #23b5b5);
+        margin: auto;
 
-        #buttonProfileModification {
-            @include buttonStyle();
+        .profileIn {
+            height: 490px;
+            width: 590px;
+            border-radius: 7px;
+            background-color: rgb(251, 251, 251);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            #profilePicture {
+                margin-top: 3vh;
+                height: 150px;
+                width: 150px;
+                border-radius: 100%;
+            }
+
+            .bloc-infos {
+                display: flex;
+                flex-direction: row;
+                .bloc-left {
+                    margin: 3vh 2vh;
+                    p {
+                        color: $primary;
+                        font-weight: 800;
+                    }
+                }
+                .bloc-right {
+                    margin: 3vh 2vh;
+                    font-weight: 700;
+                }
+            }
+
+            #buttonProfileModification {
+                @include buttonStyle();
+            }
         }
     }
 

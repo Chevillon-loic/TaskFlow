@@ -14,24 +14,38 @@
 
     <div class="profile">
 
+        <div class="profileIn">
+
         <img id="profilePicture" src="{{Auth::user()->picture}}" alt="Photo de profil">
-        <p>Nom</p> <p>{{ Auth::user()->first_name }}</p>
-        <p>Prénom</p> <p>{{ Auth::user()->last_name }}</p>
-        <p>Adresse mail </p> <p>{{ Auth::user()->email }}</p>
+
+        <div class="bloc-infos">
+            <div class="bloc-left">
+                <p>Nom</p>
+                <p>Prénom</p>
+                <p>Adresse mail</p>
+            </div>
+
+            <div class="bloc-right">
+                <p>{{ Auth::user()->first_name }}</p>
+                <p>{{ Auth::user()->last_name }}</p>
+                <p>{{ Auth::user()->email }}</p>
+            </div>
+         </div>
 
         <div class="container-buttons">
-            <button id="buttonProfileModification">Modification</button>
+                <button id="buttonProfileModification">Modification</button>
 
-                {{-- disconnect button --}}
-            <a class="dropdown-item" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
-            Se déconecter
-            </a>
+                    {{-- disconnect button --}}
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                Se déconecter
+                </a>
 
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </div>
         </div>
     </div>
 
