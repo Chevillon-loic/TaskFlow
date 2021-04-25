@@ -875,6 +875,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 var BTNADDLIST = document.getElementById("btnAddList");
+console.log(board);
 BTNADDLIST.addEventListener("click", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
     var url, token, body, options, response;
@@ -894,7 +895,8 @@ BTNADDLIST.addEventListener("click", /*#__PURE__*/function () {
             options = {
               method: "POST",
               headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": token
               },
               body: JSON.stringify(body)
             }; //Promesse (requete POST)
@@ -905,9 +907,7 @@ BTNADDLIST.addEventListener("click", /*#__PURE__*/function () {
 
           case 7:
             response = _context.sent;
-            console.log(response); //const data = await response.text();
-            //console.log(data);
-
+            console.log(response);
             _context.next = 14;
             break;
 
