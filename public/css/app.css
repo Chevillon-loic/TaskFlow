@@ -16,6 +16,7 @@
   align-items: center;
   background: linear-gradient(to right, #a558c0, #23b5b5);
   padding: 0 50px;
+  z-index: 1000;
 }
 
 #navbarNotConnected a {
@@ -49,17 +50,19 @@
 #navbar {
   position: sticky;
   top: 0;
-  height: 50px;
+  height: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: linear-gradient(to right, #a558c0, #23b5b5);
+  z-index: 1000;
   padding: 0 20px;
 }
 
 #navbar .logo {
-  height: 30px;
-  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  height: 25px;
 }
 
 #navbar .linkToProfile {
@@ -68,12 +71,12 @@
   color: whitesmoke;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 600;
 }
 
 #navbar .linkToProfile img {
-  height: 25px;
+  height: 20px;
   margin-right: 10px;
 }
 
@@ -81,6 +84,7 @@
   position: sticky;
   top: 0;
   height: 10px;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;

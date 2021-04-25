@@ -99,64 +99,85 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-// Modal for home Page to Add Board
-var modal = document.getElementById("displayModal");
-var btn = document.getElementById("btnModal");
-var span = document.getElementsByClassName("close")[0];
+var URL = document.location.href;
 
-btn.onclick = function () {
-  modal.style.display = "block";
-};
+if (URL.includes("home")) {
+  (function () {
+    // Modal for home Page to Add Board
+    var modal = document.getElementById("displayModal");
+    var btn = document.getElementById("btnModal");
+    var span = document.getElementsByClassName("close")[0];
 
-span.onclick = function () {
-  modal.style.display = "none";
-};
+    btn.onclick = function () {
+      modal.style.display = "block";
+    };
 
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}; //Gestion couleur dans Modal ----------------------------
+    span.onclick = function () {
+      modal.style.display = "none";
+    };
 
-
-var COLORTAB = document.getElementsByClassName("color");
-var MODALLEFT = document.getElementById("modalLeft");
-
-var _iterator = _createForOfIteratorHelper(COLORTAB),
-    _step;
-
-try {
-  var _loop = function _loop() {
-    var elem = _step.value;
-    elem.addEventListener("click", function (e) {
-      var _iterator2 = _createForOfIteratorHelper(COLORTAB),
-          _step2;
-
-      try {
-        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-          var _e = _step2.value;
-
-          _e.classList.remove("valid");
-        }
-      } catch (err) {
-        _iterator2.e(err);
-      } finally {
-        _iterator2.f();
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
       }
+    }; //Gestion couleur dans Modal ----------------------------
 
-      elem.classList.add("valid");
-      var color = elem.control.defaultValue;
-      MODALLEFT.style.backgroundColor = color;
-    });
-  };
 
-  for (_iterator.s(); !(_step = _iterator.n()).done;) {
-    _loop();
-  }
-} catch (err) {
-  _iterator.e(err);
-} finally {
-  _iterator.f();
+    var COLORTAB = document.getElementsByClassName("color");
+    var MODALLEFT = document.getElementById("modalLeft");
+    var BTN = document.getElementById("buttonBoard");
+
+    var _iterator = _createForOfIteratorHelper(COLORTAB),
+        _step;
+
+    try {
+      var _loop = function _loop() {
+        var elem = _step.value;
+        elem.addEventListener("click", function (e) {
+          var _iterator2 = _createForOfIteratorHelper(COLORTAB),
+              _step2;
+
+          try {
+            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+              var _e = _step2.value;
+
+              _e.classList.remove("valid");
+            }
+          } catch (err) {
+            _iterator2.e(err);
+          } finally {
+            _iterator2.f();
+          }
+
+          elem.classList.add("valid");
+          var color = elem.control.defaultValue;
+          MODALLEFT.style.backgroundColor = color;
+          BTN.addEventListener("mouseover", function (e) {
+            BTN.style.backgroundColor = color;
+          });
+          BTN.addEventListener("mouseout", function (e) {
+            BTN.style.backgroundColor = "#fff";
+          });
+        });
+      };
+
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        _loop();
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+  })();
+} //-------------------------------------------------------
+//Navbar page Board
+
+
+var NAVBAR = document.getElementById("navbar");
+
+if (URL.includes("board")) {
+  NAVBAR.style.background = board.color;
 }
 
 /***/ }),
@@ -165,6 +186,17 @@ try {
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
   \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/board.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/board.scss ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -206,9 +238,9 @@ try {
 /***/ }),
 
 /***/ 0:
-/*!****************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/welcome.scss ./resources/sass/home.scss ./resources/sass/profile.scss ***!
-  \****************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/welcome.scss ./resources/sass/home.scss ./resources/sass/profile.scss ./resources/sass/board.scss ***!
+  \********************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -216,7 +248,8 @@ __webpack_require__(/*! /var/www/taskflow.webo/resources/js/app.js */"./resource
 __webpack_require__(/*! /var/www/taskflow.webo/resources/sass/app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /var/www/taskflow.webo/resources/sass/welcome.scss */"./resources/sass/welcome.scss");
 __webpack_require__(/*! /var/www/taskflow.webo/resources/sass/home.scss */"./resources/sass/home.scss");
-module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/sass/profile.scss */"./resources/sass/profile.scss");
+__webpack_require__(/*! /var/www/taskflow.webo/resources/sass/profile.scss */"./resources/sass/profile.scss");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/sass/board.scss */"./resources/sass/board.scss");
 
 
 /***/ })

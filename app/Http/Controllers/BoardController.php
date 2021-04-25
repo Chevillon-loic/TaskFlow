@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Board;
 use Illuminate\Http\Request;
 
 class BoardController extends Controller
@@ -13,7 +14,10 @@ class BoardController extends Controller
      */
     public function index($id)
     {
-        return view('board', [$id]);
+
+        return view('board', [
+            'board' => Board::where('id', $id)->first(),
+        ]);
     }
 
     /**

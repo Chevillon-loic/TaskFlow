@@ -5,5 +5,10 @@
 @endsection
 
 @section('content')
-
 @endsection
+
+
+<script>
+    let board = @json($board);
+
+</script>

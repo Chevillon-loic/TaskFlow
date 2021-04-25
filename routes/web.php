@@ -44,4 +44,4 @@ Route::post('profile/update', 'UserController@update')->name('user.update');
 
 //Routes page tableau
 
-Route::get('index/{id}', 'BoardController@index')->name('board.index')->middleware('auth');
+Route::get('board/index/{id}', 'BoardController@index')->name('board.index')->middleware('auth');
