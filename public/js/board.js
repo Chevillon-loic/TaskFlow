@@ -875,59 +875,96 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 var BTNADDLIST = document.getElementById("btnAddList");
-console.log(board);
-BTNADDLIST.addEventListener("click", /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
-    var url, token, body, options, response;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            //recup de l'url
-            url = document.location.origin + "/board/store/" + board.id;
-            token = document.querySelector('meta[name="csrf-token"]').getAttribute("content"); //recup des données a inserer en BDD
+var divAddList = document.querySelector(".addColumn");
+console.log(divAddList);
+BTNADDLIST.addEventListener("click", function (e) {
+  var input = document.createElement("input");
+  var btn = document.createElement("button");
+  var close = document.createElement("button");
+  btn.innerText = "Ajoutez une liste";
+  close.innerText = "X";
+  divAddList.insertAdjacentElement("beforebegin", input);
+  divAddList.insertAdjacentElement("beforeend", btn);
+  divAddList.insertAdjacentElement("beforeend", close);
+  BTNADDLIST.style.display = "none";
+  input.select();
+  input.placeholder = "Saisissez le titre de la liste..."; //Listener bouton Close
 
-            body = {
-              board_id: board.id,
-              label: "ceci est une liste"
-            }; //Corps de la requete et body
+  close.addEventListener("click", function (e) {
+    input.remove();
+    btn.remove();
+    close.remove();
+    BTNADDLIST.style.display = "initial";
+  }); //Listener bouton Ajoutez une liste
 
-            options = {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                "X-CSRF-TOKEN": token
-              },
-              body: JSON.stringify(body)
-            }; //Promesse (requete POST)
+  btn.addEventListener("click", /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
+      var url, token, label, body, options, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              //recup de l'url
+              url = document.location.origin + "/board/store/" + board.id;
+              token = document.querySelector('meta[name="csrf-token"]').getAttribute("content"); //Recup label (valeur de l'input)
 
-            _context.prev = 4;
-            _context.next = 7;
-            return fetch(url, options);
+              label = input.value; //recup des données a inserer en BDD
 
-          case 7:
-            response = _context.sent;
-            console.log(response);
-            _context.next = 14;
-            break;
+              body = {
+                board_id: board.id,
+                label: label
+              }; //Corps de la requete et body
 
-          case 11:
-            _context.prev = 11;
-            _context.t0 = _context["catch"](4);
-            console.log(_context.t0);
+              options = {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "X-CSRF-TOKEN": token
+                },
+                body: JSON.stringify(body)
+              };
 
-          case 14:
-          case "end":
-            return _context.stop();
+              if (!(label.length > 2)) {
+                _context.next = 19;
+                break;
+              }
+
+              _context.prev = 6;
+              _context.next = 9;
+              return fetch(url, options);
+
+            case 9:
+              response = _context.sent;
+              console.log(response);
+              location.reload();
+              _context.next = 17;
+              break;
+
+            case 14:
+              _context.prev = 14;
+              _context.t0 = _context["catch"](6);
+              console.log(_context.t0);
+
+            case 17:
+              _context.next = 20;
+              break;
+
+            case 19:
+              input.value = "";
+
+            case 20:
+            case "end":
+              return _context.stop();
+          }
         }
-      }
-    }, _callee, null, [[4, 11]]);
-  }));
+      }, _callee, null, [[6, 14]]);
+    }));
 
-  return function (_x) {
-    return _ref.apply(this, arguments);
-  };
-}());
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
+});
 
 /***/ }),
 
