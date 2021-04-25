@@ -216,6 +216,10 @@
   background-color: rgba(179, 123, 44, 0.8);
 }
 
+.container .modal-form .color3:focus {
+  background-color: red;
+}
+
 .container .modal-form .color4 {
   background-color: #ac4275;
   margin-left: 5px;
