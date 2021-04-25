@@ -38,6 +38,7 @@
                                 @csrf
                                 <input name="label" type="text" placeholder="Ajoutez un titre au tableau">
                                 <span class="close">&times;</span>
+
                         </div>
                         <div class="modal-right">
                             <label for="color1" class="color color1">

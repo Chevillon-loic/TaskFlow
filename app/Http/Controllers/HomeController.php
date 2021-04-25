@@ -38,7 +38,22 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(
+            [
+                // PRIVDER NAME VALIDATION
+                'label' =>
+                'required',
 
+
+
+            ],
+            [
+                'label.required' => 'Un Titre est requis.',
+
+
+            ],
+
+        );
         $board = new Board();
         $board->owner_id = \Auth::user()->id;
         $board->guest_id = \Auth::user()->id;

@@ -207,6 +207,9 @@
             &:hover {
                 opacity: 0.8;
             }
+            &:focus {
+                background-color: red;
+            }
         }
         .color4 {
             background-color: #ac4275;
