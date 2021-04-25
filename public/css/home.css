@@ -39,9 +39,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 450px;
+  width: 420px;
   height: 200px;
+  cursor: pointer;
   transition: 0.5s;
+  text-decoration: none;
 }
 
 .container .content-board .card-board .card-board-tr:hover {
@@ -57,7 +59,9 @@
   font-weight: 600;
   letter-spacing: 1.5px;
   padding: 7px;
-  width: 300px;
+  width: 310px;
+  border: none;
+  outline: none;
 }
 
 .container #btnModal {
@@ -130,11 +134,13 @@
 }
 
 .container .modal-form .modal-left {
-  background-color: yellowgreen;
+  background-color: #61676b;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 140px;
+  margin-top: 3px;
+  height: 135px;
   width: 350px;
 }
 
@@ -151,6 +157,18 @@
   border-radius: 5px;
   padding: 10px;
   outline: none;
+}
+
+.container .modal-form .modal-left input::-moz-placeholder {
+  color: whitesmoke;
+}
+
+.container .modal-form .modal-left input:-ms-input-placeholder {
+  color: whitesmoke;
+}
+
+.container .modal-form .modal-left input::placeholder {
+  color: whitesmoke;
 }
 
 .container .modal-form .modal-right {
@@ -176,7 +194,7 @@
   visibility: hidden;
 }
 
-.container .modal-form .color::after {
+.container .modal-form .valid::after {
   content: "\2713";
   font-size: 2.5rem;
   margin: 0;
@@ -192,60 +210,93 @@
   background-color: #755286;
   margin-left: 5px;
   margin-right: 5px;
+  transition: 0.3s;
 }
 
 .container .modal-form .color1:hover {
-  background-color: rgba(117, 82, 134, 0.8);
+  opacity: 0.8;
 }
 
 .container .modal-form .color2 {
   background-color: #7ba78b;
   margin-right: 5px;
+  transition: 0.3s;
 }
 
 .container .modal-form .color2:hover {
-  background-color: rgba(123, 167, 139, 0.8);
+  opacity: 0.8;
 }
 
 .container .modal-form .color3 {
   background-color: #b37b2c;
   margin-right: 5px;
+  transition: 0.3s;
 }
 
 .container .modal-form .color3:hover {
-  background-color: rgba(179, 123, 44, 0.8);
+  opacity: 0.8;
 }
 
 .container .modal-form .color4 {
   background-color: #ac4275;
   margin-left: 5px;
   margin-right: 5px;
+  transition: 0.3s;
+}
+
+.container .modal-form .color4:hover {
+  opacity: 0.8;
 }
 
 .container .modal-form .color5 {
   background-color: #517f39;
   margin-right: 5px;
+  transition: 0.3s;
+}
+
+.container .modal-form .color5:hover {
+  opacity: 0.8;
 }
 
 .container .modal-form .color6 {
   background-color: #61676b;
   margin-right: 5px;
+  transition: 0.3s;
+}
+
+.container .modal-form .color6:hover {
+  opacity: 0.8;
 }
 
 .container .modal-form .color7 {
   background-color: #1d70b4;
   margin-left: 5px;
   margin-right: 5px;
+  transition: 0.3s;
+}
+
+.container .modal-form .color7:hover {
+  opacity: 0.8;
 }
 
 .container .modal-form .color8 {
   background-color: #963c2b;
   margin-right: 5px;
+  transition: 0.3s;
+}
+
+.container .modal-form .color8:hover {
+  opacity: 0.8;
 }
 
 .container .modal-form .color9 {
   background-color: #3a94ae;
   margin-right: 5px;
+  transition: 0.3s;
+}
+
+.container .modal-form .color9:hover {
+  opacity: 0.8;
 }
 
 .container #buttonBoard {

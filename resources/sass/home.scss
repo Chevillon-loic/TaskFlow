@@ -35,9 +35,11 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 450px;
+                width: 420px;
                 height: 200px;
+                cursor: pointer;
                 transition: 0.5s;
+                text-decoration: none;
                 &:hover {
                     transform: scale(1.02);
                 }
@@ -51,7 +53,9 @@
                 font-weight: 600;
                 letter-spacing: 1.5px;
                 padding: 7px;
-                width: 300px;
+                width: 310px;
+                border: none;
+                outline: none;
             }
         }
     }
@@ -115,11 +119,13 @@
     .modal-form {
         display: flex;
         .modal-left {
-            background-color: yellowgreen;
+            background-color: #61676b;
+            border-radius: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 140px;
+            margin-top: 3px;
+            height: 135px;
             width: 350px;
             input {
                 width: 260px;
@@ -134,6 +140,9 @@
                 border-radius: 5px;
                 padding: 10px;
                 outline: none;
+                &::placeholder {
+                    color: whitesmoke;
+                }
             }
         }
         .modal-right {
@@ -155,66 +164,93 @@
             input {
                 visibility: hidden;
             }
-            &::after {
-                content: "✓";
-                font-size: 2.5rem;
-                margin: 0;
-                padding: 0;
-                font-weight: 500;
-                color: rgba(255, 255, 255, 0.5);
-                position: relative;
-                top: -30px;
-                left: 10px;
-            }
+        }
+        .valid::after {
+            content: "✓";
+            font-size: 2.5rem;
+            margin: 0;
+            padding: 0;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.5);
+            position: relative;
+            top: -30px;
+            left: 10px;
         }
         .color1 {
             background-color: #755286;
 
             margin-left: 5px;
             margin-right: 5px;
+            transition: 0.3s;
             &:hover {
-                background-color: rgb(117, 82, 134, 0.8);
+                opacity: 0.8;
             }
         }
         .color2 {
             background-color: #7ba78b;
             margin-right: 5px;
+            transition: 0.3s;
             &:hover {
-                background-color: rgb(123, 167, 139, 0.8);
+                opacity: 0.8;
             }
         }
         .color3 {
             background-color: #b37b2c;
             margin-right: 5px;
+            transition: 0.3s;
             &:hover {
-                background-color: rgb(179, 123, 44, 0.8);
+                opacity: 0.8;
             }
         }
         .color4 {
             background-color: #ac4275;
             margin-left: 5px;
             margin-right: 5px;
+            transition: 0.3s;
+            &:hover {
+                opacity: 0.8;
+            }
         }
         .color5 {
             background-color: #517f39;
             margin-right: 5px;
+            transition: 0.3s;
+            &:hover {
+                opacity: 0.8;
+            }
         }
         .color6 {
             background-color: #61676b;
             margin-right: 5px;
+            transition: 0.3s;
+            &:hover {
+                opacity: 0.8;
+            }
         }
         .color7 {
             background-color: #1d70b4;
             margin-left: 5px;
             margin-right: 5px;
+            transition: 0.3s;
+            &:hover {
+                opacity: 0.8;
+            }
         }
         .color8 {
             background-color: #963c2b;
             margin-right: 5px;
+            transition: 0.3s;
+            &:hover {
+                opacity: 0.8;
+            }
         }
         .color9 {
             background-color: #3a94ae;
             margin-right: 5px;
+            transition: 0.3s;
+            &:hover {
+                opacity: 0.8;
+            }
         }
     }
     #buttonBoard {
