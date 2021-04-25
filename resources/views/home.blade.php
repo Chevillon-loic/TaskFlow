@@ -11,7 +11,7 @@
 
         <div class="content-board">
 
-            @foreach ($boards as $board)
+            @foreach ($boards as  $board)
                 <div style="background-color:{{ $board->color }} " class="card-board">
                     <a href="{{ route('board.index', [$board->id]) }}" class="card-board-tr">
                         <p> {{ $board->label }}</p>

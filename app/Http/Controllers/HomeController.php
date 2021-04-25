@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Board;
+use App\User;
 use Illuminate\Http\Request;
-use PDOException;
+
 
 class HomeController extends Controller
 {
@@ -13,11 +14,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
-        $boards = Board::select(['id', 'label', 'color']);
+
         return view("home", [
-            'boards' => $boards->get()
+            'boards' =>  Board::select(['id', 'label', 'color']),
+            'user' => User::where('id', \Auth::user()->id),
         ]);
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Board;
 use App\Column;
+use App\User;
 use Illuminate\Http\Request;
 
 class BoardController extends Controller
@@ -18,6 +19,8 @@ class BoardController extends Controller
 
         return view('board', [
             'board' => Board::where('id', $id)->first(),
+            'column' => Column::where('id', 1),
+            'user' => User::where('id', \Auth::user()->id)->first(),
         ]);
     }
 

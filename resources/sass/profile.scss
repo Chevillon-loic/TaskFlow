@@ -23,6 +23,19 @@
 }
 
 .mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        padding-top: 40px;
+        padding-left: 40px;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 17px;
+        letter-spacing: 0.05em;
+        color: $secondary;
+    }
     .profileModificationForm {
         display: flex;
         justify-content: center;
@@ -71,14 +84,49 @@
     }
 
     .profile {
-        #profilePicture {
-            height: 100px;
-            width: 100px;
-            border-radius: 100%;
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+        width: 600px;
+        border-radius: 10px;
+        background: linear-gradient(to right, #a558c0, #23b5b5);
+        margin: auto;
 
-        #buttonProfileModification {
-            @include buttonStyle();
+        .profileIn {
+            height: 490px;
+            width: 590px;
+            border-radius: 7px;
+            background-color: rgb(251, 251, 251);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            #profilePicture {
+                margin-top: 3vh;
+                height: 150px;
+                width: 150px;
+                border-radius: 100%;
+            }
+
+            .bloc-infos {
+                display: flex;
+                flex-direction: row;
+                .bloc-left {
+                    margin: 3vh 2vh;
+                    p {
+                        color: $primary;
+                        font-weight: 800;
+                    }
+                }
+                .bloc-right {
+                    margin: 3vh 2vh;
+                    font-weight: 700;
+                }
+            }
+
+            #buttonProfileModification {
+                @include buttonStyle();
+            }
         }
     }
 

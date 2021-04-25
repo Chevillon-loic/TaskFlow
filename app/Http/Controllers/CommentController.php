@@ -35,7 +35,13 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comment = new Comment();
+        $comment->description = $request->description;
+        $comment->ticket_id = $request->column_id;
+        $comment->user_id = $request->user_id;
+        $comment->save();
+
+        return response()->json('Le Fetch a fonctionné', 200);
     }
 
     /**
