@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Board;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class BoardController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
+
+        return view('board', [
+            'board' => Board::where('id', $id)->first(),
+        ]);
     }
 
     /**
