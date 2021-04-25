@@ -36,7 +36,7 @@
 
                             <form action="{{ route('home.store') }}" method="POST">
                                 @csrf
-                                <input name="label" type="text" placeholder="Ajoutez un titre au tableau">
+                                <input id="inputTitle" name="label" type="text" placeholder="Ajoutez un titre au tableau" required pattern=".*\S.*" oninvalid="setCustomValidity('Veuillez entrer un titre de tableau valide. ')">
                                 <span class="close">&times;</span>
 
                         </div>

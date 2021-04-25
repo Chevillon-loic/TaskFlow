@@ -18,6 +18,7 @@ if (URL.includes("home")) {
         }
     };
 
+
     //Gestion couleur dans Modal ----------------------------
 
     const COLORTAB = document.getElementsByClassName("color");
@@ -40,6 +41,9 @@ if (URL.includes("home")) {
             });
         });
     }
+
+
+
 }
 //-------------------------------------------------------
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Board;
 use Illuminate\Http\Request;
+use PDOException;
 
 class HomeController extends Controller
 {
@@ -38,22 +39,18 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
+        // Validate formulaire add Board
         $request->validate(
             [
-                // PRIVDER NAME VALIDATION
-                'label' =>
-                'required',
-
-
-
+                // Label VALIDATION
+                'label' => 'required',
             ],
             [
                 'label.required' => 'Un Titre est requis.',
-
-
             ],
 
         );
+
         $board = new Board();
         $board->owner_id = \Auth::user()->id;
         $board->guest_id = \Auth::user()->id;
