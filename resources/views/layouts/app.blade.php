@@ -62,6 +62,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    @yield('custom_scripts')
 </body>
 
 </html>
