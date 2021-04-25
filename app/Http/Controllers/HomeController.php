@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Board;
+use App\User;
 use Illuminate\Http\Request;
+
 
 class HomeController extends Controller
 {
@@ -12,9 +14,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
-        $boards = Board::select(['id', 'label', 'color']);
+        $boards = Board::select(['id', 'label', 'color'])->where('owner_id', \Auth::user()->id);
         return view("home", [
             'boards' => $boards->get()
         ]);
@@ -38,6 +42,7 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
+        // Validate formulaire add Board
         $request->validate(
             [
                 'label' => 'required',
@@ -46,6 +51,7 @@ class HomeController extends Controller
                 'label.required' => 'Un Titre est requis.',
             ],
         );
+
         $board = new Board();
         $board->owner_id = \Auth::user()->id;
         $board->guest_id = \Auth::user()->id;

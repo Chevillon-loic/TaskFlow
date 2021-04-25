@@ -11,7 +11,7 @@
 
         <div class="content-board">
 
-            @foreach ($boards as $board)
+            @foreach ($boards as  $board)
                 <div style="background-color:{{ $board->color }} " class="card-board">
                     <a href="{{ route('board.index', [$board->id]) }}" class="card-board-tr">
                         <p> {{ $board->label }}</p>
@@ -36,7 +36,7 @@
 
                             <form action="{{ route('home.store') }}" method="POST">
                                 @csrf
-                                <input name="label" type="text" placeholder="Ajoutez un titre au tableau">
+                                <input id="inputTitle" name="label" type="text" placeholder="Ajoutez un titre au tableau" required pattern=".*\S.*" oninvalid="setCustomValidity('Veuillez entrer un titre de tableau valide. ')">
                                 <span class="close">&times;</span>
 
                         </div>
