@@ -193,17 +193,6 @@ if (URL.includes("board")) {
 
 /***/ }),
 
-/***/ "./resources/sass/board.scss":
-/*!***********************************!*\
-  !*** ./resources/sass/board.scss ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "./resources/sass/home.scss":
 /*!**********************************!*\
   !*** ./resources/sass/home.scss ***!
@@ -238,9 +227,9 @@ if (URL.includes("board")) {
 /***/ }),
 
 /***/ 0:
-/*!********************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/welcome.scss ./resources/sass/home.scss ./resources/sass/profile.scss ./resources/sass/board.scss ***!
-  \********************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/welcome.scss ./resources/sass/home.scss ./resources/sass/profile.scss ***!
+  \****************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -248,8 +237,7 @@ __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/app.js *
 __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/welcome.scss */"./resources/sass/welcome.scss");
 __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/home.scss */"./resources/sass/home.scss");
-__webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/profile.scss */"./resources/sass/profile.scss");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/board.scss */"./resources/sass/board.scss");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/profile.scss */"./resources/sass/profile.scss");
 
 
 /***/ })
