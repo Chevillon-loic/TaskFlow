@@ -17,7 +17,8 @@ class BoardController extends Controller
      */
     public function index($id)
     {
-        $columns = Column::all();
+
+        $columns = Column::all()->where('board_id', $id);
         $tickets = Ticket::all();
 
         return view('board', [

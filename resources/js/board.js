@@ -1,5 +1,5 @@
 const BTNADDLIST = document.getElementById("btnAddList");
-
+console.log(board);
 BTNADDLIST.addEventListener("click", async function(e) {
     //recup de l'url
     let url = document.location.origin + "/board/store/" + board.id;
@@ -15,7 +15,8 @@ BTNADDLIST.addEventListener("click", async function(e) {
     const options = {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": token
         },
         body: JSON.stringify(body)
     };
@@ -24,8 +25,6 @@ BTNADDLIST.addEventListener("click", async function(e) {
     try {
         const response = await fetch(url, options);
         console.log(response);
-        //const data = await response.text();
-        //console.log(data);
     } catch (error) {
         console.log(error);
     }
