@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -857,10 +857,10 @@ try {
 
 /***/ }),
 
-/***/ "./resources/js/board.js":
-/*!*******************************!*\
-  !*** ./resources/js/board.js ***!
-  \*******************************/
+/***/ "./resources/js/ticket.js":
+/*!********************************!*\
+  !*** ./resources/js/ticket.js ***!
+  \********************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -874,71 +874,94 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var BTNADDLIST = document.getElementById("btnAddList");
-BTNADDLIST.addEventListener("click", /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
-    var url, token, body, options, response;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            //recup de l'url
-            url = document.location.origin + "/board/store/" + board.id;
-            token = document.querySelector('meta[name="csrf-token"]').getAttribute("content"); //recup des données a inserer en BDD
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
-            body = {
-              board_id: board.id,
-              label: "ceci est une liste"
-            }; //Corps de la requete et body
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-            options = {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json"
-              },
-              body: JSON.stringify(body)
-            }; //Promesse (requete POST)
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-            _context.prev = 4;
-            _context.next = 7;
-            return fetch(url, options);
+var ADDTICKETDIV = document.getElementsByClassName("addTicket");
 
-          case 7:
-            response = _context.sent;
-            console.log(response); //const data = await response.text();
-            //console.log(data);
+var _iterator = _createForOfIteratorHelper(ADDTICKETDIV),
+    _step;
 
-            _context.next = 14;
-            break;
+try {
+  var _loop = function _loop() {
+    var ticket = _step.value;
+    var t = ticket.getElementsByTagName("input");
+    var id = t[0].value;
+    var btnAdd = ticket.getElementsByTagName("button");
+    btnAdd[0].addEventListener("click", /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
+        var url, token, body, options, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                url = document.location.origin + "/ticket/store/" + board.id;
+                token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+                console.log(id);
+                body = {
+                  column_id: id,
+                  user_id: user.id,
+                  task: "chose a faire"
+                };
+                options = {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": token
+                  },
+                  body: JSON.stringify(body)
+                };
+                _context.prev = 5;
+                _context.next = 8;
+                return fetch(url, options);
 
-          case 11:
-            _context.prev = 11;
-            _context.t0 = _context["catch"](4);
-            console.log(_context.t0);
+              case 8:
+                response = _context.sent;
+                console.log(response);
+                _context.next = 15;
+                break;
 
-          case 14:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee, null, [[4, 11]]);
-  }));
+              case 12:
+                _context.prev = 12;
+                _context.t0 = _context["catch"](5);
+                console.log(_context.t0);
 
-  return function (_x) {
-    return _ref.apply(this, arguments);
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[5, 12]]);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }());
   };
-}());
+
+  for (_iterator.s(); !(_step = _iterator.n()).done;) {
+    _loop();
+  }
+} catch (err) {
+  _iterator.e(err);
+} finally {
+  _iterator.f();
+}
 
 /***/ }),
 
-/***/ 2:
-/*!*************************************!*\
-  !*** multi ./resources/js/board.js ***!
-  \*************************************/
+/***/ 3:
+/*!**************************************!*\
+  !*** multi ./resources/js/ticket.js ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/ticket.js */"./resources/js/ticket.js");
 
 
 /***/ })
