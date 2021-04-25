@@ -45,3 +45,7 @@ Route::post('profile/update', 'UserController@update')->name('user.update');
 //Routes page tableau
 Route::get('board/index/{id}', 'BoardController@index')->name('board.index')->middleware('auth');
 Route::post('board/store/{id}', 'BoardController@store')->name('board.store')->middleware('auth');
+
+Route::post('ticket/store/{id}', 'TicketController@store')->name('ticket.store')->middleware('auth');
+
+Route::post('comment/store/{id}', 'CommentController@store')->name('comment.store')->middleware('auth');

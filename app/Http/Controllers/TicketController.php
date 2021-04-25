@@ -14,7 +14,6 @@ class TicketController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -35,7 +34,13 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ticket = new Ticket();
+        $ticket->task = $request->task;
+        $ticket->column_id = $request->column_id;
+        $ticket->user_id = $request->user_id;
+        $ticket->save();
+
+        return response()->json('Le Fetch a fonctionné', 200);
     }
 
     /**
