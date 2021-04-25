@@ -11,13 +11,17 @@
 |
 */
 
-
+//Routes pour page Welcome
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+
+//Routes Login, logout et Register
 Auth::routes();
 
+
+//Routes page Home qui liste les tableaux
 Route::get('/home', 'HomeController@index')->name('home.index');
 
 Route::get('show}', 'HomeController@show')->name('home.show');
@@ -33,7 +37,11 @@ Route::get('/home/create/', 'HomeController@create')->name('home.create');
 Route::get('/home/edit/', 'HomeController@edit')->name('home.edit');
 
 
-//Main Routes (for Views)
+//Routes page Profile
 Route::get('/profile', 'UserController@index')->name('user.index')->middleware('auth.basic');
 
 Route::post('profile/update', 'UserController@update')->name('user.update');
+
+//Routes page tableau
+Route::get('board/index/{id}', 'BoardController@index')->name('board.index')->middleware('auth');
+Route::post('board/store/{id}', 'BoardController@store')->name('board.store')->middleware('auth');

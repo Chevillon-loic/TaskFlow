@@ -11,12 +11,11 @@
 
         <div class="content-board">
 
-
             @foreach ($boards as $board)
                 <div style="background-color:{{ $board->color }} " class="card-board">
-                    <div class="card-board-tr">
+                    <a href="{{ route('board.index', [$board->id]) }}" class="card-board-tr">
                         <p> {{ $board->label }}</p>
-                    </div>
+                    </a>
                 </div>
             @endforeach
 
@@ -33,11 +32,13 @@
 
                     <div class="modal-form">
 
-                        <div class="modal-left">
-                            <span class="close">&times;</span>
+                        <div class="modal-left" id="modalLeft">
+
                             <form action="{{ route('home.store') }}" method="POST">
                                 @csrf
                                 <input name="label" type="text" placeholder="Ajoutez un titre au tableau">
+                                <span class="close">&times;</span>
+
                         </div>
                         <div class="modal-right">
                             <label for="color1" class="color color1">
@@ -60,7 +61,7 @@
                                 <input type="radio" name="color" id="color5" value="#517f39">
                             </label>
 
-                            <label for="color6" class="color color6">
+                            <label for="color6" class="color color6 valid">
                                 <input type="radio" name="color" id="color6" value="#61676b">
                             </label>
 
@@ -77,7 +78,7 @@
                             </label>
                         </div>
                     </div>
-                    <input type="submit">
+                    <input id="buttonBoard" type="submit" value="Créer un tableau">
                     </form>
                 </div>
 

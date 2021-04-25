@@ -10,9 +10,6 @@
 
     <title>{{ config('app.name', 'TaskFlow') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('custom_styles')
@@ -63,6 +60,9 @@
     </main>
 
 
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    @yield('custom_scripts')
 </body>
 
 </html>

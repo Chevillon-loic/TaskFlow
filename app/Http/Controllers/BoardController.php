@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Board;
+use App\Column;
 use Illuminate\Http\Request;
 
 class BoardController extends Controller
@@ -11,8 +13,12 @@ class BoardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
+
+        return view('board', [
+            'board' => Board::where('id', $id)->first(),
+        ]);
     }
 
     /**
@@ -32,6 +38,12 @@ class BoardController extends Controller
      */
     public function store(Request $request)
     {
+        $column = new Column();
+        $column->label = $request->label;
+        $column->board_id = $request->board_id;
+        $column->save();
+
+        return response()->json('Le Fetch a fonctionné', 200);
     }
 
     /**

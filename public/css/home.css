@@ -30,7 +30,7 @@
 .container .content-board .card-board {
   border-radius: 1px;
   margin: 30px;
-  width: 450px;
+  width: 420px;
   height: 200px;
   cursor: pointer;
 }
@@ -39,9 +39,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 450px;
+  width: 420px;
   height: 200px;
+  cursor: pointer;
   transition: 0.5s;
+  text-decoration: none;
 }
 
 .container .content-board .card-board .card-board-tr:hover {
@@ -57,7 +59,9 @@
   font-weight: 600;
   letter-spacing: 1.5px;
   padding: 7px;
-  width: 300px;
+  width: 310px;
+  border: none;
+  outline: none;
 }
 
 .container #btnModal {
@@ -108,19 +112,17 @@
   /* Enable scroll if needed */
   background-color: black;
   /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.8);
   /* Black w/ opacity */
 }
 
 .container .modal-content {
   position: relative;
-  background-color: #fefefe;
+  background-color: transparent;
   margin: auto;
   padding: 0;
-  width: 450px;
+  width: 550px;
   height: 200px;
-  border: 1px solid #888;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
@@ -132,27 +134,57 @@
 }
 
 .container .modal-form .modal-left {
-  background-color: yellowgreen;
-  height: 150px;
+  background-color: #61676b;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3px;
+  height: 135px;
   width: 350px;
 }
 
 .container .modal-form .modal-left input {
+  width: 260px;
+  height: 20px;
+  margin-right: 20px;
+  color: white;
   background-color: rgba(255, 255, 255, 0.2);
   border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
   border-radius: 5px;
-  padding: 7px;
+  padding: 10px;
   outline: none;
 }
 
+.container .modal-form .modal-left input::-moz-placeholder {
+  color: whitesmoke;
+}
+
+.container .modal-form .modal-left input:-ms-input-placeholder {
+  color: whitesmoke;
+}
+
+.container .modal-form .modal-left input::placeholder {
+  color: whitesmoke;
+}
+
 .container .modal-form .modal-right {
-  height: 150px;
-  width: 100px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 140px;
+  width: 170px;
 }
 
 .container .modal-form .color {
   display: inline-block;
-  height: 30px;
+  height: 40px;
   width: 50px;
   cursor: pointer;
   border-radius: 5px;
@@ -162,52 +194,146 @@
   visibility: hidden;
 }
 
-.container .modal-form .color::after {
+.container .modal-form .valid::before {
   content: "\2713";
   font-size: 2.5rem;
+  display: inline-block;
+  height: 40px;
+  width: 50px;
   margin: 0;
   padding: 0;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.5);
-  position: relative;
-  top: -30px;
-  left: 10px;
+  fill: inherit;
+  flex-shrink: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container .modal-form .color1 {
   background-color: #755286;
+  margin-left: 5px;
+  margin-right: 5px;
+  transition: 0.3s;
+}
+
+.container .modal-form .color1:hover {
+  opacity: 0.8;
 }
 
 .container .modal-form .color2 {
   background-color: #7ba78b;
+  margin-right: 5px;
+  transition: 0.3s;
+}
+
+.container .modal-form .color2:hover {
+  opacity: 0.8;
 }
 
 .container .modal-form .color3 {
   background-color: #b37b2c;
+  margin-right: 5px;
+  transition: 0.3s;
+}
+
+.container .modal-form .color3:hover {
+  opacity: 0.8;
+}
+
+.container .modal-form .color3:focus {
+  background-color: red;
 }
 
 .container .modal-form .color4 {
   background-color: #ac4275;
+  margin-left: 5px;
+  margin-right: 5px;
+  transition: 0.3s;
+}
+
+.container .modal-form .color4:hover {
+  opacity: 0.8;
 }
 
 .container .modal-form .color5 {
   background-color: #517f39;
+  margin-right: 5px;
+  transition: 0.3s;
+}
+
+.container .modal-form .color5:hover {
+  opacity: 0.8;
 }
 
 .container .modal-form .color6 {
   background-color: #61676b;
+  margin-right: 5px;
+  transition: 0.3s;
+}
+
+.container .modal-form .color6:hover {
+  opacity: 0.8;
 }
 
 .container .modal-form .color7 {
   background-color: #1d70b4;
+  margin-left: 5px;
+  margin-right: 5px;
+  transition: 0.3s;
+}
+
+.container .modal-form .color7:hover {
+  opacity: 0.8;
 }
 
 .container .modal-form .color8 {
   background-color: #963c2b;
+  margin-right: 5px;
+  transition: 0.3s;
+}
+
+.container .modal-form .color8:hover {
+  opacity: 0.8;
 }
 
 .container .modal-form .color9 {
   background-color: #3a94ae;
+  margin-right: 5px;
+  transition: 0.3s;
+}
+
+.container .modal-form .color9:hover {
+  opacity: 0.8;
+}
+
+.container #buttonBoard {
+  background-color: whitesmoke;
+  margin-top: 8px;
+  border-radius: 5px;
+  color: #363636;
+  border: none;
+  cursor: pointer;
+  padding: 7px 15px;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
+.container #buttonBoard:hover {
+  background-color: #61676b;
+  color: white;
 }
 
 @-webkit-keyframes animatetop {
@@ -239,12 +365,14 @@
   float: right;
   font-size: 28px;
   font-weight: bold;
+  transition: 0.2s;
 }
 
 .container .close:hover,
 .container .close:focus {
-  color: #000;
   text-decoration: none;
+  transform: scale(1.2);
   cursor: pointer;
+  opacity: 0.6;
 }
 
