@@ -86,5 +86,8 @@
     </div>
 </div>
 
-<script src="{{ asset('js/profile.js') }}" type="text/javascript"></script>
+@section('custom_scripts')
+    <script src="{{ asset('js/profile.js') }}" type="text/javascript"></script>
+@endsection
+
 @endsection
