@@ -868,6 +868,12 @@ try {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -981,7 +987,98 @@ INVITE.addEventListener("click", function (e) {
     inputInvite.remove();
     closeInvite.remove();
     INVITE.style.display = "initial";
-  });
+  }); //Input listener KEYUP
+
+  inputInvite.addEventListener("keyup", /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
+      var q, url, token, options, pToRemove, _iterator, _step, p, response, users, _iterator2, _step2, user, _p;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              q = inputInvite.value;
+              console.log(q);
+              url = document.location.origin + "/board/search/" + q;
+              token = document.querySelector('meta[name="csrf-token"]').getAttribute("content"); //Corps de la requete
+
+              options = {
+                method: "GET",
+                headers: {
+                  "X-CSRF-TOKEN": token
+                }
+              };
+
+              if (!(q.length > 3)) {
+                _context2.next = 25;
+                break;
+              }
+
+              _context2.prev = 6;
+              pToRemove = INVITECONTAINER.getElementsByClassName("p");
+              console.log(pToRemove);
+              _iterator = _createForOfIteratorHelper(pToRemove);
+
+              try {
+                for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                  p = _step.value;
+                  p.remove();
+                }
+              } catch (err) {
+                _iterator.e(err);
+              } finally {
+                _iterator.f();
+              }
+
+              _context2.next = 13;
+              return fetch(url, options);
+
+            case 13:
+              response = _context2.sent;
+              _context2.next = 16;
+              return response.json();
+
+            case 16:
+              users = _context2.sent;
+              console.log(users);
+              _iterator2 = _createForOfIteratorHelper(users);
+
+              try {
+                for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                  user = _step2.value;
+                  _p = document.createElement("p");
+
+                  _p.classList.add("p");
+
+                  _p.innerText = user.first_name + " " + user.last_name;
+                  INVITECONTAINER.insertAdjacentElement("beforeend", _p);
+                }
+              } catch (err) {
+                _iterator2.e(err);
+              } finally {
+                _iterator2.f();
+              }
+
+              _context2.next = 25;
+              break;
+
+            case 22:
+              _context2.prev = 22;
+              _context2.t0 = _context2["catch"](6);
+              console.log(_context2.t0);
+
+            case 25:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[6, 22]]);
+    }));
+
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }());
 });
 
 /***/ }),

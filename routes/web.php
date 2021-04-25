@@ -49,3 +49,6 @@ Route::post('board/store/{id}', 'BoardController@store')->name('board.store')->m
 Route::post('ticket/store/{id}', 'TicketController@store')->name('ticket.store')->middleware('auth');
 
 Route::post('comment/store/{id}', 'CommentController@store')->name('comment.store')->middleware('auth');
+
+//Route Recherche user pour invitation
+Route::get('board/search/{q}', 'BoardController@search')->name('board.search')->middleware('auth');

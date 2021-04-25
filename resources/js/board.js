@@ -84,4 +84,42 @@ INVITE.addEventListener("click", function(e) {
         closeInvite.remove();
         INVITE.style.display = "initial";
     });
+
+    //Input listener KEYUP
+    inputInvite.addEventListener("keyup", async function(e) {
+        let q = inputInvite.value;
+        console.log(q);
+        let url = document.location.origin + "/board/search/" + q;
+        let token = document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content");
+        //Corps de la requete
+        const options = {
+            method: "GET",
+            headers: {
+                "X-CSRF-TOKEN": token
+            }
+        };
+        if (q.length > 3) {
+            //Promesse (requete GET)
+            try {
+                let pToRemove = INVITECONTAINER.getElementsByClassName("p");
+                console.log(pToRemove);
+                for (const p of pToRemove) {
+                    p.remove();
+                }
+                const response = await fetch(url, options);
+                const users = await response.json();
+                console.log(users);
+                for (const user of users) {
+                    let p = document.createElement("p");
+                    p.classList.add("p");
+                    p.innerText = user.first_name + " " + user.last_name;
+                    INVITECONTAINER.insertAdjacentElement("beforeend", p);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    });
 });

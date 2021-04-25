@@ -47,6 +47,10 @@ class BoardController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'label' => 'required |string |max:64 |min:2',
+            'board_id' => 'required |integer'
+        ]);
         $column = new Column();
         $column->label = $request->label;
         $column->board_id = $request->board_id;
@@ -98,5 +102,12 @@ class BoardController extends Controller
     public function destroy(Board $board)
     {
         //
+    }
+
+    public function search(Request $request)
+    {
+        $users = User::where('first_name', 'like', '%' . $request->q . '%')->get();
+
+        return response()->json($users);
     }
 }
