@@ -7,6 +7,9 @@
 
 @section('content')
     <h2>{{ $board->label }}</h2>
+    <div id="inviteContainer">
+        <button id="invite">Inviter</button>
+    </div>
 
     @foreach ($columns as $column)
         <div class="columnContainer" style="border: 2px solid black">

@@ -964,6 +964,24 @@ BTNADDLIST.addEventListener("click", function (e) {
       return _ref.apply(this, arguments);
     };
   }());
+}); //BOUTON INVITER
+
+var INVITECONTAINER = document.getElementById("inviteContainer");
+var INVITE = document.getElementById("invite");
+INVITE.addEventListener("click", function (e) {
+  var inputInvite = document.createElement("input");
+  var closeInvite = document.createElement("button");
+  inputInvite.placeholder = "Rechercher une personne...";
+  closeInvite.innerText = "X";
+  INVITECONTAINER.insertAdjacentElement("beforeend", inputInvite);
+  INVITECONTAINER.insertAdjacentElement("beforeend", closeInvite);
+  INVITE.style.display = "none"; //CLOSE BTN
+
+  closeInvite.addEventListener("click", function (e) {
+    inputInvite.remove();
+    closeInvite.remove();
+    INVITE.style.display = "initial";
+  });
 });
 
 /***/ }),
