@@ -894,9 +894,7 @@ BTNADDLIST.addEventListener("click", /*#__PURE__*/function () {
             options = {
               method: "POST",
               headers: {
-                "Content-Type": "application/json",
-                "X-Requested-With": "XMLHttpRequest",
-                "X-CSRF-TOKEN": token
+                "Content-Type": "application/json"
               },
               body: JSON.stringify(body)
             }; //Promesse (requete POST)
@@ -940,7 +938,7 @@ BTNADDLIST.addEventListener("click", /*#__PURE__*/function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/board.js */"./resources/js/board.js");
 
 
 /***/ })

@@ -40,19 +40,11 @@ class HomeController extends Controller
     {
         $request->validate(
             [
-                // PRIVDER NAME VALIDATION
-                'label' =>
-                'required',
-
-
-
+                'label' => 'required',
             ],
             [
                 'label.required' => 'Un Titre est requis.',
-
-
             ],
-
         );
         $board = new Board();
         $board->owner_id = \Auth::user()->id;
