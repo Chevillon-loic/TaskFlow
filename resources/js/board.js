@@ -145,8 +145,8 @@ const TITLECONTAINER = document.getElementsByClassName("columTitleDiv");
 for (const elem of TITLECONTAINER) {
     let remBtn = elem.querySelector("#removeColumn");
     let modalContainer = elem.querySelector("#modalContainer");
-
     let cxlremBtn = elem.querySelector("#cancelRemoveColumn");
+    elem.style.backgroundColor = board.color;
 
     remBtn.addEventListener("click", function(e) {
         modalContainer.classList.toggle("displayNone");
@@ -157,3 +157,9 @@ for (const elem of TITLECONTAINER) {
     });
 }
 //-------------------------------------------------------
+
+//Bouton supprimer Tableau
+const BTNDELETETAB = document.getElementById("deleteTab");
+const MODALDELETETAB = document.getElementById("modalContainerTAB");
+
+BTNDELETETAB.addEventListener("click", function(e) {});

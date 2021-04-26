@@ -27,15 +27,23 @@
                 <button id="deleteTab">Supprimer le tableau</button>
             </div>
         </div>
-        <form action="{{ route('board.destroy') }}" method="post">
-            @method('delete')
-            @csrf
-            <input type="hidden" name="id" value="{{ $board->id }}">
-            <button type="submit" class="displayNone">Confirmer</button>
-        </form>
 
-
-
+        <div id="modalContainerTAB" class="displayNone">
+            <div id="removeConfirmationContainerTAB">
+                <p>Êtes vous sûr de vouloir supprimer ce tableau ?</p>
+                <span>
+                    <div class="modalButtons">
+                        <button id="cancelRemoveColumnTAB">Annuler</button>
+                        <form action="{{ route('board.destroy') }}" method="post">
+                            @method('delete')
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $board->id }}">
+                            <button type="submit">Confirmer</button>
+                        </form>
+                    </div>
+                </span>
+            </div>
+        </div>
 
         {{-- Column --}}
         <div class="allColumns">
@@ -44,13 +52,13 @@
                     <div class="columTitleDiv">
                         <div class="titleClosed">
                             <span class="columnTitle">
-
                                 <p>{{ $column->label }}</p>
                                 <button id="removeColumn"><i class="fas fa-times-circle"></i></button>
+                            </span>
                         </div>
                         {{-- Supprimer colonne/liste --}}
                         <div id="modalContainer" class="displayNone">
-                            <div id="removeConfirmationContainer" class="displayNone">
+                            <div id="removeConfirmationContainer">
                                 <p>Êtes vous sûr de vouloir supprimer cette liste ?</p>
                                 <span>
                                     <div class="modalButtons">
@@ -65,9 +73,7 @@
                                 </span>
                             </div>
                         </div>
-                        </span>
                     </div>
-
                     {{-- Ticket --}}
                     <div class="ticketContainer">
                         @foreach ($tickets as $ticket)
@@ -95,21 +101,9 @@
                                             </span>
                                         </div>
                                     </div>
-
-                                    <!-- .Modal Affichage commentaire -->
-                                    {{-- <div id="commentBackground">
-                                            <div id="modalComment">
-                                                {{ $ticket->task }}<br>
-                                                <span id="closeModalComment">&times;</span>
-                                                <button id="comment">Commentaire</button>
-                                                <div id="commentContainer"></div>
-                                            </div>
-                                        </div> --}}
                                 </div>
-                                <!-- Fin Affichage Modal -->
                             @endif
                         @endforeach
-
                         {{-- Ajouter ticket --}}
                         <div class="addTicket">
                             <button id="btnAddTicket">+ Ajoutez un ticket</button>

@@ -1102,6 +1102,7 @@ try {
     var remBtn = elem.querySelector("#removeColumn");
     var modalContainer = elem.querySelector("#modalContainer");
     var cxlremBtn = elem.querySelector("#cancelRemoveColumn");
+    elem.style.backgroundColor = board.color;
     remBtn.addEventListener("click", function (e) {
       modalContainer.classList.toggle("displayNone");
     });
@@ -1113,12 +1114,17 @@ try {
   for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
     _loop();
   } //-------------------------------------------------------
+  //Bouton supprimer Tableau
 
 } catch (err) {
   _iterator3.e(err);
 } finally {
   _iterator3.f();
 }
+
+var BTNDELETETAB = document.getElementById("deleteTab");
+var MODALDELETETAB = document.getElementById("modalContainerTAB");
+BTNDELETETAB.addEventListener("click", function (e) {});
 
 /***/ }),
 
@@ -1129,7 +1135,7 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/board.js */"./resources/js/board.js");
 
 
 /***/ })
