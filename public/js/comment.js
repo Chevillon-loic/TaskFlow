@@ -874,19 +874,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var modalComment = document.getElementById("modalComment");
-var commentBackground = document.getElementById("commentBackground");
-var boxTicket = document.querySelector(".boxTicket");
-var closeModalComment = document.getElementById("closeModalComment");
-boxTicket.addEventListener("click", function (e) {
-  commentBackground.style.display = "block";
-  modalComment.style.display = "block";
-  closeModalComment.addEventListener("click", function (e) {
-    commentBackground.style.display = "none";
-    modalComment.style.display = "none";
-  });
-}); //////////////////////////////////////////
-
+//////////////////////////////////////////
 var COMMENTCONTAINER = document.getElementById('commentContainer');
 var COMMENT = document.getElementById('comment'); // BOUTON AFFICHER INPUT
 
@@ -966,6 +954,18 @@ COMMENT.addEventListener('click', function (e) {
     };
   }());
 });
+var modalComment = document.getElementById("modalComment");
+var commentBackground = document.getElementById("commentBackground");
+var boxTicket = document.querySelector(".boxTicket");
+var closeModalComment = document.getElementById("closeModalComment");
+boxTicket.addEventListener("click", function (e) {
+  commentBackground.style.display = "block";
+  modalComment.style.display = "block";
+  closeModalComment.addEventListener("click", function (e) {
+    commentBackground.remove();
+    modalComment.remove();
+  });
+});
 
 /***/ }),
 
@@ -976,7 +976,11 @@ COMMENT.addEventListener('click', function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/comment.js */"./resources/js/comment.js");
+<<<<<<< HEAD
+module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\js\comment.js */"./resources/js/comment.js");
+=======
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/comment.js */"./resources/js/comment.js");
+>>>>>>> 2ba827bceaeb1b8b44b0a7c7487f758efdb9043f
 
 
 /***/ })
