@@ -47,16 +47,9 @@
                                     {{ $ticket->task }}
                                 </span>
 
-<<<<<<< HEAD
-                        @endif
-                    @endforeach
-                    <div class="addTicket">
-                        <div class="ticketTitleDiv">
-=======
                             @endif
                         @endforeach
                         <div class="addTicket">
->>>>>>> 088150c6e38e5ae3462c0906dc42c96883224267
                             <button id="btnAddTicket">+ Ajoutez un ticket</button>
                             <input type="hidden" id="columnId" value="{{ $column->id }}">
                         </div>
