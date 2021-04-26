@@ -7,7 +7,9 @@
 .mainContainer {
     display: flex;
     flex-direction: column;
-    margin: 5vh;
+    justify-content: space-around;
+    margin: 0 5vh;
+    height: calc(100vh-40px);
     h2 {
         text-transform: uppercase;
         font-weight: 600;
@@ -21,9 +23,9 @@
     .topContainer {
         display: flex;
         flex-direction: row;
+        height: calc(20vh - 40px);
         width: 100%;
         align-items: flex-end;
-
         #inviteContainer {
             width: 150px;
             #invite {
@@ -76,7 +78,9 @@
 .allColumns {
     display: flex;
     flex-direction: row;
-    overflow-x: scroll;
+    align-items: flex-start;
+    overflow-x: auto;
+    height: calc(80vh - 40px);
     .columnContainer {
         width: 300px;
         border-radius: 4px;
