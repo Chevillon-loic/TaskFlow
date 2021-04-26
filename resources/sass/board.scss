@@ -56,7 +56,8 @@
     }
 }
 
-#modalContainer {
+#modalContainer,
+#modalContainerTicket {
     position: fixed; /* Stay in place */
     z-index: 10; /* Sit on top */
     padding-top: 40vh; /* Location of the box */
@@ -146,6 +147,7 @@
 
 //OTHERS
 
-.displayNone {
+.displayNone,
+.displayNoneTicket {
     display: none;
 }
