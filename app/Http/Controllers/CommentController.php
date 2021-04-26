@@ -37,7 +37,7 @@ class CommentController extends Controller
     {
         $comment = new Comment();
         $comment->description = $request->description;
-        $comment->ticket_id = $request->column_id;
+        $comment->ticket_id = $request->ticket_id;
         $comment->user_id = $request->user_id;
         $comment->save();
 

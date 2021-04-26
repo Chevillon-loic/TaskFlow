@@ -5,12 +5,13 @@
 @endsection
 
 @section('content')
+
     <div class="container">
+
         <h1>Mes tableaux</h1>
 
-
         <div class="content-board">
-
+            <!-- Foreach all boards (->owner_id) -->
             @foreach ($boards as  $board)
                 <div style="background-color:{{ $board->color }} " class="card-board">
                     <a href="{{ route('board.index', [$board->id]) }}" class="card-board-tr">
@@ -19,12 +20,14 @@
                 </div>
             @endforeach
 
+            <!-- Button for display Modal -->
             <div class="card-board">
                 <button id="btnModal">
                     <span> <span class="plus">+</span><br> CRÉER UN <br>NOUVEAU TABLEAU</span>
                 </button>
             </div>
 
+            <!-- Div affichage modal -->
             <div id="displayModal" class="modal">
 
                 <!-- Modal content -->
@@ -34,12 +37,17 @@
 
                         <div class="modal-left" id="modalLeft">
 
+                            <!-- Form add Board -->
                             <form action="{{ route('home.store') }}" method="POST">
+
                                 @csrf
+
+                                <!-- Input Label for board -->
                                 <input id="inputTitle" name="label" type="text" placeholder="Ajoutez un titre au tableau" required pattern=".*\S.*" oninvalid="setCustomValidity('Veuillez entrer un titre de tableau valide. ')">
                                 <span class="close">&times;</span>
 
                         </div>
+                        <!-- Tablette color -->
                         <div class="modal-right">
                             <label for="color1" class="color color1">
                                 <input type="radio" name="color" id="color1" value="#755286">

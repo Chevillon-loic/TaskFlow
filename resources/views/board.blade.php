@@ -62,22 +62,24 @@
                 <button id="btnAddList">+ Ajoutez une liste</button>
             </div>
         </div>
-        <div class="addComment" style="display:none">
-            <button id="btnAddComment">+ Ajoutez un commentaire</button>
+    </div>
+        <div id="commentContainer">
+            <button id="comment">Ajoutez un commentaire</button>
         </div>
     </div>
 @endsection
 
 
 <script>
+    let tickets = @json($tickets);
     let board = @json($board);
     let column = @json($column);
     let user = @json($user);
-    let tickets = @json($tickets);
+
 
 </script>
 @section('custom_scripts')
-    <script src="{{ asset('js/comment.js') }}"></script>
+<script src="{{ asset('js/comment.js') }}"></script>
     <script src="{{ asset('js/ticket.js') }}"></script>
     <script src="{{ asset('js/board.js') }}"></script>
 
