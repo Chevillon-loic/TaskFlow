@@ -1,10 +1,25 @@
+let modalComment = document.getElementById("modalComment");
+let commentBackground = document.getElementById("commentBackground");
+let boxTicket = document.querySelector(".boxTicket")
 
+let closeModalComment = document.getElementById("closeModalComment");
+
+boxTicket.addEventListener("click", function(e){
+commentBackground.style.display = "block"
+modalComment.style.display = "block"
+
+closeModalComment.addEventListener("click", function(e){
+    commentBackground.style.display = "none";
+    modalComment.style.display = "none";
+ })
+
+})
+//////////////////////////////////////////
 
 const COMMENTCONTAINER = document.getElementById('commentContainer');
 const COMMENT = document.getElementById('comment')
 
-for (COMMENTCONTAINER  of 'ticket_id')
-{
+
 
 // BOUTON AFFICHER INPUT
 COMMENT.addEventListener('click', function(e) {
@@ -70,4 +85,8 @@ btnComment.addEventListener("click" , async function(e){
 })
 
 });
-}
+
+
+
+
+

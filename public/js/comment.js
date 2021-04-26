@@ -874,109 +874,98 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
+var modalComment = document.getElementById("modalComment");
+var commentBackground = document.getElementById("commentBackground");
+var boxTicket = document.querySelector(".boxTicket");
+var closeModalComment = document.getElementById("closeModalComment");
+boxTicket.addEventListener("click", function (e) {
+  commentBackground.style.display = "block";
+  modalComment.style.display = "block";
+  closeModalComment.addEventListener("click", function (e) {
+    commentBackground.style.display = "none";
+    modalComment.style.display = "none";
+  });
+}); //////////////////////////////////////////
 
 var COMMENTCONTAINER = document.getElementById('commentContainer');
-var COMMENT = document.getElementById('comment');
+var COMMENT = document.getElementById('comment'); // BOUTON AFFICHER INPUT
 
-var _iterator = _createForOfIteratorHelper('ticket_id'),
-    _step;
+COMMENT.addEventListener('click', function (e) {
+  var inputComment = document.createElement("input");
+  var btnComment = document.createElement("button");
+  var closeComment = document.createElement("button"); // Place holder de l'input
 
-try {
-  for (_iterator.s(); !(_step = _iterator.n()).done;) {
-    COMMENTCONTAINER = _step.value;
+  inputComment.name = "description";
+  inputComment.placeholder = "Ajouter un commentaire"; //Contenu bouton Add
 
-    _readOnlyError("COMMENTCONTAINER");
+  btnComment.innerText = "Valider"; // Contenu du bouton close
 
-    // BOUTON AFFICHER INPUT
-    COMMENT.addEventListener('click', function (e) {
-      var inputComment = document.createElement("input");
-      var btnComment = document.createElement("button");
-      var closeComment = document.createElement("button"); // Place holder de l'input
+  closeComment.innerText = 'x';
+  COMMENTCONTAINER.insertAdjacentElement('beforeend', inputComment);
+  COMMENTCONTAINER.insertAdjacentElement('beforeend', btnComment);
+  COMMENTCONTAINER.insertAdjacentElement('beforeend', closeComment);
+  COMMENT.style.display = "none"; // CLOSE BTN
 
-      inputComment.name = "description";
-      inputComment.placeholder = "Ajouter un commentaire"; //Contenu bouton Add
+  closeComment.addEventListener("click", function (e) {
+    inputComment.remove();
+    btnComment.remove();
+    closeComment.remove();
+    COMMENT.style.display = "initial";
+  }); // Ajouter un commentaire
 
-      btnComment.innerText = "Valider"; // Contenu du bouton close
+  btnComment.addEventListener("click", /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
+      var url, description, token, body, options, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              url = document.location.origin + "/comment/store/" + 4;
+              description = inputComment.value;
+              token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+              body = {
+                description: description,
+                ticket_id: 4,
+                user_id: user.id
+              }; //Corps de la requete et body
 
-      closeComment.innerText = 'x';
-      COMMENTCONTAINER.insertAdjacentElement('beforeend', inputComment);
-      COMMENTCONTAINER.insertAdjacentElement('beforeend', btnComment);
-      COMMENTCONTAINER.insertAdjacentElement('beforeend', closeComment);
-      COMMENT.style.display = "none"; // CLOSE BTN
+              options = {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "X-Requested-With": "XMLHttpRequest",
+                  "X-CSRF-TOKEN": token
+                },
+                body: JSON.stringify(body)
+              };
+              _context.prev = 5;
+              _context.next = 8;
+              return fetch(url, options);
 
-      closeComment.addEventListener("click", function (e) {
-        inputComment.remove();
-        btnComment.remove();
-        closeComment.remove();
-        COMMENT.style.display = "initial";
-      }); // Ajouter un commentaire
+            case 8:
+              response = _context.sent;
+              console.log(response);
+              _context.next = 15;
+              break;
 
-      btnComment.addEventListener("click", /*#__PURE__*/function () {
-        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
-          var url, description, token, body, options, response;
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  url = document.location.origin + "/comment/store/" + 4;
-                  description = inputComment.value;
-                  token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
-                  body = {
-                    description: description,
-                    ticket_id: 4,
-                    user_id: user.id
-                  }; //Corps de la requete et body
+            case 12:
+              _context.prev = 12;
+              _context.t0 = _context["catch"](5);
+              console.log(_context.t0);
 
-                  options = {
-                    method: "POST",
-                    headers: {
-                      "Content-Type": "application/json",
-                      "X-Requested-With": "XMLHttpRequest",
-                      "X-CSRF-TOKEN": token
-                    },
-                    body: JSON.stringify(body)
-                  };
-                  _context.prev = 5;
-                  _context.next = 8;
-                  return fetch(url, options);
+            case 15:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[5, 12]]);
+    }));
 
-                case 8:
-                  response = _context.sent;
-                  console.log(response);
-                  _context.next = 15;
-                  break;
-
-                case 12:
-                  _context.prev = 12;
-                  _context.t0 = _context["catch"](5);
-                  console.log(_context.t0);
-
-                case 15:
-                case "end":
-                  return _context.stop();
-              }
-            }
-          }, _callee, null, [[5, 12]]);
-        }));
-
-        return function (_x) {
-          return _ref.apply(this, arguments);
-        };
-      }());
-    });
-  }
-} catch (err) {
-  _iterator.e(err);
-} finally {
-  _iterator.f();
-}
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
+});
 
 /***/ }),
 

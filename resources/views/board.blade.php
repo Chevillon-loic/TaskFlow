@@ -48,14 +48,19 @@
                             <div class="boxTicket">
                                 <span class="ticket">
                                     {{ $ticket->task }}
-
                                 </span>
-
-                                <div id="commentContainer">
-                                    <button id="comment">Ajoutez un commentaire</button>
-                                </div>
                             </div>
 
+                            <!-- .Modal Affichage commentaire -->
+                                <div id="commentBackground">
+                                    <div id="modalComment">
+                                    {{ $ticket->task }}<br>
+                                    <span id="closeModalComment">&times;</span>
+                                    <button id="comment">Commentaire</button>
+                                    <div id="commentContainer"></div>
+                                    </div>
+                                </div>
+                            <!-- Fin Affichage Modal -->
 
                             @endif
                         @endforeach
@@ -67,13 +72,16 @@
                 </div>
             @endforeach
 
-
             <div class="addColumn">
                 <button id="btnAddList">+ Ajoutez une liste</button>
             </div>
         </div>
     </div>
 
+
+
+</div>
+    </div>
     </div>
 @endsection
 
