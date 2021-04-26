@@ -55,6 +55,7 @@ for (const ticket of ADDTICKETDIV) {
             if (task.length > 2) {
                 try {
                     const response = await fetch(url, options);
+                    location.reload();
                     console.log(response);
                 } catch (error) {
                     console.log(error);

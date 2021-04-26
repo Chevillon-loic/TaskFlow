@@ -936,7 +936,7 @@ try {
                   };
 
                   if (!(task.length > 2)) {
-                    _context.next = 23;
+                    _context.next = 24;
                     break;
                   }
 
@@ -946,33 +946,34 @@ try {
 
                 case 9:
                   response = _context.sent;
+                  location.reload();
                   console.log(response);
-                  _context.next = 16;
+                  _context.next = 17;
                   break;
 
-                case 13:
-                  _context.prev = 13;
+                case 14:
+                  _context.prev = 14;
                   _context.t0 = _context["catch"](6);
                   console.log(_context.t0);
 
-                case 16:
+                case 17:
                   input.value = "";
                   input.remove();
                   btn.remove();
                   close.remove();
                   btnAdd[0].style.display = "initial";
-                  _context.next = 24;
+                  _context.next = 25;
                   break;
 
-                case 23:
+                case 24:
                   input.value = "";
 
-                case 24:
+                case 25:
                 case "end":
                   return _context.stop();
               }
             }
-          }, _callee, null, [[6, 13]]);
+          }, _callee, null, [[6, 14]]);
         }));
 
         return function (_x) {
@@ -1048,7 +1049,7 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/ticket.js */"./resources/js/ticket.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/ticket.js */"./resources/js/ticket.js");
 
 
 /***/ })
