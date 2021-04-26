@@ -15,7 +15,18 @@
         <div class="columnContainer" style="border: 2px solid black">
             <span class="columnTitle">
                 <p>{{ $column->label }}</p>
-                <p>X</p>
+                <button id="removeColumn">X</button>
+                <div class="removeConfirmation">
+                    <p>Êtes vous sûr de vouloir supprimer cette colonne ?</p>
+                    <span>
+                        <button>Annuler</button>
+                        <form action="{{ route('column.destroy') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $column->id }}">
+                            <button type="submit">Confirmer</button>
+                        </form>
+                    </span>
+                </div>
             </span>
             <div class="ticketContainer">
                 @foreach ($tickets as $ticket)

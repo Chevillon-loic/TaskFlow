@@ -77,12 +77,17 @@ INVITE.addEventListener("click", function(e) {
     INVITECONTAINER.insertAdjacentElement("beforeend", inputInvite);
     INVITECONTAINER.insertAdjacentElement("beforeend", closeInvite);
     INVITE.style.display = "none";
-
+    inputInvite.select();
     //CLOSE BTN
     closeInvite.addEventListener("click", function(e) {
         inputInvite.remove();
         closeInvite.remove();
         INVITE.style.display = "initial";
+        let pToRemove = INVITECONTAINER.getElementsByClassName("p");
+        console.log(pToRemove);
+        for (const p of pToRemove) {
+            p.remove();
+        }
     });
 
     //Input listener KEYUP

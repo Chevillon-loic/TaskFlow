@@ -981,17 +981,34 @@ INVITE.addEventListener("click", function (e) {
   closeInvite.innerText = "X";
   INVITECONTAINER.insertAdjacentElement("beforeend", inputInvite);
   INVITECONTAINER.insertAdjacentElement("beforeend", closeInvite);
-  INVITE.style.display = "none"; //CLOSE BTN
+  INVITE.style.display = "none";
+  inputInvite.select(); //CLOSE BTN
 
   closeInvite.addEventListener("click", function (e) {
     inputInvite.remove();
     closeInvite.remove();
     INVITE.style.display = "initial";
+    var pToRemove = INVITECONTAINER.getElementsByClassName("p");
+    console.log(pToRemove);
+
+    var _iterator = _createForOfIteratorHelper(pToRemove),
+        _step;
+
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var p = _step.value;
+        p.remove();
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
   }); //Input listener KEYUP
 
   inputInvite.addEventListener("keyup", /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
-      var q, url, token, options, pToRemove, _iterator, _step, p, response, users, _iterator2, _step2, user, _p;
+      var q, url, token, options, pToRemove, _iterator2, _step2, p, response, users, _iterator3, _step3, user, _p;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
@@ -1017,17 +1034,17 @@ INVITE.addEventListener("click", function (e) {
               _context2.prev = 6;
               pToRemove = INVITECONTAINER.getElementsByClassName("p");
               console.log(pToRemove);
-              _iterator = _createForOfIteratorHelper(pToRemove);
+              _iterator2 = _createForOfIteratorHelper(pToRemove);
 
               try {
-                for (_iterator.s(); !(_step = _iterator.n()).done;) {
-                  p = _step.value;
+                for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                  p = _step2.value;
                   p.remove();
                 }
               } catch (err) {
-                _iterator.e(err);
+                _iterator2.e(err);
               } finally {
-                _iterator.f();
+                _iterator2.f();
               }
 
               _context2.next = 13;
@@ -1041,11 +1058,11 @@ INVITE.addEventListener("click", function (e) {
             case 16:
               users = _context2.sent;
               console.log(users);
-              _iterator2 = _createForOfIteratorHelper(users);
+              _iterator3 = _createForOfIteratorHelper(users);
 
               try {
-                for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-                  user = _step2.value;
+                for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+                  user = _step3.value;
                   _p = document.createElement("p");
 
                   _p.classList.add("p");
@@ -1054,9 +1071,9 @@ INVITE.addEventListener("click", function (e) {
                   INVITECONTAINER.insertAdjacentElement("beforeend", _p);
                 }
               } catch (err) {
-                _iterator2.e(err);
+                _iterator3.e(err);
               } finally {
-                _iterator2.f();
+                _iterator3.f();
               }
 
               _context2.next = 25;
