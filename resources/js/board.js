@@ -6,14 +6,14 @@ BTNADDLIST.addEventListener("click", function(e) {
     let btn = document.createElement("button");
     let close = document.createElement("button");
 
-    btn.innerText = "Ajoutez une liste";
+    btn.innerText = "Nouvelle liste";
     btn.id = "newaddlist";
     btn.style.backgroundColor = board.color;
-    close.innerText = "X";
+    close.innerText = "Annluer";
 
     divAddList.insertAdjacentElement("beforeend", btn);
-    divAddList.insertAdjacentElement("beforeend", close);
     divAddList.insertAdjacentElement("beforeend", input);
+    divAddList.insertAdjacentElement("beforeend", close);
 
     BTNADDLIST.style.display = "none";
     input.select();
