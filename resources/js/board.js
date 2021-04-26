@@ -108,19 +108,20 @@ INVITE.addEventListener("click", function(e) {
         if (q.length > 3) {
             //Promesse (requete GET)
             try {
-                let pToRemove = INVITECONTAINER.getElementsByClassName("p");
-                for (const p of pToRemove) {
+                let divToRemove = INVITECONTAINER.getElementsByClassName("p");
+                for (const p of divToRemove) {
                     p.remove();
                 }
                 const response = await fetch(url, options);
                 const users = await response.json();
                 console.log(users);
-                for (const user of users) {
-                    let p = document.createElement("p");
-                    p.classList.add("p");
-                    p.innerText = user.first_name + " " + user.last_name;
-                    INVITECONTAINER.insertAdjacentElement("beforeend", p);
-                }
+
+                users.forEach(user => {
+                    let div = document.createElement("div");
+                    div.innerHTML = `
+                    <p class="p"> ${user.first_name} ${user.last_name}</p>`;
+                    INVITECONTAINER.insertAdjacentElement("beforeend", div);
+                });
             } catch (error) {
                 console.log(error);
             }
