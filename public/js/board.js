@@ -886,11 +886,13 @@ BTNADDLIST.addEventListener("click", function (e) {
   var input = document.createElement("input");
   var btn = document.createElement("button");
   var close = document.createElement("button");
-  btn.innerText = "Ajoutez une liste";
-  close.innerText = "X";
+  btn.innerText = "Nouvelle liste";
+  btn.id = "newaddlist";
+  btn.style.backgroundColor = board.color;
+  close.innerText = "Annluer";
   divAddList.insertAdjacentElement("beforeend", btn);
-  divAddList.insertAdjacentElement("beforeend", close);
   divAddList.insertAdjacentElement("beforeend", input);
+  divAddList.insertAdjacentElement("beforeend", close);
   BTNADDLIST.style.display = "none";
   input.select();
   input.placeholder = "Saisissez le titre de la liste..."; //Listener bouton Close
