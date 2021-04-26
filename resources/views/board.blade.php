@@ -57,8 +57,9 @@
                     <div class="ticketContainer">
                         @foreach ($tickets as $ticket)
                             @if ($ticket->column_id == $column->id)
-
+                            <div class="divTicket">
                                 <div class="boxTicket">
+
                                     <span class="ticket">
                                         {{ $ticket->task }}
                                         <button id="removeTicket">X</button>
@@ -87,7 +88,12 @@
                                     <button id="comment">Commentaire</button>
                                     <div id="commentContainer"></div>
                                     </div>
+<<<<<<< HEAD
+                                </div>
+                            </div>
+=======
                                 </div> --}}
+>>>>>>> b78bcf41a514fd966dafff43d380829c36e72ee5
                             <!-- Fin Affichage Modal -->
                             </div>
 
