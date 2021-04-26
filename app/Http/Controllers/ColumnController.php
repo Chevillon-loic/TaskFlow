@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Column;
+use App\User;
 use Illuminate\Http\Request;
 
 class ColumnController extends Controller

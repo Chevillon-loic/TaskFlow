@@ -51,7 +51,7 @@ class HomeController extends Controller
                 'label.required' => 'Un Titre est requis.',
             ],
         );
-
+        $request->color ?? $request->color = '#61676b';
         $board = new Board();
         $board->owner_id = \Auth::user()->id;
         $board->guest_id = \Auth::user()->id;

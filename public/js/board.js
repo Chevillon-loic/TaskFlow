@@ -868,6 +868,12 @@ try {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -875,59 +881,205 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 var BTNADDLIST = document.getElementById("btnAddList");
-console.log(board);
-BTNADDLIST.addEventListener("click", /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
-    var url, token, body, options, response;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            //recup de l'url
-            url = document.location.origin + "/board/store/" + board.id;
-            token = document.querySelector('meta[name="csrf-token"]').getAttribute("content"); //recup des données a inserer en BDD
+var divAddList = document.querySelector(".addColumn");
+console.log(divAddList);
+BTNADDLIST.addEventListener("click", function (e) {
+  var input = document.createElement("input");
+  var btn = document.createElement("button");
+  var close = document.createElement("button");
+  btn.innerText = "Ajoutez une liste";
+  close.innerText = "X";
+  divAddList.insertAdjacentElement("beforebegin", input);
+  divAddList.insertAdjacentElement("beforeend", btn);
+  divAddList.insertAdjacentElement("beforeend", close);
+  BTNADDLIST.style.display = "none";
+  input.select();
+  input.placeholder = "Saisissez le titre de la liste..."; //Listener bouton Close
 
-            body = {
-              board_id: board.id,
-              label: "ceci est une liste"
-            }; //Corps de la requete et body
+  close.addEventListener("click", function (e) {
+    input.remove();
+    btn.remove();
+    close.remove();
+    BTNADDLIST.style.display = "initial";
+  }); //Listener bouton Ajoutez une liste
 
-            options = {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                "X-CSRF-TOKEN": token
-              },
-              body: JSON.stringify(body)
-            }; //Promesse (requete POST)
+  btn.addEventListener("click", /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
+      var url, token, label, body, options, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              //recup de l'url
+              url = document.location.origin + "/board/store/" + board.id;
+              token = document.querySelector('meta[name="csrf-token"]').getAttribute("content"); //Recup label (valeur de l'input)
 
-            _context.prev = 4;
-            _context.next = 7;
-            return fetch(url, options);
+              label = input.value; //recup des données a inserer en BDD
 
-          case 7:
-            response = _context.sent;
-            console.log(response);
-            _context.next = 14;
-            break;
+              body = {
+                board_id: board.id,
+                label: label
+              }; //Corps de la requete et body
 
-          case 11:
-            _context.prev = 11;
-            _context.t0 = _context["catch"](4);
-            console.log(_context.t0);
+              options = {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "X-CSRF-TOKEN": token
+                },
+                body: JSON.stringify(body)
+              };
 
-          case 14:
-          case "end":
-            return _context.stop();
+              if (!(label.length > 2)) {
+                _context.next = 19;
+                break;
+              }
+
+              _context.prev = 6;
+              _context.next = 9;
+              return fetch(url, options);
+
+            case 9:
+              response = _context.sent;
+              console.log(response);
+              location.reload();
+              _context.next = 17;
+              break;
+
+            case 14:
+              _context.prev = 14;
+              _context.t0 = _context["catch"](6);
+              console.log(_context.t0);
+
+            case 17:
+              _context.next = 20;
+              break;
+
+            case 19:
+              input.value = "";
+
+            case 20:
+            case "end":
+              return _context.stop();
+          }
         }
-      }
-    }, _callee, null, [[4, 11]]);
-  }));
+      }, _callee, null, [[6, 14]]);
+    }));
 
-  return function (_x) {
-    return _ref.apply(this, arguments);
-  };
-}());
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
+}); //BOUTON INVITER
+
+var INVITECONTAINER = document.getElementById("inviteContainer");
+var INVITE = document.getElementById("invite");
+INVITE.addEventListener("click", function (e) {
+  var inputInvite = document.createElement("input");
+  var closeInvite = document.createElement("button");
+  inputInvite.placeholder = "Rechercher une personne...";
+  closeInvite.innerText = "X";
+  INVITECONTAINER.insertAdjacentElement("beforeend", inputInvite);
+  INVITECONTAINER.insertAdjacentElement("beforeend", closeInvite);
+  INVITE.style.display = "none"; //CLOSE BTN
+
+  closeInvite.addEventListener("click", function (e) {
+    inputInvite.remove();
+    closeInvite.remove();
+    INVITE.style.display = "initial";
+  }); //Input listener KEYUP
+
+  inputInvite.addEventListener("keyup", /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
+      var q, url, token, options, pToRemove, _iterator, _step, p, response, users, _iterator2, _step2, user, _p;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              q = inputInvite.value;
+              console.log(q);
+              url = document.location.origin + "/board/search/" + q;
+              token = document.querySelector('meta[name="csrf-token"]').getAttribute("content"); //Corps de la requete
+
+              options = {
+                method: "GET",
+                headers: {
+                  "X-CSRF-TOKEN": token
+                }
+              };
+
+              if (!(q.length > 3)) {
+                _context2.next = 25;
+                break;
+              }
+
+              _context2.prev = 6;
+              pToRemove = INVITECONTAINER.getElementsByClassName("p");
+              console.log(pToRemove);
+              _iterator = _createForOfIteratorHelper(pToRemove);
+
+              try {
+                for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                  p = _step.value;
+                  p.remove();
+                }
+              } catch (err) {
+                _iterator.e(err);
+              } finally {
+                _iterator.f();
+              }
+
+              _context2.next = 13;
+              return fetch(url, options);
+
+            case 13:
+              response = _context2.sent;
+              _context2.next = 16;
+              return response.json();
+
+            case 16:
+              users = _context2.sent;
+              console.log(users);
+              _iterator2 = _createForOfIteratorHelper(users);
+
+              try {
+                for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                  user = _step2.value;
+                  _p = document.createElement("p");
+
+                  _p.classList.add("p");
+
+                  _p.innerText = user.first_name + " " + user.last_name;
+                  INVITECONTAINER.insertAdjacentElement("beforeend", _p);
+                }
+              } catch (err) {
+                _iterator2.e(err);
+              } finally {
+                _iterator2.f();
+              }
+
+              _context2.next = 25;
+              break;
+
+            case 22:
+              _context2.prev = 22;
+              _context2.t0 = _context2["catch"](6);
+              console.log(_context2.t0);
+
+            case 25:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[6, 22]]);
+    }));
+
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }());
+});
 
 /***/ }),
 
