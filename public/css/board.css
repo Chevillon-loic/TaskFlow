@@ -56,7 +56,8 @@
   cursor: pointer;
 }
 
-#modalContainer {
+#modalContainer,
+#modalContainerTicket {
   position: fixed;
   /* Stay in place */
   z-index: 10;
@@ -75,7 +76,8 @@
   /* Black w/ opacity */
 }
 
-#modalContainer #removeConfirmationContainer {
+#modalContainer #removeConfirmationContainer,
+#modalContainerTicket #removeConfirmationContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -93,13 +95,15 @@
   text-align: center;
 }
 
-#modalContainer #removeConfirmationContainer .modalButtons {
+#modalContainer #removeConfirmationContainer .modalButtons,
+#modalContainerTicket #removeConfirmationContainer .modalButtons {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-#modalContainer #removeConfirmationContainer .modalButtons button {
+#modalContainer #removeConfirmationContainer .modalButtons button,
+#modalContainerTicket #removeConfirmationContainer .modalButtons button {
   width: 80px;
   height: 30px;
   margin-top: 20px;
@@ -153,7 +157,8 @@
   color: white;
 }
 
-.displayNone {
+.displayNone,
+.displayNoneTicket {
   display: none;
 }
 
