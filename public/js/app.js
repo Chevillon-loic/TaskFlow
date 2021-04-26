@@ -177,13 +177,11 @@ if (URL.includes("home")) {
 var NAVBAR = document.getElementById("navbar");
 var BTNADDLIST = document.getElementById("btnAddList");
 var TITLETAB = document.getElementById("titleTab");
-var NEWADDLIST = document.getElementById("newaddlist");
-console.log(NEWADDLIST);
 
 if (URL.includes("board")) {
   NAVBAR.style.background = board.color;
   BTNADDLIST.style.background = board.color;
-  TITLETAB.style.color = board.color; // NEWADDLIST.style.backgroundColor = board.color
+  TITLETAB.style.color = board.color;
 }
 
 /***/ }),
