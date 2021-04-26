@@ -8,23 +8,27 @@
 @section('content')
 
 <div class="mainContainer">
-    <h2>{{ $board->label }}</h2>
+    <h2 id="titleTab">{{ $board->label }}</h2>
     <div id="inviteContainer">
         <button id="invite">Inviter</button>
     </div>
 
     @foreach ($columns as $column)
         <div class="columnContainer">
-            <span class="columnTitle">
-                <p>{{ $column->label }}</p>
-                <p>X</p>
-            </span>
+            <div class="columTitleDiv">
+                <span class="columnTitle">
+                    <p>{{ $column->label }}</p>
+                    <p>X</p>
+                </span>
+             </div>
             <div class="ticketContainer">
                 @foreach ($tickets as $ticket)
                     @if ($ticket->column_id == $column->id)
+
                         <span class="ticket">
                             {{ $ticket->task }}
                         </span>
+
                     @endif
                 @endforeach
                 <div class="addTicket">
@@ -39,7 +43,7 @@
         <button id="btnAddList">+ Ajoutez une liste</button>
     </div>
 
-    <div class="addComment" style="display: none">
+    <div class="addComment">
         <button id="btnAddComment">+ Ajoutez un commentaire</button>
     </div>
 </div>
