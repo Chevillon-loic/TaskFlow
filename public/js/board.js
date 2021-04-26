@@ -1106,7 +1106,11 @@ try {
     var elem = _step4.value;
     var remBtn = elem.querySelector("#removeColumn");
     var modalContainer = elem.querySelector("#modalContainer");
+    var cxlremBtn = elem.querySelector("#cancelRemoveColumn");
     remBtn.addEventListener("click", function (e) {
+      modalContainer.classList.toggle("displayNone");
+    });
+    cxlremBtn.addEventListener("click", function (e) {
       modalContainer.classList.toggle("displayNone");
     });
   };
@@ -1130,7 +1134,7 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\js\board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/board.js */"./resources/js/board.js");
 
 
 /***/ })
