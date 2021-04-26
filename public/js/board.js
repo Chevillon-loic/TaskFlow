@@ -1113,12 +1113,22 @@ try {
 
   for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
     _loop();
-  }
+  } //-------------------------------------------------------
+  //Modal supprimer colonne
+
 } catch (err) {
   _iterator4.e(err);
 } finally {
   _iterator4.f();
 }
+
+var MODALCONTAINER = document.getElementById("modalContainer");
+var REMOVECONFIRMATION = document.getElementById("removeConfirmationContainer");
+var REMOVEBTN = document.getElementById("removeColumn");
+
+REMOVEBTN.onclick = function () {
+  MODALCONTAINER.classList.toggle("displayNone");
+};
 
 /***/ }),
 

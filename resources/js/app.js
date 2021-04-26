@@ -57,3 +57,5 @@ if (URL.includes("board")) {
     BTNADDLIST.style.background = board.color;
     TITLETAB.style.color = board.color;
 }
+
+

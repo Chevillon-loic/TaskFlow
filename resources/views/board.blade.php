@@ -17,9 +17,13 @@
             @foreach ($columns as $column)
                 <div class="columnContainer">
                     <div class="columTitleDiv">
-                        <span class="columnTitle">
-                            <p>{{ $column->label }}</p>
-                            <button id="removeColumn">X</button>
+                        <div class="titleClosed">
+                            <span class="columnTitle">
+
+                                <p>{{ $column->label }}</p>
+                                <button id="removeColumn">X</button>
+                        </div>
+                        <div id="modalContainer" class="displayNone">
                             <div id="removeConfirmationContainer" class="displayNone">
                                 <p>Êtes vous sûr de vouloir supprimer cette colonne ?</p>
                                 <span>
@@ -31,8 +35,9 @@
                                     </form>
                                 </span>
                             </div>
+                        </div>
+                        </span>
                     </div>
-                    </span>
 
                     <div class="ticketContainer">
                         @foreach ($tickets as $ticket)
