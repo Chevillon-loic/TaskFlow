@@ -49,7 +49,6 @@ Route::post('board/store/{id}', 'BoardController@store')->name('board.store')->m
 
 Route::delete('board/delete', 'BoardController@destroy')->name('board.destroy')->middleware('auth');
 
-<<<<<<< HEAD
 
 //tickets
 Route::post('ticket/store/{id}', 'TicketController@store')->name('ticket.store')->middleware('auth');
@@ -57,10 +56,8 @@ Route::post('ticket/store/{id}', 'TicketController@store')->name('ticket.store')
 Route::post('ticket/destroy', 'TicketController@destroy')->name('ticket.destroy')->middleware('auth');
 
 //comments
-=======
 Route::post('ticket/destroy', 'TicketController@destroy')->name('ticket.destroy')->middleware('auth');
 
->>>>>>> 4b0bdffe76faf8ddc8b04104f2434a68363b8903
 Route::post('comment/store/{id}', 'CommentController@store')->name('comment.store')->middleware('auth');
 
 //Route Recherche user pour invitation
