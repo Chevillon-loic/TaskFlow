@@ -1005,7 +1005,7 @@ INVITE.addEventListener("click", function (e) {
     }
   }); //Input listener KEYUP
 
-  inputInvite.addEventListener("keyup", /*#__PURE__*/function () {
+  inputInvite.addEventListener("keydown", /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
       var q, url, token, options, divToRemove, _iterator2, _step2, p, response, users;
 
@@ -1121,7 +1121,7 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\js\board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/board.js */"./resources/js/board.js");
 
 
 /***/ })
