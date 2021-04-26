@@ -70,16 +70,17 @@
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0); /* Black w/ opacity */
-    opacity: 0.3;
-    .removeConfirmationContainer {
-        position: relative;
+    background-color: rgba(0, 0, 0, 0.3); /* Black w/ opacity */
+    #removeConfirmationContainer {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        //position: relative;
         background-color: transparent;
         margin: auto;
         padding: 0;
-        width: 550px;
-        height: 200px;
-
+        width: 500px;
+        height: 500px;
         -webkit-animation-name: animatetop;
         -webkit-animation-duration: 0.4s;
         animation-name: animatetop;

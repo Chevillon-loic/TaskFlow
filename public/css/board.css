@@ -77,18 +77,19 @@
   /* Full height */
   overflow: auto;
   /* Enable scroll if needed */
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.3);
   /* Black w/ opacity */
-  opacity: 0.3;
 }
 
-#modalContainer .removeConfirmationContainer {
-  position: relative;
+#modalContainer #removeConfirmationContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
   background-color: transparent;
   margin: auto;
   padding: 0;
-  width: 550px;
-  height: 200px;
+  width: 500px;
+  height: 500px;
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;

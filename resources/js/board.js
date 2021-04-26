@@ -133,24 +133,16 @@ const TITLECONTAINER = document.getElementsByClassName("columTitleDiv");
 
 for (const elem of TITLECONTAINER) {
     let remBtn = elem.querySelector("#removeColumn");
-    let remDiv = elem.querySelector("#removeConfirmationContainer");
+    let modalContainer = elem.querySelector("#modalContainer");
+
+    let cxlremBtn = elem.querySelector("#cancelRemoveColumn");
 
     remBtn.addEventListener("click", function(e) {
-        remDiv.classList.toggle("displayNone");
+        modalContainer.classList.toggle("displayNone");
+    });
+
+    cxlremBtn.addEventListener("click", function(e) {
+        modalContainer.classList.toggle("displayNone");
     });
 }
-
-
 //-------------------------------------------------------
-
-//Modal supprimer colonne
-
-let MODALCONTAINER = document.getElementById ("modalContainer");
-let REMOVECONFIRMATION = document.getElementById ("removeConfirmationContainer");
-let REMOVEBTN = document.getElementById("removeColumn");
-
-
-REMOVEBTN.onclick = function() {
-    MODALCONTAINER.classList.toggle("displayNone");
-};
-
