@@ -14,7 +14,7 @@
         </div>
 
         @foreach ($columns as $column)
-            <div class="columnContainer" style="border: 2px solid black">
+            <div class="columnContainer">
                 <div class="columTitleDiv">
                     <span class="columnTitle">
                         <p>{{ $column->label }}</p>
