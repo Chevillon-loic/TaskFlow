@@ -41,8 +41,8 @@
                                     <div class="modalButtons">
                                         <button id="cancelRemoveColumn">Annuler</button>
                                         <form action="{{ route('column.destroy') }}" method="post">
+                                            @method('delete')
                                             @csrf
-
                                             <input type="hidden" name="id" value="{{ $column->id }}">
                                             <button type="submit">Confirmer</button>
                                         </form>
@@ -71,6 +71,7 @@
                                                     <div class="modalButtons">
                                                         <button id="cancelRemoveTicket">Annuler</button>
                                                         <form action="{{ route('ticket.destroy') }}" method="post">
+                                                            @method('delete')
                                                             @csrf
                                                             <input type="hidden" name="id" value="{{ $ticket->id }}">
                                                             <button type="submit">Confirmer</button>
