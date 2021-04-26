@@ -882,7 +882,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var BTNADDLIST = document.getElementById("btnAddList");
 var divAddList = document.querySelector(".addColumn");
-console.log(divAddList);
 BTNADDLIST.addEventListener("click", function (e) {
   var input = document.createElement("input");
   var btn = document.createElement("button");
@@ -981,17 +980,34 @@ INVITE.addEventListener("click", function (e) {
   closeInvite.innerText = "X";
   INVITECONTAINER.insertAdjacentElement("beforeend", inputInvite);
   INVITECONTAINER.insertAdjacentElement("beforeend", closeInvite);
-  INVITE.style.display = "none"; //CLOSE BTN
+  INVITE.style.display = "none";
+  inputInvite.select(); //CLOSE BTN
 
   closeInvite.addEventListener("click", function (e) {
     inputInvite.remove();
     closeInvite.remove();
     INVITE.style.display = "initial";
+    var pToRemove = INVITECONTAINER.getElementsByClassName("p");
+    console.log(pToRemove);
+
+    var _iterator = _createForOfIteratorHelper(pToRemove),
+        _step;
+
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var p = _step.value;
+        p.remove();
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
   }); //Input listener KEYUP
 
   inputInvite.addEventListener("keyup", /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
-      var q, url, token, options, pToRemove, _iterator, _step, p, response, users, _iterator2, _step2, user, _p;
+      var q, url, token, options, pToRemove, _iterator2, _step2, p, response, users, _iterator3, _step3, user, _p;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
@@ -1010,42 +1026,41 @@ INVITE.addEventListener("click", function (e) {
               };
 
               if (!(q.length > 3)) {
-                _context2.next = 25;
+                _context2.next = 24;
                 break;
               }
 
               _context2.prev = 6;
               pToRemove = INVITECONTAINER.getElementsByClassName("p");
-              console.log(pToRemove);
-              _iterator = _createForOfIteratorHelper(pToRemove);
-
-              try {
-                for (_iterator.s(); !(_step = _iterator.n()).done;) {
-                  p = _step.value;
-                  p.remove();
-                }
-              } catch (err) {
-                _iterator.e(err);
-              } finally {
-                _iterator.f();
-              }
-
-              _context2.next = 13;
-              return fetch(url, options);
-
-            case 13:
-              response = _context2.sent;
-              _context2.next = 16;
-              return response.json();
-
-            case 16:
-              users = _context2.sent;
-              console.log(users);
-              _iterator2 = _createForOfIteratorHelper(users);
+              _iterator2 = _createForOfIteratorHelper(pToRemove);
 
               try {
                 for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-                  user = _step2.value;
+                  p = _step2.value;
+                  p.remove();
+                }
+              } catch (err) {
+                _iterator2.e(err);
+              } finally {
+                _iterator2.f();
+              }
+
+              _context2.next = 12;
+              return fetch(url, options);
+
+            case 12:
+              response = _context2.sent;
+              _context2.next = 15;
+              return response.json();
+
+            case 15:
+              users = _context2.sent;
+              console.log(users);
+              _iterator3 = _createForOfIteratorHelper(users);
+
+              try {
+                for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+                  user = _step3.value;
                   _p = document.createElement("p");
 
                   _p.classList.add("p");
@@ -1054,32 +1069,56 @@ INVITE.addEventListener("click", function (e) {
                   INVITECONTAINER.insertAdjacentElement("beforeend", _p);
                 }
               } catch (err) {
-                _iterator2.e(err);
+                _iterator3.e(err);
               } finally {
-                _iterator2.f();
+                _iterator3.f();
               }
 
-              _context2.next = 25;
+              _context2.next = 24;
               break;
 
-            case 22:
-              _context2.prev = 22;
+            case 21:
+              _context2.prev = 21;
               _context2.t0 = _context2["catch"](6);
               console.log(_context2.t0);
 
-            case 25:
+            case 24:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[6, 22]]);
+      }, _callee2, null, [[6, 21]]);
     }));
 
     return function (_x2) {
       return _ref2.apply(this, arguments);
     };
   }());
-});
+}); //Bouton Supprimer Column
+
+var TITLECONTAINER = document.getElementsByClassName("columTitleDiv");
+
+var _iterator4 = _createForOfIteratorHelper(TITLECONTAINER),
+    _step4;
+
+try {
+  var _loop = function _loop() {
+    var elem = _step4.value;
+    var remBtn = elem.querySelector("#removeColumn");
+    var remDiv = elem.querySelector("#removeConfirmationContainer");
+    remBtn.addEventListener("click", function (e) {
+      remDiv.classList.toggle("displayNone");
+    });
+  };
+
+  for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+    _loop();
+  }
+} catch (err) {
+  _iterator4.e(err);
+} finally {
+  _iterator4.f();
+}
 
 /***/ }),
 

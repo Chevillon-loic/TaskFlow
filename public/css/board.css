@@ -1,0 +1,73 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;
+
+0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);.mainContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 5vh;
+}
+
+.mainContainer h2 {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+}
+
+.mainContainer .columnContainer {
+  flex-shrink: 0;
+  margin: 24px;
+}
+
+.mainContainer .columnContainer .columTitleDiv {
+  background-color: black;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: 18px;
+}
+
+.mainContainer .columnContainer .columTitleDiv p {
+  margin: 0;
+  padding: 0;
+}
+
+#btnAddList {
+  width: 280px;
+  height: 40px;
+  border-radius: 4px;
+  color: white;
+  border-style: none;
+  border-color: none;
+  margin: 24px;
+}
+
+.allColumns {
+  display: flex;
+  flex-direction: row;
+}
+
+.allColumns .columnContainer {
+  width: 280px;
+  border-radius: 4px;
+  background-color: lightgray;
+}
+
+.allColumns .columnContainer .columnTitle {
+  height: 24px;
+  background-color: darkgrey;
+  color: white;
+  font-weight: 700;
+}
+
+.ticketContainer {
+  padding: 18px;
+}
+
+.addComment {
+  margin: 24px;
+}
+
+.displayNone {
+  display: none;
+}
+

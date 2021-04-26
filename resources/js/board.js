@@ -1,6 +1,6 @@
 const BTNADDLIST = document.getElementById("btnAddList");
 const divAddList = document.querySelector(".addColumn");
-console.log(divAddList);
+
 BTNADDLIST.addEventListener("click", function(e) {
     let input = document.createElement("input");
     let btn = document.createElement("button");
@@ -77,12 +77,17 @@ INVITE.addEventListener("click", function(e) {
     INVITECONTAINER.insertAdjacentElement("beforeend", inputInvite);
     INVITECONTAINER.insertAdjacentElement("beforeend", closeInvite);
     INVITE.style.display = "none";
-
+    inputInvite.select();
     //CLOSE BTN
     closeInvite.addEventListener("click", function(e) {
         inputInvite.remove();
         closeInvite.remove();
         INVITE.style.display = "initial";
+        let pToRemove = INVITECONTAINER.getElementsByClassName("p");
+        console.log(pToRemove);
+        for (const p of pToRemove) {
+            p.remove();
+        }
     });
 
     //Input listener KEYUP
@@ -104,7 +109,6 @@ INVITE.addEventListener("click", function(e) {
             //Promesse (requete GET)
             try {
                 let pToRemove = INVITECONTAINER.getElementsByClassName("p");
-                console.log(pToRemove);
                 for (const p of pToRemove) {
                     p.remove();
                 }
@@ -123,3 +127,15 @@ INVITE.addEventListener("click", function(e) {
         }
     });
 });
+
+//Bouton Supprimer Column
+const TITLECONTAINER = document.getElementsByClassName("columTitleDiv");
+
+for (const elem of TITLECONTAINER) {
+    let remBtn = elem.querySelector("#removeColumn");
+    let remDiv = elem.querySelector("#removeConfirmationContainer");
+
+    remBtn.addEventListener("click", function(e) {
+        remDiv.classList.toggle("displayNone");
+    });
+}

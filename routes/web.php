@@ -52,3 +52,7 @@ Route::post('comment/store/{id}', 'CommentController@store')->name('comment.stor
 
 //Route Recherche user pour invitation
 Route::get('board/search/{q}', 'BoardController@search')->name('board.search')->middleware('auth');
+
+//Route Column
+
+Route::post('column/destroy', 'ColumnController@destroy')->name('column.destroy')->middleware('auth');

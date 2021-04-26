@@ -79,8 +79,9 @@ class ColumnController extends Controller
      * @param  \App\Column  $column
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Column $column)
+    public function destroy(Request $request)
     {
-        //
+        $column = Column::find($request->id)->delete();
+        return response()->json($column);
     }
 }
