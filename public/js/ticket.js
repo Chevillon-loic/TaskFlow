@@ -936,7 +936,7 @@ try {
                   };
 
                   if (!(task.length > 2)) {
-                    _context.next = 23;
+                    _context.next = 24;
                     break;
                   }
 
@@ -946,33 +946,34 @@ try {
 
                 case 9:
                   response = _context.sent;
+                  location.reload();
                   console.log(response);
-                  _context.next = 16;
+                  _context.next = 17;
                   break;
 
-                case 13:
-                  _context.prev = 13;
+                case 14:
+                  _context.prev = 14;
                   _context.t0 = _context["catch"](6);
                   console.log(_context.t0);
 
-                case 16:
+                case 17:
                   input.value = "";
                   input.remove();
                   btn.remove();
                   close.remove();
                   btnAdd[0].style.display = "initial";
-                  _context.next = 24;
+                  _context.next = 25;
                   break;
 
-                case 23:
+                case 24:
                   input.value = "";
 
-                case 24:
+                case 25:
                 case "end":
                   return _context.stop();
               }
             }
-          }, _callee, null, [[6, 13]]);
+          }, _callee, null, [[6, 14]]);
         }));
 
         return function (_x) {
@@ -980,7 +981,7 @@ try {
         };
       }());
     });
-    var DIVTICKET = document.getElementsByClassName("boxTicket");
+    var DIVTICKET = document.getElementsByClassName("divTicket");
 
     var _iterator2 = _createForOfIteratorHelper(DIVTICKET),
         _step2;
@@ -1011,33 +1012,7 @@ try {
 
   for (_iterator.s(); !(_step = _iterator.n()).done;) {
     _loop();
-  } // btnAdd[0].addEventListener("click", async function(e) {
-  //     let url = document.location.origin + "/ticket/store/" + board.id;
-  //     let token = document
-  //         .querySelector('meta[name="csrf-token"]')
-  //         .getAttribute("content");
-  //     console.log(id);
-  //     let body = {
-  //         column_id: id,
-  //         user_id: user.id,
-  //         task: "chose a faire"
-  //     };
-  //     const options = {
-  //         method: "POST",
-  //         headers: {
-  //             "Content-Type": "application/json",
-  //             "X-CSRF-TOKEN": token
-  //         },
-  //         body: JSON.stringify(body)
-  //     };
-  //     try {
-  //         const response = await fetch(url, options);
-  //         console.log(response);
-  //     } catch (error) {
-  //         console.log(error);
-  //     }
-  // });
-
+  }
 } catch (err) {
   _iterator.e(err);
 } finally {

@@ -55,6 +55,7 @@ for (const ticket of ADDTICKETDIV) {
             if (task.length > 2) {
                 try {
                     const response = await fetch(url, options);
+                    location.reload();
                     console.log(response);
                 } catch (error) {
                     console.log(error);
@@ -70,7 +71,7 @@ for (const ticket of ADDTICKETDIV) {
         });
     });
 
-    const DIVTICKET = document.getElementsByClassName("boxTicket");
+    const DIVTICKET = document.getElementsByClassName("divTicket");
 
     for (const ticket of DIVTICKET) {
         let btnSupp = ticket.querySelector("#removeTicket");
@@ -87,35 +88,3 @@ for (const ticket of ADDTICKETDIV) {
         });
     }
 }
-
-// btnAdd[0].addEventListener("click", async function(e) {
-//     let url = document.location.origin + "/ticket/store/" + board.id;
-//     let token = document
-//         .querySelector('meta[name="csrf-token"]')
-//         .getAttribute("content");
-//     console.log(id);
-//     let body = {
-//         column_id: id,
-//         user_id: user.id,
-//         task: "chose a faire"
-//     };
-
-//     const options = {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//             "X-CSRF-TOKEN": token
-//         },
-//         body: JSON.stringify(body)
-//     };
-
-//     try {
-//         const response = await fetch(url, options);
-//         console.log(response);
-//     } catch (error) {
-//         console.log(error);
-//     }
-// });
-
-
-

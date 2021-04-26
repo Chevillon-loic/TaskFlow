@@ -1129,7 +1129,11 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\js\board.js */"./resources/js/board.js");
+=======
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/board.js */"./resources/js/board.js");
+>>>>>>> 4db91240525be7cc84f900243012a2a062706826
 
 
 /***/ })
