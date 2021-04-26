@@ -70,33 +70,22 @@ for (const ticket of ADDTICKETDIV) {
         });
     });
 
-    // const TITLETICKETCONTAINER = document.getElementsByClassName("ticketTitleDiv");
+    const DIVTICKET = document.getElementsByClassName("boxTicket");
 
-    // for (const elem of TITLETICKETCONTAINER) {
-    //     console.log(elem);
-    //     btnAdd[0].addEventListener("click", function(e) {
-    //         let input = document.createElement("input");
-    //         let btn = document.createElement("button");
-    //         let close = document.createElement("button");
-    //         BTNADDTICKET.style.display = "none";
+    for (const ticket of DIVTICKET) {
+        let btnSupp = ticket.querySelector("#removeTicket");
+        let divModalTicket = ticket.querySelector("#modalContainerTicket");
 
-    //         btn.innerText = "plus";
-    //         close.innerText = "X";
+        let cancelRemoveTicket = ticket.querySelector("#cancelRemoveTicket");
 
-    //         elem.insertAdjacentElement("beforeend", input);
-    //         elem.insertAdjacentElement("beforeend", btn);
-    //         elem.insertAdjacentElement("beforeend", close);
-    //         input.select();
-    //         input.placeholder = "Ajouter un ticket";
+        btnSupp.addEventListener("click", function(e) {
+            divModalTicket.style.display = "block";
+        });
 
-    //         close.addEventListener("click", function(e) {
-    //             input.remove();
-    //             btn.remove();
-    //             close.remove();
-    //             BTNADDTICKET.style.display = "initial";
-    //         })
-    //     })
-    // }
+        cancelRemoveTicket.addEventListener("click", function(e) {
+            divModalTicket.style.display = "none";
+        });
+    }
 }
 
 // btnAdd[0].addEventListener("click", async function(e) {
@@ -130,23 +119,3 @@ for (const ticket of ADDTICKETDIV) {
 
 
 
-let boxTicket = document.querySelector(".boxTicket");
-let momocontent = document.getElementById("momocontent")
-let Modal = document.getElementById("Modal")
-
-let closeModalComment = document.createElement("button")
-closeModalComment.innerText = "x"
-
-
-momocontent.style.display ="none"
-Modal.style.display ="none"
-  boxTicket.addEventListener("click", function(e){
-
-
-
-    momocontent.style.display ="block"
-Modal.style.display ="block"
-
-      comment.insertAdjacentElement('befo')
-
-  })

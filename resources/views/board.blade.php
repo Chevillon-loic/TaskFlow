@@ -52,20 +52,24 @@
                                     {{ $ticket->task }}
                                     <button id="removeTicket">X</button>
                                 </span>
-                                <div id="modalTicket">
-                                    <div id="removeConfirmationContainer">
-
+                                <div id="modalContainerTicket" class="displayNoneTicket">
+                                    <div id="removeConfirmationContainer" class="displayNoneTicket">
+                                        <p>Êtes vous sûr de vouloir supprimer ce ticket ?</p>
+                                        <span>
+                                            <div class="modalButtons">
+                                            <button id="cancelRemoveTicket">Annuler</button>
+                                            <form action="{{ route('ticket.destroy') }}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{ $ticket->id }}">
+                                                <button type="submit">Confirmer</button>
+                                            </form>
+                                        </div>
+                                        </span>
                                     </div>
-
                                 </div>
 
-                                <div id="commentContainer">
-                                    <button id="comment">Ajoutez un commentaire</button>
-                                </div>
-                            </div>
-
-                            <!-- .Modal Affichage commentaire -->
-                                <div id="commentBackground">
+                                 <!-- .Modal Affichage commentaire -->
+                                 <div id="commentBackground">
                                     <div id="modalComment">
                                     {{ $ticket->task }}<br>
                                     <span id="closeModalComment">&times;</span>
@@ -74,6 +78,7 @@
                                     </div>
                                 </div>
                             <!-- Fin Affichage Modal -->
+                            </div>
 
                             @endif
                         @endforeach
@@ -109,7 +114,7 @@
 
 </script>
 @section('custom_scripts')
-<script src="{{ asset('js/comment.js') }}"></script>
+    <script src="{{ asset('js/comment.js') }}"></script>
     <script src="{{ asset('js/ticket.js') }}"></script>
     <script src="{{ asset('js/board.js') }}"></script>
 

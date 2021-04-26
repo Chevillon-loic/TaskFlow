@@ -20,7 +20,6 @@ const COMMENTCONTAINER = document.getElementById('commentContainer');
 const COMMENT = document.getElementById('comment')
 
 
-
 // BOUTON AFFICHER INPUT
 COMMENT.addEventListener('click', function(e) {
 let inputComment = document.createElement("input");

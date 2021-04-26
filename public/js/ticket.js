@@ -979,29 +979,34 @@ try {
           return _ref.apply(this, arguments);
         };
       }());
-    }); // const TITLETICKETCONTAINER = document.getElementsByClassName("ticketTitleDiv");
-    // for (const elem of TITLETICKETCONTAINER) {
-    //     console.log(elem);
-    //     btnAdd[0].addEventListener("click", function(e) {
-    //         let input = document.createElement("input");
-    //         let btn = document.createElement("button");
-    //         let close = document.createElement("button");
-    //         BTNADDTICKET.style.display = "none";
-    //         btn.innerText = "plus";
-    //         close.innerText = "X";
-    //         elem.insertAdjacentElement("beforeend", input);
-    //         elem.insertAdjacentElement("beforeend", btn);
-    //         elem.insertAdjacentElement("beforeend", close);
-    //         input.select();
-    //         input.placeholder = "Ajouter un ticket";
-    //         close.addEventListener("click", function(e) {
-    //             input.remove();
-    //             btn.remove();
-    //             close.remove();
-    //             BTNADDTICKET.style.display = "initial";
-    //         })
-    //     })
-    // }
+    });
+    var DIVTICKET = document.getElementsByClassName("boxTicket");
+
+    var _iterator2 = _createForOfIteratorHelper(DIVTICKET),
+        _step2;
+
+    try {
+      var _loop2 = function _loop2() {
+        var ticket = _step2.value;
+        var btnSupp = ticket.querySelector("#removeTicket");
+        var divModalTicket = ticket.querySelector("#modalContainerTicket");
+        var cancelRemoveTicket = ticket.querySelector("#cancelRemoveTicket");
+        btnSupp.addEventListener("click", function (e) {
+          divModalTicket.style.display = "block";
+        });
+        cancelRemoveTicket.addEventListener("click", function (e) {
+          divModalTicket.style.display = "none";
+        });
+      };
+
+      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+        _loop2();
+      }
+    } catch (err) {
+      _iterator2.e(err);
+    } finally {
+      _iterator2.f();
+    }
   };
 
   for (_iterator.s(); !(_step = _iterator.n()).done;) {
