@@ -1,0 +1,58 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+// Variables
+@import "variables";
+
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 5vh;
+    h2 {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 17px;
+        letter-spacing: 0.05em;
+        //color: $secondary;
+    }
+    .columnContainer {
+        margin: 3vh;
+        .columnTitleDiv {
+            background-color: black;
+            p {
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+}
+
+#btnAddList {
+    width: 280px;
+    height: 40px;
+    border-radius: 4px;
+    color: white;
+    border-style: none;
+    border-color: none;
+    margin: 3vh;
+}
+
+.addComment {
+    margin: 3vh;
+}
+
+.columnContainer {
+    width: 280px;
+    border-radius: 4px;
+    background-color: lightgray;
+    .columnTitle {
+        height: 3vh;
+        background-color: darkgrey;
+        color: white;
+        font-weight: 700;
+    }
+}
+
+.displayNone {
+    display: none;
+}

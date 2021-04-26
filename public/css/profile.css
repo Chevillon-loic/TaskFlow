@@ -138,12 +138,12 @@
 
 .mainContainer .profile .profileIn .bloc-infos .bloc-left p {
   color: #23b5b5;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .mainContainer .profile .profileIn .bloc-infos .bloc-right {
   margin: 3vh 2vh;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .mainContainer .profile .profileIn #buttonProfileModification {

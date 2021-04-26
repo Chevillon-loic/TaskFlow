@@ -6,52 +6,59 @@
 @endsection
 
 @section('content')
-    <h2>{{ $board->label }}</h2>
-    <div id="inviteContainer">
-        <button id="invite">Inviter</button>
-    </div>
 
-    @foreach ($columns as $column)
-        <div class="columnContainer" style="border: 2px solid black">
-            <span class="columnTitle">
-                <p>{{ $column->label }}</p>
-                <button id="removeColumn">X</button>
-                <div class="removeConfirmation">
-                    <p>Êtes vous sûr de vouloir supprimer cette colonne ?</p>
-                    <span>
-                        <button>Annuler</button>
-                        <form action="{{ route('column.destroy') }}" method="post">
-                            @csrf
-                            <input type="hidden" name="id" value="{{ $column->id }}">
-                            <button type="submit">Confirmer</button>
-                        </form>
-                    </span>
+    <div class="mainContainer">
+        <h2 id="titleTab">{{ $board->label }}</h2>
+        <div id="inviteContainer">
+            <button id="invite">Inviter</button>
+        </div>
+
+        @foreach ($columns as $column)
+            <div class="columnContainer" style="border: 2px solid black">
+                <div class="columTitleDiv">
+                    <span class="columnTitle">
+                        <p>{{ $column->label }}</p>
+                        <button id="removeColumn">X</button>
+                        <div class="removeConfirmation">
+                            <p>Êtes vous sûr de vouloir supprimer cette colonne ?</p>
+                            <span>
+                                <button>Annuler</button>
+                                <form action="{{ route('column.destroy') }}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $column->id }}">
+                                    <button type="submit">Confirmer</button>
+                                </form>
+                            </span>
+                        </div>
                 </div>
-            </span>
-            <div class="ticketContainer">
-                @foreach ($tickets as $ticket)
-                    @if ($ticket->column_id == $column->id)
-                        <span class="ticket">
-                            {{ $ticket->task }}
-                        </span>
-                    @endif
-                @endforeach
-                <div class="addTicket">
-                    <button id="btnAddTicket">+ Ajoutez un ticket</button>
-                    <input type="hidden" id="columnId" value="{{ $column->id }}">
+                </span>
+
+                <div class="ticketContainer">
+                    @foreach ($tickets as $ticket)
+                        @if ($ticket->column_id == $column->id)
+
+                            <span class="ticket">
+                                {{ $ticket->task }}
+                            </span>
+
+                        @endif
+                    @endforeach
+                    <div class="addTicket">
+                        <button id="btnAddTicket">+ Ajoutez un ticket</button>
+                        <input type="hidden" id="columnId" value="{{ $column->id }}">
+                    </div>
                 </div>
             </div>
+        @endforeach
+
+        <div class="addColumn">
+            <button id="btnAddList">+ Ajoutez une liste</button>
         </div>
-    @endforeach
 
-    <div class="addColumn">
-        <button id="btnAddList">+ Ajoutez une liste</button>
+        <div class="addComment">
+            <button id="btnAddComment">+ Ajoutez un commentaire</button>
+        </div>
     </div>
-
-    <div class="addComment" style="display: none">
-        <button id="btnAddComment">+ Ajoutez un commentaire</button>
-    </div>
-
 @endsection
 
 

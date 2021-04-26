@@ -49,7 +49,11 @@ if (URL.includes("home")) {
 
 //Navbar page Board
 const NAVBAR = document.getElementById("navbar");
+const BTNADDLIST = document.getElementById("btnAddList");
+const TITLETAB = document.getElementById("titleTab");
 
 if (URL.includes("board")) {
     NAVBAR.style.background = board.color;
+    BTNADDLIST.style.background = board.color;
+    TITLETAB.style.color = board.color;
 }
