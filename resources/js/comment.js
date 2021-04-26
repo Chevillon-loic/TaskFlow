@@ -1,7 +1,6 @@
 // const COMMENTCONTAINER = document.getElementById('commentContainer');
 // const COMMENT = document.getElementById('comment')
 
-
 // // BOUTON AFFICHER INPUT
 // COMMENT.addEventListener('click', function(e) {
 // let inputComment = document.createElement("input");
@@ -30,7 +29,6 @@
 //     COMMENT.style.display = "initial";
 
 // });
-
 
 // // Ajouter un commentaire
 // btnComment.addEventListener("click" , async function(e){
@@ -67,7 +65,6 @@
 
 // });
 
-
 // let modalComment = document.getElementById("modalComment");
 // let commentBackground = document.getElementById("commentBackground");
 // let boxTicket = document.querySelector(".boxTicket")
@@ -85,6 +82,3 @@
 //  })
 
 // })
-
-
-
