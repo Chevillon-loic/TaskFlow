@@ -1113,12 +1113,22 @@ try {
 
   for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
     _loop();
-  }
+  } //-------------------------------------------------------
+  //Modal supprimer colonne
+
 } catch (err) {
   _iterator4.e(err);
 } finally {
   _iterator4.f();
 }
+
+var MODALCONTAINER = document.getElementById("modalContainer");
+var REMOVECONFIRMATION = document.getElementById("removeConfirmationContainer");
+var REMOVEBTN = document.getElementById("removeColumn");
+
+REMOVEBTN.onclick = function () {
+  MODALCONTAINER.classList.toggle("displayNone");
+};
 
 /***/ }),
 
@@ -1129,7 +1139,7 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/board.js */"./resources/js/board.js");
 
 
 /***/ })

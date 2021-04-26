@@ -17,22 +17,27 @@
         @foreach ($columns as $column)
             <div class="columnContainer">
                 <div class="columTitleDiv">
-                    <span class="columnTitle">
-                        <p>{{ $column->label }}</p>
-                        <button id="removeColumn">X</button>
-                        <div id="removeConfirmationContainer" class="displayNone">
-                            <p>Êtes vous sûr de vouloir supprimer cette colonne ?</p>
-                            <span>
-                                <button>Annuler</button>
-                                <form action="{{ route('column.destroy') }}" method="post">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{ $column->id }}">
-                                    <button type="submit">Confirmer</button>
-                                </form>
-                            </span>
+                    <div class="titleClosed">
+                        <span class="columnTitle">
+
+                            <p>{{ $column->label }}</p>
+                            <button id="removeColumn">X</button>
+                    </div>
+                        <div id="modalContainer" class="displayNone">
+                            <div id="removeConfirmationContainer" class="displayNone">
+                                <p>Êtes vous sûr de vouloir supprimer cette colonne ?</p>
+                                <span>
+                                    <button>Annuler</button>
+                                    <form action="{{ route('column.destroy') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $column->id }}">
+                                        <button type="submit">Confirmer</button>
+                                    </form>
+                                </span>
+                            </div>
                         </div>
-                </div>
                 </span>
+            </div>
 
                 <div class="ticketContainer">
                     @foreach ($tickets as $ticket)
