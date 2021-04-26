@@ -976,11 +976,7 @@ boxTicket.addEventListener("click", function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\js\comment.js */"./resources/js/comment.js");
-=======
 module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/comment.js */"./resources/js/comment.js");
->>>>>>> 2ba827bceaeb1b8b44b0a7c7487f758efdb9043f
 
 
 /***/ })
