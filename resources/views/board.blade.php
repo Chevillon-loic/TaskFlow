@@ -14,12 +14,12 @@
         </div>
 
         <button id="deleteTab">Supprimer le tableau</button>
-            <form action="{{route ('board.destroy')}}" method="post">
-                @method('delete')
-                @csrf
-                <input type="hidden" name="id" value="{{$board->id}}">
-                <button type="submit">Confirmer</button>
-            </form>
+        <form action="{{ route('board.destroy') }}" method="post">
+            @method('delete')
+            @csrf
+            <input type="hidden" name="id" value="{{ $board->id }}">
+            <button type="submit">Confirmer</button>
+        </form>
 
 
 
@@ -39,13 +39,14 @@
                                 <p>Êtes vous sûr de vouloir supprimer cette liste ?</p>
                                 <span>
                                     <div class="modalButtons">
-                                    <button id="cancelRemoveColumn">Annuler</button>
-                                    <form action="{{ route('column.destroy') }}" method="post">
-                                        @csrf
-                                        <input type="hidden" name="id" value="{{ $column->id }}">
-                                        <button type="submit">Confirmer</button>
-                                    </form>
-                                </div>
+                                        <button id="cancelRemoveColumn">Annuler</button>
+                                        <form action="{{ route('column.destroy') }}" method="post">
+                                            @csrf
+
+                                            <input type="hidden" name="id" value="{{ $column->id }}">
+                                            <button type="submit">Confirmer</button>
+                                        </form>
+                                    </div>
                                 </span>
                             </div>
                         </div>
@@ -57,26 +58,26 @@
                         @foreach ($tickets as $ticket)
                             @if ($ticket->column_id == $column->id)
 
-                            <div class="boxTicket">
-                                <span class="ticket">
-                                    {{ $ticket->task }}
-                                    <button id="removeTicket">X</button>
-                                </span>
-                                <div id="modalContainerTicket" class="displayNoneTicket">
-                                    <div id="removeConfirmationContainer" class="displayNoneTicket">
-                                        <p>Êtes vous sûr de vouloir supprimer ce ticket ?</p>
-                                        <span>
-                                            <div class="modalButtons">
-                                            <button id="cancelRemoveTicket">Annuler</button>
-                                            <form action="{{ route('ticket.destroy') }}" method="post">
-                                                @csrf
-                                                <input type="hidden" name="id" value="{{ $ticket->id }}">
-                                                <button type="submit">Confirmer</button>
-                                            </form>
+                                <div class="boxTicket">
+                                    <span class="ticket">
+                                        {{ $ticket->task }}
+                                        <button id="removeTicket">X</button>
+                                    </span>
+                                    <div id="modalContainerTicket" class="displayNoneTicket">
+                                        <div id="removeConfirmationContainer" class="displayNoneTicket">
+                                            <p>Êtes vous sûr de vouloir supprimer ce ticket ?</p>
+                                            <span>
+                                                <div class="modalButtons">
+                                                    <button id="cancelRemoveTicket">Annuler</button>
+                                                    <form action="{{ route('ticket.destroy') }}" method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{ $ticket->id }}">
+                                                        <button type="submit">Confirmer</button>
+                                                    </form>
+                                                </div>
+                                            </span>
                                         </div>
-                                        </span>
                                     </div>
-                                </div>
 
                                  <!-- .Modal Affichage commentaire -->
                                  <div id="commentBackground">
@@ -120,7 +121,6 @@
     let board = @json($board);
     let column = @json($column);
     let user = @json($user);
-
 
 </script>
 @section('custom_scripts')
