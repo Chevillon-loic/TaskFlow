@@ -13,6 +13,7 @@
             <button id="invite">Inviter</button>
         </div>
 
+        <div class="allColumns">
         @foreach ($columns as $column)
             <div class="columnContainer">
                 <div class="columTitleDiv">
@@ -51,11 +52,12 @@
             </div>
         @endforeach
 
+
         <div class="addColumn">
             <button id="btnAddList">+ Ajoutez une liste</button>
         </div>
-
-        <div class="addComment">
+    </div>
+        <div class="addComment" style="display:none">
             <button id="btnAddComment">+ Ajoutez un commentaire</button>
         </div>
     </div>
