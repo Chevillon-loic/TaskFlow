@@ -887,6 +887,8 @@ BTNADDLIST.addEventListener("click", function (e) {
   var btn = document.createElement("button");
   var close = document.createElement("button");
   btn.innerText = "Ajoutez une liste";
+  btn.id = "newaddlist";
+  btn.style.backgroundColor = board.color;
   close.innerText = "X";
   divAddList.insertAdjacentElement("beforeend", btn);
   divAddList.insertAdjacentElement("beforeend", close);
@@ -1128,7 +1130,7 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/board.js */"./resources/js/board.js");
 
 
 /***/ })

@@ -7,6 +7,8 @@ BTNADDLIST.addEventListener("click", function(e) {
     let close = document.createElement("button");
 
     btn.innerText = "Ajoutez une liste";
+    btn.id = "newaddlist";
+    btn.style.backgroundColor = board.color;
     close.innerText = "X";
 
     divAddList.insertAdjacentElement("beforeend", btn);
