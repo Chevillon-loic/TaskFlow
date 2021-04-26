@@ -20,7 +20,7 @@
                     <span class="columnTitle">
                         <p>{{ $column->label }}</p>
                         <button id="removeColumn">X</button>
-                        <div class="removeConfirmation">
+                        <div id="removeConfirmationContainer" class="displayNone">
                             <p>Êtes vous sûr de vouloir supprimer cette colonne ?</p>
                             <span>
                                 <button>Annuler</button>
