@@ -73,6 +73,7 @@
     let board = @json($board);
     let column = @json($column);
     let user = @json($user);
+    let tickets = @json($tickets);
 
 </script>
 @section('custom_scripts')
