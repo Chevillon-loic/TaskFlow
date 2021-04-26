@@ -981,7 +981,7 @@ try {
         };
       }());
     });
-    var DIVTICKET = document.getElementsByClassName("divTicket");
+    var DIVTICKET = document.getElementsByClassName("boxTicket");
 
     var _iterator2 = _createForOfIteratorHelper(DIVTICKET),
         _step2;

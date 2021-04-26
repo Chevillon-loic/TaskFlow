@@ -16,6 +16,46 @@
         letter-spacing: 0.05em;
     }
 
+    //INVITER
+
+    .topContainer {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        align-items: flex-end;
+
+        #inviteContainer {
+            width: 150px;
+            #invite {
+                width: 100px;
+                height: 30px;
+                background-color: rgb(223, 223, 223);
+                border-style: none;
+                font-family: "Montserrat", sans-serif;
+                padding: 3px;
+                margin: 5px;
+            }
+        }
+
+        //SUPPRIMER TABLEAU
+        .containerInviteDelete {
+            display: flex;
+            justify-content: space-between;
+            width: 88%;
+            #deleteTab {
+                width: 100px;
+                background-color: white;
+                border-color: lightgray;
+                border-style: solid;
+                color: rgb(158, 158, 158);
+                font-family: "Montserrat", sans-serif;
+                padding: 3px;
+                margin: 5px;
+                border-radius: 5px;
+            }
+        }
+    }
+
     //COLUMNS
     .columnContainer {
         flex-shrink: 0;
@@ -38,7 +78,7 @@
     flex-direction: row;
     overflow-x: scroll;
     .columnContainer {
-        width: 280px;
+        width: 300px;
         border-radius: 4px;
         background-color: lightgray;
         .columnTitle {
@@ -50,6 +90,14 @@
             justify-content: space-between;
             align-items: center;
         }
+        #removeColumn {
+            background-color: transparent;
+            border-style: none;
+            color: white;
+            margin-top: -18px;
+            margin-right: -12px;
+        }
+
         #btnAddTicket {
             cursor: pointer;
         }
@@ -105,7 +153,7 @@
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 16px;
-    width: 280px;
+    width: 300px;
     height: 60px;
     border-radius: 4px;
     border-style: none;
@@ -119,12 +167,15 @@
 //TICKETS
 
 .ticketContainer {
-    padding: 18px;
+    padding: 8px 12px;
+    .divTicket {
+        margin: 12px 0px;
+    }
 }
 
 .boxTicket {
     background-color: white;
-    border-radius: 4px;
+    border-radius: 2px;
     padding: 4px;
     margin-bottom: 5px;
     cursor: pointer;
@@ -191,6 +242,7 @@
         opacity: 0.6;
     }
 }
+
 .displayNone,
 .displayNoneTicket {
     display: none;

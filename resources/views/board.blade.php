@@ -2,24 +2,36 @@
 
 @section('custom_styles')
     <link href="{{ asset('css/board.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 
 @section('content')
 
     <div class="mainContainer">
-        <h2 id="titleTab">{{ $board->label }}</h2>
-        <div id="inviteContainer">
-            <button id="invite">Inviter</button>
-        </div>
 
-        <button id="deleteTab">Supprimer le tableau</button>
-        <form action="{{ route('board.destroy') }}" method="post">
-            @method('delete')
-            @csrf
-            <input type="hidden" name="id" value="{{ $board->id }}">
-            <button type="submit">Confirmer</button>
-        </form>
+            <div class="topContainer">
+
+            <h2 id="titleTab">{{ $board->label }}</h2>
+
+            {{--Invite user--}}
+            <div class="containerInviteDelete">
+            <div id="inviteContainer">
+                <button id="invite">Inviter</button>
+            </div>
+
+            {{--Supprimer le tableau--}}
+
+            <button id="deleteTab">Supprimer le tableau</button>
+        </div>
+    </div>
+            <form action="{{ route('board.destroy') }}" method="post">
+                @method('delete')
+                @csrf
+                <input type="hidden" name="id" value="{{ $board->id }}">
+                <button type="submit" class="displayNone">Confirmer</button>
+            </form>
+
 
 
 
@@ -32,8 +44,9 @@
                             <span class="columnTitle">
 
                                 <p>{{ $column->label }}</p>
-                                <button id="removeColumn">X</button>
+                                <button id="removeColumn"><i class="fas fa-times-circle"></i></button>
                         </div>
+                    {{--Supprimer colonne/liste--}}
                         <div id="modalContainer" class="displayNone">
                             <div id="removeConfirmationContainer" class="displayNone">
                                 <p>Êtes vous sûr de vouloir supprimer cette liste ?</p>
@@ -41,8 +54,8 @@
                                     <div class="modalButtons">
                                         <button id="cancelRemoveColumn">Annuler</button>
                                         <form action="{{ route('column.destroy') }}" method="post">
+                                            @method('delete')
                                             @csrf
-
                                             <input type="hidden" name="id" value="{{ $column->id }}">
                                             <button type="submit">Confirmer</button>
                                         </form>
@@ -57,7 +70,7 @@
                     <div class="ticketContainer">
                         @foreach ($tickets as $ticket)
                             @if ($ticket->column_id == $column->id)
-                                <div class="divTicket">
+
                                     <div class="boxTicket">
 
                                         <span class="ticket">
@@ -71,6 +84,7 @@
                                                     <div class="modalButtons">
                                                         <button id="cancelRemoveTicket">Annuler</button>
                                                         <form action="{{ route('ticket.destroy') }}" method="post">
+                                                            @method('delete')
                                                             @csrf
                                                             <input type="hidden" name="id" value="{{ $ticket->id }}">
                                                             <button type="submit">Confirmer</button>
@@ -90,13 +104,14 @@
                                             </div>
                                         </div> --}}
                                     </div>
-                                </div>
+
                             </div>
                             <!-- Fin Affichage Modal -->
                             </div>
 
                             @endif
                         @endforeach
+                        {{--Ajouter ticket--}}
                         <div class="addTicket">
                             <button id="btnAddTicket">+ Ajoutez un ticket</button>
                             <input type="hidden" id="columnId" value="{{ $column->id }}">
@@ -105,7 +120,7 @@
                 </div>
             @endforeach
 
-
+                {{--Ajouter colonne/liste--}}
             <div class="addColumn" id="addColumn">
                 <button id="btnAddList">+ Ajoutez une liste</button>
             </div>
