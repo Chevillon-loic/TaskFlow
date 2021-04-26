@@ -211,6 +211,10 @@
   margin: 24px;
 }
 
+#newListInput {
+  padding: 5px 10px;
+}
+
 .ticketContainer {
   padding: 8px 12px;
 }

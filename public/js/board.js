@@ -886,10 +886,11 @@ BTNADDLIST.addEventListener("click", function (e) {
   var input = document.createElement("input");
   var btn = document.createElement("button");
   var close = document.createElement("button");
-  btn.innerText = "Nouvelle liste";
+  btn.innerText = "Valider";
   btn.id = "newaddlist";
+  input.id = "newListInput";
   btn.style.backgroundColor = board.color;
-  close.innerText = "Annluer";
+  close.innerText = "Annuler";
   divAddList.insertAdjacentElement("beforeend", btn);
   divAddList.insertAdjacentElement("beforeend", input);
   divAddList.insertAdjacentElement("beforeend", close);
@@ -1124,7 +1125,13 @@ try {
 
 var BTNDELETETAB = document.getElementById("deleteTab");
 var MODALDELETETAB = document.getElementById("modalContainerTAB");
-BTNDELETETAB.addEventListener("click", function (e) {});
+var BTNCXLDELETETAB = document.getElementById("cancelRemoveColumnTAB");
+BTNDELETETAB.addEventListener("click", function (e) {
+  MODALDELETETAB.classList.toggle("displayNone");
+});
+BTNCXLDELETETAB.addEventListener("click", function (e) {
+  MODALDELETETAB.classList.toggle("displayNone");
+});
 
 /***/ }),
 
