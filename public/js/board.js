@@ -976,16 +976,20 @@ var INVITE = document.getElementById("invite");
 INVITE.addEventListener("click", function (e) {
   var inputInvite = document.createElement("input");
   var closeInvite = document.createElement("button");
+  var btnToInvite = document.createElement("button");
   inputInvite.placeholder = "Rechercher une personne...";
   closeInvite.innerText = "X";
+  btnToInvite.innerText = "Inviter";
   INVITECONTAINER.insertAdjacentElement("beforeend", inputInvite);
   INVITECONTAINER.insertAdjacentElement("beforeend", closeInvite);
+  INVITECONTAINER.insertAdjacentElement("beforeend", btnToInvite);
   INVITE.style.display = "none";
   inputInvite.select(); //CLOSE BTN
 
   closeInvite.addEventListener("click", function (e) {
     inputInvite.remove();
     closeInvite.remove();
+    btnToInvite.remove();
     INVITE.style.display = "initial";
     var pToRemove = INVITECONTAINER.getElementsByClassName("p");
     console.log(pToRemove);
@@ -1026,7 +1030,7 @@ INVITE.addEventListener("click", function (e) {
               };
 
               if (!(q.length > 3)) {
-                _context2.next = 23;
+                _context2.next = 24;
                 break;
               }
 
@@ -1061,20 +1065,23 @@ INVITE.addEventListener("click", function (e) {
                 div.innerHTML = "\n                    <p class=\"p\"> ".concat(user.first_name, " ").concat(user.last_name, "</p>");
                 INVITECONTAINER.insertAdjacentElement("beforeend", div);
               });
-              _context2.next = 23;
+
+              if (users.length >= 1) {}
+
+              _context2.next = 24;
               break;
 
-            case 20:
-              _context2.prev = 20;
+            case 21:
+              _context2.prev = 21;
               _context2.t0 = _context2["catch"](6);
               console.log(_context2.t0);
 
-            case 23:
+            case 24:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[6, 20]]);
+      }, _callee2, null, [[6, 21]]);
     }));
 
     return function (_x2) {
