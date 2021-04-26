@@ -58,7 +58,7 @@
         </div>
     </div>
         <div id="commentContainer">
-            <button id="comment">+ Ajoutez un commentaire</button>
+            <button id="comment">Ajoutez un commentaire</button>
         </div>
     </div>
 @endsection

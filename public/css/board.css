@@ -71,3 +71,18 @@
   display: none;
 }
 
+#comment {
+  width: 280px;
+  height: 40px;
+  border-radius: 4px;
+  color: black;
+  border: none;
+  box-shadow: 0 0 4px 0px grey;
+  cursor: pointer;
+}
+
+#comment:hover {
+  background-color: blue;
+  color: white;
+}
+

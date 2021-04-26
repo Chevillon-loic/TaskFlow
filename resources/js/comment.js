@@ -12,10 +12,10 @@ inputComment.name ="description"
 inputComment.placeholder = "Ajouter un commentaire";
 
 //Contenu bouton Add
-btnComment.innerText = "Ajouter"
+btnComment.innerText = "Valider"
 
 // Contenu du bouton close
-closeComment.innerText = "X";
+closeComment.innerText = 'x'
 COMMENTCONTAINER.insertAdjacentElement('beforeend', inputComment);
 COMMENTCONTAINER.insertAdjacentElement('beforeend', btnComment);
 COMMENTCONTAINER.insertAdjacentElement('beforeend', closeComment);
@@ -27,19 +27,21 @@ closeComment.addEventListener("click", function(e){
     btnComment.remove();
     closeComment.remove();
     COMMENT.style.display = "initial";
+
 });
-console.log(tickets)
+
 
 // Ajouter un commentaire
 btnComment.addEventListener("click" , async function(e){
-    let url = document.location.origin + "/comment/store/" + ticket.id;
+    let url = document.location.origin + "/comment/store/" + 4;
     let description = inputComment.value;
     let token = document
         .querySelector('meta[name="csrf-token"]')
         .getAttribute("content");
     let body = {
+
         description: description,
-        ticket_id: ticket.id,
+        ticket_id: 4,
         user_id: user.id,
     };
     //Corps de la requete et body
@@ -51,7 +53,7 @@ btnComment.addEventListener("click" , async function(e){
         },
         body: JSON.stringify(body)
     };
-    if (label.length > 2) {
+    if (description.length > 2) {
 
         //Promesse (requete POST)
         try {

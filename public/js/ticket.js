@@ -961,11 +961,7 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\js\ticket.js */"./resources/js/ticket.js");
-=======
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/ticket.js */"./resources/js/ticket.js");
->>>>>>> d813fe6304e4d8d1556691d3112021707b67163a
 
 
 /***/ })

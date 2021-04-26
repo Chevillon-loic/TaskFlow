@@ -885,9 +885,9 @@ COMMENT.addEventListener('click', function (e) {
   inputComment.name = "description";
   inputComment.placeholder = "Ajouter un commentaire"; //Contenu bouton Add
 
-  btnComment.innerText = "Ajouter"; // Contenu du bouton close
+  btnComment.innerText = "Valider"; // Contenu du bouton close
 
-  closeComment.innerText = "X";
+  closeComment.innerText = 'x';
   COMMENTCONTAINER.insertAdjacentElement('beforeend', inputComment);
   COMMENTCONTAINER.insertAdjacentElement('beforeend', btnComment);
   COMMENTCONTAINER.insertAdjacentElement('beforeend', closeComment);
@@ -898,8 +898,7 @@ COMMENT.addEventListener('click', function (e) {
     btnComment.remove();
     closeComment.remove();
     COMMENT.style.display = "initial";
-  });
-  console.log(tickets); // Ajouter un commentaire
+  }); // Ajouter un commentaire
 
   btnComment.addEventListener("click", /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
@@ -908,12 +907,12 @@ COMMENT.addEventListener('click', function (e) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              url = document.location.origin + "/comment/store/" + ticket.id;
+              url = document.location.origin + "/comment/store/" + 4;
               description = inputComment.value;
               token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
               body = {
                 description: description,
-                ticket_id: ticket.id,
+                ticket_id: 4,
                 user_id: user.id
               }; //Corps de la requete et body
 
@@ -926,7 +925,7 @@ COMMENT.addEventListener('click', function (e) {
                 body: JSON.stringify(body)
               };
 
-              if (!(label.length > 2)) {
+              if (!(description.length > 2)) {
                 _context.next = 19;
                 break;
               }
@@ -977,11 +976,7 @@ COMMENT.addEventListener('click', function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\js\comment.js */"./resources/js/comment.js");
-=======
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/comment.js */"./resources/js/comment.js");
->>>>>>> d813fe6304e4d8d1556691d3112021707b67163a
 
 
 /***/ })
