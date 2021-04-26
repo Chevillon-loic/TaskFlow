@@ -81,15 +81,19 @@
                                     </div>
 
                                  <!-- .Modal Affichage commentaire -->
-                                 <div id="commentBackground">
+                                 {{-- <div id="commentBackground">
                                     <div id="modalComment">
                                     {{ $ticket->task }}<br>
                                     <span id="closeModalComment">&times;</span>
                                     <button id="comment">Commentaire</button>
                                     <div id="commentContainer"></div>
                                     </div>
+<<<<<<< HEAD
                                 </div>
                             </div>
+=======
+                                </div> --}}
+>>>>>>> b78bcf41a514fd966dafff43d380829c36e72ee5
                             <!-- Fin Affichage Modal -->
                             </div>
 

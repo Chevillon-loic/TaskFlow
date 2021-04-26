@@ -1011,7 +1011,7 @@ INVITE.addEventListener("click", function (e) {
     }
   }); //Input listener KEYUP
 
-  inputInvite.addEventListener("keydown", /*#__PURE__*/function () {
+  inputInvite.addEventListener("keyup", /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
       var q, url, token, options, divToRemove, _iterator2, _step2, p, response, users;
 
@@ -1030,13 +1030,6 @@ INVITE.addEventListener("click", function (e) {
                   "X-CSRF-TOKEN": token
                 }
               };
-
-              if (!(q.length > 3)) {
-                _context2.next = 24;
-                break;
-              }
-
-              _context2.prev = 6;
               divToRemove = INVITECONTAINER.getElementsByClassName("p");
               _iterator2 = _createForOfIteratorHelper(divToRemove);
 
@@ -1051,6 +1044,12 @@ INVITE.addEventListener("click", function (e) {
                 _iterator2.f();
               }
 
+              if (!(q.length > 3)) {
+                _context2.next = 24;
+                break;
+              }
+
+              _context2.prev = 9;
               _context2.next = 12;
               return fetch(url, options);
 
@@ -1075,7 +1074,7 @@ INVITE.addEventListener("click", function (e) {
 
             case 21:
               _context2.prev = 21;
-              _context2.t0 = _context2["catch"](6);
+              _context2.t0 = _context2["catch"](9);
               console.log(_context2.t0);
 
             case 24:
@@ -1083,7 +1082,7 @@ INVITE.addEventListener("click", function (e) {
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[6, 21]]);
+      }, _callee2, null, [[9, 21]]);
     }));
 
     return function (_x2) {

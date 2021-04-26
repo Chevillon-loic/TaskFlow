@@ -98,7 +98,7 @@ INVITE.addEventListener("click", function(e) {
     });
 
     //Input listener KEYUP
-    inputInvite.addEventListener("keydown", async function(e) {
+    inputInvite.addEventListener("keyup", async function(e) {
         let q = inputInvite.value;
         console.log(q);
         let url = document.location.origin + "/board/search/" + q;
@@ -112,13 +112,13 @@ INVITE.addEventListener("click", function(e) {
                 "X-CSRF-TOKEN": token
             }
         };
+        let divToRemove = INVITECONTAINER.getElementsByClassName("p");
+        for (const p of divToRemove) {
+            p.remove();
+        }
         if (q.length > 3) {
             //Promesse (requete GET)
             try {
-                let divToRemove = INVITECONTAINER.getElementsByClassName("p");
-                for (const p of divToRemove) {
-                    p.remove();
-                }
                 const response = await fetch(url, options);
                 const users = await response.json();
                 console.log(users);
