@@ -6,12 +6,15 @@ BTNADDLIST.addEventListener("click", function(e) {
     let btn = document.createElement("button");
     let close = document.createElement("button");
 
-    btn.innerText = "Ajoutez une liste";
-    close.innerText = "X";
+    btn.innerText = "Nouvelle liste";
+    btn.id = "newaddlist";
+    btn.style.backgroundColor = board.color;
+    close.innerText = "Annluer";
 
-    divAddList.insertAdjacentElement("beforebegin", input);
     divAddList.insertAdjacentElement("beforeend", btn);
+    divAddList.insertAdjacentElement("beforeend", input);
     divAddList.insertAdjacentElement("beforeend", close);
+
     BTNADDLIST.style.display = "none";
     input.select();
     input.placeholder = "Saisissez le titre de la liste...";
@@ -72,16 +75,20 @@ const INVITE = document.getElementById("invite");
 INVITE.addEventListener("click", function(e) {
     let inputInvite = document.createElement("input");
     let closeInvite = document.createElement("button");
+    let btnToInvite = document.createElement("button");
     inputInvite.placeholder = "Rechercher une personne...";
     closeInvite.innerText = "X";
+    btnToInvite.innerText = "Inviter";
     INVITECONTAINER.insertAdjacentElement("beforeend", inputInvite);
     INVITECONTAINER.insertAdjacentElement("beforeend", closeInvite);
+    INVITECONTAINER.insertAdjacentElement("beforeend", btnToInvite);
     INVITE.style.display = "none";
     inputInvite.select();
     //CLOSE BTN
     closeInvite.addEventListener("click", function(e) {
         inputInvite.remove();
         closeInvite.remove();
+        btnToInvite.remove();
         INVITE.style.display = "initial";
         let pToRemove = INVITECONTAINER.getElementsByClassName("p");
         console.log(pToRemove);
@@ -91,7 +98,7 @@ INVITE.addEventListener("click", function(e) {
     });
 
     //Input listener KEYUP
-    inputInvite.addEventListener("keyup", async function(e) {
+    inputInvite.addEventListener("keydown", async function(e) {
         let q = inputInvite.value;
         console.log(q);
         let url = document.location.origin + "/board/search/" + q;
@@ -122,6 +129,9 @@ INVITE.addEventListener("click", function(e) {
                     <p class="p"> ${user.first_name} ${user.last_name}</p>`;
                     INVITECONTAINER.insertAdjacentElement("beforeend", div);
                 });
+
+                if (users.length >= 1) {
+                }
             } catch (error) {
                 console.log(error);
             }

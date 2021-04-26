@@ -886,10 +886,12 @@ BTNADDLIST.addEventListener("click", function (e) {
   var input = document.createElement("input");
   var btn = document.createElement("button");
   var close = document.createElement("button");
-  btn.innerText = "Ajoutez une liste";
-  close.innerText = "X";
-  divAddList.insertAdjacentElement("beforebegin", input);
+  btn.innerText = "Nouvelle liste";
+  btn.id = "newaddlist";
+  btn.style.backgroundColor = board.color;
+  close.innerText = "Annluer";
   divAddList.insertAdjacentElement("beforeend", btn);
+  divAddList.insertAdjacentElement("beforeend", input);
   divAddList.insertAdjacentElement("beforeend", close);
   BTNADDLIST.style.display = "none";
   input.select();
@@ -976,16 +978,20 @@ var INVITE = document.getElementById("invite");
 INVITE.addEventListener("click", function (e) {
   var inputInvite = document.createElement("input");
   var closeInvite = document.createElement("button");
+  var btnToInvite = document.createElement("button");
   inputInvite.placeholder = "Rechercher une personne...";
   closeInvite.innerText = "X";
+  btnToInvite.innerText = "Inviter";
   INVITECONTAINER.insertAdjacentElement("beforeend", inputInvite);
   INVITECONTAINER.insertAdjacentElement("beforeend", closeInvite);
+  INVITECONTAINER.insertAdjacentElement("beforeend", btnToInvite);
   INVITE.style.display = "none";
   inputInvite.select(); //CLOSE BTN
 
   closeInvite.addEventListener("click", function (e) {
     inputInvite.remove();
     closeInvite.remove();
+    btnToInvite.remove();
     INVITE.style.display = "initial";
     var pToRemove = INVITECONTAINER.getElementsByClassName("p");
     console.log(pToRemove);
@@ -1005,7 +1011,7 @@ INVITE.addEventListener("click", function (e) {
     }
   }); //Input listener KEYUP
 
-  inputInvite.addEventListener("keyup", /*#__PURE__*/function () {
+  inputInvite.addEventListener("keydown", /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
       var q, url, token, options, divToRemove, _iterator2, _step2, p, response, users;
 
@@ -1026,7 +1032,7 @@ INVITE.addEventListener("click", function (e) {
               };
 
               if (!(q.length > 3)) {
-                _context2.next = 23;
+                _context2.next = 24;
                 break;
               }
 
@@ -1061,20 +1067,23 @@ INVITE.addEventListener("click", function (e) {
                 div.innerHTML = "\n                    <p class=\"p\"> ".concat(user.first_name, " ").concat(user.last_name, "</p>");
                 INVITECONTAINER.insertAdjacentElement("beforeend", div);
               });
-              _context2.next = 23;
+
+              if (users.length >= 1) {}
+
+              _context2.next = 24;
               break;
 
-            case 20:
-              _context2.prev = 20;
+            case 21:
+              _context2.prev = 21;
               _context2.t0 = _context2["catch"](6);
               console.log(_context2.t0);
 
-            case 23:
+            case 24:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[6, 20]]);
+      }, _callee2, null, [[6, 21]]);
     }));
 
     return function (_x2) {

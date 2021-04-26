@@ -3,6 +3,7 @@
 // Variables
 @import "variables";
 
+//MAIN CONTAINER
 .mainContainer {
     display: flex;
     flex-direction: column;
@@ -15,7 +16,7 @@
         letter-spacing: 0.05em;
     }
 
-    //Columns
+    //COLUMNS
     .columnContainer {
         flex-shrink: 0;
         margin: 24px;
@@ -30,16 +31,6 @@
             }
         }
     }
-}
-
-#btnAddList {
-    width: 280px;
-    height: 40px;
-    border-radius: 4px;
-    color: white;
-    border-style: none;
-    border-color: none;
-    margin: 24px;
 }
 
 .allColumns {
@@ -57,6 +48,10 @@
             font-weight: 700;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+        }
+        #btnAddTicket {
+            cursor: pointer;
         }
     }
 }
@@ -101,6 +96,27 @@
     }
 }
 
+//ADD LIST/COLOLUMN
+
+#btnAddList,
+#addColumn,
+#newaddList {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    width: 280px;
+    height: 60px;
+    border-radius: 4px;
+    border-style: none;
+    border-color: none;
+    color: white;
+}
+#addColumn {
+    margin: 24px;
+}
+
+//TICKETS
+
 .ticketContainer {
     padding: 18px;
 }
@@ -119,12 +135,6 @@
 
 .addComment {
     margin: 24px;
-}
-
-//others
-
-.displayNone {
-    display: none;
 }
 
 // COMMENTAIRES
