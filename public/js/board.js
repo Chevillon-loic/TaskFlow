@@ -1005,7 +1005,7 @@ INVITE.addEventListener("click", function (e) {
     }
   }); //Input listener KEYUP
 
-  inputInvite.addEventListener("keyup", /*#__PURE__*/function () {
+  inputInvite.addEventListener("keydown", /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
       var q, url, token, options, divToRemove, _iterator2, _step2, p, response, users;
 

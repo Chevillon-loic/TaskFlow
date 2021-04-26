@@ -106,7 +106,10 @@ class BoardController extends Controller
 
     public function search(Request $request)
     {
-        $users = User::where('first_name', 'like', '%' . $request->q . '%')->get();
+        $users = User::where('first_name', 'like', '%' . $request->q . '%',)
+            ->orWhere('last_name', 'like', '%' . $request->q . '%',)
+            ->orWhere('email', 'like', '%' . $request->q . '%',)
+            ->get();
 
         return response()->json($users);
     }
