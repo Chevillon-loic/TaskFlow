@@ -14,59 +14,71 @@
         </div>
 
         <div class="allColumns">
-        @foreach ($columns as $column)
-            <div class="columnContainer">
-                <div class="columTitleDiv">
-                    <span class="columnTitle">
-                        <p>{{ $column->label }}</p>
-                        <button id="removeColumn">X</button>
-                        <div id="removeConfirmationContainer" class="displayNone">
-                            <p>Êtes vous sûr de vouloir supprimer cette colonne ?</p>
-                            <span>
-                                <button>Annuler</button>
-                                <form action="{{ route('column.destroy') }}" method="post">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{ $column->id }}">
-                                    <button type="submit">Confirmer</button>
-                                </form>
-                            </span>
+            @foreach ($columns as $column)
+                <div class="columnContainer">
+                    <div class="columTitleDiv">
+                        <div class="titleClosed">
+                            <span class="columnTitle">
+
+                                <p>{{ $column->label }}</p>
+                                <button id="removeColumn">X</button>
                         </div>
-                </div>
-                </span>
+                        <div id="modalContainer" class="displayNone">
+                            <div id="removeConfirmationContainer">
+                                <p>Êtes vous sûr de vouloir supprimer cette colonne ?</p>
+                                <span>
+                                    <button id="cancelRemoveColumn">Annuler</button>
+                                    <form action="{{ route('column.destroy') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $column->id }}">
+                                        <button type="submit">Confirmer</button>
+                                    </form>
+                                </span>
+                            </div>
+                        </div>
+                        </span>
+                    </div>
 
-                <div class="ticketContainer">
-                    @foreach ($tickets as $ticket)
-                        @if ($ticket->column_id == $column->id)
+                    <div class="ticketContainer">
+                        @foreach ($tickets as $ticket)
+                            @if ($ticket->column_id == $column->id)
 
-                            <span class="ticket">
-                                {{ $ticket->task }}
-                            </span>
+                                <span class="ticket">
+                                    {{ $ticket->task }}
+                                </span>
 
+<<<<<<< HEAD
                         @endif
                     @endforeach
                     <div class="addTicket">
                         <div class="ticketTitleDiv">
+=======
+                            @endif
+                        @endforeach
+                        <div class="addTicket">
+>>>>>>> 088150c6e38e5ae3462c0906dc42c96883224267
                             <button id="btnAddTicket">+ Ajoutez un ticket</button>
                             <input type="hidden" id="columnId" value="{{ $column->id }}">
                         </div>
                     </div>
                 </div>
+            @endforeach
+
+
+            <div class="addColumn">
+                <button id="btnAddList">+ Ajoutez une liste</button>
             </div>
-        @endforeach
-
-
-        <div class="addColumn">
-            <button id="btnAddList">+ Ajoutez une liste</button>
         </div>
     </div>
-        <div class="addComment" style="display:none">
-            <button id="btnAddComment">+ Ajoutez un commentaire</button>
-        </div>
+    <div id="commentContainer">
+        <button id="comment">Ajoutez un commentaire</button>
+    </div>
     </div>
 @endsection
 
 
 <script>
+    let tickets = @json($tickets);
     let board = @json($board);
     let column = @json($column);
     let user = @json($user);

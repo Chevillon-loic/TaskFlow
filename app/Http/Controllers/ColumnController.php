@@ -82,6 +82,7 @@ class ColumnController extends Controller
     public function destroy(Request $request)
     {
         $column = Column::find($request->id)->delete();
-        return response()->json($column);
+
+        return back()->with($column, 200);
     }
 }

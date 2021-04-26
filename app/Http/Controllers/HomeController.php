@@ -19,6 +19,7 @@ class HomeController extends Controller
     public function index()
     {
         $boards = Board::select(['id', 'label', 'color'])->where('owner_id', \Auth::user()->id);
+        $boards = Board::select(['id', 'label', 'color'])->where('guest_id', \Auth::user()->id);
         return view("home", [
             'boards' => $boards->get()
         ]);

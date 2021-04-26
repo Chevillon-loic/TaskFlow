@@ -1105,15 +1105,20 @@ try {
   var _loop = function _loop() {
     var elem = _step4.value;
     var remBtn = elem.querySelector("#removeColumn");
-    var remDiv = elem.querySelector("#removeConfirmationContainer");
+    var modalContainer = elem.querySelector("#modalContainer");
+    var cxlremBtn = elem.querySelector("#cancelRemoveColumn");
     remBtn.addEventListener("click", function (e) {
-      remDiv.classList.toggle("displayNone");
+      modalContainer.classList.toggle("displayNone");
+    });
+    cxlremBtn.addEventListener("click", function (e) {
+      modalContainer.classList.toggle("displayNone");
     });
   };
 
   for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
     _loop();
-  }
+  } //-------------------------------------------------------
+
 } catch (err) {
   _iterator4.e(err);
 } finally {
