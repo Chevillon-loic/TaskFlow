@@ -130,4 +130,23 @@ for (const ticket of ADDTICKETDIV) {
 
 
 
+let boxTicket = document.querySelector(".boxTicket");
+let momocontent = document.getElementById("momocontent")
+let Modal = document.getElementById("Modal")
 
+let closeModalComment = document.createElement("button")
+closeModalComment.innerText = "x"
+
+
+momocontent.style.display ="none"
+Modal.style.display ="none"
+  boxTicket.addEventListener("click", function(e){
+
+
+
+    momocontent.style.display ="block"
+Modal.style.display ="block"
+
+      comment.insertAdjacentElement('befo')
+
+  })
