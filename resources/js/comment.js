@@ -1,19 +1,4 @@
-let modalComment = document.getElementById("modalComment");
-let commentBackground = document.getElementById("commentBackground");
-let boxTicket = document.querySelector(".boxTicket")
 
-let closeModalComment = document.getElementById("closeModalComment");
-
-boxTicket.addEventListener("click", function(e){
-commentBackground.style.display = "block"
-modalComment.style.display = "block"
-
-closeModalComment.addEventListener("click", function(e){
-    commentBackground.style.display = "none";
-    modalComment.style.display = "none";
- })
-
-})
 //////////////////////////////////////////
 
 const COMMENTCONTAINER = document.getElementById('commentContainer');
@@ -86,6 +71,23 @@ btnComment.addEventListener("click" , async function(e){
 });
 
 
+let modalComment = document.getElementById("modalComment");
+let commentBackground = document.getElementById("commentBackground");
+let boxTicket = document.querySelector(".boxTicket")
+
+let closeModalComment = document.getElementById("closeModalComment");
+
+boxTicket.addEventListener("click", function(e){
+commentBackground.style.display = "block"
+modalComment.style.display = "block"
+
+closeModalComment.addEventListener("click", function(e){
+    commentBackground.remove();
+    modalComment.remove();
+
+ })
+
+})
 
 
 
