@@ -80,14 +80,14 @@
                                     </div>
 
                                  <!-- .Modal Affichage commentaire -->
-                                 <div id="commentBackground">
+                                 {{-- <div id="commentBackground">
                                     <div id="modalComment">
                                     {{ $ticket->task }}<br>
                                     <span id="closeModalComment">&times;</span>
                                     <button id="comment">Commentaire</button>
                                     <div id="commentContainer"></div>
                                     </div>
-                                </div>
+                                </div> --}}
                             <!-- Fin Affichage Modal -->
                             </div>
 
