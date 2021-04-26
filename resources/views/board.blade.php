@@ -52,6 +52,11 @@
                         <div class="addTicket">
                             <button id="btnAddTicket">+ Ajoutez un ticket</button>
                             <input type="hidden" id="columnId" value="{{ $column->id }}">
+
+                            <div id="commentContainer">
+                                <button id="comment">Ajoutez un commentaire</button>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -63,9 +68,7 @@
             </div>
         </div>
     </div>
-        <div id="commentContainer">
-            <button id="comment">Ajoutez un commentaire</button>
-        </div>
+
     </div>
 @endsection
 
