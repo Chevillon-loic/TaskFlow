@@ -57,36 +57,38 @@
                     <div class="ticketContainer">
                         @foreach ($tickets as $ticket)
                             @if ($ticket->column_id == $column->id)
-                            <div class="divTicket">
-                                <div class="boxTicket">
+                                <div class="divTicket">
+                                    <div class="boxTicket">
 
-                                    <span class="ticket">
-                                        {{ $ticket->task }}
-                                        <button id="removeTicket">X</button>
-                                    </span>
-                                    <div id="modalContainerTicket" class="displayNoneTicket">
-                                        <div id="removeConfirmationContainer" class="displayNoneTicket">
-                                            <p>Êtes vous sûr de vouloir supprimer ce ticket ?</p>
-                                            <span>
-                                                <div class="modalButtons">
-                                                    <button id="cancelRemoveTicket">Annuler</button>
-                                                    <form action="{{ route('ticket.destroy') }}" method="post">
-                                                        @csrf
-                                                        <input type="hidden" name="id" value="{{ $ticket->id }}">
-                                                        <button type="submit">Confirmer</button>
-                                                    </form>
-                                                </div>
-                                            </span>
+                                        <span class="ticket">
+                                            {{ $ticket->task }}
+                                            <button id="removeTicket">X</button>
+                                        </span>
+                                        <div id="modalContainerTicket" class="displayNoneTicket">
+                                            <div id="removeConfirmationContainer" class="displayNoneTicket">
+                                                <p>Êtes vous sûr de vouloir supprimer ce ticket ?</p>
+                                                <span>
+                                                    <div class="modalButtons">
+                                                        <button id="cancelRemoveTicket">Annuler</button>
+                                                        <form action="{{ route('ticket.destroy') }}" method="post">
+                                                            @csrf
+                                                            <input type="hidden" name="id" value="{{ $ticket->id }}">
+                                                            <button type="submit">Confirmer</button>
+                                                        </form>
+                                                    </div>
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                 <!-- .Modal Affichage commentaire -->
-                                 {{-- <div id="commentBackground">
-                                    <div id="modalComment">
-                                    {{ $ticket->task }}<br>
-                                    <span id="closeModalComment">&times;</span>
-                                    <button id="comment">Commentaire</button>
-                                    <div id="commentContainer"></div>
+                                        <!-- .Modal Affichage commentaire -->
+                                        {{-- <div id="commentBackground">
+                                            <div id="modalComment">
+                                                {{ $ticket->task }}<br>
+                                                <span id="closeModalComment">&times;</span>
+                                                <button id="comment">Commentaire</button>
+                                                <div id="commentContainer"></div>
+                                            </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +114,7 @@
 
 
 
-</div>
+    </div>
     </div>
     </div>
 @endsection
