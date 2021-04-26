@@ -47,11 +47,16 @@ Route::get('board/index/{id}', 'BoardController@index')->name('board.index')->mi
 
 Route::post('board/store/{id}', 'BoardController@store')->name('board.store')->middleware('auth');
 
+Route::delete('board/delete', 'BoardController@destroy')->name('board.destroy')->middleware('auth');
+
+
+//tickets
 Route::post('ticket/store/{id}', 'TicketController@store')->name('ticket.store')->middleware('auth');
 
-Route::post('comment/store/{id}', 'CommentController@store')->name('comment.store')->middleware('auth');
-
 Route::post('ticket/destroy', 'TicketController@destroy')->name('ticket.destroy')->middleware('auth');
+
+//comments
+Route::post('comment/store/{id}', 'CommentController@store')->name('comment.store')->middleware('auth');
 
 //Route Recherche user pour invitation
 Route::get('board/search/{q}', 'BoardController@search')->name('board.search')->middleware('auth');

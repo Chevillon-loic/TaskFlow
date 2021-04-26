@@ -99,9 +99,10 @@ class BoardController extends Controller
      * @param  \App\Board  $board
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Board $board)
+    public function destroy(Request $request)
     {
-        //
+        Board::find($request->id)->delete();
+        return redirect()->route('home.index');
     }
 
     public function search(Request $request)
