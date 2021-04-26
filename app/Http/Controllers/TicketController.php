@@ -83,8 +83,10 @@ class TicketController extends Controller
      * @param  \App\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ticket $ticket)
+    public function destroy(Request $request)
     {
-        //
+        $ticket = Ticket::find($request->id)->delete();
+
+        return back()->with($ticket, 200);
     }
 }

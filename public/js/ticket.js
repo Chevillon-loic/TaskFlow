@@ -981,6 +981,33 @@ try {
         };
       }());
     });
+    var DIVTICKET = document.getElementsByClassName("boxTicket");
+
+    var _iterator2 = _createForOfIteratorHelper(DIVTICKET),
+        _step2;
+
+    try {
+      var _loop2 = function _loop2() {
+        var ticket = _step2.value;
+        var btnSupp = ticket.querySelector("#removeTicket");
+        var divModalTicket = ticket.querySelector("#modalContainerTicket");
+        var cancelRemoveTicket = ticket.querySelector("#cancelRemoveTicket");
+        btnSupp.addEventListener("click", function (e) {
+          divModalTicket.style.display = "block";
+        });
+        cancelRemoveTicket.addEventListener("click", function (e) {
+          divModalTicket.style.display = "none";
+        });
+      };
+
+      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+        _loop2();
+      }
+    } catch (err) {
+      _iterator2.e(err);
+    } finally {
+      _iterator2.f();
+    }
   };
 
   for (_iterator.s(); !(_step = _iterator.n()).done;) {

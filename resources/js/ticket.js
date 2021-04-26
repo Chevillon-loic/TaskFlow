@@ -70,4 +70,21 @@ for (const ticket of ADDTICKETDIV) {
             }
         });
     });
+
+    const DIVTICKET = document.getElementsByClassName("boxTicket");
+
+    for (const ticket of DIVTICKET) {
+        let btnSupp = ticket.querySelector("#removeTicket");
+        let divModalTicket = ticket.querySelector("#modalContainerTicket");
+
+        let cancelRemoveTicket = ticket.querySelector("#cancelRemoveTicket");
+
+        btnSupp.addEventListener("click", function(e) {
+            divModalTicket.style.display = "block";
+        });
+
+        cancelRemoveTicket.addEventListener("click", function(e) {
+            divModalTicket.style.display = "none";
+        });
+    }
 }
