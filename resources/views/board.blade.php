@@ -26,8 +26,10 @@
                     @endif
                 @endforeach
                 <div class="addTicket">
-                    <button id="btnAddTicket">+ Ajoutez un ticket</button>
-                    <input type="hidden" id="columnId" value="{{ $column->id }}">
+                    <div>
+                        <button id="btnAddTicket">+ Ajoutez un ticket</button>
+                        <input type="hidden" id="columnId" value="{{ $column->id }}">
+                    </div>
                 </div>
             </div>
         </div>

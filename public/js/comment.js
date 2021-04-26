@@ -935,7 +935,7 @@ BTNADDCOMMENT.addEventListener('click', /*#__PURE__*/function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/comment.js */"./resources/js/comment.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/comment.js */"./resources/js/comment.js");
 
 
 /***/ })
