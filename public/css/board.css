@@ -31,16 +31,6 @@
   padding: 0;
 }
 
-#btnAddList {
-  width: 280px;
-  height: 40px;
-  border-radius: 4px;
-  color: white;
-  border-style: none;
-  border-color: none;
-  margin: 24px;
-}
-
 .allColumns {
   display: flex;
   flex-direction: row;
@@ -111,6 +101,27 @@
   margin-top: 20px;
 }
 
+#btnAddList {
+  width: 280px;
+  height: 40px;
+  border-radius: 4px;
+  color: white;
+  border-style: none;
+  border-color: none;
+}
+
+#addColumn {
+  width: 280px;
+  height: 40px;
+  border: 2px black solid;
+  border-radius: 4px;
+  color: white;
+  border-style: none;
+  border-color: none;
+  margin: 24px;
+  background-color: black;
+}
+
 .ticketContainer {
   padding: 18px;
 }
@@ -121,10 +132,6 @@
 
 .addComment {
   margin: 24px;
-}
-
-.displayNone {
-  display: none;
 }
 
 #comment {
@@ -140,5 +147,9 @@
 #comment:hover {
   background-color: blue;
   color: white;
+}
+
+.displayNone {
+  display: none;
 }
 

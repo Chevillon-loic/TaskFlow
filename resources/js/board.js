@@ -9,9 +9,10 @@ BTNADDLIST.addEventListener("click", function(e) {
     btn.innerText = "Ajoutez une liste";
     close.innerText = "X";
 
-    divAddList.insertAdjacentElement("beforebegin", input);
     divAddList.insertAdjacentElement("beforeend", btn);
     divAddList.insertAdjacentElement("beforeend", close);
+    divAddList.insertAdjacentElement("beforeend", input);
+
     BTNADDLIST.style.display = "none";
     input.select();
     input.placeholder = "Saisissez le titre de la liste...";

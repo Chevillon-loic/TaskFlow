@@ -3,6 +3,7 @@
 // Variables
 @import "variables";
 
+//MAIN CONTAINER
 .mainContainer {
     display: flex;
     flex-direction: column;
@@ -15,7 +16,7 @@
         letter-spacing: 0.05em;
     }
 
-    //Columns
+    //COLUMNS
     .columnContainer {
         flex-shrink: 0;
         margin: 24px;
@@ -30,16 +31,6 @@
             }
         }
     }
-}
-
-#btnAddList {
-    width: 280px;
-    height: 40px;
-    border-radius: 4px;
-    color: white;
-    border-style: none;
-    border-color: none;
-    margin: 24px;
 }
 
 .allColumns {
@@ -101,6 +92,31 @@
     }
 }
 
+//ADD LIST/COLOLUMN
+
+#btnAddList {
+    width: 280px;
+    height: 40px;
+    border-radius: 4px;
+    color: white;
+    border-style: none;
+    border-color: none;
+}
+
+#addColumn {
+    width: 280px;
+    height: 40px;
+    border: 2px black solid;
+    border-radius: 4px;
+    color: white;
+    border-style: none;
+    border-color: none;
+    margin: 24px;
+    background-color: black;
+}
+
+//TICKETS
+
 .ticketContainer {
     padding: 18px;
 }
@@ -110,12 +126,6 @@
 
 .addComment {
     margin: 24px;
-}
-
-//others
-
-.displayNone {
-    display: none;
 }
 
 // COMMENTAIRES
@@ -132,4 +142,10 @@
         background-color: blue;
         color: white;
     }
+}
+
+//OTHERS
+
+.displayNone {
+    display: none;
 }
