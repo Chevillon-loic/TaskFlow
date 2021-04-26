@@ -107,12 +107,8 @@
                                 <!-- Fin Affichage Modal -->
                             @endif
                         @endforeach
-<<<<<<< HEAD
-                        {{--Ajouter ticket--}}
-=======
 
                         {{-- Ajouter ticket --}}
->>>>>>> f6b9bbd309f7d7e73b0dd284019a17243fcfce05
                         <div class="addTicket">
                             <button id="btnAddTicket">+ Ajoutez un ticket</button>
                             <input type="hidden" id="columnId" value="{{ $column->id }}">
@@ -120,12 +116,7 @@
                     </div>
                 </div>
             @endforeach
-<<<<<<< HEAD
-
-                {{--Ajouter colonne/liste--}}
-=======
             {{-- Ajouter colonne/liste --}}
->>>>>>> f6b9bbd309f7d7e73b0dd284019a17243fcfce05
             <div class="addColumn" id="addColumn">
                 <button id="btnAddList">+ Ajoutez une liste</button>
             </div>
