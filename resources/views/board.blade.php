@@ -27,12 +27,14 @@
                             <div id="removeConfirmationContainer" class="displayNone">
                                 <p>Êtes vous sûr de vouloir supprimer cette colonne ?</p>
                                 <span>
-                                    <button>Annuler</button>
+                                    <div class="modalButtons">
+                                    <button id="cancelRemoveColumn">Annuler</button>
                                     <form action="{{ route('column.destroy') }}" method="post">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $column->id }}">
                                         <button type="submit">Confirmer</button>
                                     </form>
+                                </div>
                                 </span>
                             </div>
                         </div>
@@ -43,6 +45,7 @@
                         @foreach ($tickets as $ticket)
                             @if ($ticket->column_id == $column->id)
 
+                            <div class="boxTicket">
                                 <span class="ticket">
                                     {{ $ticket->task }}
 
@@ -51,6 +54,8 @@
                                 <div id="commentContainer">
                                     <button id="comment">Ajoutez un commentaire</button>
                                 </div>
+                            </div>
+
 
                             @endif
                         @endforeach

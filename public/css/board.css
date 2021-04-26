@@ -83,21 +83,40 @@
 
 #modalContainer #removeConfirmationContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
-  background-color: transparent;
+  background-color: white;
   margin: auto;
-  padding: 0;
-  width: 500px;
-  height: 500px;
+  padding: 48px 28px 28px 28px;
+  width: 300px;
+  height: 80px;
+  border-radius: 4px;
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+  text-align: center;
+}
+
+#modalContainer #removeConfirmationContainer .modalButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#modalContainer #removeConfirmationContainer .modalButtons button {
+  width: 80px;
+  height: 30px;
+  margin-top: 20px;
 }
 
 .ticketContainer {
   padding: 18px;
+}
+
+.boxTicket {
+  border: 1px solid red;
 }
 
 .addComment {
