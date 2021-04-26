@@ -28,7 +28,7 @@
                                 <p>Êtes vous sûr de vouloir supprimer cette colonne ?</p>
                                 <span>
                                     <div class="modalButtons">
-                                    <button>Annuler</button>
+                                    <button id="cancelRemoveColumn">Annuler</button>
                                     <form action="{{ route('column.destroy') }}" method="post">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $column->id }}">
@@ -65,9 +65,9 @@
             </div>
         </div>
     </div>
-        <div id="commentContainer">
-            <button id="comment">Ajoutez un commentaire</button>
-        </div>
+    <div id="commentContainer">
+        <button id="comment">Ajoutez un commentaire</button>
+    </div>
     </div>
 @endsection
 
@@ -78,10 +78,9 @@
     let column = @json($column);
     let user = @json($user);
 
-
 </script>
 @section('custom_scripts')
-<script src="{{ asset('js/comment.js') }}"></script>
+    <script src="{{ asset('js/comment.js') }}"></script>
     <script src="{{ asset('js/ticket.js') }}"></script>
     <script src="{{ asset('js/board.js') }}"></script>
 

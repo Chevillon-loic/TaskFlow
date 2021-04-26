@@ -1106,7 +1106,11 @@ try {
     var elem = _step4.value;
     var remBtn = elem.querySelector("#removeColumn");
     var modalContainer = elem.querySelector("#modalContainer");
+    var cxlremBtn = elem.querySelector("#cancelRemoveColumn");
     remBtn.addEventListener("click", function (e) {
+      modalContainer.classList.toggle("displayNone");
+    });
+    cxlremBtn.addEventListener("click", function (e) {
       modalContainer.classList.toggle("displayNone");
     });
   };
