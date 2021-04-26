@@ -24,7 +24,7 @@
                                 <button id="removeColumn">X</button>
                         </div>
                         <div id="modalContainer" class="displayNone">
-                            <div id="removeConfirmationContainer" class="displayNone">
+                            <div id="removeConfirmationContainer">
                                 <p>Êtes vous sûr de vouloir supprimer cette colonne ?</p>
                                 <span>
                                     <button>Annuler</button>
