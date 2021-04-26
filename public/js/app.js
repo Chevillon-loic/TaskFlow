@@ -175,9 +175,13 @@ if (URL.includes("home")) {
 
 
 var NAVBAR = document.getElementById("navbar");
+var BTNADDLIST = document.getElementById("btnAddList");
+var TITLETAB = document.getElementById("titleTab");
 
 if (URL.includes("board")) {
   NAVBAR.style.background = board.color;
+  BTNADDLIST.style.background = board.color;
+  TITLETAB.style.color = board.color;
 }
 
 /***/ }),
