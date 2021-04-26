@@ -24,7 +24,7 @@
                                 <button id="removeColumn">X</button>
                         </div>
                         <div id="modalContainer" class="displayNone">
-                            <div id="removeConfirmationContainer">
+                            <div id="removeConfirmationContainer" class="displayNone">
                                 <p>Êtes vous sûr de vouloir supprimer cette colonne ?</p>
                                 <span>
                                     <div class="modalButtons">
@@ -45,9 +45,17 @@
                         @foreach ($tickets as $ticket)
                             @if ($ticket->column_id == $column->id)
 
+                            <div class="boxTicket">
                                 <span class="ticket">
                                     {{ $ticket->task }}
+
                                 </span>
+
+                                <div id="commentContainer">
+                                    <button id="comment">Ajoutez un commentaire</button>
+                                </div>
+                            </div>
+
 
                             @endif
                         @endforeach
@@ -65,9 +73,7 @@
             </div>
         </div>
     </div>
-    <div id="commentContainer">
-        <button id="comment">Ajoutez un commentaire</button>
-    </div>
+
     </div>
 @endsection
 
@@ -78,9 +84,10 @@
     let column = @json($column);
     let user = @json($user);
 
+
 </script>
 @section('custom_scripts')
-    <script src="{{ asset('js/comment.js') }}"></script>
+<script src="{{ asset('js/comment.js') }}"></script>
     <script src="{{ asset('js/ticket.js') }}"></script>
     <script src="{{ asset('js/board.js') }}"></script>
 

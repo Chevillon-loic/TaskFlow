@@ -1,5 +1,10 @@
+
+
 const COMMENTCONTAINER = document.getElementById('commentContainer');
 const COMMENT = document.getElementById('comment')
+
+for (COMMENTCONTAINER  of 'ticket_id')
+{
 
 // BOUTON AFFICHER INPUT
 COMMENT.addEventListener('click', function(e) {
@@ -49,23 +54,20 @@ btnComment.addEventListener("click" , async function(e){
         method: "POST",
         headers: {
             "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
             "X-CSRF-TOKEN": token
         },
         body: JSON.stringify(body)
     };
-    if (description.length > 2) {
 
-        //Promesse (requete POST)
-        try {
-            const response = await fetch(url, options);
-            console.log(response);
-            location.reload();
-        } catch (error) {
-            console.log(error);
-        }
-    } else {
-        input.value = "";
+    try {
+        const response = await fetch(url, options);
+        console.log(response);
+
+    } catch (error) {
+        console.log(error);
     }
 })
 
 });
+}

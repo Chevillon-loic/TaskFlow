@@ -104,6 +104,9 @@
 .ticketContainer {
     padding: 18px;
 }
+.boxTicket {
+    border: 1px solid red;
+}
 
 .addComment {
     margin: 24px;
@@ -117,8 +120,8 @@
 
 // COMMENTAIRES
 #comment {
-    width: 280px;
-    height: 40px;
+    width: 160px;
+    height: 25px;
     border-radius: 4px;
     color: black;
     border: none;
