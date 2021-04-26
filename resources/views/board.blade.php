@@ -9,6 +9,9 @@
 
 <div class="mainContainer">
     <h2>{{ $board->label }}</h2>
+    <div id="inviteContainer">
+        <button id="invite">Inviter</button>
+    </div>
 
     @foreach ($columns as $column)
         <div class="columnContainer">
@@ -36,7 +39,7 @@
         <button id="btnAddList">+ Ajoutez une liste</button>
     </div>
 
-    <div class="addComment">
+    <div class="addComment" style="display: none">
         <button id="btnAddComment">+ Ajoutez un commentaire</button>
     </div>
 </div>
