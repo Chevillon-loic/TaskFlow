@@ -881,6 +881,8 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 var ADDTICKETDIV = document.getElementsByClassName("addTicket");
+var BTNADDTICKET = document.getElementById("btnAddTicket");
+var divAddTicket = document.querySelector(".addTicket");
 
 var _iterator = _createForOfIteratorHelper(ADDTICKETDIV),
     _step;
@@ -891,61 +893,146 @@ try {
     var t = ticket.getElementsByTagName("input");
     var id = t[0].value;
     var btnAdd = ticket.getElementsByTagName("button");
-    btnAdd[0].addEventListener("click", /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
-        var url, token, body, options, response;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                url = document.location.origin + "/ticket/store/" + board.id;
-                token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
-                console.log(id);
-                body = {
-                  column_id: id,
-                  user_id: user.id,
-                  task: "chose a faire"
-                };
-                options = {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": token
-                  },
-                  body: JSON.stringify(body)
-                };
-                _context.prev = 5;
-                _context.next = 8;
-                return fetch(url, options);
+    btnAdd[0].addEventListener("click", function (e) {
+      var input = document.createElement("input");
+      var btn = document.createElement("button");
+      var close = document.createElement("button");
+      btnAdd[0].style.display = "none";
+      btn.innerText = "plus";
+      close.innerText = "X";
+      ticket.insertAdjacentElement("beforeend", input);
+      ticket.insertAdjacentElement("beforeend", btn);
+      ticket.insertAdjacentElement("beforeend", close);
+      input.select();
+      input.placeholder = "Ajouter un ticket";
+      close.addEventListener("click", function (e) {
+        input.remove();
+        btn.remove();
+        close.remove();
+        btnAdd[0].style.display = "initial";
+      });
+      btn.addEventListener("click", /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
+          var url, token, task, body, options, response;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  url = document.location.origin + "/ticket/store/" + board.id;
+                  token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+                  task = input.value;
+                  body = {
+                    column_id: id,
+                    user_id: user.id,
+                    task: task
+                  };
+                  options = {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                      "X-CSRF-TOKEN": token
+                    },
+                    body: JSON.stringify(body)
+                  };
 
-              case 8:
-                response = _context.sent;
-                console.log(response);
-                _context.next = 15;
-                break;
+                  if (!(task.length > 2)) {
+                    _context.next = 23;
+                    break;
+                  }
 
-              case 12:
-                _context.prev = 12;
-                _context.t0 = _context["catch"](5);
-                console.log(_context.t0);
+                  _context.prev = 6;
+                  _context.next = 9;
+                  return fetch(url, options);
 
-              case 15:
-              case "end":
-                return _context.stop();
+                case 9:
+                  response = _context.sent;
+                  console.log(response);
+                  _context.next = 16;
+                  break;
+
+                case 13:
+                  _context.prev = 13;
+                  _context.t0 = _context["catch"](6);
+                  console.log(_context.t0);
+
+                case 16:
+                  input.value = "";
+                  input.remove();
+                  btn.remove();
+                  close.remove();
+                  btnAdd[0].style.display = "initial";
+                  _context.next = 24;
+                  break;
+
+                case 23:
+                  input.value = "";
+
+                case 24:
+                case "end":
+                  return _context.stop();
+              }
             }
-          }
-        }, _callee, null, [[5, 12]]);
-      }));
+          }, _callee, null, [[6, 13]]);
+        }));
 
-      return function (_x) {
-        return _ref.apply(this, arguments);
-      };
-    }());
+        return function (_x) {
+          return _ref.apply(this, arguments);
+        };
+      }());
+    }); // const TITLETICKETCONTAINER = document.getElementsByClassName("ticketTitleDiv");
+    // for (const elem of TITLETICKETCONTAINER) {
+    //     console.log(elem);
+    //     btnAdd[0].addEventListener("click", function(e) {
+    //         let input = document.createElement("input");
+    //         let btn = document.createElement("button");
+    //         let close = document.createElement("button");
+    //         BTNADDTICKET.style.display = "none";
+    //         btn.innerText = "plus";
+    //         close.innerText = "X";
+    //         elem.insertAdjacentElement("beforeend", input);
+    //         elem.insertAdjacentElement("beforeend", btn);
+    //         elem.insertAdjacentElement("beforeend", close);
+    //         input.select();
+    //         input.placeholder = "Ajouter un ticket";
+    //         close.addEventListener("click", function(e) {
+    //             input.remove();
+    //             btn.remove();
+    //             close.remove();
+    //             BTNADDTICKET.style.display = "initial";
+    //         })
+    //     })
+    // }
   };
 
   for (_iterator.s(); !(_step = _iterator.n()).done;) {
     _loop();
-  }
+  } // btnAdd[0].addEventListener("click", async function(e) {
+  //     let url = document.location.origin + "/ticket/store/" + board.id;
+  //     let token = document
+  //         .querySelector('meta[name="csrf-token"]')
+  //         .getAttribute("content");
+  //     console.log(id);
+  //     let body = {
+  //         column_id: id,
+  //         user_id: user.id,
+  //         task: "chose a faire"
+  //     };
+  //     const options = {
+  //         method: "POST",
+  //         headers: {
+  //             "Content-Type": "application/json",
+  //             "X-CSRF-TOKEN": token
+  //         },
+  //         body: JSON.stringify(body)
+  //     };
+  //     try {
+  //         const response = await fetch(url, options);
+  //         console.log(response);
+  //     } catch (error) {
+  //         console.log(error);
+  //     }
+  // });
+
 } catch (err) {
   _iterator.e(err);
 } finally {
