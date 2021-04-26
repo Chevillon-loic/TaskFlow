@@ -29,13 +29,14 @@
                                 <p>Êtes vous sûr de vouloir supprimer cette liste ?</p>
                                 <span>
                                     <div class="modalButtons">
-                                    <button id="cancelRemoveColumn">Annuler</button>
-                                    <form action="{{ route('column.destroy') }}" method="post">
-                                        @csrf
-                                        <input type="hidden" name="id" value="{{ $column->id }}">
-                                        <button type="submit">Confirmer</button>
-                                    </form>
-                                </div>
+                                        <button id="cancelRemoveColumn">Annuler</button>
+                                        <form action="{{ route('column.destroy') }}" method="post">
+                                            @csrf
+
+                                            <input type="hidden" name="id" value="{{ $column->id }}">
+                                            <button type="submit">Confirmer</button>
+                                        </form>
+                                    </div>
                                 </span>
                             </div>
                         </div>
@@ -47,22 +48,22 @@
                         @foreach ($tickets as $ticket)
                             @if ($ticket->column_id == $column->id)
 
-                            <div class="boxTicket">
-                                <span class="ticket">
-                                    {{ $ticket->task }}
-                                    <button id="removeTicket">X</button>
-                                </span>
-                                <div id="modalTicket">
-                                    <div id="removeConfirmationContainer">
+                                <div class="boxTicket">
+                                    <span class="ticket">
+                                        {{ $ticket->task }}
+                                        <button id="removeTicket">X</button>
+                                    </span>
+                                    <div id="modalTicket">
+                                        <div id="removeConfirmationContainer">
+
+                                        </div>
 
                                     </div>
 
+                                    <div id="commentContainer">
+                                        <button id="comment">Ajoutez un commentaire</button>
+                                    </div>
                                 </div>
-
-                                <div id="commentContainer">
-                                    <button id="comment">Ajoutez un commentaire</button>
-                                </div>
-                            </div>
 
 
                             @endif
@@ -92,10 +93,9 @@
     let column = @json($column);
     let user = @json($user);
 
-
 </script>
 @section('custom_scripts')
-<script src="{{ asset('js/comment.js') }}"></script>
+    <script src="{{ asset('js/comment.js') }}"></script>
     <script src="{{ asset('js/ticket.js') }}"></script>
     <script src="{{ asset('js/board.js') }}"></script>
 
