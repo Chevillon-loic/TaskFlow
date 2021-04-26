@@ -37,8 +37,8 @@
         <button id="btnAddList">+ Ajoutez une liste</button>
     </div>
 
-    <div class="addComment" style="display: none">
-        <button id="btnAddComment">+ Ajoutez un commentaire</button>
+    <div id="commentContainer">
+        <button id="comment">+ Ajoutez un commentaire</button>
     </div>
 
 @endsection

@@ -874,57 +874,99 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var BTNADDCOMMENT = document.getElementById('btnAddComment');
-BTNADDCOMMENT.addEventListener('click', /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
-    var url, token, body, options, response;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            url = document.location.origin + "/comment/store/" + board.id;
-            token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
-            body = {
-              ticket_id: 1,
-              user_id: user.id,
-              description: "bientot fini"
-            };
-            options = {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                "X-Requested-With": "XMLHttpRequest",
-                "X-CSRF-TOKEN": token
-              },
-              body: JSON.stringify(body)
-            };
-            _context.prev = 4;
-            _context.next = 7;
-            return fetch(url, options);
+var COMMENTCONTAINER = document.getElementById('commentContainer');
+var COMMENT = document.getElementById('comment'); // BOUTON AFFICHER INPUT
 
-          case 7:
-            response = _context.sent;
-            console.log(response);
-            _context.next = 14;
-            break;
+COMMENT.addEventListener('click', function (e) {
+  var inputComment = document.createElement("input");
+  var btnComment = document.createElement("button");
+  var closeComment = document.createElement("button"); // Place holder de l'input
 
-          case 11:
-            _context.prev = 11;
-            _context.t0 = _context["catch"](4);
-            console.log(_context.t0);
+  inputComment.name = "description";
+  inputComment.placeholder = "Ajouter un commentaire"; //Contenu bouton Add
 
-          case 14:
-          case "end":
-            return _context.stop();
+  btnComment.innerText = "Ajouter"; // Contenu du bouton close
+
+  closeComment.innerText = "X";
+  COMMENTCONTAINER.insertAdjacentElement('beforeend', inputComment);
+  COMMENTCONTAINER.insertAdjacentElement('beforeend', btnComment);
+  COMMENTCONTAINER.insertAdjacentElement('beforeend', closeComment);
+  COMMENT.style.display = "none"; // CLOSE BTN
+
+  closeComment.addEventListener("click", function (e) {
+    inputComment.remove();
+    btnComment.remove();
+    closeComment.remove();
+    COMMENT.style.display = "initial";
+  });
+  console.log(tickets); // Ajouter un commentaire
+
+  btnComment.addEventListener("click", /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
+      var url, description, token, body, options, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              url = document.location.origin + "/comment/store/" + ticket.id;
+              description = inputComment.value;
+              token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+              body = {
+                description: description,
+                ticket_id: ticket.id,
+                user_id: user.id
+              }; //Corps de la requete et body
+
+              options = {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "X-CSRF-TOKEN": token
+                },
+                body: JSON.stringify(body)
+              };
+
+              if (!(label.length > 2)) {
+                _context.next = 19;
+                break;
+              }
+
+              _context.prev = 6;
+              _context.next = 9;
+              return fetch(url, options);
+
+            case 9:
+              response = _context.sent;
+              console.log(response);
+              location.reload();
+              _context.next = 17;
+              break;
+
+            case 14:
+              _context.prev = 14;
+              _context.t0 = _context["catch"](6);
+              console.log(_context.t0);
+
+            case 17:
+              _context.next = 20;
+              break;
+
+            case 19:
+              input.value = "";
+
+            case 20:
+            case "end":
+              return _context.stop();
+          }
         }
-      }
-    }, _callee, null, [[4, 11]]);
-  }));
+      }, _callee, null, [[6, 14]]);
+    }));
 
-  return function (_x) {
-    return _ref.apply(this, arguments);
-  };
-}());
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
+});
 
 /***/ }),
 
@@ -935,7 +977,7 @@ BTNADDCOMMENT.addEventListener('click', /*#__PURE__*/function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/comment.js */"./resources/js/comment.js");
+module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\js\comment.js */"./resources/js/comment.js");
 
 
 /***/ })
