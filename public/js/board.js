@@ -1129,7 +1129,7 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/board.js */"./resources/js/board.js");
 
 
 /***/ })
