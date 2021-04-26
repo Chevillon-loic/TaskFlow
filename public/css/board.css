@@ -19,8 +19,8 @@
   display: flex;
   flex-direction: row;
   height: calc(20vh - 40px);
-  width: 100%;
   align-items: flex-end;
+  margin: 0 2.5vh;
 }
 
 .mainContainer .topContainer #inviteContainer {
