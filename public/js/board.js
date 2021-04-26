@@ -888,9 +888,9 @@ BTNADDLIST.addEventListener("click", function (e) {
   var close = document.createElement("button");
   btn.innerText = "Ajoutez une liste";
   close.innerText = "X";
-  divAddList.insertAdjacentElement("beforebegin", input);
   divAddList.insertAdjacentElement("beforeend", btn);
   divAddList.insertAdjacentElement("beforeend", close);
+  divAddList.insertAdjacentElement("beforeend", input);
   BTNADDLIST.style.display = "none";
   input.select();
   input.placeholder = "Saisissez le titre de la liste..."; //Listener bouton Close
@@ -1128,7 +1128,7 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/board.js */"./resources/js/board.js");
 
 
 /***/ })

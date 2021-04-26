@@ -13,6 +13,7 @@
             <button id="invite">Inviter</button>
         </div>
 
+        {{-- Column --}}
         <div class="allColumns">
             @foreach ($columns as $column)
                 <div class="columnContainer">
@@ -25,7 +26,7 @@
                         </div>
                         <div id="modalContainer" class="displayNone">
                             <div id="removeConfirmationContainer" class="displayNone">
-                                <p>Êtes vous sûr de vouloir supprimer cette colonne ?</p>
+                                <p>Êtes vous sûr de vouloir supprimer cette liste ?</p>
                                 <span>
                                     <div class="modalButtons">
                                     <button id="cancelRemoveColumn">Annuler</button>
@@ -41,6 +42,7 @@
                         </span>
                     </div>
 
+                    {{-- Ticket --}}
                     <div class="ticketContainer">
                         @foreach ($tickets as $ticket)
                             @if ($ticket->column_id == $column->id)
@@ -48,8 +50,14 @@
                             <div class="boxTicket">
                                 <span class="ticket">
                                     {{ $ticket->task }}
-
+                                    <button id="removeTicket">X</button>
                                 </span>
+                                <div id="modalTicket">
+                                    <div id="removeConfirmationContainer">
+
+                                    </div>
+
+                                </div>
 
                                 <div id="commentContainer">
                                     <button id="comment">Ajoutez un commentaire</button>
@@ -68,7 +76,7 @@
             @endforeach
 
 
-            <div class="addColumn">
+            <div class="addColumn" id="addColumn">
                 <button id="btnAddList">+ Ajoutez une liste</button>
             </div>
         </div>
