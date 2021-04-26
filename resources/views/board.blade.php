@@ -88,12 +88,8 @@
                                     <button id="comment">Commentaire</button>
                                     <div id="commentContainer"></div>
                                     </div>
-<<<<<<< HEAD
                                 </div>
                             </div>
-=======
-                                </div> --}}
->>>>>>> b78bcf41a514fd966dafff43d380829c36e72ee5
                             <!-- Fin Affichage Modal -->
                             </div>
 
