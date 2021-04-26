@@ -6,10 +6,12 @@
 @endsection
 
 @section('content')
+
+<div class="mainContainer">
     <h2>{{ $board->label }}</h2>
 
     @foreach ($columns as $column)
-        <div class="columnContainer" style="border: 2px solid black">
+        <div class="columnContainer">
             <span class="columnTitle">
                 <p>{{ $column->label }}</p>
                 <p>X</p>
@@ -37,7 +39,7 @@
     <div class="addComment">
         <button id="btnAddComment">+ Ajoutez un commentaire</button>
     </div>
-
+</div>
 @endsection
 
 
