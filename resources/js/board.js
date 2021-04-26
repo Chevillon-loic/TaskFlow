@@ -139,3 +139,18 @@ for (const elem of TITLECONTAINER) {
         remDiv.classList.toggle("displayNone");
     });
 }
+
+
+//-------------------------------------------------------
+
+//Modal supprimer colonne
+
+let MODALCONTAINER = document.getElementById ("modalContainer");
+let REMOVECONFIRMATION = document.getElementById ("removeConfirmationContainer");
+let REMOVEBTN = document.getElementById("removeColumn");
+
+
+REMOVEBTN.onclick = function() {
+    MODALCONTAINER.classList.toggle("displayNone");
+};
+
