@@ -248,12 +248,12 @@ if (URL.includes("board")) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/welcome.scss */"./resources/sass/welcome.scss");
-__webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/home.scss */"./resources/sass/home.scss");
-__webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/profile.scss */"./resources/sass/profile.scss");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/board.scss */"./resources/sass/board.scss");
+__webpack_require__(/*! /var/www/taskflow.webo/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /var/www/taskflow.webo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/taskflow.webo/resources/sass/welcome.scss */"./resources/sass/welcome.scss");
+__webpack_require__(/*! /var/www/taskflow.webo/resources/sass/home.scss */"./resources/sass/home.scss");
+__webpack_require__(/*! /var/www/taskflow.webo/resources/sass/profile.scss */"./resources/sass/profile.scss");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/sass/board.scss */"./resources/sass/board.scss");
 
 
 /***/ })
