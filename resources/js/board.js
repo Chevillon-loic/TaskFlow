@@ -9,9 +9,10 @@ BTNADDLIST.addEventListener("click", function(e) {
     btn.innerText = "Ajoutez une liste";
     close.innerText = "X";
 
-    divAddList.insertAdjacentElement("beforebegin", input);
     divAddList.insertAdjacentElement("beforeend", btn);
     divAddList.insertAdjacentElement("beforeend", close);
+    divAddList.insertAdjacentElement("beforeend", input);
+
     BTNADDLIST.style.display = "none";
     input.select();
     input.placeholder = "Saisissez le titre de la liste...";
@@ -91,7 +92,7 @@ INVITE.addEventListener("click", function(e) {
     });
 
     //Input listener KEYUP
-    inputInvite.addEventListener("keyup", async function(e) {
+    inputInvite.addEventListener("keydown", async function(e) {
         let q = inputInvite.value;
         console.log(q);
         let url = document.location.origin + "/board/search/" + q;

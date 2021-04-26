@@ -171,7 +171,7 @@ if (URL.includes("home")) {
     }
   })();
 } //-------------------------------------------------------
-//Navbar page Board
+//Navbar + boutons couleur page Board
 
 
 var NAVBAR = document.getElementById("navbar");

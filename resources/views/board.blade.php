@@ -26,7 +26,7 @@
                         </div>
                         <div id="modalContainer" class="displayNone">
                             <div id="removeConfirmationContainer" class="displayNone">
-                                <p>Êtes vous sûr de vouloir supprimer cette colonne ?</p>
+                                <p>Êtes vous sûr de vouloir supprimer cette liste ?</p>
                                 <span>
                                     <div class="modalButtons">
                                     <button id="cancelRemoveColumn">Annuler</button>
@@ -76,7 +76,7 @@
             @endforeach
 
 
-            <div class="addColumn">
+            <div class="addColumn" id="addColumn">
                 <button id="btnAddList">+ Ajoutez une liste</button>
             </div>
         </div>

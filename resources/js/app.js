@@ -44,10 +44,11 @@ if (URL.includes("home")) {
 }
 //-------------------------------------------------------
 
-//Navbar page Board
+//Navbar + boutons couleur page Board
 const NAVBAR = document.getElementById("navbar");
 const BTNADDLIST = document.getElementById("btnAddList");
 const TITLETAB = document.getElementById("titleTab");
+
 
 if (URL.includes("board")) {
     NAVBAR.style.background = board.color;
