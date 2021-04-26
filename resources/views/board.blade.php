@@ -27,12 +27,14 @@
                             <div id="removeConfirmationContainer">
                                 <p>Êtes vous sûr de vouloir supprimer cette colonne ?</p>
                                 <span>
+                                    <div class="modalButtons">
                                     <button>Annuler</button>
                                     <form action="{{ route('column.destroy') }}" method="post">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $column->id }}">
                                         <button type="submit">Confirmer</button>
                                     </form>
+                                </div>
                                 </span>
                             </div>
                         </div>
