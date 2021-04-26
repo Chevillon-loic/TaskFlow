@@ -13,6 +13,16 @@
             <button id="invite">Inviter</button>
         </div>
 
+        <button id="deleteTab">Supprimer le tableau</button>
+            <form action="{{route ('board.destroy')}}" method="post">
+                @method('delete')
+                @csrf
+                <input type="hidden" name="id" value="{{$board->id}}">
+                <button type="submit">Confirmer</button>
+            </form>
+
+
+
         {{-- Column --}}
         <div class="allColumns">
             @foreach ($columns as $column)
