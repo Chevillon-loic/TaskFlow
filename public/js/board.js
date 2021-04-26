@@ -882,7 +882,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var BTNADDLIST = document.getElementById("btnAddList");
 var divAddList = document.querySelector(".addColumn");
-console.log(divAddList);
 BTNADDLIST.addEventListener("click", function (e) {
   var input = document.createElement("input");
   var btn = document.createElement("button");
@@ -1027,13 +1026,12 @@ INVITE.addEventListener("click", function (e) {
               };
 
               if (!(q.length > 3)) {
-                _context2.next = 25;
+                _context2.next = 24;
                 break;
               }
 
               _context2.prev = 6;
               pToRemove = INVITECONTAINER.getElementsByClassName("p");
-              console.log(pToRemove);
               _iterator2 = _createForOfIteratorHelper(pToRemove);
 
               try {
@@ -1047,15 +1045,15 @@ INVITE.addEventListener("click", function (e) {
                 _iterator2.f();
               }
 
-              _context2.next = 13;
+              _context2.next = 12;
               return fetch(url, options);
 
-            case 13:
+            case 12:
               response = _context2.sent;
-              _context2.next = 16;
+              _context2.next = 15;
               return response.json();
 
-            case 16:
+            case 15:
               users = _context2.sent;
               console.log(users);
               _iterator3 = _createForOfIteratorHelper(users);
@@ -1076,27 +1074,51 @@ INVITE.addEventListener("click", function (e) {
                 _iterator3.f();
               }
 
-              _context2.next = 25;
+              _context2.next = 24;
               break;
 
-            case 22:
-              _context2.prev = 22;
+            case 21:
+              _context2.prev = 21;
               _context2.t0 = _context2["catch"](6);
               console.log(_context2.t0);
 
-            case 25:
+            case 24:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[6, 22]]);
+      }, _callee2, null, [[6, 21]]);
     }));
 
     return function (_x2) {
       return _ref2.apply(this, arguments);
     };
   }());
-});
+}); //Bouton Supprimer Column
+
+var TITLECONTAINER = document.getElementsByClassName("columTitleDiv");
+
+var _iterator4 = _createForOfIteratorHelper(TITLECONTAINER),
+    _step4;
+
+try {
+  var _loop = function _loop() {
+    var elem = _step4.value;
+    var remBtn = elem.querySelector("#removeColumn");
+    var remDiv = elem.querySelector("#removeConfirmationContainer");
+    remBtn.addEventListener("click", function (e) {
+      remDiv.classList.toggle("displayNone");
+    });
+  };
+
+  for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+    _loop();
+  }
+} catch (err) {
+  _iterator4.e(err);
+} finally {
+  _iterator4.f();
+}
 
 /***/ }),
 
@@ -1107,7 +1129,7 @@ INVITE.addEventListener("click", function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/board.js */"./resources/js/board.js");
 
 
 /***/ })
