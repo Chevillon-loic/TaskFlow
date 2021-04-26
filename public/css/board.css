@@ -53,6 +53,10 @@
   align-items: center;
 }
 
+.allColumns .columnContainer #btnAddTicket {
+  cursor: pointer;
+}
+
 #modalContainer {
   position: fixed;
   /* Stay in place */

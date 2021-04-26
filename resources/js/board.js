@@ -75,16 +75,20 @@ const INVITE = document.getElementById("invite");
 INVITE.addEventListener("click", function(e) {
     let inputInvite = document.createElement("input");
     let closeInvite = document.createElement("button");
+    let btnToInvite = document.createElement("button");
     inputInvite.placeholder = "Rechercher une personne...";
     closeInvite.innerText = "X";
+    btnToInvite.innerText = "Inviter";
     INVITECONTAINER.insertAdjacentElement("beforeend", inputInvite);
     INVITECONTAINER.insertAdjacentElement("beforeend", closeInvite);
+    INVITECONTAINER.insertAdjacentElement("beforeend", btnToInvite);
     INVITE.style.display = "none";
     inputInvite.select();
     //CLOSE BTN
     closeInvite.addEventListener("click", function(e) {
         inputInvite.remove();
         closeInvite.remove();
+        btnToInvite.remove();
         INVITE.style.display = "initial";
         let pToRemove = INVITECONTAINER.getElementsByClassName("p");
         console.log(pToRemove);
@@ -125,6 +129,9 @@ INVITE.addEventListener("click", function(e) {
                     <p class="p"> ${user.first_name} ${user.last_name}</p>`;
                     INVITECONTAINER.insertAdjacentElement("beforeend", div);
                 });
+
+                if (users.length >= 1) {
+                }
             } catch (error) {
                 console.log(error);
             }
