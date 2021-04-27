@@ -32,6 +32,60 @@
             justify-content: space-around;
             align-items: center;
             width: 300px;
+            #divForInvite {
+                position: absolute;
+                top: 125px;
+                right: 205px;
+                height: 350px;
+                width: 250px;
+                background-color: white;
+                border: 1px solid rgb(228, 228, 228);
+                border-radius: 5px;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+                padding: 0 10px;
+                span {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 1px solid rgb(228, 228, 228);
+                    p {
+                        color: rgb(53, 53, 53);
+                        font-size: 14px;
+                        margin: 10px 0 10px 45px;
+                    }
+                    #closeInvite {
+                        border: none;
+                        background-color: transparent;
+                        font-weight: 700;
+                        font-size: 1.1rem;
+                        color: rgb(97, 97, 97);
+                        cursor: pointer;
+                    }
+                }
+                #inputInvite {
+                    padding: 7px;
+                    border-radius: 5px;
+                    border: 1px solid rgb(182, 182, 182);
+                    margin: 5px 0;
+                    width: 100%;
+                    font-size: 14px;
+                    outline: none;
+                }
+                #usersToInvite {
+                    height: 220px;
+                }
+                #btnToInvite {
+                    width: 100%;
+                    padding: 10px;
+                    border: none;
+                    font-size: 16px;
+                    letter-spacing: 1.2px;
+                    border-radius: 5px;
+                    color: white;
+                    cursor: pointer;
+                }
+            }
             #inviteContainer {
                 #invite {
                     width: 100px;

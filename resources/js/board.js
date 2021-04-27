@@ -79,21 +79,37 @@ BTNADDLIST.addEventListener("click", function(e) {
 });
 
 //BOUTON INVITER
-const INVITECONTAINER = document.getElementById("inviteContainer");
-const INVITE = document.getElementById("invite");
+const INVITECONTAINER = document.getElementById("inviteContainer"); //CONTAINER
+const INVITE = document.getElementById("invite"); //BOUTON
 
 INVITE.addEventListener("click", function(e) {
-    let inputInvite = document.createElement("input");
-    let closeInvite = document.createElement("button");
-    let btnToInvite = document.createElement("button");
-    inputInvite.placeholder = "Rechercher une personne...";
-    closeInvite.innerText = "X";
-    btnToInvite.innerText = "Inviter";
-    INVITECONTAINER.insertAdjacentElement("beforeend", inputInvite);
-    INVITECONTAINER.insertAdjacentElement("beforeend", closeInvite);
-    INVITECONTAINER.insertAdjacentElement("beforeend", btnToInvite);
-    INVITE.style.display = "none";
-    inputInvite.select();
+    let divForInvite = document.createElement("div");
+    divForInvite.id = "divForInvite";
+    divForInvite.innerHTML = `
+        <span>
+        <p>Inviter sur le tableau</p>
+        <button id="closeInvite">X</button>
+        </span>
+        <input type="text" id="inputInvite" placeholder="nom, prenom ou email...">
+        <div id="usersToInvite">
+        </div>
+        <button id="btnToInvite">Inviter</button>
+    `;
+    divForInvite.querySelector("#btnToInvite").style.backgroundColor =
+        board.color;
+
+    INVITECONTAINER.insertAdjacentElement("afterend", divForInvite);
+    //let inputInvite = document.createElement("input");
+    //let closeInvite = document.createElement("button");
+    //let btnToInvite = document.createElement("button");
+    //inputInvite.placeholder = "Rechercher une personne...";
+    //closeInvite.innerText = "X";
+    //btnToInvite.innerText = "Inviter";
+    //INVITECONTAINER.insertAdjacentElement("beforeend", inputInvite);
+    //INVITECONTAINER.insertAdjacentElement("beforeend", closeInvite);
+    //INVITECONTAINER.insertAdjacentElement("beforeend", btnToInvite);
+    //INVITE.style.display = "none";
+    //inputInvite.select();
     //CLOSE BTN
     closeInvite.addEventListener("click", function(e) {
         inputInvite.remove();
