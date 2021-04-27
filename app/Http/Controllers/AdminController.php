@@ -19,10 +19,17 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $numberUsers = User::select('id')->count();
+        $numberBoards = Board::select('id')->count();
+        $dataUsers = User::all();
+        $dataBoards = Board::all();
 
-        $user = collect('users');
-        //return view('admin', []);
-        dd($user);
+        return view('admin', [
+            'numberUsers' => $numberUsers,
+            'dataUsers' => $dataUsers,
+            'numberBoards' => $numberBoards,
+            'dataBoards' => $dataBoards,
+        ]);
     }
 
     /**

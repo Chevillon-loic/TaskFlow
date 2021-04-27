@@ -81,38 +81,47 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/profile.js":
-/*!*********************************!*\
-  !*** ./resources/js/profile.js ***!
-  \*********************************/
+/***/ "./resources/js/admin.js":
+/*!*******************************!*\
+  !*** ./resources/js/admin.js ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var buttonProfileModification = document.getElementById('buttonProfileModification');
-var grayBackground = document.getElementById('grayBackground');
-var buttonClose = document.getElementById('closeProfileModification');
-buttonProfileModification.addEventListener('click', function (e) {
-  grayBackground.style.display = "flex";
+var btn = document.getElementById('adminProfilsUsers');
+var modal1 = document.getElementById('modalUsers');
+var btn1 = document.getElementById('cancelContentUsers');
+btn.addEventListener('click', function (e) {
+  modal1.style.display = "block";
+  btn1.addEventListener('click', function (e) {
+    modal1.style.display = "none";
+  });
 });
-buttonClose.addEventListener('click', function (e) {
-  grayBackground.style.display = "none";
+var btn2 = document.getElementById("adminAllBoards");
+var modal2 = document.getElementById('modalBoards');
+var closeModalBoards = document.getElementById('cancelContentBoards');
+btn2.addEventListener('click', function (e) {
+  modal2.style.display = "block";
+  closeModalBoards.addEventListener('click', function (e) {
+    modal2.style.display = "none";
+  });
 });
 
 /***/ }),
 
-/***/ 1:
-/*!***************************************!*\
-  !*** multi ./resources/js/profile.js ***!
-  \***************************************/
+/***/ 5:
+/*!*************************************!*\
+  !*** multi ./resources/js/admin.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\js\profile.js */"./resources/js/profile.js");
+module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\js\admin.js */"./resources/js/admin.js");
 
 
 /***/ })

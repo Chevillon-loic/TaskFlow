@@ -42,14 +42,17 @@
         width: 300px;
 
         .number {
-            background-color: yellow;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             width: 100%;
-            height: 90px;
+            height: 50%;
         }
         .title {
-            background-color: red;
+            text-align: center;
             width: 100%;
-            height: 90px;
+            height: 50%;
         }
     }
     .rightBox {
@@ -72,5 +75,75 @@
     }
     #adminAllBoards {
         background-color: darkorange;
+    }
+}
+
+// ! Les modals
+
+.displayNone {
+    display: none;
+}
+
+#modalUsers,
+#modalBoards {
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    padding-top: 10vh; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.3); /* Black w/ opacity */
+
+    #modalContentBoards,
+    #modalContentUsers {
+        background-color: white;
+        margin: auto;
+        padding: 48px 28px 28px 28px;
+        width: 90%;
+        height: 400px;
+        border-radius: 4px;
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 0.4s;
+        animation-name: animatetop;
+        animation-duration: 0.4s;
+        text-align: center;
+        .modalButtons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+
+            button {
+                width: 80px;
+                height: 30px;
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+#tableUsers {
+    overflow: scroll;
+    table {
+        border: 1px solid black;
+        text-align: left;
+
+        tr {
+            font-size: 15px;
+            &:hover {
+                background-color: blanchedalmond;
+            }
+
+            th {
+                border: 1px solid black;
+                padding: 4px;
+            }
+            td {
+                border: 1px solid black;
+                padding: 4px;
+                min-width: 50px;
+            }
+        }
     }
 }

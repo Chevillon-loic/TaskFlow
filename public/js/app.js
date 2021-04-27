@@ -259,7 +259,6 @@ if (URL.includes("board")) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 __webpack_require__(/*! C:\wamp64\www\taskflow\resources\js\app.js */"./resources/js/app.js");
 __webpack_require__(/*! C:\wamp64\www\taskflow\resources\sass\app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! C:\wamp64\www\taskflow\resources\sass\welcome.scss */"./resources/sass/welcome.scss");
@@ -267,14 +266,6 @@ __webpack_require__(/*! C:\wamp64\www\taskflow\resources\sass\home.scss */"./res
 __webpack_require__(/*! C:\wamp64\www\taskflow\resources\sass\profile.scss */"./resources/sass/profile.scss");
 __webpack_require__(/*! C:\wamp64\www\taskflow\resources\sass\board.scss */"./resources/sass/board.scss");
 module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\sass\admin.scss */"./resources/sass/admin.scss");
-=======
-__webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/welcome.scss */"./resources/sass/welcome.scss");
-__webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/home.scss */"./resources/sass/home.scss");
-__webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/profile.scss */"./resources/sass/profile.scss");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/board.scss */"./resources/sass/board.scss");
->>>>>>> f4fe129abc73d12dbde48de28f42f2faf94e136b
 
 
 /***/ })
