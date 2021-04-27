@@ -7,15 +7,17 @@ BTNADDLIST.addEventListener("click", function(e) {
     let close = document.createElement("button");
 
     btn.innerText = "Valider";
-    btn.id = "newaddlist";
+    btn.id = "newaddList";
     input.id = "newListInput";
     btn.style.backgroundColor = board.color;
     close.innerText = "Annuler";
+    close.id = "newListCXL";
 
-    divAddList.insertAdjacentElement("beforeend", btn);
     divAddList.insertAdjacentElement("beforeend", input);
+    divAddList.insertAdjacentElement("beforeend", btn);
     divAddList.insertAdjacentElement("beforeend", close);
 
+    input.style.borderColor = board.color;
     BTNADDLIST.style.display = "none";
     input.select();
     input.placeholder = "Saisissez le titre de la liste...";
@@ -30,7 +32,7 @@ BTNADDLIST.addEventListener("click", function(e) {
 
     //Listener bouton Ajoutez une liste
 
-    btn.addEventListener("click", async function(e) {
+    async function addList(e) {
         //recup de l'url
         let url = document.location.origin + "/board/store/" + board.id;
         let token = document
@@ -59,12 +61,19 @@ BTNADDLIST.addEventListener("click", function(e) {
             try {
                 const response = await fetch(url, options);
                 console.log(response.body);
-                //location.reload();
+                location.reload();
             } catch (error) {
                 console.log(error);
             }
         } else {
             input.value = "";
+        }
+    }
+
+    btn.addEventListener("click", addList);
+    input.addEventListener("keydown", function(e) {
+        if (e.key === "Enter") {
+            addList();
         }
     });
 });

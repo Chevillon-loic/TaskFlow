@@ -887,13 +887,15 @@ BTNADDLIST.addEventListener("click", function (e) {
   var btn = document.createElement("button");
   var close = document.createElement("button");
   btn.innerText = "Valider";
-  btn.id = "newaddlist";
+  btn.id = "newaddList";
   input.id = "newListInput";
   btn.style.backgroundColor = board.color;
   close.innerText = "Annuler";
-  divAddList.insertAdjacentElement("beforeend", btn);
+  close.id = "newListCXL";
   divAddList.insertAdjacentElement("beforeend", input);
+  divAddList.insertAdjacentElement("beforeend", btn);
   divAddList.insertAdjacentElement("beforeend", close);
+  input.style.borderColor = board.color;
   BTNADDLIST.style.display = "none";
   input.select();
   input.placeholder = "Saisissez le titre de la liste..."; //Listener bouton Close
@@ -905,8 +907,12 @@ BTNADDLIST.addEventListener("click", function (e) {
     BTNADDLIST.style.display = "initial";
   }); //Listener bouton Ajoutez une liste
 
-  btn.addEventListener("click", /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
+  function addList(_x) {
+    return _addList.apply(this, arguments);
+  }
+
+  function _addList() {
+    _addList = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
       var url, token, label, body, options, response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
@@ -933,7 +939,7 @@ BTNADDLIST.addEventListener("click", function (e) {
               };
 
               if (!(label.length > 2)) {
-                _context.next = 18;
+                _context.next = 19;
                 break;
               }
 
@@ -943,35 +949,39 @@ BTNADDLIST.addEventListener("click", function (e) {
 
             case 9:
               response = _context.sent;
-              console.log(response.body); //location.reload();
-
-              _context.next = 16;
+              console.log(response.body);
+              location.reload();
+              _context.next = 17;
               break;
 
-            case 13:
-              _context.prev = 13;
+            case 14:
+              _context.prev = 14;
               _context.t0 = _context["catch"](6);
               console.log(_context.t0);
 
-            case 16:
-              _context.next = 19;
+            case 17:
+              _context.next = 20;
               break;
 
-            case 18:
+            case 19:
               input.value = "";
 
-            case 19:
+            case 20:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[6, 13]]);
+      }, _callee, null, [[6, 14]]);
     }));
+    return _addList.apply(this, arguments);
+  }
 
-    return function (_x) {
-      return _ref.apply(this, arguments);
-    };
-  }());
+  btn.addEventListener("click", addList);
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      addList();
+    }
+  });
 }); //BOUTON INVITER
 
 var INVITECONTAINER = document.getElementById("inviteContainer");
@@ -1013,7 +1023,7 @@ INVITE.addEventListener("click", function (e) {
   }); //Input listener KEYUP
 
   inputInvite.addEventListener("keyup", /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
       var q, url, token, options, divToRemove, _iterator2, _step2, p, response, users;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
@@ -1089,7 +1099,7 @@ INVITE.addEventListener("click", function (e) {
     }));
 
     return function (_x2) {
-      return _ref2.apply(this, arguments);
+      return _ref.apply(this, arguments);
     };
   }());
 }); //Bouton Supprimer Column
@@ -1125,7 +1135,7 @@ try {
       i.select();
       plabelColumn.classList.add("displayNone");
       i.addEventListener("keydown", /*#__PURE__*/function () {
-        var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(e) {
+        var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(e) {
           var url, token, body, options, response;
           return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
             while (1) {
@@ -1178,7 +1188,7 @@ try {
         }));
 
         return function (_x3) {
-          return _ref3.apply(this, arguments);
+          return _ref2.apply(this, arguments);
         };
       }());
     });
@@ -1214,7 +1224,7 @@ BTNCXLDELETETAB.addEventListener("click", function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/board.js */"./resources/js/board.js");
 
 
 /***/ })
