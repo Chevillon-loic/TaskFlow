@@ -78,11 +78,11 @@
                         </div>
                     </div>
                     {{-- Ticket --}}
-                    <div class="ticketContainer">
+                    <div class="ticketContainer" id="columnDropZone" ondragover="onDragOver(event);" ondrop="onDrop(event);">
                         @foreach ($tickets as $ticket)
                             @if ($ticket->column_id == $column->id)
 
-                                <div class="boxTicket">
+                                <div class="boxTicket" draggable="true" id="draggableElement" ondragstart="onDragStart(event)">
 
                                     <div class="ticket">
                                         {{ $ticket->task }}
@@ -147,5 +147,6 @@
     <script src="{{ asset('js/comment.js') }}"></script>
     <script src="{{ asset('js/ticket.js') }}"></script>
     <script src="{{ asset('js/board.js') }}"></script>
+    <script src="{{ asset('js/drag.js') }}"></script>
 
 @endsection
