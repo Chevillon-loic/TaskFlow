@@ -9,72 +9,85 @@
     box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     min-height: 87vh;
+
+    #headerPannel {
+        #ancre {
+            padding: 20px;
+
+            a {
+                color: $secondary;
+                text-decoration: none;
+                width: 100px;
+                border: 1px solid $secondary;
+                border-radius: 5px;
+                padding: 7px;
+                &:hover {
+                    color: white;
+                    background-color: $secondary;
+                }
+            }
+        }
+    }
     h3 {
+        display: flex;
+        justify-content: center;
         padding-top: 40px;
         padding-left: 40px;
         font-weight: 600;
-        font-size: 25px;
+        font-size: 35px;
         line-height: 17px;
         letter-spacing: 0.05em;
-        color: $secondary;
+        color: $primary;
     }
 }
-
 .contentAdmin {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+
     .boxAdmin {
         display: flex;
-        background-color: cyan;
+
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
         border-radius: 1px;
         margin: 30px;
         width: 420px;
         height: 200px;
         cursor: pointer;
-    }
-    .leftBox {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        width: 300px;
 
-        .number {
+        p {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            flex-direction: column;
             align-items: center;
-            width: 100%;
-            height: 50%;
-        }
-        .title {
-            text-align: center;
-            width: 100%;
-            height: 50%;
+            width: 220px;
+            height: 40px;
+            background-color: rgba(255, 255, 255);
+            border-radius: 5px;
+            box-shadow: 0px 0px 8px 1px rgba(0, 0, 0);
+            &:hover {
+                transform: scale(1.05);
+            }
         }
     }
-    .rightBox {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 7px;
 
-        img {
-            width: 130px;
-            height: 160px;
-            color: red;
-        }
-    }
     #adminProfilsUsers {
-        background-color: cyan;
+        background-image: url(https://www.techrepublic.com/a/hub/i/r/2020/05/15/e8a90ddc-f7f9-4617-8f19-f0c3fafe698a/resize/1200x/cef3280023bceb1eca6295bb21289eb3/istock-955408648.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     #adminProfilTeam {
-        background-color: red;
+        background-image: url(https://img.freepik.com/photos-gratuite/contexte-du-reseau-technologique_34629-304.jpg?size=626&ext=jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     #adminAllBoards {
-        background-color: darkorange;
+        background-image: url(https://st3.depositphotos.com/15190488/i/600/depositphotos_177093938-stock-photo-laptop-notebook-computer-white-blank.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 }
 

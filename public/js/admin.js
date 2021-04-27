@@ -93,23 +93,27 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var btn = document.getElementById('adminProfilsUsers');
-var modal1 = document.getElementById('modalUsers');
-var btn1 = document.getElementById('cancelContentUsers');
-btn.addEventListener('click', function (e) {
-  modal1.style.display = "block";
-  btn1.addEventListener('click', function (e) {
-    modal1.style.display = "none";
+var btnProfilUsers = document.getElementById('adminProfilsUsers');
+var modalUsers = document.getElementById('modalUsers');
+var closeUsers = document.getElementById('cancelContentUsers');
+btnProfilUsers.addEventListener('click', function (e) {
+  modalUsers.style.display = "block";
+  closeUsers.addEventListener('click', function (e) {
+    modalUsers.style.display = "none";
   });
 });
-var btn2 = document.getElementById("adminAllBoards");
-var modal2 = document.getElementById('modalBoards');
-var closeModalBoards = document.getElementById('cancelContentBoards');
-btn2.addEventListener('click', function (e) {
-  modal2.style.display = "block";
-  closeModalBoards.addEventListener('click', function (e) {
-    modal2.style.display = "none";
+var adminAllBoards = document.getElementById("adminAllBoards");
+var modalBoards = document.getElementById('modalBoards');
+var cancelContentBoards = document.getElementById('cancelContentBoards');
+adminAllBoards.addEventListener('click', function (e) {
+  modalBoards.style.display = "block";
+  cancelContentBoards.addEventListener('click', function (e) {
+    modalBoards.style.display = "none";
   });
+});
+var adminProfilTeam = document.getElementById("adminProfilTeam");
+adminProfilTeam.addEventListener("click", function (e) {
+  alert("Pas encore disponible");
 });
 
 /***/ }),

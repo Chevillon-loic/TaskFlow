@@ -8,40 +8,28 @@
 
 
   <div class="containerAdmin">
-    <h3><span class="spanTitle">DashBoard</span> Pannel de contrôle</h3>
+      <div id="headerPannel">
+          <div id="ancre"> <a href="{{ route('home.index') }}">Home Page</a></div>
+
+        <h3>Menu - Pannel Administrateur</h3>
+    </div>
+
 
     <div class="contentAdmin">
 
         <!-- Boite des Utilisateurs -->
         <div class="boxAdmin" id="adminProfilsUsers">
-            <div class="leftBox">
-                <div class="number">
-                    <p>#{{ $numberUsers }}</p>
-                </div>
-                <div class="title">
-                    <p>Totals Users</p>
-                </div>
-            </div>
-            <div class="rightBox"><img src="{{ asset('img/man.png') }}" alt=""></div>
-
+            <p>Nombre de tableaux : {{ $numberUsers }}</p>
         </div>
 
         <!-- Boite des Administrateurs -->
         <div class="boxAdmin " id="adminProfilTeam">
-            <p>Profil team</p>
+            <p>Nombre de tableaux : x</p>
         </div>
 
         <!-- Boite des Tableaux -->
         <div class="boxAdmin" id="adminAllBoards">
-            <div class="leftBox">
-                <div class="number">
-                    <p>#{{ $numberBoards }}</p>
-                </div>
-                <div class="title">
-                    <p>Totals Boards</p>
-                </div>
-            </div>
-            <div class="rightBox"><img src="{{ asset('img/man.png') }}" alt=""></div>
+            <p>Nombre de tableaux : {{ $numberBoards }}</p>
         </div>
 
 <!-- // TOUS LES MODALS \\-->

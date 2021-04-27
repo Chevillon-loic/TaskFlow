@@ -8,14 +8,34 @@
   min-height: 87vh;
 }
 
+.containerAdmin #headerPannel #ancre {
+  padding: 20px;
+}
+
+.containerAdmin #headerPannel #ancre a {
+  color: #a558c0;
+  text-decoration: none;
+  width: 100px;
+  border: 1px solid #a558c0;
+  border-radius: 5px;
+  padding: 7px;
+}
+
+.containerAdmin #headerPannel #ancre a:hover {
+  color: white;
+  background-color: #a558c0;
+}
+
 .containerAdmin h3 {
+  display: flex;
+  justify-content: center;
   padding-top: 40px;
   padding-left: 40px;
   font-weight: 600;
-  font-size: 25px;
+  font-size: 35px;
   line-height: 17px;
   letter-spacing: 0.05em;
-  color: #a558c0;
+  color: #23b5b5;
 }
 
 .contentAdmin {
@@ -27,7 +47,9 @@
 
 .contentAdmin .boxAdmin {
   display: flex;
-  background-color: cyan;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   border-radius: 1px;
   margin: 30px;
   width: 420px;
@@ -35,52 +57,38 @@
   cursor: pointer;
 }
 
-.contentAdmin .leftBox {
+.contentAdmin .boxAdmin p {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 300px;
-}
-
-.contentAdmin .leftBox .number {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 50%;
-}
-
-.contentAdmin .leftBox .title {
-  text-align: center;
-  width: 100%;
-  height: 50%;
-}
-
-.contentAdmin .rightBox {
-  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 7px;
+  width: 220px;
+  height: 40px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 8px 1px black;
 }
 
-.contentAdmin .rightBox img {
-  width: 130px;
-  height: 160px;
-  color: red;
+.contentAdmin .boxAdmin p:hover {
+  transform: scale(1.05);
 }
 
 .contentAdmin #adminProfilsUsers {
-  background-color: cyan;
+  background-image: url(https://www.techrepublic.com/a/hub/i/r/2020/05/15/e8a90ddc-f7f9-4617-8f19-f0c3fafe698a/resize/1200x/cef3280023bceb1eca6295bb21289eb3/istock-955408648.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .contentAdmin #adminProfilTeam {
-  background-color: red;
+  background-image: url(https://img.freepik.com/photos-gratuite/contexte-du-reseau-technologique_34629-304.jpg?size=626&ext=jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .contentAdmin #adminAllBoards {
-  background-color: darkorange;
+  background-image: url(https://st3.depositphotos.com/15190488/i/600/depositphotos_177093938-stock-photo-laptop-notebook-computer-white-blank.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .displayNone {

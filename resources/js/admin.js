@@ -1,21 +1,28 @@
-let btn = document.getElementById('adminProfilsUsers');
-let modal1 = document.getElementById('modalUsers');
-let btn1 = document.getElementById('cancelContentUsers')
-btn.addEventListener('click',function(e){
-    modal1.style.display ="block";
+let btnProfilUsers = document.getElementById('adminProfilsUsers');
+let modalUsers = document.getElementById('modalUsers');
+let closeUsers = document.getElementById('cancelContentUsers')
+btnProfilUsers.addEventListener('click',function(e){
+    modalUsers.style.display ="block";
 
-    btn1.addEventListener('click', function(e){
-        modal1.style.display ="none";
+    closeUsers.addEventListener('click', function(e){
+        modalUsers.style.display ="none";
     })
 })
 
-let btn2 = document.getElementById("adminAllBoards")
-let modal2 = document.getElementById('modalBoards');
-let closeModalBoards = document.getElementById('cancelContentBoards')
+let adminAllBoards = document.getElementById("adminAllBoards")
+let modalBoards = document.getElementById('modalBoards');
+let cancelContentBoards = document.getElementById('cancelContentBoards')
 
-btn2.addEventListener('click', function(e){
-    modal2.style.display="block"
-    closeModalBoards.addEventListener('click', function(e){
-        modal2.style.display = "none"
+adminAllBoards.addEventListener('click', function(e){
+    modalBoards.style.display="block"
+    cancelContentBoards.addEventListener('click', function(e){
+        modalBoards.style.display = "none"
     })
+})
+
+let adminProfilTeam = document.getElementById("adminProfilTeam")
+
+
+adminProfilTeam.addEventListener("click", function(e){
+    alert("Pas encore disponible")
 })

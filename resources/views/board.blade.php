@@ -89,10 +89,7 @@
                                         <button id="removeTicket">X</button>
                                     </span>
 
-<<<<<<< HEAD
-=======
                                     {{-- Modal ticket --}}
->>>>>>> 615a1b503fbac01614739aa5ad3c8dacb9099964
                                     <div id="modalContainerTicket" class="displayNoneTicket">
                                         <div id="removeConfirmationContainer" class="displayNoneTicket">
                                             <p>Êtes vous sûr de vouloir supprimer ce ticket ?</p>
