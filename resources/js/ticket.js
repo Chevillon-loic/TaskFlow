@@ -1,8 +1,11 @@
+const { add } = require("lodash");
+
 const ADDTICKETDIV = document.getElementsByClassName("addTicket");
 const BTNADDTICKET = document.getElementById("btnAddTicket");
 const divAddTicket = document.querySelector(".addTicket");
 
 for (const ticket of ADDTICKETDIV) {
+    console.log(ADDTICKETDIV);
     let t = ticket.getElementsByTagName("input");
     let id = t[0].value;
     let btnAdd = ticket.getElementsByTagName("button");
@@ -70,42 +73,43 @@ for (const ticket of ADDTICKETDIV) {
             }
         });
     });
+}
+const DIVTICKET = document.getElementsByClassName("boxTicket");
+// console.log(DIVTICKET[0]);
+for (const tickets of DIVTICKET) {
+    const titleTicket = tickets.querySelector(".ticket");
+    let btnSupp = tickets.querySelector("#removeTicket");
 
-    const DIVTICKET = document.getElementsByClassName("boxTicket");
-    // console.log(DIVTICKET[0]);
-    for (const ticket of DIVTICKET) {
-        let btnSupp = ticket.querySelector("#removeTicket");
-        console.log(btnSupp);
-        let divModalTicket = ticket.querySelector("#modalContainerTicket");
+    let divModalTicket = tickets.querySelector("#modalContainerTicket");
 
-        // let ticketBox = ticket.querySelector(".boxTicket");
+    let cancelRemoveTicket = tickets.querySelector("#cancelRemoveTicket");
 
-        let cancelRemoveTicket = ticket.querySelector("#cancelRemoveTicket");
+    btnSupp.addEventListener("click", function(e) {
+        divModalTicket.style.display = "block";
+        commentModal.style.display = "none";
+    });
 
-        btnSupp.addEventListener("click", function(e) {
-            divModalTicket.style.display = "block";
-        });
+    cancelRemoveTicket.addEventListener("click", function(e) {
+        divModalTicket.style.display = "none";
+    });
 
-        cancelRemoveTicket.addEventListener("click", function(e) {
-            divModalTicket.style.display = "none";
-        });
+    let commentModal = tickets.querySelector("#modalContainerComment");
+    let cancelComment = tickets.querySelector(".cancelComment");
+    let addComment = tickets.querySelector(".addComment");
+    commentModal.style.display = "none";
 
-        let commentModal = ticket.querySelector("#modalContainerComment");
-        let cancelComment = ticket.querySelector("#cancelComment");
-        ticket.addEventListener("click", function(e) {
-            commentModal.style.display = "block";
-        });
-        console.log(cancelComment);
-        cancelComment.addEventListener("click", function(e) {
-            commentModal.style.display = "none";
-            console.log(commentModal);
-        });
+    addComment.addEventListener("click", function(e) {
+        let b = document.createElement("button");
+        b.innerText = "Valider";
+        addComment.insertAdjacentElement("afterend", b);
+    });
 
-        // console.log(ticketBox);
-        // console.log(boxTicket);
+    titleTicket.addEventListener("click", function(e) {
+        commentModal.style.display = "block";
+    });
 
-        // boxTicket.addEventListener("click", function(e) {
-        //     commentModal.style.display = "block";
-        // });
-    }
+    cancelComment.addEventListener("click", function(e) {
+        e.stopPropagation();
+        commentModal.style.display = "none";
+    });
 }

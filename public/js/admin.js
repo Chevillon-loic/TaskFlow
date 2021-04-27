@@ -81,38 +81,51 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/profile.js":
-/*!*********************************!*\
-  !*** ./resources/js/profile.js ***!
-  \*********************************/
+/***/ "./resources/js/admin.js":
+/*!*******************************!*\
+  !*** ./resources/js/admin.js ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var buttonProfileModification = document.getElementById('buttonProfileModification');
-var grayBackground = document.getElementById('grayBackground');
-var buttonClose = document.getElementById('closeProfileModification');
-buttonProfileModification.addEventListener('click', function (e) {
-  grayBackground.style.display = "flex";
+var btnProfilUsers = document.getElementById('adminProfilsUsers');
+var modalUsers = document.getElementById('modalUsers');
+var closeUsers = document.getElementById('cancelContentUsers');
+btnProfilUsers.addEventListener('click', function (e) {
+  modalUsers.style.display = "block";
+  closeUsers.addEventListener('click', function (e) {
+    modalUsers.style.display = "none";
+  });
 });
-buttonClose.addEventListener('click', function (e) {
-  grayBackground.style.display = "none";
+var adminAllBoards = document.getElementById("adminAllBoards");
+var modalBoards = document.getElementById('modalBoards');
+var cancelContentBoards = document.getElementById('cancelContentBoards');
+adminAllBoards.addEventListener('click', function (e) {
+  modalBoards.style.display = "block";
+  cancelContentBoards.addEventListener('click', function (e) {
+    modalBoards.style.display = "none";
+  });
+});
+var adminProfilTeam = document.getElementById("adminProfilTeam");
+adminProfilTeam.addEventListener("click", function (e) {
+  alert("Pas encore disponible");
 });
 
 /***/ }),
 
-/***/ 1:
-/*!***************************************!*\
-  !*** multi ./resources/js/profile.js ***!
-  \***************************************/
+/***/ 5:
+/*!*************************************!*\
+  !*** multi ./resources/js/admin.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\js\profile.js */"./resources/js/profile.js");
+module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\js\admin.js */"./resources/js/admin.js");
 
 
 /***/ })

@@ -226,6 +226,7 @@ BTNCXLDELETETAB.addEventListener("click", function(e) {
     MODALDELETETAB.classList.toggle("displayNone");
 });
 
+<<<<<<< HEAD
 
 //-------------------------------------------------------
 
@@ -274,3 +275,5 @@ TITLETAB.addEventListener("click", function(e){
     });
 });
 
+=======
+>>>>>>> 1c985f196b2dd90368fc3f1dff74a8e358d2385a
