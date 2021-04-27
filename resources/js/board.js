@@ -225,3 +225,55 @@ BTNDELETETAB.addEventListener("click", function(e) {
 BTNCXLDELETETAB.addEventListener("click", function(e) {
     MODALDELETETAB.classList.toggle("displayNone");
 });
+
+<<<<<<< HEAD
+
+//-------------------------------------------------------
+
+//MODIFIER TITRE TABLEAU
+
+const TITLETAB = document.getElementById("titleTab");
+
+TITLETAB.addEventListener("click", function(e){
+    let i = document.createElement("input");
+    TITLETAB.insertAdjacentElement("beforebegin", i);
+    i.value = board.label;
+    i.select();
+    TITLETAB.classList.add("displayNone");
+
+    i.addEventListener("keydown", async function(e){
+        if(e.key === "Enter"){
+            let url = TITLETAB.getAttribute("data_url");
+            console.log(url);
+            let token = document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content");
+        let body = {
+            label: i.value
+        };
+
+        console.log(body);
+                //Corps de la requete
+                const options = {
+                    method: "PUT",
+                    headers: {
+                        "X-CSRF-TOKEN": token,
+                        Accept: "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(body)
+                };
+                try {
+                    const response = await fetch(url, options);
+                    console.log(response);
+                    location.reload();
+                } catch (error) {
+                    console.log(error);
+                }
+        }
+
+    });
+});
+
+=======
+>>>>>>> 1c985f196b2dd90368fc3f1dff74a8e358d2385a
