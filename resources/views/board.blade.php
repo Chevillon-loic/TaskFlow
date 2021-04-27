@@ -28,6 +28,8 @@
             </div>
         </div>
 
+        {{-- Modal tableau --}}
+
         <div id="modalContainerTAB" class="displayNone">
             <div id="removeConfirmationContainerTAB">
                 <p>Êtes vous sûr de vouloir supprimer ce tableau ?</p>
@@ -85,6 +87,8 @@
                                         {{ $ticket->task }}
                                         <button id="removeTicket">X</button>
                                     </span>
+
+                                    {{-- Modal ticket --}}
                                     <div id="modalContainerTicket" class="displayNoneTicket">
                                         <div id="removeConfirmationContainer" class="displayNoneTicket">
                                             <p>Êtes vous sûr de vouloir supprimer ce ticket ?</p>
@@ -99,6 +103,14 @@
                                                     </form>
                                                 </div>
                                             </span>
+                                        </div>
+                                    </div>
+
+                                    {{-- Modal comment --}}
+                                    <div id="modalContainerComment" class="displayNone">
+                                        <div id="removeConfirmationContainer" class="displayNone">
+                                            <button id="cancelComment">Annuler</button>
+                                            <p>comment</p>
                                         </div>
                                     </div>
                                 </div>

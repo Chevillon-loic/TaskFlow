@@ -38,7 +38,7 @@ Route::get('/home/edit/', 'HomeController@edit')->name('home.edit');
 
 
 //Routes page Profile
-Route::get('/profile', 'UserController@index')->name('user.index')->middleware('auth.basic');
+Route::get('/profile', 'UserController@index')->name('user.index')->middleware('auth');
 
 Route::post('profile/update', 'UserController@update')->name('user.update');
 
@@ -61,5 +61,4 @@ Route::post('comment/store/{id}', 'CommentController@store')->name('comment.stor
 Route::get('board/search/{q}', 'BoardController@search')->name('board.search')->middleware('auth');
 
 //Route Column
-
 Route::delete('column/destroy', 'ColumnController@destroy')->name('column.destroy')->middleware('auth');
