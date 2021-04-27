@@ -184,7 +184,9 @@ for (const elem of TITLECONTAINER) {
                 const options = {
                     method: "PUT",
                     headers: {
-                        "X-CSRF-TOKEN": token
+                        "X-CSRF-TOKEN": token,
+                        Accept: "application/json",
+                        "Content-Type": "application/json"
                     },
                     body: JSON.stringify(body)
                 };
@@ -193,6 +195,7 @@ for (const elem of TITLECONTAINER) {
                     //console.log(url);
                     const response = await fetch(url, options);
                     console.log(response);
+                    location.reload();
                 } catch (error) {
                     console.log(error);
                 }

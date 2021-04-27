@@ -1132,7 +1132,7 @@ try {
               switch (_context3.prev = _context3.next) {
                 case 0:
                   if (!(e.key === "Enter")) {
-                    _context3.next = 15;
+                    _context3.next = 16;
                     break;
                   }
 
@@ -1146,7 +1146,9 @@ try {
                   options = {
                     method: "PUT",
                     headers: {
-                      "X-CSRF-TOKEN": token
+                      "X-CSRF-TOKEN": token,
+                      Accept: "application/json",
+                      "Content-Type": "application/json"
                     },
                     body: JSON.stringify(body)
                   }; //console.log(options);
@@ -1158,20 +1160,21 @@ try {
                 case 8:
                   response = _context3.sent;
                   console.log(response);
-                  _context3.next = 15;
+                  location.reload();
+                  _context3.next = 16;
                   break;
 
-                case 12:
-                  _context3.prev = 12;
+                case 13:
+                  _context3.prev = 13;
                   _context3.t0 = _context3["catch"](5);
                   console.log(_context3.t0);
 
-                case 15:
+                case 16:
                 case "end":
                   return _context3.stop();
               }
             }
-          }, _callee3, null, [[5, 12]]);
+          }, _callee3, null, [[5, 13]]);
         }));
 
         return function (_x3) {
