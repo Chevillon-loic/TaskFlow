@@ -68,9 +68,12 @@ class ColumnController extends Controller
      * @param  \App\Column  $column
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Column $column)
+    public function update(Request $request)
     {
-        //
+        $column = Column::find($request->id);
+        $column->$request->label;
+        $column->save();
+        return response("Requete OK");
     }
 
     /**
