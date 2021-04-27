@@ -107,12 +107,13 @@
                                         </div>
                                     </div>
 
+
                                     {{-- Modal comment --}}
                                     <div id="modalContainerComment">
                                         <div id="removeConfirmationContainerComment">
                                             <button id="removeTicket">Supprimer le ticket</button>
                                             <button class="cancelComment">X</button>
-                                            <textarea name="" id="addComment" class="addComment" cols="30" rows="3" placeholder="Écrivez un commentaire"></textarea>
+                                            <textarea name="" data_url="{{ route('comment.store', [$ticket->id]) }}" id="addComment" class="addComment" cols="30" rows="3" placeholder="Écrivez un commentaire"></textarea>
                                             <p>comment</p>
                                         </div>
                                     </div>

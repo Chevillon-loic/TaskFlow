@@ -18280,11 +18280,11 @@ var _iterator2 = _createForOfIteratorHelper(DIVTICKET),
 
 try {
   var _loop2 = function _loop2() {
-    var tickets = _step2.value;
-    var titleTicket = tickets.querySelector(".ticket");
-    var btnSupp = tickets.querySelector("#removeTicket");
-    var divModalTicket = tickets.querySelector("#modalContainerTicket");
-    var cancelRemoveTicket = tickets.querySelector("#cancelRemoveTicket");
+    var ticket = _step2.value;
+    var titleTicket = ticket.querySelector(".ticket");
+    var btnSupp = ticket.querySelector("#removeTicket");
+    var divModalTicket = ticket.querySelector("#modalContainerTicket");
+    var cancelRemoveTicket = ticket.querySelector("#cancelRemoveTicket");
     btnSupp.addEventListener("click", function (e) {
       divModalTicket.style.display = "block";
       commentModal.style.display = "none";
@@ -18292,15 +18292,80 @@ try {
     cancelRemoveTicket.addEventListener("click", function (e) {
       divModalTicket.style.display = "none";
     });
-    var commentModal = tickets.querySelector("#modalContainerComment");
-    var cancelComment = tickets.querySelector(".cancelComment");
-    var addComment = tickets.querySelector(".addComment");
+    var commentModal = ticket.querySelector("#modalContainerComment");
+    var cancelComment = ticket.querySelector(".cancelComment");
+    var addComment = ticket.querySelector(".addComment");
     commentModal.style.display = "none";
+    var b = document.createElement("button");
+    b.id = "btnAddComment";
     addComment.addEventListener("click", function (e) {
-      var b = document.createElement("button");
       b.innerText = "Valider";
       addComment.insertAdjacentElement("afterend", b);
+      b.style.display = "block";
     });
+    b.addEventListener("click", /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
+        var url, token, comment, body, options, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                b.style.display = "none";
+                url = addComment.getAttribute("data_url");
+                token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+                comment = addComment.value;
+                body = {
+                  description: comment,
+                  user_id: user.id
+                };
+                options = {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": token
+                  },
+                  body: JSON.stringify(body)
+                };
+
+                if (!(comment.length > 2)) {
+                  _context2.next = 19;
+                  break;
+                }
+
+                _context2.prev = 7;
+                _context2.next = 10;
+                return fetch(url, options);
+
+              case 10:
+                response = _context2.sent;
+                addComment.value = "";
+                _context2.next = 17;
+                break;
+
+              case 14:
+                _context2.prev = 14;
+                _context2.t0 = _context2["catch"](7);
+                console.log(_context2.t0);
+
+              case 17:
+                _context2.next = 20;
+                break;
+
+              case 19:
+                addComment.value = "";
+
+              case 20:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[7, 14]]);
+      }));
+
+      return function (_x2) {
+        return _ref2.apply(this, arguments);
+      };
+    }());
     titleTicket.addEventListener("click", function (e) {
       commentModal.style.display = "block";
     });
