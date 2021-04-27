@@ -981,7 +981,7 @@ try {
         };
       }());
     });
-    var DIVTICKET = document.getElementsByClassName("boxTicket");
+    var DIVTICKET = document.getElementsByClassName("boxTicket"); // console.log(DIVTICKET[0]);
 
     var _iterator2 = _createForOfIteratorHelper(DIVTICKET),
         _step2;
@@ -990,7 +990,9 @@ try {
       var _loop2 = function _loop2() {
         var ticket = _step2.value;
         var btnSupp = ticket.querySelector("#removeTicket");
-        var divModalTicket = ticket.querySelector("#modalContainerTicket");
+        console.log(btnSupp);
+        var divModalTicket = ticket.querySelector("#modalContainerTicket"); // let ticketBox = ticket.querySelector(".boxTicket");
+
         var cancelRemoveTicket = ticket.querySelector("#cancelRemoveTicket");
         btnSupp.addEventListener("click", function (e) {
           divModalTicket.style.display = "block";
@@ -998,6 +1000,20 @@ try {
         cancelRemoveTicket.addEventListener("click", function (e) {
           divModalTicket.style.display = "none";
         });
+        var commentModal = ticket.querySelector("#modalContainerComment");
+        var cancelComment = ticket.querySelector("#cancelComment");
+        ticket.addEventListener("click", function (e) {
+          commentModal.style.display = "block";
+        });
+        console.log(cancelComment);
+        cancelComment.addEventListener("click", function (e) {
+          commentModal.style.display = "none";
+          console.log(commentModal);
+        }); // console.log(ticketBox);
+        // console.log(boxTicket);
+        // boxTicket.addEventListener("click", function(e) {
+        //     commentModal.style.display = "block";
+        // });
       };
 
       for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
@@ -1028,7 +1044,7 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/ticket.js */"./resources/js/ticket.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/ticket.js */"./resources/js/ticket.js");
 
 
 /***/ })

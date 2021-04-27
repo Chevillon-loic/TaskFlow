@@ -141,7 +141,8 @@
 
 #modalContainer,
 #modalContainerTicket,
-#modalContainerTAB {
+#modalContainerTAB,
+#modalContainerComment {
   position: fixed;
   /* Stay in place */
   z-index: 10;
@@ -165,7 +166,9 @@
 #modalContainerTicket #removeConfirmationContainer,
 #modalContainerTicket #removeConfirmationContainerTAB,
 #modalContainerTAB #removeConfirmationContainer,
-#modalContainerTAB #removeConfirmationContainerTAB {
+#modalContainerTAB #removeConfirmationContainerTAB,
+#modalContainerComment #removeConfirmationContainer,
+#modalContainerComment #removeConfirmationContainerTAB {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -188,7 +191,9 @@
 #modalContainerTicket #removeConfirmationContainer .modalButtons,
 #modalContainerTicket #removeConfirmationContainerTAB .modalButtons,
 #modalContainerTAB #removeConfirmationContainer .modalButtons,
-#modalContainerTAB #removeConfirmationContainerTAB .modalButtons {
+#modalContainerTAB #removeConfirmationContainerTAB .modalButtons,
+#modalContainerComment #removeConfirmationContainer .modalButtons,
+#modalContainerComment #removeConfirmationContainerTAB .modalButtons {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -199,7 +204,9 @@
 #modalContainerTicket #removeConfirmationContainer .modalButtons button,
 #modalContainerTicket #removeConfirmationContainerTAB .modalButtons button,
 #modalContainerTAB #removeConfirmationContainer .modalButtons button,
-#modalContainerTAB #removeConfirmationContainerTAB .modalButtons button {
+#modalContainerTAB #removeConfirmationContainerTAB .modalButtons button,
+#modalContainerComment #removeConfirmationContainer .modalButtons button,
+#modalContainerComment #removeConfirmationContainerTAB .modalButtons button {
   width: 80px;
   height: 30px;
   margin-top: 20px;
