@@ -123,13 +123,14 @@ INVITE.addEventListener("click", function(e) {
                 const response = await fetch(url, options);
                 const users = await response.json();
                 console.log(users);
-
-                users.forEach(user => {
-                    let div = document.createElement("div");
-                    div.innerHTML = `
-                    <p class="p"> ${user.first_name} ${user.last_name}</p>`;
-                    INVITECONTAINER.insertAdjacentElement("beforeend", div);
-                });
+                setTimeout(() => {
+                    users.forEach(user => {
+                        let div = document.createElement("div");
+                        div.innerHTML = `
+                        <p class="p"> ${user.first_name} ${user.last_name}</p>`;
+                        INVITECONTAINER.insertAdjacentElement("beforeend", div);
+                    });
+                }, 1000);
 
                 if (users.length >= 1) {
                 }
@@ -171,7 +172,7 @@ for (const elem of TITLECONTAINER) {
 
         i.addEventListener("keydown", async function(e) {
             if (e.key === "Enter") {
-                let url = document.location.origin + "/column/update/" + id;
+                let url = plabelColumn.getAttribute("data_url");
                 let token = document
                     .querySelector('meta[name="csrf-token"]')
                     .getAttribute("content");
@@ -187,7 +188,9 @@ for (const elem of TITLECONTAINER) {
                     },
                     body: JSON.stringify(body)
                 };
+                //console.log(options);
                 try {
+                    //console.log(url);
                     const response = await fetch(url, options);
                     console.log(response);
                 } catch (error) {

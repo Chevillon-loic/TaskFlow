@@ -70,10 +70,15 @@ class ColumnController extends Controller
      */
     public function update(Request $request)
     {
+        $request->validate([
+            'id' => 'integer|required',
+            'label' => 'string |min:3'
+        ]);
+
         $column = Column::find($request->id);
-        $column->$request->label;
+        $column->label = $request->label;
         $column->save();
-        return response("Requete OK");
+        return response("success");
     }
 
     /**

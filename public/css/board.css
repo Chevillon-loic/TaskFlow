@@ -115,6 +115,17 @@
   align-items: center;
 }
 
+.mainContainer .columnContainer .columnTitle #updateLabelColumInput {
+  padding: 5px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+}
+
 .mainContainer .columnContainer #removeColumn {
   background-color: transparent;
   border-style: none;

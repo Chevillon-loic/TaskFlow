@@ -1062,11 +1062,13 @@ INVITE.addEventListener("click", function (e) {
             case 15:
               users = _context2.sent;
               console.log(users);
-              users.forEach(function (user) {
-                var div = document.createElement("div");
-                div.innerHTML = "\n                    <p class=\"p\"> ".concat(user.first_name, " ").concat(user.last_name, "</p>");
-                INVITECONTAINER.insertAdjacentElement("beforeend", div);
-              });
+              setTimeout(function () {
+                users.forEach(function (user) {
+                  var div = document.createElement("div");
+                  div.innerHTML = "\n                        <p class=\"p\"> ".concat(user.first_name, " ").concat(user.last_name, "</p>");
+                  INVITECONTAINER.insertAdjacentElement("beforeend", div);
+                });
+              }, 1000);
 
               if (users.length >= 1) {}
 
@@ -1134,7 +1136,7 @@ try {
                     break;
                   }
 
-                  url = document.location.origin + "/column/update/" + id;
+                  url = plabelColumn.getAttribute("data_url");
                   token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
                   body = {
                     id: id,
@@ -1147,7 +1149,8 @@ try {
                       "X-CSRF-TOKEN": token
                     },
                     body: JSON.stringify(body)
-                  };
+                  }; //console.log(options);
+
                   _context3.prev = 5;
                   _context3.next = 8;
                   return fetch(url, options);
@@ -1208,7 +1211,7 @@ BTNCXLDELETETAB.addEventListener("click", function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/board.js */"./resources/js/board.js");
 
 
 /***/ })

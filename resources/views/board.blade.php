@@ -52,7 +52,8 @@
                     <div class="columTitleDiv">
                         <div class="titleClosed">
                             <span class="columnTitle">
-                                <p id="plabelColumn">{{ $column->label }}</p>
+                                <p id="plabelColumn" data_url="{{ route('column.update', [$column->id]) }}">
+                                    {{ $column->label }}</p>
                                 <button id="removeColumn"><i class="fas fa-times-circle"></i></button>
                             </span>
                         </div>
