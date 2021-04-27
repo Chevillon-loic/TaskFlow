@@ -54,7 +54,8 @@
                     <div class="columTitleDiv">
                         <div class="titleClosed">
                             <span class="columnTitle">
-                                <p>{{ $column->label }}</p>
+                                <p id="plabelColumn" data_url="{{ route('column.update', [$column->id]) }}">
+                                    {{ $column->label }}</p>
                                 <button id="removeColumn"><i class="fas fa-times-circle"></i></button>
                             </span>
                         </div>
@@ -68,7 +69,7 @@
                                         <form action="{{ route('column.destroy') }}" method="post">
                                             @method('delete')
                                             @csrf
-                                            <input type="hidden" name="id" value="{{ $column->id }}">
+                                            <input type="hidden" class="id" name="id" value="{{ $column->id }}">
                                             <button type="submit">Confirmer</button>
                                         </form>
                                     </div>
