@@ -1135,14 +1135,14 @@ try {
       i.select();
       plabelColumn.classList.add("displayNone");
       i.addEventListener("keydown", /*#__PURE__*/function () {
-        var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(e) {
+        var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(e) {
           var url, token, body, options, response;
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
             while (1) {
-              switch (_context3.prev = _context3.next) {
+              switch (_context4.prev = _context4.next) {
                 case 0:
                   if (!(e.key === "Enter")) {
-                    _context3.next = 16;
+                    _context4.next = 16;
                     break;
                   }
 
@@ -1163,32 +1163,32 @@ try {
                     body: JSON.stringify(body)
                   }; //console.log(options);
 
-                  _context3.prev = 5;
-                  _context3.next = 8;
+                  _context4.prev = 5;
+                  _context4.next = 8;
                   return fetch(url, options);
 
                 case 8:
-                  response = _context3.sent;
+                  response = _context4.sent;
                   console.log(response);
                   location.reload();
-                  _context3.next = 16;
+                  _context4.next = 16;
                   break;
 
                 case 13:
-                  _context3.prev = 13;
-                  _context3.t0 = _context3["catch"](5);
-                  console.log(_context3.t0);
+                  _context4.prev = 13;
+                  _context4.t0 = _context4["catch"](5);
+                  console.log(_context4.t0);
 
                 case 16:
                 case "end":
-                  return _context3.stop();
+                  return _context4.stop();
               }
             }
-          }, _callee3, null, [[5, 13]]);
+          }, _callee4, null, [[5, 13]]);
         }));
 
-        return function (_x3) {
-          return _ref2.apply(this, arguments);
+        return function (_x4) {
+          return _ref3.apply(this, arguments);
         };
       }());
     });
@@ -1213,6 +1213,73 @@ BTNDELETETAB.addEventListener("click", function (e) {
 });
 BTNCXLDELETETAB.addEventListener("click", function (e) {
   MODALDELETETAB.classList.toggle("displayNone");
+}); //-------------------------------------------------------
+//MODIFIER TITRE TABLEAU
+
+var TITLETAB = document.getElementById("titleTab");
+TITLETAB.addEventListener("click", function (e) {
+  var i = document.createElement("input");
+  TITLETAB.insertAdjacentElement("beforebegin", i);
+  i.value = board.label;
+  i.select();
+  TITLETAB.classList.add("displayNone");
+  i.addEventListener("keydown", /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(e) {
+      var url, token, body, options, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              if (!(e.key === "Enter")) {
+                _context3.next = 18;
+                break;
+              }
+
+              url = TITLETAB.getAttribute("data_url");
+              console.log(url);
+              token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+              body = {
+                label: i.value
+              };
+              console.log(body); //Corps de la requete
+
+              options = {
+                method: "PUT",
+                headers: {
+                  "X-CSRF-TOKEN": token,
+                  Accept: "application/json",
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify(body)
+              };
+              _context3.prev = 7;
+              _context3.next = 10;
+              return fetch(url, options);
+
+            case 10:
+              response = _context3.sent;
+              console.log(response);
+              location.reload();
+              _context3.next = 18;
+              break;
+
+            case 15:
+              _context3.prev = 15;
+              _context3.t0 = _context3["catch"](7);
+              console.log(_context3.t0);
+
+            case 18:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[7, 15]]);
+    }));
+
+    return function (_x3) {
+      return _ref2.apply(this, arguments);
+    };
+  }());
 });
 
 /***/ }),

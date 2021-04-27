@@ -14,7 +14,8 @@
 
         <div class="topContainer">
 
-            <h2 id="titleTab">{{ $board->label }}</h2>
+            <h2 id="titleTab" data_url="{{ route('board.update', [$board->id]) }}">
+                {{ $board->label }}</h2>
 
             {{-- Invite user --}}
             <div class="containerInviteDelete">
