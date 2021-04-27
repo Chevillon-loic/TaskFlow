@@ -177,14 +177,23 @@ if (URL.includes("home")) {
 var NAVBAR = document.getElementById("navbar");
 var BTNADDLIST = document.getElementById("btnAddList");
 var TITLETAB = document.getElementById("titleTab");
-var NEWADDLIST = document.getElementById("newaddlist");
-console.log(NEWADDLIST);
 
 if (URL.includes("board")) {
   NAVBAR.style.background = board.color;
   BTNADDLIST.style.background = board.color;
-  TITLETAB.style.color = board.color; // NEWADDLIST.style.backgroundColor = board.color
+  TITLETAB.style.color = board.color;
 }
+
+/***/ }),
+
+/***/ "./resources/sass/admin.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/admin.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -244,9 +253,9 @@ if (URL.includes("board")) {
 /***/ }),
 
 /***/ 0:
-/*!********************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/welcome.scss ./resources/sass/home.scss ./resources/sass/profile.scss ./resources/sass/board.scss ***!
-  \********************************************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/welcome.scss ./resources/sass/home.scss ./resources/sass/profile.scss ./resources/sass/board.scss ./resources/sass/admin.scss ***!
+  \************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -255,7 +264,8 @@ __webpack_require__(/*! C:\wamp64\www\taskflow\resources\sass\app.scss */"./reso
 __webpack_require__(/*! C:\wamp64\www\taskflow\resources\sass\welcome.scss */"./resources/sass/welcome.scss");
 __webpack_require__(/*! C:\wamp64\www\taskflow\resources\sass\home.scss */"./resources/sass/home.scss");
 __webpack_require__(/*! C:\wamp64\www\taskflow\resources\sass\profile.scss */"./resources/sass/profile.scss");
-module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\sass\board.scss */"./resources/sass/board.scss");
+__webpack_require__(/*! C:\wamp64\www\taskflow\resources\sass\board.scss */"./resources/sass/board.scss");
+module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\sass\admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })

@@ -6,10 +6,11 @@ BTNADDLIST.addEventListener("click", function(e) {
     let btn = document.createElement("button");
     let close = document.createElement("button");
 
-    btn.innerText = "Nouvelle liste";
+    btn.innerText = "Valider";
     btn.id = "newaddlist";
+    input.id = "newListInput";
     btn.style.backgroundColor = board.color;
-    close.innerText = "Annluer";
+    close.innerText = "Annuler";
 
     divAddList.insertAdjacentElement("beforeend", btn);
     divAddList.insertAdjacentElement("beforeend", input);
@@ -145,8 +146,8 @@ const TITLECONTAINER = document.getElementsByClassName("columTitleDiv");
 for (const elem of TITLECONTAINER) {
     let remBtn = elem.querySelector("#removeColumn");
     let modalContainer = elem.querySelector("#modalContainer");
-
     let cxlremBtn = elem.querySelector("#cancelRemoveColumn");
+    elem.style.backgroundColor = board.color;
 
     remBtn.addEventListener("click", function(e) {
         modalContainer.classList.toggle("displayNone");
@@ -157,3 +158,16 @@ for (const elem of TITLECONTAINER) {
     });
 }
 //-------------------------------------------------------
+
+//Bouton supprimer Tableau
+const BTNDELETETAB = document.getElementById("deleteTab");
+const MODALDELETETAB = document.getElementById("modalContainerTAB");
+const BTNCXLDELETETAB = document.getElementById("cancelRemoveColumnTAB");
+
+BTNDELETETAB.addEventListener("click", function(e) {
+    MODALDELETETAB.classList.toggle("displayNone");
+});
+BTNCXLDELETETAB.addEventListener("click", function(e) {
+    MODALDELETETAB.classList.toggle("displayNone");
+});
+

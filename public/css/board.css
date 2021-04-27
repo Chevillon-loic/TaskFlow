@@ -3,7 +3,8 @@
 0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);.mainContainer {
   display: flex;
   flex-direction: column;
-  margin: 5vh;
+  justify-content: space-around;
+  height: calc(100vh-40px);
 }
 
 .mainContainer h2 {
@@ -14,38 +15,99 @@
   letter-spacing: 0.05em;
 }
 
-.mainContainer .columnContainer {
+.mainContainer .topContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5vh 5vh 0;
+}
+
+.mainContainer .topContainer .containerInviteDelete {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+}
+
+.mainContainer .topContainer .containerInviteDelete #inviteContainer #invite {
+  width: 100px;
+  height: 40px;
+  background-color: #dfdfdf;
+  border-style: none;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #292929;
+  margin: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.mainContainer .topContainer .containerInviteDelete #inviteContainer #invite:hover {
+  transform: scale(1.05);
+  background-color: #c3c3c3;
+}
+
+.mainContainer .topContainer .containerInviteDelete #deleteTab {
+  width: 100px;
+  height: 40px;
+  background-color: white;
+  border-color: lightgray;
+  border-style: solid;
+  color: #9e9e9e;
+  font-family: "Montserrat", sans-serif;
+  margin: 5px;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.mainContainer .topContainer .containerInviteDelete #deleteTab:hover {
+  transform: scale(1.05);
+  border-color: #afaeae;
+  color: #afaeae;
+}
+
+.mainContainer .allColumns {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  overflow-x: auto;
+  margin: 0vh calc(5vh - 24px);
+  position: absolute;
+  bottom: 0;
+  height: 80vh;
+  width: 95vw;
+}
+
+.mainContainer .allColumns .columnContainer {
   flex-shrink: 0;
   margin: 24px;
 }
 
-.mainContainer .columnContainer .columTitleDiv {
+.mainContainer .allColumns .columnContainer .columTitleDiv {
   background-color: #777777;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   padding: 18px;
 }
 
-.mainContainer .columnContainer .columTitleDiv p {
+.mainContainer .allColumns .columnContainer .columTitleDiv p {
   margin: 0;
   padding: 0;
 }
 
-.allColumns {
-  display: flex;
-  flex-direction: row;
-  overflow-x: scroll;
-}
-
-.allColumns .columnContainer {
-  width: 280px;
+.mainContainer .columnContainer {
+  width: 300px;
   border-radius: 4px;
   background-color: lightgray;
 }
 
-.allColumns .columnContainer .columnTitle {
+.mainContainer .columnContainer .columnTitle {
   height: 24px;
-  background-color: #777777;
   color: white;
   font-weight: 700;
   display: flex;
@@ -53,12 +115,21 @@
   align-items: center;
 }
 
-.allColumns .columnContainer #btnAddTicket {
+.mainContainer .columnContainer #removeColumn {
+  background-color: transparent;
+  border-style: none;
+  color: white;
+  margin-top: -18px;
+  margin-right: -12px;
+}
+
+.mainContainer .columnContainer #btnAddTicket {
   cursor: pointer;
 }
 
 #modalContainer,
-#modalContainerTicket {
+#modalContainerTicket,
+#modalContainerTAB {
   position: fixed;
   /* Stay in place */
   z-index: 10;
@@ -78,7 +149,11 @@
 }
 
 #modalContainer #removeConfirmationContainer,
-#modalContainerTicket #removeConfirmationContainer {
+#modalContainer #removeConfirmationContainerTAB,
+#modalContainerTicket #removeConfirmationContainer,
+#modalContainerTicket #removeConfirmationContainerTAB,
+#modalContainerTAB #removeConfirmationContainer,
+#modalContainerTAB #removeConfirmationContainerTAB {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -97,14 +172,22 @@
 }
 
 #modalContainer #removeConfirmationContainer .modalButtons,
-#modalContainerTicket #removeConfirmationContainer .modalButtons {
+#modalContainer #removeConfirmationContainerTAB .modalButtons,
+#modalContainerTicket #removeConfirmationContainer .modalButtons,
+#modalContainerTicket #removeConfirmationContainerTAB .modalButtons,
+#modalContainerTAB #removeConfirmationContainer .modalButtons,
+#modalContainerTAB #removeConfirmationContainerTAB .modalButtons {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
 #modalContainer #removeConfirmationContainer .modalButtons button,
-#modalContainerTicket #removeConfirmationContainer .modalButtons button {
+#modalContainer #removeConfirmationContainerTAB .modalButtons button,
+#modalContainerTicket #removeConfirmationContainer .modalButtons button,
+#modalContainerTicket #removeConfirmationContainerTAB .modalButtons button,
+#modalContainerTAB #removeConfirmationContainer .modalButtons button,
+#modalContainerTAB #removeConfirmationContainerTAB .modalButtons button {
   width: 80px;
   height: 30px;
   margin-top: 20px;
@@ -116,7 +199,7 @@
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 16px;
-  width: 280px;
+  width: 300px;
   height: 60px;
   border-radius: 4px;
   border-style: none;
@@ -128,13 +211,21 @@
   margin: 24px;
 }
 
+#newListInput {
+  padding: 5px 10px;
+}
+
 .ticketContainer {
-  padding: 18px;
+  padding: 8px 12px;
+}
+
+.ticketContainer .divTicket {
+  margin: 12px 0px;
 }
 
 .boxTicket {
   background-color: white;
-  border-radius: 4px;
+  border-radius: 2px;
   padding: 4px;
   margin-bottom: 5px;
   cursor: pointer;

@@ -14,7 +14,7 @@
 //Routes pour page Welcome
 Route::get('/', function () {
     return view('welcome');
-})->name('welcome');
+})->name('welcome')->middleware('guest');
 
 
 //Routes Login, logout et Register
@@ -43,23 +43,26 @@ Route::get('/profile', 'UserController@index')->name('user.index')->middleware('
 Route::post('profile/update', 'UserController@update')->name('user.update');
 
 //Routes page tableau
-Route::get('board/index/{id}', 'BoardController@index')->name('board.index')->middleware('auth');
+Route::get('board/index/{id}', 'BoardController@index')->name('board.index')->middleware('auth')->where('id', '[0-9]+');
 
-Route::post('board/store/{id}', 'BoardController@store')->name('board.store')->middleware('auth');
+Route::post('board/store/{id}', 'BoardController@store')->name('board.store')->middleware('auth')->where('id', '[0-9]+');
 
 Route::delete('board/delete', 'BoardController@destroy')->name('board.destroy')->middleware('auth');
 
 //tickets
-Route::post('ticket/store/{id}', 'TicketController@store')->name('ticket.store')->middleware('auth');
+Route::post('ticket/store/{id}', 'TicketController@store')->name('ticket.store')->middleware('auth')->where('id', '[0-9]+');
 
-Route::post('ticket/destroy', 'TicketController@destroy')->name('ticket.destroy')->middleware('auth');
+Route::delete('ticket/destroy', 'TicketController@destroy')->name('ticket.destroy')->middleware('auth');
 
 //comments
-Route::post('comment/store/{id}', 'CommentController@store')->name('comment.store')->middleware('auth');
+Route::post('comment/store/{id}', 'CommentController@store')->name('comment.store')->middleware('auth')->where('id', '[0-9]+');
 
 //Route Recherche user pour invitation
 Route::get('board/search/{q}', 'BoardController@search')->name('board.search')->middleware('auth');
 
 //Route Column
 
-Route::post('column/destroy', 'ColumnController@destroy')->name('column.destroy')->middleware('auth');
+Route::delete('column/destroy', 'ColumnController@destroy')->name('column.destroy')->middleware('auth');
+
+// Route page Admin
+Route::get('admin/index', 'AdminController@index')->name('admin.index');

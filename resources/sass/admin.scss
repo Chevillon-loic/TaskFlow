@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+// Variables
+@import "variables";
+
+.containerAdmin {
+    background: #ffffff;
+    margin: 20px;
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    min-height: 87vh;
+    h3 {
+        padding-top: 40px;
+        padding-left: 40px;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 17px;
+        letter-spacing: 0.05em;
+        color: $secondary;
+    }
+}
+
+.contentAdmin {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    .boxAdmin {
+        display: flex;
+        background-color: cyan;
+        border-radius: 1px;
+        margin: 30px;
+        width: 420px;
+        height: 200px;
+        cursor: pointer;
+    }
+    .leftBox {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 300px;
+
+        .number {
+            background-color: yellow;
+            width: 100%;
+            height: 90px;
+        }
+        .title {
+            background-color: red;
+            width: 100%;
+            height: 90px;
+        }
+    }
+    .rightBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 7px;
+
+        img {
+            width: 130px;
+            height: 160px;
+            color: red;
+        }
+    }
+    #adminProfilsUsers {
+        background-color: cyan;
+    }
+    #adminProfilTeam {
+        background-color: red;
+    }
+    #adminAllBoards {
+        background-color: darkorange;
+    }
+}

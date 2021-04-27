@@ -71,7 +71,7 @@ for (const ticket of ADDTICKETDIV) {
         });
     });
 
-    const DIVTICKET = document.getElementsByClassName("divTicket");
+    const DIVTICKET = document.getElementsByClassName("boxTicket");
 
     for (const ticket of DIVTICKET) {
         let btnSupp = ticket.querySelector("#removeTicket");
