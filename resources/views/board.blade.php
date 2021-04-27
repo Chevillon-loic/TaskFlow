@@ -84,10 +84,10 @@
 
                                 <div class="boxTicket">
 
-                                    <span class="ticket">
+                                    <div class="ticket">
                                         {{ $ticket->task }}
-                                        <button id="removeTicket">X</button>
-                                    </span>
+
+                                    </div>
 
                                     {{-- Modal ticket --}}
                                     <div id="modalContainerTicket" class="displayNoneTicket">
@@ -108,9 +108,11 @@
                                     </div>
 
                                     {{-- Modal comment --}}
-                                    <div id="modalContainerComment" class="displayNone">
+                                    <div id="modalContainerComment">
                                         <div id="removeConfirmationContainer">
-                                            <button id="cancelComment">Annuler</button>
+                                            <button id="removeTicket">Supprimer le ticket</button>
+                                            <button class="cancelComment">X</button>
+                                            <button class="addComment">Ajouter un commentaire</button>
                                             <p>comment</p>
                                         </div>
                                     </div>

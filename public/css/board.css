@@ -254,6 +254,11 @@
   background-color: whitesmoke;
 }
 
+.boxTicket .ticket {
+  display: flex;
+  justify-content: space-between;
+}
+
 .addComment {
   margin: 24px;
 }
