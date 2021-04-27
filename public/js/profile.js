@@ -93,14 +93,17 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var buttonProfileModification = document.getElementById('buttonProfileModification');
-var grayBackground = document.getElementById('grayBackground');
-var buttonClose = document.getElementById('closeProfileModification');
-buttonProfileModification.addEventListener('click', function (e) {
+var buttonProfileModification = document.getElementById("buttonProfileModification");
+var grayBackground = document.getElementById("grayBackground");
+var buttonClose = document.getElementById("closeProfileModification");
+var profile = document.getElementById("profile");
+buttonProfileModification.addEventListener("click", function (e) {
   grayBackground.style.display = "flex";
+  profile.style.display = "none";
 });
-buttonClose.addEventListener('click', function (e) {
+buttonClose.addEventListener("click", function (e) {
   grayBackground.style.display = "none";
+  profile.style.display = "flex";
 });
 
 /***/ }),
