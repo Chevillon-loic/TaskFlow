@@ -28,8 +28,7 @@
     align-items: center;
 
     h1 {
-        padding-top: 40px;
-        padding-left: 40px;
+        padding: 32px 0px 24px;
         font-weight: 600;
         font-size: 25px;
         line-height: 17px;
@@ -87,14 +86,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 500px;
+        height: 480px;
         width: 600px;
         border-radius: 10px;
         background: linear-gradient(to right, #a558c0, #23b5b5);
         margin: auto;
 
         .profileIn {
-            height: 490px;
+            height: 470px;
             width: 590px;
             border-radius: 7px;
             background-color: rgb(251, 251, 251);
@@ -102,7 +101,7 @@
             flex-direction: column;
             align-items: center;
             #profilePicture {
-                margin-top: 3vh;
+                margin-top: 8vh;
                 height: 150px;
                 width: 150px;
                 border-radius: 100%;
@@ -112,20 +111,27 @@
                 display: flex;
                 flex-direction: row;
                 .bloc-left {
-                    margin: 3vh 2vh;
+                    margin: 3vh 10px;
                     p {
                         color: $primary;
-                        font-weight: 600;
+                        font-weight: 500;
                     }
                 }
                 .bloc-right {
-                    margin: 3vh 2vh;
+                    margin: 3vh 10px;
                     font-weight: 500;
                 }
             }
 
-            #buttonProfileModification {
+            #buttonProfileModification,
+            .dropdown-item {
                 @include buttonStyle();
+                font-family: "Montserrat", sans-serif;
+                font-weight: 600;
+                font-size: 14px;
+                text-decoration: none;
+                padding-right: 10px;
+                padding-left: 10px;
             }
         }
     }
