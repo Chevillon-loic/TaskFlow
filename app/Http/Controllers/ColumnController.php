@@ -68,9 +68,17 @@ class ColumnController extends Controller
      * @param  \App\Column  $column
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Column $column)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'id' => 'integer|required',
+            'label' => 'string |min:3'
+        ]);
+
+        $column = Column::find($request->id);
+        $column->label = $request->label;
+        $column->save();
+        return response("success");
     }
 
     /**

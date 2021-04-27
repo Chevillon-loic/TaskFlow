@@ -933,7 +933,7 @@ BTNADDLIST.addEventListener("click", function (e) {
               };
 
               if (!(label.length > 2)) {
-                _context.next = 19;
+                _context.next = 18;
                 break;
               }
 
@@ -943,29 +943,29 @@ BTNADDLIST.addEventListener("click", function (e) {
 
             case 9:
               response = _context.sent;
-              console.log(response);
-              location.reload();
-              _context.next = 17;
+              console.log(response.body); //location.reload();
+
+              _context.next = 16;
               break;
 
-            case 14:
-              _context.prev = 14;
+            case 13:
+              _context.prev = 13;
               _context.t0 = _context["catch"](6);
               console.log(_context.t0);
 
-            case 17:
-              _context.next = 20;
+            case 16:
+              _context.next = 19;
               break;
 
-            case 19:
+            case 18:
               input.value = "";
 
-            case 20:
+            case 19:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[6, 14]]);
+      }, _callee, null, [[6, 13]]);
     }));
 
     return function (_x) {
@@ -1062,11 +1062,13 @@ INVITE.addEventListener("click", function (e) {
             case 15:
               users = _context2.sent;
               console.log(users);
-              users.forEach(function (user) {
-                var div = document.createElement("div");
-                div.innerHTML = "\n                    <p class=\"p\"> ".concat(user.first_name, " ").concat(user.last_name, "</p>");
-                INVITECONTAINER.insertAdjacentElement("beforeend", div);
-              });
+              setTimeout(function () {
+                users.forEach(function (user) {
+                  var div = document.createElement("div");
+                  div.innerHTML = "\n                        <p class=\"p\"> ".concat(user.first_name, " ").concat(user.last_name, "</p>");
+                  INVITECONTAINER.insertAdjacentElement("beforeend", div);
+                });
+              }, 1000);
 
               if (users.length >= 1) {}
 
@@ -1103,12 +1105,79 @@ try {
     var remBtn = elem.querySelector("#removeColumn");
     var modalContainer = elem.querySelector("#modalContainer");
     var cxlremBtn = elem.querySelector("#cancelRemoveColumn");
+    var plabelColumn = elem.querySelector("#plabelColumn"); //ID de la colonne
+
+    var id = elem.querySelector(".id");
+    id = id.value;
     elem.style.backgroundColor = board.color;
     remBtn.addEventListener("click", function (e) {
       modalContainer.classList.toggle("displayNone");
     });
     cxlremBtn.addEventListener("click", function (e) {
       modalContainer.classList.toggle("displayNone");
+    }); //Modif titre column (Liste)
+
+    plabelColumn.addEventListener("click", function (e) {
+      var i = document.createElement("input");
+      plabelColumn.insertAdjacentElement("beforebegin", i);
+      i.value = column.label;
+      i.id = "updateLabelColumInput";
+      i.select();
+      plabelColumn.classList.add("displayNone");
+      i.addEventListener("keydown", /*#__PURE__*/function () {
+        var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(e) {
+          var url, token, body, options, response;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+            while (1) {
+              switch (_context3.prev = _context3.next) {
+                case 0:
+                  if (!(e.key === "Enter")) {
+                    _context3.next = 15;
+                    break;
+                  }
+
+                  url = plabelColumn.getAttribute("data_url");
+                  token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+                  body = {
+                    id: id,
+                    label: i.value
+                  }; //Corps de la requete
+
+                  options = {
+                    method: "PUT",
+                    headers: {
+                      "X-CSRF-TOKEN": token
+                    },
+                    body: JSON.stringify(body)
+                  }; //console.log(options);
+
+                  _context3.prev = 5;
+                  _context3.next = 8;
+                  return fetch(url, options);
+
+                case 8:
+                  response = _context3.sent;
+                  console.log(response);
+                  _context3.next = 15;
+                  break;
+
+                case 12:
+                  _context3.prev = 12;
+                  _context3.t0 = _context3["catch"](5);
+                  console.log(_context3.t0);
+
+                case 15:
+                case "end":
+                  return _context3.stop();
+              }
+            }
+          }, _callee3, null, [[5, 12]]);
+        }));
+
+        return function (_x3) {
+          return _ref3.apply(this, arguments);
+        };
+      }());
     });
   };
 
@@ -1142,7 +1211,7 @@ BTNCXLDELETETAB.addEventListener("click", function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/board.js */"./resources/js/board.js");
 
 
 /***/ })
