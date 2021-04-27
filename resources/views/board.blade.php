@@ -48,7 +48,7 @@
         {{-- Column --}}
         <div class="allColumns">
             @foreach ($columns as $column)
-                <div class="columnContainer">
+                <div class="columnContainer" id="containerDropZone">
                     <div class="columTitleDiv">
                         <div class="titleClosed">
                             <span class="columnTitle">
@@ -75,11 +75,11 @@
                         </div>
                     </div>
                     {{-- Ticket --}}
-                    <div class="ticketContainer">
+                    <div class="ticketContainer" >
                         @foreach ($tickets as $ticket)
                             @if ($ticket->column_id == $column->id)
 
-                                <div class="boxTicket">
+                                <div class="boxTicket" draggable="true">
 
                                     <span class="ticket">
                                         {{ $ticket->task }}
@@ -132,5 +132,6 @@
     <script src="{{ asset('js/comment.js') }}"></script>
     <script src="{{ asset('js/ticket.js') }}"></script>
     <script src="{{ asset('js/board.js') }}"></script>
+    <script src="{{ asset('js/drag.js') }}"></script>
 
 @endsection

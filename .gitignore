@@ -11,6 +11,7 @@
 /public/js/comment.js
 /public/js/profile.js
 /public/js/ticket.js
+/public/js/drag.js
 /storage/*.key
 /vendor
 .env
