@@ -7,7 +7,7 @@ BTNADDLIST.addEventListener("click", function(e) {
     let close = document.createElement("button");
 
     btn.innerText = "Valider";
-    btn.id = "newaddlist";
+    btn.id = "newaddList";
     input.id = "newListInput";
     btn.style.backgroundColor = board.color;
     close.innerText = "Annuler";

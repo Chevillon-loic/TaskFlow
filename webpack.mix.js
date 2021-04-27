@@ -17,7 +17,6 @@ mix.js("resources/js/app.js", "public/js")
     .js("resources/js/board.js", "public/js")
     .js("resources/js/ticket.js", "public/js")
     .js("resources/js/comment.js", 'public/js')
-    .js("resources/js/drag.js", 'public/js');
 
 //CSS--------------------
 mix.sass("resources/sass/app.scss", "public/css")

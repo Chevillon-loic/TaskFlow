@@ -887,7 +887,7 @@ BTNADDLIST.addEventListener("click", function (e) {
   var btn = document.createElement("button");
   var close = document.createElement("button");
   btn.innerText = "Valider";
-  btn.id = "newaddlist";
+  btn.id = "newaddList";
   input.id = "newListInput";
   btn.style.backgroundColor = board.color;
   close.innerText = "Annuler";
@@ -1211,7 +1211,7 @@ BTNCXLDELETETAB.addEventListener("click", function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/board.js */"./resources/js/board.js");
 
 
 /***/ })

@@ -48,7 +48,7 @@
         {{-- Column --}}
         <div class="allColumns">
             @foreach ($columns as $column)
-                <div class="columnContainer" id="containerDropZone">
+                <div class="columnContainer">
                     <div class="columTitleDiv">
                         <div class="titleClosed">
                             <span class="columnTitle">
@@ -76,11 +76,11 @@
                         </div>
                     </div>
                     {{-- Ticket --}}
-                    <div class="ticketContainer" >
+                    <div class="ticketContainer" id="columnDropZone" ondragover="onDragOver(event);" ondrop="onDrop(event);">
                         @foreach ($tickets as $ticket)
                             @if ($ticket->column_id == $column->id)
 
-                                <div class="boxTicket" draggable="true">
+                                <div class="boxTicket" draggable="true" id="draggableElement" ondragstart="onDragStart(event)">
 
                                     <span class="ticket">
                                         {{ $ticket->task }}
