@@ -5,6 +5,7 @@ const BTNADDTICKET = document.getElementById("btnAddTicket");
 const divAddTicket = document.querySelector(".addTicket");
 
 for (const ticket of ADDTICKETDIV) {
+    console.log(ADDTICKETDIV);
     let t = ticket.getElementsByTagName("input");
     let id = t[0].value;
     let btnAdd = ticket.getElementsByTagName("button");
@@ -72,44 +73,43 @@ for (const ticket of ADDTICKETDIV) {
             }
         });
     });
+}
+const DIVTICKET = document.getElementsByClassName("boxTicket");
+// console.log(DIVTICKET[0]);
+for (const tickets of DIVTICKET) {
+    const titleTicket = tickets.querySelector(".ticket");
+    let btnSupp = tickets.querySelector("#removeTicket");
 
-    const DIVTICKET = document.getElementsByClassName("boxTicket");
-    // console.log(DIVTICKET[0]);
-    for (const tickets of DIVTICKET) {
-        const titleTicket = tickets.querySelector(".ticket");
-        let btnSupp = tickets.querySelector("#removeTicket");
+    let divModalTicket = tickets.querySelector("#modalContainerTicket");
 
-        let divModalTicket = tickets.querySelector("#modalContainerTicket");
+    let cancelRemoveTicket = tickets.querySelector("#cancelRemoveTicket");
 
-        let cancelRemoveTicket = tickets.querySelector("#cancelRemoveTicket");
-
-        btnSupp.addEventListener("click", function(e) {
-            divModalTicket.style.display = "block";
-            commentModal.style.display = "none";
-        });
-
-        cancelRemoveTicket.addEventListener("click", function(e) {
-            divModalTicket.style.display = "none";
-        });
-
-        let commentModal = tickets.querySelector("#modalContainerComment");
-        let cancelComment = tickets.querySelector(".cancelComment");
-        let addComment = tickets.querySelector(".addComment");
+    btnSupp.addEventListener("click", function(e) {
+        divModalTicket.style.display = "block";
         commentModal.style.display = "none";
+    });
 
-        addComment.addEventListener("click", function(e) {
-            let textArea = document.createElement("textarea");
-            commentModal.insertAdjacentElement("beforeend", textArea);
-            addComment.style.display = "none";
-        });
+    cancelRemoveTicket.addEventListener("click", function(e) {
+        divModalTicket.style.display = "none";
+    });
 
-        titleTicket.addEventListener("click", function(e) {
-            commentModal.style.display = "block";
-        });
+    let commentModal = tickets.querySelector("#modalContainerComment");
+    let cancelComment = tickets.querySelector(".cancelComment");
+    let addComment = tickets.querySelector(".addComment");
+    commentModal.style.display = "none";
 
-        cancelComment.addEventListener("click", function(e) {
-            e.stopPropagation();
-            commentModal.style.display = "none";
-        });
-    }
+    addComment.addEventListener("click", function(e) {
+        let b = document.createElement("button");
+        b.innerText = "Valider";
+        addComment.insertAdjacentElement("afterend", b);
+    });
+
+    titleTicket.addEventListener("click", function(e) {
+        commentModal.style.display = "block";
+    });
+
+    cancelComment.addEventListener("click", function(e) {
+        e.stopPropagation();
+        commentModal.style.display = "none";
+    });
 }

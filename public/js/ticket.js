@@ -18170,6 +18170,7 @@ var _iterator = _createForOfIteratorHelper(ADDTICKETDIV),
 try {
   var _loop = function _loop() {
     var ticket = _step.value;
+    console.log(ADDTICKETDIV);
     var t = ticket.getElementsByTagName("input");
     var id = t[0].value;
     var btnAdd = ticket.getElementsByTagName("button");
@@ -18261,51 +18262,6 @@ try {
         };
       }());
     });
-    var DIVTICKET = document.getElementsByClassName("boxTicket"); // console.log(DIVTICKET[0]);
-
-    var _iterator2 = _createForOfIteratorHelper(DIVTICKET),
-        _step2;
-
-    try {
-      var _loop2 = function _loop2() {
-        var tickets = _step2.value;
-        var titleTicket = tickets.querySelector(".ticket");
-        var btnSupp = tickets.querySelector("#removeTicket");
-        var divModalTicket = tickets.querySelector("#modalContainerTicket");
-        var cancelRemoveTicket = tickets.querySelector("#cancelRemoveTicket");
-        btnSupp.addEventListener("click", function (e) {
-          divModalTicket.style.display = "block";
-          commentModal.style.display = "none";
-        });
-        cancelRemoveTicket.addEventListener("click", function (e) {
-          divModalTicket.style.display = "none";
-        });
-        var commentModal = tickets.querySelector("#modalContainerComment");
-        var cancelComment = tickets.querySelector(".cancelComment");
-        var addComment = tickets.querySelector(".addComment");
-        commentModal.style.display = "none";
-        addComment.addEventListener("click", function (e) {
-          var textArea = document.createElement("textarea");
-          commentModal.insertAdjacentElement("beforeend", textArea);
-          addComment.style.display = "none";
-        });
-        titleTicket.addEventListener("click", function (e) {
-          commentModal.style.display = "block";
-        });
-        cancelComment.addEventListener("click", function (e) {
-          e.stopPropagation();
-          commentModal.style.display = "none";
-        });
-      };
-
-      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-        _loop2();
-      }
-    } catch (err) {
-      _iterator2.e(err);
-    } finally {
-      _iterator2.f();
-    }
   };
 
   for (_iterator.s(); !(_step = _iterator.n()).done;) {
@@ -18315,6 +18271,52 @@ try {
   _iterator.e(err);
 } finally {
   _iterator.f();
+}
+
+var DIVTICKET = document.getElementsByClassName("boxTicket"); // console.log(DIVTICKET[0]);
+
+var _iterator2 = _createForOfIteratorHelper(DIVTICKET),
+    _step2;
+
+try {
+  var _loop2 = function _loop2() {
+    var tickets = _step2.value;
+    var titleTicket = tickets.querySelector(".ticket");
+    var btnSupp = tickets.querySelector("#removeTicket");
+    var divModalTicket = tickets.querySelector("#modalContainerTicket");
+    var cancelRemoveTicket = tickets.querySelector("#cancelRemoveTicket");
+    btnSupp.addEventListener("click", function (e) {
+      divModalTicket.style.display = "block";
+      commentModal.style.display = "none";
+    });
+    cancelRemoveTicket.addEventListener("click", function (e) {
+      divModalTicket.style.display = "none";
+    });
+    var commentModal = tickets.querySelector("#modalContainerComment");
+    var cancelComment = tickets.querySelector(".cancelComment");
+    var addComment = tickets.querySelector(".addComment");
+    commentModal.style.display = "none";
+    addComment.addEventListener("click", function (e) {
+      var b = document.createElement("button");
+      b.innerText = "Valider";
+      addComment.insertAdjacentElement("afterend", b);
+    });
+    titleTicket.addEventListener("click", function (e) {
+      commentModal.style.display = "block";
+    });
+    cancelComment.addEventListener("click", function (e) {
+      e.stopPropagation();
+      commentModal.style.display = "none";
+    });
+  };
+
+  for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+    _loop2();
+  }
+} catch (err) {
+  _iterator2.e(err);
+} finally {
+  _iterator2.f();
 }
 
 /***/ }),

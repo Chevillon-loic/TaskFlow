@@ -142,8 +142,7 @@
 
 #modalContainer,
 #modalContainerTicket,
-#modalContainerTAB,
-#modalContainerComment {
+#modalContainerTAB {
     position: fixed; /* Stay in place */
     z-index: 10; /* Sit on top */
     padding-top: 40vh; /* Location of the box */
@@ -180,6 +179,31 @@
                 height: 30px;
                 margin-top: 20px;
             }
+        }
+    }
+}
+#modalContainerComment {
+    position: fixed;
+    z-index: 10;
+    padding-top: 13vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.3);
+    #removeConfirmationContainerComment {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        margin: auto;
+        padding: 48px 28px 28px 28px;
+        width: 700px;
+        height: 65vh;
+        border-radius: 4px;
+        text-align: center;
+        textarea {
+            resize: none;
         }
     }
 }
@@ -257,7 +281,6 @@
     border-radius: 2px;
     padding: 4px;
     margin-bottom: 5px;
-    cursor: pointer;
 
     &:hover {
         background-color: rgb(245, 245, 245);
@@ -265,11 +288,11 @@
     .ticket {
         display: flex;
         justify-content: space-between;
+        cursor: pointer;
     }
 }
 
 .addComment {
-    margin: 24px;
 }
 
 // COMMENTAIRES
