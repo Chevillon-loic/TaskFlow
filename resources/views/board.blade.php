@@ -109,7 +109,7 @@
 
                                     {{-- Modal comment --}}
                                     <div id="modalContainerComment" class="displayNone">
-                                        <div id="removeConfirmationContainer" class="displayNone">
+                                        <div id="removeConfirmationContainer">
                                             <button id="cancelComment">Annuler</button>
                                             <p>comment</p>
                                         </div>

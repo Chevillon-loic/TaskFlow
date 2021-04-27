@@ -95,10 +95,10 @@ for (const ticket of ADDTICKETDIV) {
         ticket.addEventListener("click", function(e) {
             commentModal.style.display = "block";
         });
-
+        console.log(cancelComment);
         cancelComment.addEventListener("click", function(e) {
             commentModal.style.display = "none";
-            console.log("e");
+            console.log(commentModal);
         });
 
         // console.log(ticketBox);

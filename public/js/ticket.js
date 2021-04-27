@@ -1005,9 +1005,10 @@ try {
         ticket.addEventListener("click", function (e) {
           commentModal.style.display = "block";
         });
+        console.log(cancelComment);
         cancelComment.addEventListener("click", function (e) {
           commentModal.style.display = "none";
-          console.log("e");
+          console.log(commentModal);
         }); // console.log(ticketBox);
         // console.log(boxTicket);
         // boxTicket.addEventListener("click", function(e) {
@@ -1043,7 +1044,7 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/ticket.js */"./resources/js/ticket.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/ticket.js */"./resources/js/ticket.js");
 
 
 /***/ })
