@@ -72,10 +72,13 @@ for (const ticket of ADDTICKETDIV) {
     });
 
     const DIVTICKET = document.getElementsByClassName("boxTicket");
-
+    // console.log(DIVTICKET[0]);
     for (const ticket of DIVTICKET) {
         let btnSupp = ticket.querySelector("#removeTicket");
+        console.log(btnSupp);
         let divModalTicket = ticket.querySelector("#modalContainerTicket");
+
+        // let ticketBox = ticket.querySelector(".boxTicket");
 
         let cancelRemoveTicket = ticket.querySelector("#cancelRemoveTicket");
 
@@ -86,5 +89,23 @@ for (const ticket of ADDTICKETDIV) {
         cancelRemoveTicket.addEventListener("click", function(e) {
             divModalTicket.style.display = "none";
         });
+
+        let commentModal = ticket.querySelector("#modalContainerComment");
+        let cancelComment = ticket.querySelector("#cancelComment");
+        ticket.addEventListener("click", function(e) {
+            commentModal.style.display = "block";
+        });
+        console.log(cancelComment);
+        cancelComment.addEventListener("click", function(e) {
+            commentModal.style.display = "none";
+            console.log(commentModal);
+        });
+
+        // console.log(ticketBox);
+        // console.log(boxTicket);
+
+        // boxTicket.addEventListener("click", function(e) {
+        //     commentModal.style.display = "block";
+        // });
     }
 }

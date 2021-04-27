@@ -9,6 +9,7 @@
     "/css/admin.css": "/css/admin.css",
     "/js/board.js": "/js/board.js",
     "/js/comment.js": "/js/comment.js",
+    "/js/drag.js": "/js/drag.js",
     "/js/profile.js": "/js/profile.js",
     "/js/ticket.js": "/js/ticket.js"
 }

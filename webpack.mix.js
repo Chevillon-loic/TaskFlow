@@ -17,7 +17,11 @@ mix.js("resources/js/app.js", "public/js")
     .js("resources/js/board.js", "public/js")
     .js("resources/js/ticket.js", "public/js")
     .js("resources/js/comment.js", 'public/js')
+<<<<<<< HEAD
     .js("resources/js/admin.js", 'public/js');
+=======
+
+>>>>>>> 615a1b503fbac01614739aa5ad3c8dacb9099964
 //CSS--------------------
 mix.sass("resources/sass/app.scss", "public/css")
     .sass("resources/sass/welcome.scss", "public/css")

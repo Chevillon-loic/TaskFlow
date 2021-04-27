@@ -28,6 +28,8 @@
             </div>
         </div>
 
+        {{-- Modal tableau --}}
+
         <div id="modalContainerTAB" class="displayNone">
             <div id="removeConfirmationContainerTAB">
                 <p>Êtes vous sûr de vouloir supprimer ce tableau ?</p>
@@ -76,17 +78,21 @@
                         </div>
                     </div>
                     {{-- Ticket --}}
-                    <div class="ticketContainer">
+                    <div class="ticketContainer" id="columnDropZone" ondragover="onDragOver(event);" ondrop="onDrop(event);">
                         @foreach ($tickets as $ticket)
                             @if ($ticket->column_id == $column->id)
 
-                                <div class="boxTicket">
+                                <div class="boxTicket" draggable="true" id="draggableElement" ondragstart="onDragStart(event)">
 
                                     <span class="ticket">
                                         {{ $ticket->task }}
                                         <button id="removeTicket">X</button>
                                     </span>
 
+<<<<<<< HEAD
+=======
+                                    {{-- Modal ticket --}}
+>>>>>>> 615a1b503fbac01614739aa5ad3c8dacb9099964
                                     <div id="modalContainerTicket" class="displayNoneTicket">
                                         <div id="removeConfirmationContainer" class="displayNoneTicket">
                                             <p>Êtes vous sûr de vouloir supprimer ce ticket ?</p>
@@ -101,6 +107,14 @@
                                                     </form>
                                                 </div>
                                             </span>
+                                        </div>
+                                    </div>
+
+                                    {{-- Modal comment --}}
+                                    <div id="modalContainerComment" class="displayNone">
+                                        <div id="removeConfirmationContainer">
+                                            <button id="cancelComment">Annuler</button>
+                                            <p>comment</p>
                                         </div>
                                     </div>
                                 </div>
@@ -135,5 +149,6 @@
     <script src="{{ asset('js/comment.js') }}"></script>
     <script src="{{ asset('js/ticket.js') }}"></script>
     <script src="{{ asset('js/board.js') }}"></script>
+    <script src="{{ asset('js/drag.js') }}"></script>
 
 @endsection

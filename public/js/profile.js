@@ -112,7 +112,11 @@ buttonClose.addEventListener('click', function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\js\profile.js */"./resources/js/profile.js");
+=======
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/profile.js */"./resources/js/profile.js");
+>>>>>>> 615a1b503fbac01614739aa5ad3c8dacb9099964
 
 
 /***/ })

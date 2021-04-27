@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Column;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ColumnController extends Controller
 {
@@ -72,7 +73,7 @@ class ColumnController extends Controller
     {
         $request->validate([
             'id' => 'integer|required',
-            'label' => 'string |min:3'
+            'label' => 'string|min:3'
         ]);
 
         $column = Column::find($request->id);
