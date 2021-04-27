@@ -58,8 +58,8 @@ BTNADDLIST.addEventListener("click", function(e) {
             //Promesse (requete POST)
             try {
                 const response = await fetch(url, options);
-                console.log(response);
-                location.reload();
+                console.log(response.body);
+                //location.reload();
             } catch (error) {
                 console.log(error);
             }
@@ -123,13 +123,14 @@ INVITE.addEventListener("click", function(e) {
                 const response = await fetch(url, options);
                 const users = await response.json();
                 console.log(users);
-
-                users.forEach(user => {
-                    let div = document.createElement("div");
-                    div.innerHTML = `
-                    <p class="p"> ${user.first_name} ${user.last_name}</p>`;
-                    INVITECONTAINER.insertAdjacentElement("beforeend", div);
-                });
+                setTimeout(() => {
+                    users.forEach(user => {
+                        let div = document.createElement("div");
+                        div.innerHTML = `
+                        <p class="p"> ${user.first_name} ${user.last_name}</p>`;
+                        INVITECONTAINER.insertAdjacentElement("beforeend", div);
+                    });
+                }, 1000);
 
                 if (users.length >= 1) {
                 }
@@ -147,14 +148,56 @@ for (const elem of TITLECONTAINER) {
     let remBtn = elem.querySelector("#removeColumn");
     let modalContainer = elem.querySelector("#modalContainer");
     let cxlremBtn = elem.querySelector("#cancelRemoveColumn");
+    let plabelColumn = elem.querySelector("#plabelColumn");
+    //ID de la colonne
+    let id = elem.querySelector(".id");
+    id = id.value;
     elem.style.backgroundColor = board.color;
-
     remBtn.addEventListener("click", function(e) {
         modalContainer.classList.toggle("displayNone");
     });
 
     cxlremBtn.addEventListener("click", function(e) {
         modalContainer.classList.toggle("displayNone");
+    });
+
+    //Modif titre column (Liste)
+    plabelColumn.addEventListener("click", function(e) {
+        let i = document.createElement("input");
+        plabelColumn.insertAdjacentElement("beforebegin", i);
+        i.value = column.label;
+        i.id = "updateLabelColumInput";
+        i.select();
+        plabelColumn.classList.add("displayNone");
+
+        i.addEventListener("keydown", async function(e) {
+            if (e.key === "Enter") {
+                let url = plabelColumn.getAttribute("data_url");
+                let token = document
+                    .querySelector('meta[name="csrf-token"]')
+                    .getAttribute("content");
+                let body = {
+                    id: id,
+                    label: i.value
+                };
+                //Corps de la requete
+                const options = {
+                    method: "PUT",
+                    headers: {
+                        "X-CSRF-TOKEN": token
+                    },
+                    body: JSON.stringify(body)
+                };
+                //console.log(options);
+                try {
+                    //console.log(url);
+                    const response = await fetch(url, options);
+                    console.log(response);
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+        });
     });
 }
 //-------------------------------------------------------

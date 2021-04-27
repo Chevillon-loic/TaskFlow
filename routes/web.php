@@ -64,5 +64,8 @@ Route::get('board/search/{q}', 'BoardController@search')->name('board.search')->
 
 Route::delete('column/destroy', 'ColumnController@destroy')->name('column.destroy')->middleware('auth');
 
+
+Route::put('column/update/{id}', 'ColumnController@update')->name('column.update')->middleware('auth');
+
 // Route page Admin
 Route::get('admin/index', 'AdminController@index')->name('admin.index');

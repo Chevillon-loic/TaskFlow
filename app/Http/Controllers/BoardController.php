@@ -56,7 +56,7 @@ class BoardController extends Controller
         $column->board_id = $request->board_id;
         $column->save();
 
-        return response()->json('Le Fetch a fonctionné', 200);
+        return response()->json(['success' => 'Le Fetch a fonctionné'], 200);
     }
 
     /**

@@ -124,7 +124,11 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\js\comment.js */"./resources/js/comment.js");
+=======
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/comment.js */"./resources/js/comment.js");
+>>>>>>> f4fe129abc73d12dbde48de28f42f2faf94e136b
 
 
 /***/ })
