@@ -88,9 +88,16 @@ class BoardController extends Controller
      * @param  \App\Board  $board
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Board $board)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'label' => 'string|min:2'
+        ]);
+
+        $board = Board::find($id);
+        $board->label = $request->label;
+        $board->save();
+        return response("success");
     }
 
     /**

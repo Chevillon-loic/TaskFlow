@@ -49,6 +49,8 @@ Route::post('board/store/{id}', 'BoardController@store')->name('board.store')->m
 
 Route::delete('board/delete', 'BoardController@destroy')->name('board.destroy')->middleware('auth');
 
+Route::put('board/update/{id}', 'BoardController@update')->name('board.update')->middleware('auth');
+
 //tickets
 Route::post('ticket/store/{id}', 'TicketController@store')->name('ticket.store')->middleware('auth')->where('id', '[0-9]+');
 
@@ -62,4 +64,9 @@ Route::get('board/search/{q}', 'BoardController@search')->name('board.search')->
 
 //Route Column
 Route::delete('column/destroy', 'ColumnController@destroy')->name('column.destroy')->middleware('auth');
+
+
 Route::put('column/update/{id}', 'ColumnController@update')->name('column.update')->middleware('auth');
+
+// Route page Admin
+Route::get('admin/index', 'AdminController@index')->name('admin.index');

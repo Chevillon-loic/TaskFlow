@@ -14,7 +14,8 @@
 
         <div class="topContainer">
 
-            <h2 id="titleTab">{{ $board->label }}</h2>
+            <h2 id="titleTab" data_url="{{ route('board.update', [$board->id]) }}">
+                {{ $board->label }}</h2>
 
             {{-- Invite user --}}
             <div class="containerInviteDelete">
@@ -50,7 +51,7 @@
         {{-- Column --}}
         <div class="allColumns">
             @foreach ($columns as $column)
-                <div class="columnContainer">
+                <div class="columnContainer" draggable="true">
                     <div class="columTitleDiv">
                         <div class="titleClosed">
                             <span class="columnTitle">
@@ -132,6 +133,7 @@
             <div class="addColumn" id="addColumn">
                 <button id="btnAddList">+ Ajoutez une liste</button>
             </div>
+
         </div>
     </div>
 @endsection

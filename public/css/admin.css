@@ -1,0 +1,180 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;
+
+0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);.containerAdmin {
+  background: #ffffff;
+  margin: 20px;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  min-height: 87vh;
+}
+
+.containerAdmin #headerPannel #ancre {
+  padding: 20px;
+}
+
+.containerAdmin #headerPannel #ancre a {
+  color: #a558c0;
+  text-decoration: none;
+  width: 100px;
+  border: 1px solid #a558c0;
+  border-radius: 5px;
+  padding: 7px;
+}
+
+.containerAdmin #headerPannel #ancre a:hover {
+  color: white;
+  background-color: #a558c0;
+}
+
+.containerAdmin h3 {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  padding-left: 40px;
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  color: #23b5b5;
+}
+
+.contentAdmin {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentAdmin .boxAdmin {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1px;
+  margin: 30px;
+  width: 420px;
+  height: 200px;
+  cursor: pointer;
+}
+
+.contentAdmin .boxAdmin p {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 40px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 8px 1px black;
+}
+
+.contentAdmin .boxAdmin p:hover {
+  transform: scale(1.05);
+}
+
+.contentAdmin #adminProfilsUsers {
+  background-image: url(https://www.techrepublic.com/a/hub/i/r/2020/05/15/e8a90ddc-f7f9-4617-8f19-f0c3fafe698a/resize/1200x/cef3280023bceb1eca6295bb21289eb3/istock-955408648.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contentAdmin #adminProfilTeam {
+  background-image: url(https://img.freepik.com/photos-gratuite/contexte-du-reseau-technologique_34629-304.jpg?size=626&ext=jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contentAdmin #adminAllBoards {
+  background-image: url(https://st3.depositphotos.com/15190488/i/600/depositphotos_177093938-stock-photo-laptop-notebook-computer-white-blank.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.displayNone {
+  display: none;
+}
+
+#modalUsers,
+#modalBoards {
+  position: fixed;
+  /* Stay in place */
+  z-index: 10;
+  /* Sit on top */
+  padding-top: 10vh;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.3);
+  /* Black w/ opacity */
+}
+
+#modalUsers #modalContentBoards,
+#modalUsers #modalContentUsers,
+#modalBoards #modalContentBoards,
+#modalBoards #modalContentUsers {
+  background-color: white;
+  margin: auto;
+  padding: 48px 28px 28px 28px;
+  width: 90%;
+  height: 400px;
+  border-radius: 4px;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  text-align: center;
+}
+
+#modalUsers #modalContentBoards .modalButtons,
+#modalUsers #modalContentUsers .modalButtons,
+#modalBoards #modalContentBoards .modalButtons,
+#modalBoards #modalContentUsers .modalButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#modalUsers #modalContentBoards .modalButtons button,
+#modalUsers #modalContentUsers .modalButtons button,
+#modalBoards #modalContentBoards .modalButtons button,
+#modalBoards #modalContentUsers .modalButtons button {
+  width: 80px;
+  height: 30px;
+  margin-top: 20px;
+}
+
+#tableUsers {
+  overflow: scroll;
+}
+
+#tableUsers table {
+  border: 1px solid black;
+  text-align: left;
+}
+
+#tableUsers table tr {
+  font-size: 15px;
+}
+
+#tableUsers table tr:hover {
+  background-color: blanchedalmond;
+}
+
+#tableUsers table tr th {
+  border: 1px solid black;
+  padding: 4px;
+}
+
+#tableUsers table tr td {
+  border: 1px solid black;
+  padding: 4px;
+  min-width: 50px;
+}
+
