@@ -84,10 +84,10 @@
 
                                 <div class="boxTicket" draggable="true" id="draggableElement" ondragstart="onDragStart(event)">
 
-                                    <span class="ticket">
+                                    <div class="ticket">
                                         {{ $ticket->task }}
-                                        <button id="removeTicket">X</button>
-                                    </span>
+
+                                    </div>
 
                                     {{-- Modal ticket --}}
                                     <div id="modalContainerTicket" class="displayNoneTicket">
@@ -108,9 +108,11 @@
                                     </div>
 
                                     {{-- Modal comment --}}
-                                    <div id="modalContainerComment" class="displayNone">
-                                        <div id="removeConfirmationContainer">
-                                            <button id="cancelComment">Annuler</button>
+                                    <div id="modalContainerComment">
+                                        <div id="removeConfirmationContainerComment">
+                                            <button id="removeTicket">Supprimer le ticket</button>
+                                            <button class="cancelComment">X</button>
+                                            <textarea name="" id="addComment" class="addComment" cols="30" rows="3" placeholder="Écrivez un commentaire"></textarea>
                                             <p>comment</p>
                                         </div>
                                     </div>
