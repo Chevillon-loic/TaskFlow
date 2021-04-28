@@ -18303,6 +18303,7 @@ try {
     commentModal.style.display = "none";
     var b = document.createElement("button");
     b.id = "btnAddComment";
+    b.style.backgroundColor = board.color;
     addComment.addEventListener("click", function (e) {
       b.innerText = "Valider";
       addComment.insertAdjacentElement("afterend", b);
@@ -18333,7 +18334,7 @@ try {
                 };
 
                 if (!(comment.length > 2)) {
-                  _context2.next = 19;
+                  _context2.next = 20;
                   break;
                 }
 
@@ -18344,27 +18345,28 @@ try {
               case 10:
                 response = _context2.sent;
                 addComment.value = "";
-                _context2.next = 17;
+                location.reload();
+                _context2.next = 18;
                 break;
 
-              case 14:
-                _context2.prev = 14;
+              case 15:
+                _context2.prev = 15;
                 _context2.t0 = _context2["catch"](7);
                 console.log(_context2.t0);
 
-              case 17:
-                _context2.next = 20;
+              case 18:
+                _context2.next = 21;
                 break;
 
-              case 19:
+              case 20:
                 addComment.value = "";
 
-              case 20:
+              case 21:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[7, 14]]);
+        }, _callee2, null, [[7, 15]]);
       }));
 
       return function (_x2) {

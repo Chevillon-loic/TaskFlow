@@ -105,6 +105,7 @@ for (const ticket of DIVTICKET) {
 
     let b = document.createElement("button");
     b.id = "btnAddComment";
+    b.style.backgroundColor = board.color;
     addComment.addEventListener("click", function(e) {
         b.innerText = "Valider";
         addComment.insertAdjacentElement("afterend", b);
@@ -137,6 +138,7 @@ for (const ticket of DIVTICKET) {
             try {
                 const response = await fetch(url, options);
                 addComment.value = "";
+                location.reload();
             } catch (error) {
                 console.log(error);
             }
