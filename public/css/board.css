@@ -405,7 +405,6 @@
   flex-direction: column;
   background-color: white;
   margin: auto;
-  padding: 25px 28px 28px 28px;
   width: 700px;
   height: 65vh;
   border-radius: 4px;
@@ -417,18 +416,38 @@
   justify-content: space-between;
 }
 
+#modalContainerComment #removeConfirmationContainerComment .titleTicketTop .titleLeft {
+  color: white;
+  margin-left: 15px;
+}
+
+#modalContainerComment #removeConfirmationContainerComment .titleTicketTop .titleLeft .titleTicket {
+  margin-top: 15px;
+}
+
+#modalContainerComment #removeConfirmationContainerComment .titleTicketTop .titleLeft #updateTitleTicket {
+  padding: 5px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  margin-top: 15px;
+}
+
 #modalContainerComment #removeConfirmationContainerComment .titleTicketTop .cancelComment {
   border: none;
-  background-color: white;
+  color: white;
   font-size: 20px;
   height: 30px;
   width: 30px;
   cursor: pointer;
-  color: #5e5e5e;
 }
 
 #modalContainerComment #removeConfirmationContainerComment .titleTicketTop .cancelComment:hover {
-  background-color: #d6d6d6;
+  color: #d1d1d1;
   border-radius: 50%;
 }
 
@@ -437,20 +456,27 @@
   justify-content: space-between;
 }
 
+#modalContainerComment #removeConfirmationContainerComment #containerComment {
+  margin-left: 15px;
+}
+
 #modalContainerComment #removeConfirmationContainerComment textarea {
   resize: none;
   min-height: 50px;
-  margin-top: 50px;
   width: 50%;
   outline: none;
 }
 
 #modalContainerComment #removeConfirmationContainerComment #btnAddComment {
-  width: 20%;
-  margin-top: 5px;
   border: none;
-  border-radius: 5px;
+  border-radius: 0px 10px 10px 0px;
   color: white;
+  height: 50px;
+  cursor: pointer;
+}
+
+#modalContainerComment #removeConfirmationContainerComment #btnAddComment:hover {
+  background-color: #245866;
 }
 
 #modalContainerComment #removeConfirmationContainerComment .pictureComment {

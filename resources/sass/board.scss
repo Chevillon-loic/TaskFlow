@@ -360,7 +360,7 @@
         flex-direction: column;
         background-color: white;
         margin: auto;
-        padding: 25px 28px 28px 28px;
+
         width: 700px;
         height: 65vh;
         border-radius: 4px;
@@ -368,16 +368,35 @@
         .titleTicketTop {
             display: flex;
             justify-content: space-between;
+
+            .titleLeft {
+                color: white;
+                margin-left: 15px;
+                .titleTicket {
+                    margin-top: 15px;
+                }
+                #updateTitleTicket {
+                    padding: 5px;
+                    outline: none;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: rgba(255, 255, 255, 0.3);
+                    font-size: 1rem;
+                    font-weight: 700;
+                    color: white;
+                    margin-top: 15px;
+                }
+            }
             .cancelComment {
                 border: none;
-                background-color: white;
+                color: white;
                 font-size: 20px;
                 height: 30px;
                 width: 30px;
                 cursor: pointer;
-                color: #5e5e5e;
+
                 &:hover {
-                    background-color: rgb(214, 214, 214);
+                    color: rgb(209, 209, 209);
                     border-radius: 50%;
                 }
             }
@@ -386,19 +405,24 @@
             display: flex;
             justify-content: space-between;
         }
+        #containerComment {
+            margin-left: 15px;
+        }
         textarea {
             resize: none;
             min-height: 50px;
-            margin-top: 50px;
             width: 50%;
             outline: none;
         }
         #btnAddComment {
-            width: 20%;
-            margin-top: 5px;
             border: none;
-            border-radius: 5px;
+            border-radius: 0px 10px 10px 0px;
             color: white;
+            height: 50px;
+            cursor: pointer;
+            &:hover {
+                background-color: #245866;
+            }
         }
         .pictureComment {
             width: 40px;
@@ -423,6 +447,34 @@
             display: flex;
             flex-direction: column-reverse;
         }
+
+        // .etiquettes {
+        //     input {
+        //         // visibility: hidden;
+        //     }
+        //     .ecolor {
+        //         width: 30px;
+        //         height: 30px;
+        //     }
+        //     .ecolor1 {
+        //         background-color: #62bd50;
+        //     }
+        //     .ecolor2 {
+        //         background-color: #f2d602;
+        //     }
+        //     .ecolor3 {
+        //         background-color: #fda426;
+        //     }
+        //     .ecolor4 {
+        //         background-color: #eb5b46;
+        //     }
+        //     .ecolor5 {
+        //         background-color: #c278e0;
+        //     }
+        //     .ecolor6 {
+        //         background-color: #007abf;
+        //     }
+        // }
     }
 }
 
