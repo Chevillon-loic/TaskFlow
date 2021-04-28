@@ -6,7 +6,6 @@ const BTNADDTICKET = document.getElementById("btnAddTicket");
 const divAddTicket = document.querySelector(".addTicket");
 
 for (const ticket of ADDTICKETDIV) {
-    console.log(ADDTICKETDIV);
     let t = ticket.getElementsByTagName("input");
     let id = t[0].value;
     let btnAdd = ticket.getElementsByTagName("button");
@@ -81,7 +80,7 @@ for (const ticket of ADDTICKETDIV) {
     });
 }
 const DIVTICKET = document.getElementsByClassName("boxTicket");
-// console.log(DIVTICKET[0]);
+
 for (const ticket of DIVTICKET) {
     const titleTicket = ticket.querySelector(".ticket");
     let btnSupp = ticket.querySelector("#removeTicket");
@@ -190,9 +189,9 @@ for (const ticket of DIVTICKET) {
                     body: JSON.stringify(body)
                 };
                 try {
-                    //console.log(url);
                     const response = await fetch(url, options);
                     console.log(response);
+                    location.reload();
                 } catch (error) {
                     console.log(error);
                 }
