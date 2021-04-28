@@ -61,9 +61,14 @@
   border: none;
   background-color: transparent;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #616161;
   cursor: pointer;
+  transition: 0.2s;
+}
+
+.mainContainer .topContainer .containerInviteDelete #divForInvite span #closeInvite:hover {
+  color: #724b4b;
 }
 
 .mainContainer .topContainer .containerInviteDelete #divForInvite #inputInvite {

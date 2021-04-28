@@ -87,6 +87,7 @@ INVITE.addEventListener("click", function(e) {
     INVITE.id = "btnDisabled";
     let divForInvite = document.createElement("div");
     divForInvite.id = "divForInvite";
+
     divForInvite.innerHTML = `
         <span>
         <p>Inviter sur le tableau</p>
@@ -141,14 +142,10 @@ INVITE.addEventListener("click", function(e) {
                 "X-CSRF-TOKEN": token
             }
         };
-        //suppression de la liste des users (affichage)
-        let divToRemove = usersToInvite.querySelectorAll("#userDiv");
-        for (const elem of divToRemove) {
-            elem.remove();
-        }
+        usersToInvite.innerHTML = "";
+        //Promesse (requete GET)
         let userstoShow;
         if (q.length > 3) {
-            //Promesse (requete GET)
             try {
                 const response = await fetch(url, options);
                 const users = await response.json();
@@ -158,26 +155,82 @@ INVITE.addEventListener("click", function(e) {
             }
 
             //Boucle pour créer une div et l'afficher
-            userstoShow.forEach(user => {
-                console.log(user);
-                let div = document.createElement("div");
-                div.id = "userDiv";
-                div.innerHTML = `
-                    <img src="${user.picture}" alt="picture">
-                    <label for="user"> ${user.first_name} ${user.last_name}</label>
-                    <input type="checkbox" name="user" id="user">
+            userstoShow.forEach(elem => {
+                //console.log(elem);
+                if (elem.id != user.id) {
+                    let div = document.createElement("div");
+                    div.id = "userDiv-" + elem.id;
+                    div.setAttribute("guest_id", elem.id);
+                    div.innerHTML = `
+                    <img src="${elem.picture}" alt="picture">
+                    <label for="user"> ${elem.first_name} ${elem.last_name}</label>
+                    <input type="checkbox" name="user" id="user-${elem.id}" value="${elem.id}">
                     `;
-                usersToInvite.appendChild(div);
-                let checkbox = div.querySelector("#user");
+                    usersToInvite.appendChild(div);
+                    //Listener sur la div User
+                    div.addEventListener("click", function(e) {
+                        e.stopPropagation;
+                        let checkbox = this.getElementsByTagName("input");
 
-                div.addEventListener("click", function(e) {
-                    console.log("ok");
-                    div.style.backgroundColor = board.color;
-                    div.style.color = "white";
-                    if (checkbox.checked) {
-                        console.log("checked");
+                        usersToInvite.childNodes.forEach(function(div) {
+                            let checkbox = div.getElementsByTagName("input");
+                            div.style.backgroundColor = "";
+                            div.style.color = "";
+                            checkbox.checked = false;
+                        });
+                        btnToInvite.disabled = true;
+                        btnToInvite.style.backgroundColor =
+                            "rgb(241, 241, 241)";
+
+                        checkbox.checked = true;
+                        this.style.backgroundColor = board.color;
+                        this.style.color = "white";
                         btnToInvite.disabled = false;
                         btnToInvite.style.backgroundColor = board.color;
+                        checkbox.checked = true;
+                    });
+                }
+
+                //LISTENER BTN Invitation et FETCH
+                btnToInvite.addEventListener("click", async function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    let guestID;
+                    usersToInvite.childNodes.forEach(function(div) {
+                        let checkbox = div.getElementsByTagName("input");
+                        if (checkbox.checked) {
+                            guestID = div.getAttribute("guest_id");
+                        }
+                    });
+                    console.log(guestID + " guestID : boardID " + board.id);
+
+                    //FETCH
+                    let url =
+                        document.location.origin +
+                        "/board/guestinvite/" +
+                        board.id +
+                        "/" +
+                        guestID;
+                    let token = document
+                        .querySelector('meta[name="csrf-token"]')
+                        .getAttribute("content");
+                    //Corps de la requete
+                    const options = {
+                        method: "POST",
+                        headers: {
+                            "X-CSRF-TOKEN": token,
+                            Accept: "application/json",
+                            "Content-Type": "application/json"
+                        }
+                    };
+                    //console.log(options);
+                    try {
+                        //console.log(url);
+                        const response = await fetch(url, options);
+                        console.log(response);
+                        //!---------------------location.reload();
+                    } catch (error) {
+                        console.log(error);
                     }
                 });
             });

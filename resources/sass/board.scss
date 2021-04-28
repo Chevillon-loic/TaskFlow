@@ -58,9 +58,13 @@
                         border: none;
                         background-color: transparent;
                         font-weight: 700;
-                        font-size: 1.1rem;
+                        font-size: 1rem;
                         color: rgb(97, 97, 97);
                         cursor: pointer;
+                        transition: 0.2s;
+                        &:hover {
+                            color: rgb(114, 75, 75);
+                        }
                     }
                 }
                 #inputInvite {

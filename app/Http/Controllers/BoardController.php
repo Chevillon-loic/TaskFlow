@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Board;
 use App\Column;
+use App\Guest;
 use App\Ticket;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BoardController extends Controller
 {
@@ -120,5 +122,16 @@ class BoardController extends Controller
             ->get();
 
         return response()->json($users);
+    }
+
+    public function guestinvite($tabId, $guestId)
+    {
+        $guests = Guest::first();
+        if (isset($guests)) {
+            if (!($guests->guest_id == $guestId && $guests->board_id == $tabId)) {
+                \DB::insert('insert into guests (guest_id, board_id) values (?, ?)', [$guestId, $tabId]);
+                return response("success");
+            }
+        }
     }
 }
