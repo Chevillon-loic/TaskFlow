@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Board;
 use App\Column;
+use App\Guest;
+use App\Comment;
 use App\Ticket;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BoardController extends Controller
 {
@@ -17,16 +20,17 @@ class BoardController extends Controller
      */
     public function index($id)
     {
-
         $columns = Column::all()->where('board_id', $id);
         $tickets = Ticket::all();
+        $comments = Comment::all();
 
         return view('board', [
             'columns' => $columns,
             'tickets' => $tickets,
             'board' => Board::where('id', $id)->first(),
-            'column' => Column::where('id', 1),
+
             'user' => User::where('id', \Auth::user()->id)->first(),
+            'comments' => $comments,
         ]);
     }
 
@@ -120,5 +124,16 @@ class BoardController extends Controller
             ->get();
 
         return response()->json($users);
+    }
+
+    public function guestinvite($tabId, $guestId)
+    {
+        $guests = Guest::first();
+        //if (isset($guests)) {
+        //  if (!($guests->guest_id == $guestId && $guests->board_id == $tabId)) {
+        \DB::insert('insert into guests (guest_id, board_id) values (?, ?)', [$guestId, $tabId]);
+        return response("success");
+        // }
+        //}
     }
 }

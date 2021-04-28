@@ -12,6 +12,9 @@
 */
 
 //Routes pour page Welcome
+
+use App\Http\Controllers\BoardController;
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome')->middleware('guest');
@@ -51,11 +54,17 @@ Route::delete('board/delete', 'BoardController@destroy')->name('board.destroy')-
 
 Route::put('board/update/{id}', 'BoardController@update')->name('board.update')->middleware('auth');
 
+Route::post('board/guestinvite/{tabid}/{guestid}', 'BoardController@guestinvite')->name('board.guestinvite')->middleware('auth');
+
 //tickets
 Route::post('ticket/store/{id}', 'TicketController@store')->name('ticket.store')->middleware('auth')->where('id', '[0-9]+');
 
 Route::delete('ticket/destroy', 'TicketController@destroy')->name('ticket.destroy')->middleware('auth');
 
+//tickets drag & drop
+Route::put('ticket/{ticket_id}/{column_id}', 'TicketController@update')->name('ticket.update')->middleware('auth');
+
+Route::put('ticket/updatetitle/{id}', 'TicketController@updateTitle')->name('ticket.updatetitle')->middleware('auth');
 //comments
 Route::post('comment/store/{id}', 'CommentController@store')->name('comment.store')->middleware('auth')->where('id', '[0-9]+');
 

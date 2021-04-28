@@ -58,9 +58,13 @@
                         border: none;
                         background-color: transparent;
                         font-weight: 700;
-                        font-size: 1.1rem;
+                        font-size: 1rem;
                         color: rgb(97, 97, 97);
                         cursor: pointer;
+                        transition: 0.2s;
+                        &:hover {
+                            color: rgb(114, 75, 75);
+                        }
                     }
                 }
                 #inputInvite {
@@ -245,6 +249,7 @@
             background-color: #d3d3d3;
             font-weight: 500;
             border-radius: 5px;
+            margin-bottom: 5px;
             &:hover {
                 background-color: #c2c2c2;
             }
@@ -269,6 +274,7 @@
             font-weight: 500;
             cursor: pointer;
             margin-right: 5px;
+            margin-bottom: 5px;
         }
 
         #closeTicket {
@@ -341,13 +347,68 @@
         flex-direction: column;
         background-color: white;
         margin: auto;
-        padding: 48px 28px 28px 28px;
+        padding: 25px 28px 28px 28px;
         width: 700px;
         height: 65vh;
         border-radius: 4px;
-        text-align: center;
+        overflow: scroll;
+        .titleTicketTop {
+            display: flex;
+            justify-content: space-between;
+            .cancelComment {
+                border: none;
+                background-color: white;
+                font-size: 20px;
+                height: 30px;
+                width: 30px;
+                cursor: pointer;
+                color: #5e5e5e;
+                &:hover {
+                    background-color: rgb(214, 214, 214);
+                    border-radius: 50%;
+                }
+            }
+        }
+        .titleColumnTop {
+            display: flex;
+            justify-content: space-between;
+        }
         textarea {
             resize: none;
+            min-height: 50px;
+            margin-top: 50px;
+            width: 50%;
+            outline: none;
+        }
+        #btnAddComment {
+            width: 20%;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+        .pictureComment {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .userInformations {
+            display: flex;
+            margin-top: 10px;
+            .contentComment {
+                margin-top: 10px;
+            }
+            p {
+                border: solid 1px #c5c5c5;
+                border-radius: 10px;
+                padding: 5 20;
+                background-color: #f1f1f1;
+            }
+        }
+        #flexReverse {
+            display: flex;
+            flex-direction: column-reverse;
         }
     }
 }
@@ -414,10 +475,12 @@
 //TICKETS
 
 .ticketContainer {
-    padding: 8px 12px;
-    /*.divTicket {
-        margin: 12px 0px;
-    }*/
+    padding: 0px 12px;
+    .ticketDropZone {
+        height: max-content;
+        padding: 20px 0px;
+        width: 100%;
+    }
 }
 
 .boxTicket {
