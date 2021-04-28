@@ -72,6 +72,7 @@ class TicketController extends Controller
      * @param  \App\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
+
     public function update($ticket_id, $column_id)
     {
         $ticket = Ticket::find($ticket_id);
