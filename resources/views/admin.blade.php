@@ -49,24 +49,25 @@
                 <th>Lastname</th>
                 <th>Email</th>
                 <th>Password</th>
-
                 <th>Date de création</th>
                 <th>Dernière mise à jour</th>
             </tr>
 
             @foreach ($dataUsers as $user)
+
             <tr>
             <td>{{ $user->id }}</td>
-            <td>{{ $user->first_name }}</td>
+            <td>{{ $user->first_name }}<br>
+                <input name="first_name"  type="text"></td>
             <td>{{ $user->last_name }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->password }}</td>
-
             <td>{{ $user->created_at }}</td>
             <td>{{ $user->updated_at }}</td>
-            <td><button>Modifier</button></td>
-           <td> <button>Supprimer</button></td>
+            <td><input type="submit"></td>
         </tr>
+
+
         @endforeach
 
         </table>

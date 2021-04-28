@@ -51,7 +51,7 @@
         {{-- Column --}}
         <div class="allColumns">
             @foreach ($columns as $column)
-                <div class="columnContainer" draggable="true">
+                <div class="columnContainer">
                     <div class="columTitleDiv">
                         <div class="titleClosed">
                             <span class="columnTitle">
@@ -79,18 +79,20 @@
                         </div>
                     </div>
                     {{-- Ticket --}}
-                    <div class="ticketContainer" id="columnDropZone" ondragover="onDragOver(event);"
+                    <div class="ticketContainer">
+                        <div class="ticketDropZone" ondragover="onDragOver(event);"
                         ondrop="onDrop(event);">
                         @foreach ($tickets as $ticket)
                             @if ($ticket->column_id == $column->id)
-
-                                <div class="boxTicket" draggable="true" id="draggableElement"
-                                    ondragstart="onDragStart(event)">
+                                <div></div>
+                                <div class="boxTicket" draggable="true"
+                                id="draggableElement{{$ticket->id}}" ondragstart="onDragStart(event)">
 
                                     <div class="ticket">
                                         {{ $ticket->task }}
 
                                     </div>
+
 
                                     {{-- Modal ticket --}}
                                     <div id="modalContainerTicket" class="displayNoneTicket">
@@ -151,6 +153,7 @@
                                 </div>
                             @endif
                         @endforeach
+                    </div>
                         {{-- Ajouter ticket --}}
                         <div class="addTicket">
                             <button id="btnAddTicket">+ Ajoutez un ticket</button>

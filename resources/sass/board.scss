@@ -461,15 +461,16 @@
 
 .ticketContainer {
     padding: 8px 12px;
-    .divTicket {
+    /*.divTicket {
         margin: 12px 0px;
-    }
+    }*/
 }
 
 .boxTicket {
     background-color: white;
     border-radius: 2px;
     padding: 4px;
+    margin-bottom: 5px;
     margin-bottom: 5px;
 
     &:hover {
