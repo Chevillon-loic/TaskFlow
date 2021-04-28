@@ -73,10 +73,37 @@
                     outline: none;
                 }
                 #usersToInvite {
-                    height: 225px;
+                    div {
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        border-radius: 5px;
+                        transition: 0.2s;
+                        &:hover {
+                            background-color: rgba(241, 241, 241, 0.8);
+                        }
+                    }
+                    img {
+                        height: 25px;
+                        width: 25px;
+                        border-radius: 50%;
+                        margin-left: 5px;
+                    }
+                    label {
+                        margin-left: 5px;
+                        font-size: 0.9rem;
+                        cursor: pointer;
+                        padding: 10px 0;
+                        width: 100%;
+                    }
+                    input[type="checkbox"] {
+                        visibility: hidden;
+                    }
                 }
                 #btnToInvite {
-                    width: 100%;
+                    position: absolute;
+                    bottom: 5px;
+                    width: 93%;
                     padding: 7px;
                     border: none;
                     font-size: 16px;
@@ -85,6 +112,11 @@
                     border-radius: 5px;
                     color: white;
                     cursor: pointer;
+                    &:disabled {
+                        background-color: rgb(241, 241, 241);
+                        color: rgb(144, 144, 144);
+                        cursor: unset;
+                    }
                 }
             }
             #inviteContainer {
@@ -207,6 +239,47 @@
 
         #btnAddTicket {
             cursor: pointer;
+            width: 100%;
+            height: 30px;
+            border: none;
+            background-color: #d3d3d3;
+            font-weight: 500;
+            border-radius: 5px;
+            &:hover {
+                background-color: #c2c2c2;
+            }
+        }
+        #inputAddTicket {
+            outline: none;
+            width: 100%;
+            height: 30px;
+            border-color: rgb(29, 112, 180);
+            border-style: solid;
+            border-radius: 5px;
+            margin: 0 0 5px;
+        }
+
+        #validateTicket {
+            border-style: solid;
+            border-color: transparent;
+            border-radius: 5px;
+            width: 90px;
+            height: 25px;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        #closeTicket {
+            border: none;
+            background-color: #d3d3d3;
+            font-size: 17px;
+            color: rgb(85, 85, 85);
+            cursor: pointer;
+            &:hover {
+                color: black;
+            }
         }
     }
 }

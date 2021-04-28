@@ -17,7 +17,6 @@
             <div class="profileIn">
 
                 <img id="profilePicture" src="{{ Auth::user()->picture }}" alt="Photo de profil">
-
                 <div class="bloc-infos">
                     <div class="bloc-left">
                         <p>Nom</p>
@@ -37,7 +36,7 @@
 
                     {{-- disconnect button --}}
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
+                                                    document.getElementById('logout-form').submit();">
                         Déconnexion
                     </a>
 

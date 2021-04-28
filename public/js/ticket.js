@@ -18179,13 +18179,18 @@ try {
       var btn = document.createElement("button");
       var close = document.createElement("button");
       btnAdd[0].style.display = "none";
-      btn.innerText = "plus";
+      btn.innerText = "Ajouter";
+      btn.id = "validateTicket";
+      btn.style.backgroundColor = board.color;
       close.innerText = "X";
+      close.id = "closeTicket";
       ticket.insertAdjacentElement("beforeend", input);
       ticket.insertAdjacentElement("beforeend", btn);
       ticket.insertAdjacentElement("beforeend", close);
       input.select();
-      input.placeholder = "Ajouter un ticket";
+      input.placeholder = "Titre du ticket...";
+      input.id = "inputAddTicket";
+      input.style.borderColor = board.color;
       close.addEventListener("click", function (e) {
         input.remove();
         btn.remove();
