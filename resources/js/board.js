@@ -161,7 +161,7 @@ INVITE.addEventListener("click", function(e) {
             //console.log(url);
             const response = await fetch(url, options);
             console.log(response);
-            //!---------------------location.reload();
+            location.reload();
         } catch (error) {
             console.log(error);
         }

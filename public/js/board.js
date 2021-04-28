@@ -1064,22 +1064,22 @@ INVITE.addEventListener("click", function (e) {
 
             case 12:
               response = _context2.sent;
-              console.log(response); //!---------------------location.reload();
-
-              _context2.next = 19;
+              console.log(response);
+              location.reload();
+              _context2.next = 20;
               break;
 
-            case 16:
-              _context2.prev = 16;
+            case 17:
+              _context2.prev = 17;
               _context2.t0 = _context2["catch"](9);
               console.log(_context2.t0);
 
-            case 19:
+            case 20:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[9, 16]]);
+      }, _callee2, null, [[9, 17]]);
     }));
 
     return function (_x2) {

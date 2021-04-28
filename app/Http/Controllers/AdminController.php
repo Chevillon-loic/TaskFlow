@@ -15,7 +15,7 @@ class AdminController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware('auth:web');
     }
     /**
      * Display a listing of the resource.
@@ -87,9 +87,20 @@ class AdminController extends Controller
      * @param  \App\Admin  $column
      * @return \Illuminate\Http\Response
      */
-    public function update()
+    public function update(Request $request)
+
     {
-        //
+        $modifUser = User::find($request->id);
+
+        $modifUser->first_name = $request->first_name;
+        $modifUser->last_name = $request->last_name;
+        $modifUser->email = $request->email;
+
+        $modifUser->save();
+
+        return back()->with([
+            'success' => 'Contenu modifié avec succès !'
+        ]);
     }
 
     /**
@@ -100,6 +111,7 @@ class AdminController extends Controller
      */
     public function destroy(Request $request)
     {
-        //
+
+        $deleteUser = User::find($request->id)->delete();
     }
 }

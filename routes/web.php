@@ -80,3 +80,5 @@ Route::put('column/update/{id}', 'ColumnController@update')->name('column.update
 
 // Route page Admin
 Route::get('admin/index', 'AdminController@index')->name('admin.index');
+Route::post('admin/update', 'AdminController@update')->name('admin.update');
+Route::delete('admin/destroy', 'AdminController@destroy')->name('admin.destroy');
