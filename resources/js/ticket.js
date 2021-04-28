@@ -1,3 +1,4 @@
+const { htmlPrefilter } = require("jquery");
 const { add } = require("lodash");
 
 const ADDTICKETDIV = document.getElementsByClassName("addTicket");
@@ -5,7 +6,6 @@ const BTNADDTICKET = document.getElementById("btnAddTicket");
 const divAddTicket = document.querySelector(".addTicket");
 
 for (const ticket of ADDTICKETDIV) {
-    console.log(ADDTICKETDIV);
     let t = ticket.getElementsByTagName("input");
     let id = t[0].value;
     let btnAdd = ticket.getElementsByTagName("button");
@@ -80,7 +80,7 @@ for (const ticket of ADDTICKETDIV) {
     });
 }
 const DIVTICKET = document.getElementsByClassName("boxTicket");
-// console.log(DIVTICKET[0]);
+
 for (const ticket of DIVTICKET) {
     const titleTicket = ticket.querySelector(".ticket");
     let btnSupp = ticket.querySelector("#removeTicket");
@@ -105,6 +105,7 @@ for (const ticket of DIVTICKET) {
 
     let b = document.createElement("button");
     b.id = "btnAddComment";
+    b.style.backgroundColor = board.color;
     addComment.addEventListener("click", function(e) {
         b.innerText = "Valider";
         addComment.insertAdjacentElement("afterend", b);
@@ -137,6 +138,7 @@ for (const ticket of DIVTICKET) {
             try {
                 const response = await fetch(url, options);
                 addComment.value = "";
+                location.reload();
             } catch (error) {
                 console.log(error);
             }
@@ -152,5 +154,48 @@ for (const ticket of DIVTICKET) {
     cancelComment.addEventListener("click", function(e) {
         e.stopPropagation();
         commentModal.style.display = "none";
+    });
+
+    let hTitleTicket = ticket.querySelector(".titleTicket");
+    let id = ticket.querySelector(".id");
+    id = id.value;
+
+    hTitleTicket.addEventListener("click", function(e) {
+        let input = document.createElement("input");
+        hTitleTicket.insertAdjacentElement("beforebegin", input);
+        input.id = "updateTitleTicket";
+        input.select();
+        hTitleTicket.classList.add("displayNone");
+
+        input.addEventListener("keydown", async function(e) {
+            if (e.key === "Enter") {
+                let url = hTitleTicket.getAttribute("data_url");
+                let token = document
+                    .querySelector('meta[name="csrf-token"]')
+                    .getAttribute("content");
+
+                let body = {
+                    id: id,
+                    task: input.value
+                };
+
+                const options = {
+                    method: "PUT",
+                    headers: {
+                        "X-CSRF-TOKEN": token,
+                        Accept: "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(body)
+                };
+                try {
+                    const response = await fetch(url, options);
+                    console.log(response);
+                    location.reload();
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+        });
     });
 }

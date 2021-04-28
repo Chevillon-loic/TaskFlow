@@ -384,15 +384,80 @@
   flex-direction: column;
   background-color: white;
   margin: auto;
-  padding: 48px 28px 28px 28px;
+  padding: 25px 28px 28px 28px;
   width: 700px;
   height: 65vh;
   border-radius: 4px;
-  text-align: center;
+  overflow: scroll;
+}
+
+#modalContainerComment #removeConfirmationContainerComment .titleTicketTop {
+  display: flex;
+  justify-content: space-between;
+}
+
+#modalContainerComment #removeConfirmationContainerComment .titleTicketTop .cancelComment {
+  border: none;
+  background-color: white;
+  font-size: 20px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  color: #5e5e5e;
+}
+
+#modalContainerComment #removeConfirmationContainerComment .titleTicketTop .cancelComment:hover {
+  background-color: #d6d6d6;
+  border-radius: 50%;
+}
+
+#modalContainerComment #removeConfirmationContainerComment .titleColumnTop {
+  display: flex;
+  justify-content: space-between;
 }
 
 #modalContainerComment #removeConfirmationContainerComment textarea {
   resize: none;
+  min-height: 50px;
+  margin-top: 50px;
+  width: 50%;
+  outline: none;
+}
+
+#modalContainerComment #removeConfirmationContainerComment #btnAddComment {
+  width: 20%;
+  margin-top: 5px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+#modalContainerComment #removeConfirmationContainerComment .pictureComment {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+#modalContainerComment #removeConfirmationContainerComment .userInformations {
+  display: flex;
+  margin-top: 10px;
+}
+
+#modalContainerComment #removeConfirmationContainerComment .userInformations .contentComment {
+  margin-top: 10px;
+}
+
+#modalContainerComment #removeConfirmationContainerComment .userInformations p {
+  border: solid 1px #c5c5c5;
+  border-radius: 10px;
+  padding: 5 20;
+  background-color: #f1f1f1;
+}
+
+#modalContainerComment #removeConfirmationContainerComment #flexReverse {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 #btnAddList,

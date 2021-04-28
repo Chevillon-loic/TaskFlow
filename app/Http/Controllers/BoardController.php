@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Board;
 use App\Column;
+use App\Comment;
 use App\Ticket;
 use App\User;
 use Illuminate\Http\Request;
@@ -17,16 +18,16 @@ class BoardController extends Controller
      */
     public function index($id)
     {
-
         $columns = Column::all()->where('board_id', $id);
         $tickets = Ticket::all();
+        $comments = Comment::all();
 
         return view('board', [
             'columns' => $columns,
             'tickets' => $tickets,
             'board' => Board::where('id', $id)->first(),
-            'column' => Column::where('id', 1),
             'user' => User::where('id', \Auth::user()->id)->first(),
+            'comments' => $comments,
         ]);
     }
 

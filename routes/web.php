@@ -56,9 +56,13 @@ Route::post('ticket/store/{id}', 'TicketController@store')->name('ticket.store')
 
 Route::delete('ticket/destroy', 'TicketController@destroy')->name('ticket.destroy')->middleware('auth');
 
+<<<<<<< HEAD
 //tickets drag & drop
 Route::put('ticket/{ticket_id}/{column_id}', 'TicketController@update')->name('ticket.update')->middleware('auth');
 
+=======
+Route::put('ticket/updatetitle/{id}', 'TicketController@updateTitle')->name('ticket.updatetitle')->middleware('auth');
+>>>>>>> 2a0b0bc0a727072a4a0e9e1697c16c96644811d4
 //comments
 Route::post('comment/store/{id}', 'CommentController@store')->name('comment.store')->middleware('auth')->where('id', '[0-9]+');
 
