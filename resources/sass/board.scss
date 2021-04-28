@@ -207,6 +207,47 @@
 
         #btnAddTicket {
             cursor: pointer;
+            width: 100%;
+            height: 30px;
+            border: none;
+            background-color: #d3d3d3;
+            font-weight: 500;
+            border-radius: 5px;
+            &:hover {
+                background-color: #c2c2c2;
+            }
+        }
+        #inputAddTicket {
+            outline: none;
+            width: 100%;
+            height: 30px;
+            border-color: rgb(29, 112, 180);
+            border-style: solid;
+            border-radius: 5px;
+            margin: 0 0 5px;
+        }
+
+        #validateTicket {
+            border-style: solid;
+            border-color: transparent;
+            border-radius: 5px;
+            width: 90px;
+            height: 25px;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        #closeTicket {
+            border: none;
+            background-color: #d3d3d3;
+            font-size: 17px;
+            color: rgb(85, 85, 85);
+            cursor: pointer;
+            &:hover {
+                color: black;
+            }
         }
     }
 }
