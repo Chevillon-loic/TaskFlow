@@ -35374,7 +35374,11 @@ adminProfilTeam.addEventListener("click", function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/admin.js */"./resources/js/admin.js");
+=======
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/admin.js */"./resources/js/admin.js");
+>>>>>>> 25b0f85f2d3fe6a7511f123dc8fae35a44cb63f0
 
 
 /***/ })
