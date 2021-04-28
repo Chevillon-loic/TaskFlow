@@ -189,50 +189,50 @@ INVITE.addEventListener("click", function(e) {
                         btnToInvite.style.backgroundColor = board.color;
                         checkbox.checked = true;
                     });
-                }
 
-                //LISTENER BTN Invitation et FETCH
-                btnToInvite.addEventListener("click", async function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    let guestID;
-                    usersToInvite.childNodes.forEach(function(div) {
-                        let checkbox = div.getElementsByTagName("input");
-                        if (checkbox.checked) {
-                            guestID = div.getAttribute("guest_id");
+                    //LISTENER BTN Invitation et FETCH
+                    btnToInvite.addEventListener("click", async function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        let guestID;
+                        usersToInvite.childNodes.forEach(function(div) {
+                            let checkbox = div.getElementsByTagName("input");
+                            if (checkbox.checked) {
+                                guestID = div.getAttribute("guest_id");
+                            }
+                        });
+                        console.log(guestID + " guestID : boardID " + board.id);
+
+                        //FETCH
+                        let url =
+                            document.location.origin +
+                            "/board/guestinvite/" +
+                            board.id +
+                            "/" +
+                            guestID;
+                        let token = document
+                            .querySelector('meta[name="csrf-token"]')
+                            .getAttribute("content");
+                        //Corps de la requete
+                        const options = {
+                            method: "POST",
+                            headers: {
+                                "X-CSRF-TOKEN": token,
+                                Accept: "application/json",
+                                "Content-Type": "application/json"
+                            }
+                        };
+                        console.log(options);
+                        try {
+                            //console.log(url);
+                            const response = await fetch(url, options);
+                            console.log(response);
+                            //!---------------------location.reload();
+                        } catch (error) {
+                            console.log(error);
                         }
                     });
-                    console.log(guestID + " guestID : boardID " + board.id);
-
-                    //FETCH
-                    let url =
-                        document.location.origin +
-                        "/board/guestinvite/" +
-                        board.id +
-                        "/" +
-                        guestID;
-                    let token = document
-                        .querySelector('meta[name="csrf-token"]')
-                        .getAttribute("content");
-                    //Corps de la requete
-                    const options = {
-                        method: "POST",
-                        headers: {
-                            "X-CSRF-TOKEN": token,
-                            Accept: "application/json",
-                            "Content-Type": "application/json"
-                        }
-                    };
-                    //console.log(options);
-                    try {
-                        //console.log(url);
-                        const response = await fetch(url, options);
-                        console.log(response);
-                        //!---------------------location.reload();
-                    } catch (error) {
-                        console.log(error);
-                    }
-                });
+                }
             });
         }
     });

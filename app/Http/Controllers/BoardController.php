@@ -127,11 +127,11 @@ class BoardController extends Controller
     public function guestinvite($tabId, $guestId)
     {
         $guests = Guest::first();
-        if (isset($guests)) {
-            if (!($guests->guest_id == $guestId && $guests->board_id == $tabId)) {
-                \DB::insert('insert into guests (guest_id, board_id) values (?, ?)', [$guestId, $tabId]);
-                return response("success");
-            }
-        }
+        //if (isset($guests)) {
+        //  if (!($guests->guest_id == $guestId && $guests->board_id == $tabId)) {
+        \DB::insert('insert into guests (guest_id, board_id) values (?, ?)', [$guestId, $tabId]);
+        return response("success");
+        // }
+        //}
     }
 }

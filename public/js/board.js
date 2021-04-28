@@ -1106,69 +1106,68 @@ INVITE.addEventListener("click", function (e) {
                     btnToInvite.disabled = false;
                     btnToInvite.style.backgroundColor = board.color;
                     checkbox.checked = true;
-                  });
-                } //LISTENER BTN Invitation et FETCH
+                  }); //LISTENER BTN Invitation et FETCH
 
+                  btnToInvite.addEventListener("click", /*#__PURE__*/function () {
+                    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
+                      var guestID, url, token, options, _response;
 
-                btnToInvite.addEventListener("click", /*#__PURE__*/function () {
-                  var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
-                    var guestID, url, token, options, _response;
+                      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+                        while (1) {
+                          switch (_context2.prev = _context2.next) {
+                            case 0:
+                              e.preventDefault();
+                              e.stopPropagation();
+                              usersToInvite.childNodes.forEach(function (div) {
+                                var checkbox = div.getElementsByTagName("input");
 
-                    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-                      while (1) {
-                        switch (_context2.prev = _context2.next) {
-                          case 0:
-                            e.preventDefault();
-                            e.stopPropagation();
-                            usersToInvite.childNodes.forEach(function (div) {
-                              var checkbox = div.getElementsByTagName("input");
+                                if (checkbox.checked) {
+                                  guestID = div.getAttribute("guest_id");
+                                }
+                              });
+                              console.log(guestID + " guestID : boardID " + board.id); //FETCH
 
-                              if (checkbox.checked) {
-                                guestID = div.getAttribute("guest_id");
-                              }
-                            });
-                            console.log(guestID + " guestID : boardID " + board.id); //FETCH
+                              url = document.location.origin + "/board/guestinvite/" + board.id + "/" + guestID;
+                              token = document.querySelector('meta[name="csrf-token"]').getAttribute("content"); //Corps de la requete
 
-                            url = document.location.origin + "/board/guestinvite/" + board.id + "/" + guestID;
-                            token = document.querySelector('meta[name="csrf-token"]').getAttribute("content"); //Corps de la requete
+                              options = {
+                                method: "POST",
+                                headers: {
+                                  "X-CSRF-TOKEN": token,
+                                  Accept: "application/json",
+                                  "Content-Type": "application/json"
+                                }
+                              };
+                              console.log(options);
+                              _context2.prev = 8;
+                              _context2.next = 11;
+                              return fetch(url, options);
 
-                            options = {
-                              method: "POST",
-                              headers: {
-                                "X-CSRF-TOKEN": token,
-                                Accept: "application/json",
-                                "Content-Type": "application/json"
-                              }
-                            }; //console.log(options);
+                            case 11:
+                              _response = _context2.sent;
+                              console.log(_response); //!---------------------location.reload();
 
-                            _context2.prev = 7;
-                            _context2.next = 10;
-                            return fetch(url, options);
+                              _context2.next = 18;
+                              break;
 
-                          case 10:
-                            _response = _context2.sent;
-                            console.log(_response); //!---------------------location.reload();
+                            case 15:
+                              _context2.prev = 15;
+                              _context2.t0 = _context2["catch"](8);
+                              console.log(_context2.t0);
 
-                            _context2.next = 17;
-                            break;
-
-                          case 14:
-                            _context2.prev = 14;
-                            _context2.t0 = _context2["catch"](7);
-                            console.log(_context2.t0);
-
-                          case 17:
-                          case "end":
-                            return _context2.stop();
+                            case 18:
+                            case "end":
+                              return _context2.stop();
+                          }
                         }
-                      }
-                    }, _callee2, null, [[7, 14]]);
-                  }));
+                      }, _callee2, null, [[8, 15]]);
+                    }));
 
-                  return function (_x3) {
-                    return _ref2.apply(this, arguments);
-                  };
-                }());
+                    return function (_x3) {
+                      return _ref2.apply(this, arguments);
+                    };
+                  }());
+                }
               });
 
             case 24:
