@@ -80,83 +80,88 @@
                     </div>
                     {{-- Ticket --}}
                     <div class="ticketContainer">
-                        <div class="ticketDropZone"  ondragover="onDragOver(event);"
-                        >
-                        @foreach ($tickets as $ticket)
-                            @if ($ticket->column_id == $column->id)
+                        <div class="ticketDropZone" ondragover="onDragOver(event);">
+                            @foreach ($tickets as $ticket)
+                                @if ($ticket->column_id == $column->id)
 
-                                <div class="boxTicket" draggable="true"
-                                id="draggableElement{{$ticket->id}}" ondragstart="onDragStart(event)">
+                                    <div class="boxTicket" draggable="true" id="draggableElement{{ $ticket->id }}"
+                                        ondragstart="onDragStart(event)">
 
-                                <span data_url="{{ route('ticket.update', [$ticket->id, $column->id]) }}" id="span_data_url"></span>
+                                        <span data_url="{{ route('ticket.update', [$ticket->id, $column->id]) }}"
+                                            id="span_data_url"></span>
 
-                                    <div class="ticket">
-                                        {{ $ticket->task }}
+                                        <div class="ticket">
+                                            {{ $ticket->task }}
 
-                                    </div>
-
-
-                                    {{-- Modal ticket --}}
-                                    <div id="modalContainerTicket" class="displayNoneTicket">
-                                        <div id="removeConfirmationContainer" class="displayNoneTicket">
-                                            <p>Êtes vous sûr de vouloir supprimer ce ticket ?</p>
-                                            <span>
-                                                <div class="modalButtons">
-                                                    <button id="cancelRemoveTicket">Annuler</button>
-                                                    <form action="{{ route('ticket.destroy') }}" method="post">
-                                                        @method('delete')
-                                                        @csrf
-                                                        <input type="hidden" name="id" class="id" value="{{ $ticket->id }}">
-                                                        <button type="submit">Confirmer</button>
-                                                    </form>
-                                                </div>
-                                            </span>
                                         </div>
-                                    </div>
 
 
-                                    {{-- Modal comment --}}
-                                    <div id="modalContainerComment">
-                                        <div id="removeConfirmationContainerComment">
-                                            <div class="titleTicketTop">
-                                                <h3 class="titleTicket" data_url="{{ route('ticket.updatetitle', [$ticket->id]) }}">{{ $ticket->task }}</h3>
-                                                <button class="cancelComment">X</button>
+                                        {{-- Modal ticket --}}
+                                        <div id="modalContainerTicket" class="displayNoneTicket">
+                                            <div id="removeConfirmationContainer" class="displayNoneTicket">
+                                                <p>Êtes vous sûr de vouloir supprimer ce ticket ?</p>
+                                                <span>
+                                                    <div class="modalButtons">
+                                                        <button id="cancelRemoveTicket">Annuler</button>
+                                                        <form action="{{ route('ticket.destroy') }}" method="post">
+                                                            @method('delete')
+                                                            @csrf
+                                                            <input type="hidden" name="id" class="id"
+                                                                value="{{ $ticket->id }}">
+                                                            <button type="submit">Confirmer</button>
+                                                        </form>
+                                                    </div>
+                                                </span>
                                             </div>
-                                            <div class="titleColumnTop">
-                                                <p>Dans la colonne {{ $column->label }}</p>
-                                                <button id="removeTicket">Supprimer le <br> ticket</button>
-                                            </div>
+                                        </div>
 
-                                            <textarea name="" data_url="{{ route('comment.store', [$ticket->id]) }}"
-                                                id="addComment" class="addComment" cols="30" rows="3"
-                                                placeholder="Écrivez un commentaire"></textarea>
+
+                                        {{-- Modal comment --}}
+                                        <div id="modalContainerComment">
+                                            <div id="removeConfirmationContainerComment">
+                                                <div class="titleTicketTop">
+                                                    <h3 class="titleTicket"
+                                                        data_url="{{ route('ticket.updatetitle', [$ticket->id]) }}">
+                                                        {{ $ticket->task }}</h3>
+                                                    <button class="cancelComment">X</button>
+                                                </div>
+                                                <div class="titleColumnTop">
+                                                    <p>Dans la colonne {{ $column->label }}</p>
+                                                    <button id="removeTicket">Supprimer le <br> ticket</button>
+                                                </div>
+
+                                                <textarea name="" data_url="{{ route('comment.store', [$ticket->id]) }}"
+                                                    id="addComment" class="addComment" cols="30" rows="3"
+                                                    placeholder="Écrivez un commentaire"></textarea>
                                                 <div id="flexReverse">
 
-                                            @foreach ($comments as $comment)
+                                                    @foreach ($comments as $comment)
 
-                                            @if ($comment->ticket_id == $ticket->id)
-                                            <div class="userInformations">
-                                                <img class="pictureComment" src="{{ $user->picture }}" alt="picture">
+                                                        @if ($comment->ticket_id == $ticket->id)
+                                                            <div class="userInformations">
+                                                                <img class="pictureComment" src="{{ $user->picture }}"
+                                                                    alt="picture">
 
-                                                    <div class="contentComment">
-                                                        <span>{{ $user->last_name }} {{ $user->first_name }}</span><br>
-                                                        <p>{{ $comment->description }}</p>
-                                                    </div>
+                                                                <div class="contentComment">
+                                                                    <span>{{ $user->last_name }}
+                                                                        {{ $user->first_name }}</span><br>
+                                                                    <p>{{ $comment->description }}</p>
+                                                                </div>
+
+                                                            </div>
+
+                                                        @endif
+
+
+                                                    @endforeach
+                                                </div>
 
                                             </div>
-
-                                            @endif
-
-
-                                            @endforeach
-                                        </div>
-
                                         </div>
                                     </div>
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
+                                @endif
+                            @endforeach
+                        </div>
                         {{-- Ajouter ticket --}}
                         <div class="addTicket">
                             <button id="btnAddTicket">+ Ajoutez un ticket</button>
@@ -178,7 +183,6 @@
 <script>
     let tickets = @json($tickets);
     let board = @json($board);
-    let column = @json($column);
     let user = @json($user);
 
 </script>
