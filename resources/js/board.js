@@ -105,29 +105,30 @@ INVITE.addEventListener("click", function(e) {
     let btnToInvite = divForInvite.querySelector("#btnToInvite");
 
     //styles invite
-    btnToInvite.style.backgroundColor = board.color;
     inputInvite.style.borderColor = board.color;
 
     //ajout au DOM
     INVITECONTAINER.insertAdjacentElement("afterend", divForInvite);
     inputInvite.select();
-
+    btnToInvite.disabled = true;
     //CLOSE BTN
     closeInvite.addEventListener("click", function(e) {
         divForInvite.remove();
         INVITE.disabled = false;
         INVITE.id = "invite";
 
-        //! A VOIR et changé---------------------------------------
         let pToRemove = usersToInvite.getElementsByClassName("p");
         for (const p of pToRemove) {
             p.remove();
         }
-        //!--------------------------------------------------------
     });
 
     //Input listener KEYUP
     inputInvite.addEventListener("keyup", async function(e) {
+        //réinitialisation du bouton inviter
+        btnToInvite.disabled = true;
+        btnToInvite.style.backgroundColor = "rgb(241, 241, 241)";
+
         let q = inputInvite.value;
         let url = document.location.origin + "/board/search/" + q;
         let token = document
@@ -140,9 +141,10 @@ INVITE.addEventListener("click", function(e) {
                 "X-CSRF-TOKEN": token
             }
         };
-        let divToRemove = usersToInvite.getElementsByClassName("p");
-        for (const p of divToRemove) {
-            p.remove();
+        //suppression de la liste des users (affichage)
+        let divToRemove = usersToInvite.querySelectorAll("#userDiv");
+        for (const elem of divToRemove) {
+            elem.remove();
         }
         let userstoShow;
         if (q.length > 3) {
@@ -150,19 +152,35 @@ INVITE.addEventListener("click", function(e) {
             try {
                 const response = await fetch(url, options);
                 const users = await response.json();
-                userstoShow = users;
+                userstoShow = await users;
             } catch (error) {
                 console.log(error);
             }
-            console.log(userstoShow);
-            setTimeout(() => {
-                userstoShow.forEach(user => {
-                    let div = document.createElement("div");
-                    div.innerHTML = `
-                    <p class="p"> ${user.first_name} ${user.last_name}</p>`;
-                    usersToInvite.appendChild(div);
+
+            //Boucle pour créer une div et l'afficher
+            userstoShow.forEach(user => {
+                console.log(user);
+                let div = document.createElement("div");
+                div.id = "userDiv";
+                div.innerHTML = `
+                    <img src="${user.picture}" alt="picture">
+                    <label for="user"> ${user.first_name} ${user.last_name}</label>
+                    <input type="checkbox" name="user" id="user">
+                    `;
+                usersToInvite.appendChild(div);
+                let checkbox = div.querySelector("#user");
+
+                div.addEventListener("click", function(e) {
+                    console.log("ok");
+                    div.style.backgroundColor = board.color;
+                    div.style.color = "white";
+                    if (checkbox.checked) {
+                        console.log("checked");
+                        btnToInvite.disabled = false;
+                        btnToInvite.style.backgroundColor = board.color;
+                    }
                 });
-            }, 1000);
+            });
         }
     });
 });

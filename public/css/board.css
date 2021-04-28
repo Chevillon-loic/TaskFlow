@@ -76,12 +76,41 @@
   outline: none;
 }
 
-.mainContainer .topContainer .containerInviteDelete #divForInvite #usersToInvite {
-  height: 225px;
+.mainContainer .topContainer .containerInviteDelete #divForInvite #usersToInvite div {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.mainContainer .topContainer .containerInviteDelete #divForInvite #usersToInvite div:hover {
+  background-color: rgba(241, 241, 241, 0.8);
+}
+
+.mainContainer .topContainer .containerInviteDelete #divForInvite #usersToInvite img {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+.mainContainer .topContainer .containerInviteDelete #divForInvite #usersToInvite label {
+  margin-left: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.mainContainer .topContainer .containerInviteDelete #divForInvite #usersToInvite input[type=checkbox] {
+  visibility: hidden;
 }
 
 .mainContainer .topContainer .containerInviteDelete #divForInvite #btnToInvite {
-  width: 100%;
+  position: absolute;
+  bottom: 5px;
+  width: 93%;
   padding: 7px;
   border: none;
   font-size: 16px;
@@ -90,6 +119,12 @@
   border-radius: 5px;
   color: white;
   cursor: pointer;
+}
+
+.mainContainer .topContainer .containerInviteDelete #divForInvite #btnToInvite:disabled {
+  background-color: #f1f1f1;
+  color: #909090;
+  cursor: unset;
 }
 
 .mainContainer .topContainer .containerInviteDelete #inviteContainer #invite {

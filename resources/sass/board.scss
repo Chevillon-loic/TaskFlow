@@ -73,10 +73,37 @@
                     outline: none;
                 }
                 #usersToInvite {
-                    height: 225px;
+                    div {
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        border-radius: 5px;
+                        transition: 0.2s;
+                        &:hover {
+                            background-color: rgba(241, 241, 241, 0.8);
+                        }
+                    }
+                    img {
+                        height: 25px;
+                        width: 25px;
+                        border-radius: 50%;
+                        margin-left: 5px;
+                    }
+                    label {
+                        margin-left: 5px;
+                        font-size: 0.9rem;
+                        cursor: pointer;
+                        padding: 10px 0;
+                        width: 100%;
+                    }
+                    input[type="checkbox"] {
+                        visibility: hidden;
+                    }
                 }
                 #btnToInvite {
-                    width: 100%;
+                    position: absolute;
+                    bottom: 5px;
+                    width: 93%;
                     padding: 7px;
                     border: none;
                     font-size: 16px;
@@ -85,6 +112,11 @@
                     border-radius: 5px;
                     color: white;
                     cursor: pointer;
+                    &:disabled {
+                        background-color: rgb(241, 241, 241);
+                        color: rgb(144, 144, 144);
+                        cursor: unset;
+                    }
                 }
             }
             #inviteContainer {
