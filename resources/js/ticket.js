@@ -138,7 +138,6 @@ for (const ticket of DIVTICKET) {
             try {
                 const response = await fetch(url, options);
                 addComment.value = "";
-                location.reload();
             } catch (error) {
                 console.log(error);
             }
@@ -191,7 +190,7 @@ for (const ticket of DIVTICKET) {
                 try {
                     const response = await fetch(url, options);
                     console.log(response);
-                    location.reload();
+                    // location.reload();
                 } catch (error) {
                     console.log(error);
                 }

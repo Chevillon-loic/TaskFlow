@@ -266,6 +266,7 @@
   background-color: #d3d3d3;
   font-weight: 500;
   border-radius: 5px;
+  margin-bottom: 5px;
 }
 
 .mainContainer .columnContainer #btnAddTicket:hover {
@@ -292,6 +293,7 @@
   font-weight: 500;
   cursor: pointer;
   margin-right: 5px;
+  margin-bottom: 5px;
 }
 
 .mainContainer .columnContainer #closeTicket {

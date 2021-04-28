@@ -29229,7 +29229,7 @@ try {
                 };
 
                 if (!(comment.length > 2)) {
-                  _context2.next = 20;
+                  _context2.next = 19;
                   break;
                 }
 
@@ -29240,28 +29240,27 @@ try {
               case 10:
                 response = _context2.sent;
                 addComment.value = "";
-                location.reload();
-                _context2.next = 18;
+                _context2.next = 17;
                 break;
 
-              case 15:
-                _context2.prev = 15;
+              case 14:
+                _context2.prev = 14;
                 _context2.t0 = _context2["catch"](7);
                 console.log(_context2.t0);
 
-              case 18:
-                _context2.next = 21;
+              case 17:
+                _context2.next = 20;
                 break;
 
-              case 20:
+              case 19:
                 addComment.value = "";
 
-              case 21:
+              case 20:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[7, 15]]);
+        }, _callee2, null, [[7, 14]]);
       }));
 
       return function (_x2) {
@@ -29292,7 +29291,7 @@ try {
               switch (_context3.prev = _context3.next) {
                 case 0:
                   if (!(e.key === "Enter")) {
-                    _context3.next = 16;
+                    _context3.next = 15;
                     break;
                   }
 
@@ -29317,22 +29316,22 @@ try {
 
                 case 8:
                   response = _context3.sent;
-                  console.log(response);
-                  location.reload();
-                  _context3.next = 16;
+                  console.log(response); // location.reload();
+
+                  _context3.next = 15;
                   break;
 
-                case 13:
-                  _context3.prev = 13;
+                case 12:
+                  _context3.prev = 12;
                   _context3.t0 = _context3["catch"](5);
                   console.log(_context3.t0);
 
-                case 16:
+                case 15:
                 case "end":
                   return _context3.stop();
               }
             }
-          }, _callee3, null, [[5, 13]]);
+          }, _callee3, null, [[5, 12]]);
         }));
 
         return function (_x3) {
@@ -29360,7 +29359,7 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/ticket.js */"./resources/js/ticket.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/ticket.js */"./resources/js/ticket.js");
 
 
 /***/ })

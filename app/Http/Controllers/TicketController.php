@@ -84,7 +84,7 @@ class TicketController extends Controller
 
     public function updateTitle(Request $request, $id)
     {
-        $ticket = Ticket::find($id);
+        $ticket = Ticket::find($request->id);
         $ticket->task = $request->task;
         $ticket->save();
         return response("success");
