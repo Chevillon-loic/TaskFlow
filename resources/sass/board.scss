@@ -360,11 +360,10 @@
         flex-direction: column;
         background-color: white;
         margin: auto;
-
         width: 700px;
         height: 65vh;
         border-radius: 4px;
-        overflow: scroll;
+        overflow: auto;
         .titleTicketTop {
             display: flex;
             justify-content: space-between;
@@ -373,7 +372,7 @@
                 color: white;
                 margin-left: 15px;
                 .titleTicket {
-                    margin-top: 15px;
+                    margin: 15px 0 5px;
                 }
                 #updateTitleTicket {
                     padding: 5px;
@@ -385,6 +384,16 @@
                     font-weight: 700;
                     color: white;
                     margin-top: 15px;
+                }
+                #removeTicket {
+                    background-color: rgba(255, 255, 255, 0.5);
+                    border: none;
+                    border-radius: 5px;
+                    padding: 7px;
+                    margin: 0 0 10px;
+                    cursor: pointer;
+                    color: white;
+                    font-size: 1rem;
                 }
             }
             .cancelComment {
@@ -414,11 +423,22 @@
             width: 50%;
             outline: none;
         }
+        #addComment {
+            margin-top: 10px;
+            font-size: 1rem;
+            border-radius: 5px 0 0 5px;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            padding: 7px;
+            height: 70px;
+        }
         #btnAddComment {
+            margin-top: 10px;
             border: none;
             border-radius: 0px 10px 10px 0px;
             color: white;
-            height: 50px;
+            height: 70px;
+            width: 100px;
+            font-size: 1rem;
             cursor: pointer;
             &:hover {
                 background-color: #245866;
@@ -437,10 +457,10 @@
                 margin-top: 10px;
             }
             p {
-                border: solid 1px #c5c5c5;
-                border-radius: 10px;
-                padding: 5 20;
-                background-color: #f1f1f1;
+                border: solid 1px #c5c5c5be;
+                border-radius: 5px;
+                padding: 5px 20px;
+                background-color: #f1f1f1b6;
             }
         }
         #flexReverse {

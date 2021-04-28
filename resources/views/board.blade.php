@@ -153,18 +153,18 @@
                                                         <h3 class="titleTicket"
                                                             data_url="{{ route('ticket.updatetitle', [$ticket->id]) }}">
                                                             {{ $ticket->task }}</h3>
-                                                        <p>Dans la colonne {{ $column->label }}</p>
+                                                        <button id="removeTicket">Supprimer</button>
+
                                                     </div>
                                                     <button class="cancelComment">X</button>
                                                 </div>
                                                 <div class="titleColumnTop">
-
-                                                    <button id="removeTicket">Supprimer le <br> ticket</button>
                                                 </div>
 
                                                 <div id="containerComment">
                                                     <div style="display: flex" style="flex-direction: column">
-                                                        <textarea name="" data_url="{{ route('comment.store', [$ticket->id]) }}"
+                                                        <textarea name=""
+                                                            data_url="{{ route('comment.store', [$ticket->id]) }}"
                                                             id="addComment" class="addComment" cols="30" rows="3"
                                                             placeholder="Écrivez un commentaire"></textarea>
                                                     </div>
@@ -173,8 +173,8 @@
 
                                                             @if ($comment->ticket_id == $ticket->id)
                                                                 <div class="userInformations">
-                                                                    <img class="pictureComment" src="{{ $user->picture }}"
-                                                                        alt="picture">
+                                                                    <img class="pictureComment"
+                                                                        src="{{ $user->picture }}" alt="picture">
 
                                                                     <div class="contentComment">
                                                                         <span>{{ $user->last_name }}
