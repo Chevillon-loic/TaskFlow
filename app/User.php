@@ -42,4 +42,23 @@ class User extends Authenticatable
     {
         return $this->hasMany(Board::class);
     }
+    // Provide many Ticket for User
+    public function ticket()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+    // Provide many Comments for User
+    public function comment()
+    {
+        return $this->hasMany(Comment::class);
+    }
+    // Provide many guests for User
+    public function guest()
+    {
+        return $this->hasMany(Guest::class);
+    }
+    public function boards()
+    {
+        return $this->belongsToMany(Board::class, 'guests', 'guest_id', 'board_id');
+    }
 }

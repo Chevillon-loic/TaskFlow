@@ -23,10 +23,6 @@ class CreateBoardsTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->unsignedBigInteger('guest_id');
-            $table->foreign('guest_id')
-                ->references('id')
-                ->on('users');
 
             $table->string('label', 64);
             $table->string('color', 10);
