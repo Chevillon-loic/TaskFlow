@@ -998,9 +998,10 @@ INVITE.addEventListener("click", function (e) {
   var closeInvite = divForInvite.querySelector("#closeInvite");
   var inputInvite = divForInvite.querySelector("#inputInvite");
   var usersToInvite = divForInvite.querySelector("#usersToInvite");
-  var btnToInvite = divForInvite.querySelector("#btnToInvite"); //style btn invite
+  var btnToInvite = divForInvite.querySelector("#btnToInvite"); //styles invite
 
-  btnToInvite.style.backgroundColor = board.color; //ajout au DOM
+  btnToInvite.style.backgroundColor = board.color;
+  inputInvite.style.borderColor = board.color; //ajout au DOM
 
   INVITECONTAINER.insertAdjacentElement("afterend", divForInvite);
   inputInvite.select(); //CLOSE BTN

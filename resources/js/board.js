@@ -104,8 +104,9 @@ INVITE.addEventListener("click", function(e) {
     let usersToInvite = divForInvite.querySelector("#usersToInvite");
     let btnToInvite = divForInvite.querySelector("#btnToInvite");
 
-    //style btn invite
+    //styles invite
     btnToInvite.style.backgroundColor = board.color;
+    inputInvite.style.borderColor = board.color;
 
     //ajout au DOM
     INVITECONTAINER.insertAdjacentElement("afterend", divForInvite);
