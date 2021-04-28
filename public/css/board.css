@@ -255,6 +255,50 @@
 
 .mainContainer .columnContainer #btnAddTicket {
   cursor: pointer;
+  width: 100%;
+  height: 30px;
+  border: none;
+  background-color: #d3d3d3;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+.mainContainer .columnContainer #btnAddTicket:hover {
+  background-color: #c2c2c2;
+}
+
+.mainContainer .columnContainer #inputAddTicket {
+  outline: none;
+  width: 100%;
+  height: 30px;
+  border-color: #1d70b4;
+  border-style: solid;
+  border-radius: 5px;
+  margin: 0 0 5px;
+}
+
+.mainContainer .columnContainer #validateTicket {
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 5px;
+  width: 90px;
+  height: 25px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.mainContainer .columnContainer #closeTicket {
+  border: none;
+  background-color: #d3d3d3;
+  font-size: 17px;
+  color: #555555;
+  cursor: pointer;
+}
+
+.mainContainer .columnContainer #closeTicket:hover {
+  color: black;
 }
 
 #modalContainer,
