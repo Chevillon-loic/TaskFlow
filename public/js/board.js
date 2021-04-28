@@ -1000,17 +1000,16 @@ INVITE.addEventListener("click", function (e) {
   var usersToInvite = divForInvite.querySelector("#usersToInvite");
   var btnToInvite = divForInvite.querySelector("#btnToInvite"); //styles invite
 
-  btnToInvite.style.backgroundColor = board.color;
   inputInvite.style.borderColor = board.color; //ajout au DOM
 
   INVITECONTAINER.insertAdjacentElement("afterend", divForInvite);
-  inputInvite.select(); //CLOSE BTN
+  inputInvite.select();
+  btnToInvite.disabled = true; //CLOSE BTN
 
   closeInvite.addEventListener("click", function (e) {
     divForInvite.remove();
     INVITE.disabled = false;
-    INVITE.id = "invite"; //! A VOIR et changé---------------------------------------
-
+    INVITE.id = "invite";
     var pToRemove = usersToInvite.getElementsByClassName("p");
 
     var _iterator = _createForOfIteratorHelper(pToRemove),
@@ -1020,8 +1019,7 @@ INVITE.addEventListener("click", function (e) {
       for (_iterator.s(); !(_step = _iterator.n()).done;) {
         var p = _step.value;
         p.remove();
-      } //!--------------------------------------------------------
-
+      }
     } catch (err) {
       _iterator.e(err);
     } finally {
@@ -1031,12 +1029,15 @@ INVITE.addEventListener("click", function (e) {
 
   inputInvite.addEventListener("keyup", /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
-      var q, url, token, options, divToRemove, _iterator2, _step2, p, userstoShow, response, users;
+      var q, url, token, options, divToRemove, _iterator2, _step2, elem, userstoShow, response, users;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
+              //réinitialisation du bouton inviter
+              btnToInvite.disabled = true;
+              btnToInvite.style.backgroundColor = "rgb(241, 241, 241)";
               q = inputInvite.value;
               url = document.location.origin + "/board/search/" + q;
               token = document.querySelector('meta[name="csrf-token"]').getAttribute("content"); //Corps de la requete
@@ -1046,14 +1047,15 @@ INVITE.addEventListener("click", function (e) {
                 headers: {
                   "X-CSRF-TOKEN": token
                 }
-              };
-              divToRemove = usersToInvite.getElementsByClassName("p");
+              }; //suppression de la liste des users (affichage)
+
+              divToRemove = usersToInvite.querySelectorAll("#userDiv");
               _iterator2 = _createForOfIteratorHelper(divToRemove);
 
               try {
                 for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-                  p = _step2.value;
-                  p.remove();
+                  elem = _step2.value;
+                  elem.remove();
                 }
               } catch (err) {
                 _iterator2.e(err);
@@ -1062,46 +1064,62 @@ INVITE.addEventListener("click", function (e) {
               }
 
               if (!(q.length > 3)) {
-                _context2.next = 23;
+                _context2.next = 26;
                 break;
               }
 
-              _context2.prev = 8;
-              _context2.next = 11;
+              _context2.prev = 10;
+              _context2.next = 13;
               return fetch(url, options);
 
-            case 11:
+            case 13:
               response = _context2.sent;
-              _context2.next = 14;
+              _context2.next = 16;
               return response.json();
 
-            case 14:
+            case 16:
               users = _context2.sent;
-              userstoShow = users;
-              _context2.next = 21;
+              _context2.next = 19;
+              return users;
+
+            case 19:
+              userstoShow = _context2.sent;
+              _context2.next = 25;
               break;
 
-            case 18:
-              _context2.prev = 18;
-              _context2.t0 = _context2["catch"](8);
+            case 22:
+              _context2.prev = 22;
+              _context2.t0 = _context2["catch"](10);
               console.log(_context2.t0);
 
-            case 21:
-              console.log(userstoShow);
-              setTimeout(function () {
-                userstoShow.forEach(function (user) {
-                  var div = document.createElement("div");
-                  div.innerHTML = "\n                    <p class=\"p\"> ".concat(user.first_name, " ").concat(user.last_name, "</p>");
-                  usersToInvite.appendChild(div);
-                });
-              }, 1000);
+            case 25:
+              //Boucle pour créer une div et l'afficher
+              userstoShow.forEach(function (user) {
+                console.log(user);
+                var div = document.createElement("div");
+                div.id = "userDiv";
+                div.innerHTML = "\n                    <img src=\"".concat(user.picture, "\" alt=\"picture\">\n                    <label for=\"user\"> ").concat(user.first_name, " ").concat(user.last_name, "</label>\n                    <input type=\"checkbox\" name=\"user\" id=\"user\">\n                    ");
+                usersToInvite.appendChild(div);
+                var checkbox = div.querySelector("#user");
+                div.addEventListener("click", function (e) {
+                  console.log("ok");
+                  div.style.backgroundColor = board.color;
+                  div.style.color = "white";
 
-            case 23:
+                  if (checkbox.checked) {
+                    console.log("checked");
+                    btnToInvite.disabled = false;
+                    btnToInvite.style.backgroundColor = board.color;
+                  }
+                });
+              });
+
+            case 26:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[8, 18]]);
+      }, _callee2, null, [[10, 22]]);
     }));
 
     return function (_x2) {
@@ -1297,7 +1315,7 @@ TITLETAB.addEventListener("click", function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/board.js */"./resources/js/board.js");
 
 
 /***/ })
