@@ -261,7 +261,6 @@ for (const elem of TITLECONTAINER) {
     plabelColumn.addEventListener("click", function(e) {
         let i = document.createElement("input");
         plabelColumn.insertAdjacentElement("beforebegin", i);
-        i.value = column.label;
         i.id = "updateLabelColumInput";
         i.select();
         plabelColumn.classList.add("displayNone");
@@ -323,6 +322,7 @@ TITLETAB.addEventListener("click", function(e) {
     let i = document.createElement("input");
     TITLETAB.insertAdjacentElement("beforebegin", i);
     i.value = board.label;
+    i.id = "inputupdateTitleBoard";
     i.select();
     TITLETAB.classList.add("displayNone");
 

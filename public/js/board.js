@@ -1210,7 +1210,6 @@ try {
     plabelColumn.addEventListener("click", function (e) {
       var i = document.createElement("input");
       plabelColumn.insertAdjacentElement("beforebegin", i);
-      i.value = column.label;
       i.id = "updateLabelColumInput";
       i.select();
       plabelColumn.classList.add("displayNone");
@@ -1301,6 +1300,7 @@ TITLETAB.addEventListener("click", function (e) {
   var i = document.createElement("input");
   TITLETAB.insertAdjacentElement("beforebegin", i);
   i.value = board.label;
+  i.id = "inputupdateTitleBoard";
   i.select();
   TITLETAB.classList.add("displayNone");
   i.addEventListener("keydown", /*#__PURE__*/function () {
@@ -1371,7 +1371,7 @@ TITLETAB.addEventListener("click", function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/board.js */"./resources/js/board.js");
 
 
 /***/ })
