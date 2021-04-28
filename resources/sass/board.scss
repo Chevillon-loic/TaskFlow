@@ -345,13 +345,68 @@
         flex-direction: column;
         background-color: white;
         margin: auto;
-        padding: 48px 28px 28px 28px;
+        padding: 25px 28px 28px 28px;
         width: 700px;
         height: 65vh;
         border-radius: 4px;
-        text-align: center;
+        overflow: scroll;
+        .titleTicketTop {
+            display: flex;
+            justify-content: space-between;
+            .cancelComment {
+                border: none;
+                background-color: white;
+                font-size: 20px;
+                height: 30px;
+                width: 30px;
+                cursor: pointer;
+                color: #5e5e5e;
+                &:hover {
+                    background-color: rgb(214, 214, 214);
+                    border-radius: 50%;
+                }
+            }
+        }
+        .titleColumnTop {
+            display: flex;
+            justify-content: space-between;
+        }
         textarea {
             resize: none;
+            min-height: 50px;
+            margin-top: 50px;
+            width: 50%;
+            outline: none;
+        }
+        #btnAddComment {
+            width: 20%;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+        .pictureComment {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .userInformations {
+            display: flex;
+            margin-top: 10px;
+            .contentComment {
+                margin-top: 10px;
+            }
+            p {
+                border: solid 1px #c5c5c5;
+                border-radius: 10px;
+                padding: 5 20;
+                background-color: #f1f1f1;
+            }
+        }
+        #flexReverse {
+            display: flex;
+            flex-direction: column-reverse;
         }
     }
 }
@@ -419,15 +474,16 @@
 
 .ticketContainer {
     padding: 8px 12px;
-    .divTicket {
+    /*.divTicket {
         margin: 12px 0px;
-    }
+    }*/
 }
 
 .boxTicket {
     background-color: white;
     border-radius: 2px;
     padding: 4px;
+    margin-bottom: 5px;
     margin-bottom: 5px;
 
     &:hover {

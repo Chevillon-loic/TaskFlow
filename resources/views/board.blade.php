@@ -51,7 +51,7 @@
         {{-- Column --}}
         <div class="allColumns">
             @foreach ($columns as $column)
-                <div class="columnContainer" draggable="true">
+                <div class="columnContainer">
                     <div class="columTitleDiv">
                         <div class="titleClosed">
                             <span class="columnTitle">
@@ -79,18 +79,20 @@
                         </div>
                     </div>
                     {{-- Ticket --}}
-                    <div class="ticketContainer" id="columnDropZone" ondragover="onDragOver(event);"
+                    <div class="ticketContainer">
+                        <div class="ticketDropZone" ondragover="onDragOver(event);"
                         ondrop="onDrop(event);">
                         @foreach ($tickets as $ticket)
                             @if ($ticket->column_id == $column->id)
-
-                                <div class="boxTicket" draggable="true" id="draggableElement"
-                                    ondragstart="onDragStart(event)">
+                                <div></div>
+                                <div class="boxTicket" draggable="true"
+                                id="draggableElement{{$ticket->id}}" ondragstart="onDragStart(event)">
 
                                     <div class="ticket">
                                         {{ $ticket->task }}
 
                                     </div>
+
 
                                     {{-- Modal ticket --}}
                                     <div id="modalContainerTicket" class="displayNoneTicket">
@@ -102,7 +104,7 @@
                                                     <form action="{{ route('ticket.destroy') }}" method="post">
                                                         @method('delete')
                                                         @csrf
-                                                        <input type="hidden" name="id" value="{{ $ticket->id }}">
+                                                        <input type="hidden" name="id" class="id" value="{{ $ticket->id }}">
                                                         <button type="submit">Confirmer</button>
                                                     </form>
                                                 </div>
@@ -114,17 +116,45 @@
                                     {{-- Modal comment --}}
                                     <div id="modalContainerComment">
                                         <div id="removeConfirmationContainerComment">
-                                            <button id="removeTicket">Supprimer le ticket</button>
-                                            <button class="cancelComment">X</button>
+                                            <div class="titleTicketTop">
+                                                <h3 class="titleTicket" data_url="{{ route('ticket.updatetitle', [$ticket->id]) }}">{{ $ticket->task }}</h3>
+                                                <button class="cancelComment">X</button>
+                                            </div>
+                                            <div class="titleColumnTop">
+                                                <p>Dans la colonne {{ $column->label }}</p>
+                                                <button id="removeTicket">Supprimer le <br> ticket</button>
+                                            </div>
+
                                             <textarea name="" data_url="{{ route('comment.store', [$ticket->id]) }}"
                                                 id="addComment" class="addComment" cols="30" rows="3"
                                                 placeholder="Écrivez un commentaire"></textarea>
-                                            <p>comment</p>
+                                                <div id="flexReverse">
+
+                                            @foreach ($comments as $comment)
+
+                                            @if ($comment->ticket_id == $ticket->id)
+                                            <div class="userInformations">
+                                                <img class="pictureComment" src="{{ $user->picture }}" alt="picture">
+
+                                                    <div class="contentComment">
+                                                        <span>{{ $user->last_name }} {{ $user->first_name }}</span><br>
+                                                        <p>{{ $comment->description }}</p>
+                                                    </div>
+
+                                            </div>
+
+                                            @endif
+
+
+                                            @endforeach
+                                        </div>
+
                                         </div>
                                     </div>
                                 </div>
                             @endif
                         @endforeach
+                    </div>
                         {{-- Ajouter ticket --}}
                         <div class="addTicket">
                             <button id="btnAddTicket">+ Ajoutez un ticket</button>
