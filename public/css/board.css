@@ -455,10 +455,15 @@
 }
 
 .ticketContainer {
-  padding: 8px 12px;
-  /*.divTicket {
-      margin: 12px 0px;
-  }*/
+  padding: 0px 12px;
+}
+
+.ticketContainer .ticketDropZone {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 20px 0px;
+  width: 100%;
 }
 
 .boxTicket {

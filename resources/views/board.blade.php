@@ -80,13 +80,15 @@
                     </div>
                     {{-- Ticket --}}
                     <div class="ticketContainer">
-                        <div class="ticketDropZone" ondragover="onDragOver(event);"
-                        ondrop="onDrop(event);">
+                        <div class="ticketDropZone"  ondragover="onDragOver(event);"
+                        >
                         @foreach ($tickets as $ticket)
                             @if ($ticket->column_id == $column->id)
-                                <div></div>
+
                                 <div class="boxTicket" draggable="true"
                                 id="draggableElement{{$ticket->id}}" ondragstart="onDragStart(event)">
+
+                                <span data_url="{{ route('ticket.update', [$ticket->id, $column->id]) }}" id="span_data_url"></span>
 
                                     <div class="ticket">
                                         {{ $ticket->task }}
