@@ -20,4 +20,12 @@ class Board extends Model
     {
         return $this->belongsToMany(User::class, 'guests', 'board_id', 'guest_id');
     }
+    public function guest()
+    {
+        return $this->belongsToMany(Guest::class, 'guests', 'board_id', 'guest_id');
+    }
+    public function user()
+    {
+        return $this->hasMany(User::class);
+    }
 }

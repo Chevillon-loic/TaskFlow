@@ -21,9 +21,9 @@ class HomeController extends Controller
     {
         /* $boards = Board::select(['id', 'label', 'color'])
             ->where('owner_id', \Auth::user()->id); */
-        $boards = Board::select(['id', 'label', 'color'])
-            ->where('owner_id', \Auth::user()->id);
-
+        /* $boards = Board::select(['id', 'label', 'color'])
+            ->where('owner_id', \Auth::user()->id); */
+        $boards = Board::where('owner_id', \Auth::user()->id);
         return view("home", [
 
             'boards' => $boards->get()

@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     // Provide many Board for User
-    public function board()
+    public function boards()
     {
         return $this->hasMany(Board::class);
     }
@@ -57,8 +57,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Guest::class);
     }
-    public function boards()
+    public function board()
     {
-        return $this->belongsToMany(Board::class, 'guests', 'guest_id', 'board_id');
+        return $this->belongsToMany(Board::class);
     }
 }
