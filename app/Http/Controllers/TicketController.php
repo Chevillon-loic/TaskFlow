@@ -72,23 +72,22 @@ class TicketController extends Controller
      * @param  \App\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    public function update($ticket_id, $column_id)
+    public function update(Request $request, $ticket_id)
     {
-        $ticket = Ticket::find($ticket_id);
-
-        $ticket->column_id = $column_id;
+        $ticket = Ticket::where('id', $ticket_id)->first();
+        $ticket->column_id = $request->column_id;
         $ticket->save();
-
         return response("success");
     }
 
     public function updateTitle(Request $request, $id)
     {
-        $ticket = Ticket::find($request->id);
+        $ticket = Ticket::where('id', $id)->first();
         $ticket->task = $request->task;
         $ticket->save();
         return response("success");
     }
+
 
     /**
      * Remove the specified resource from storage.

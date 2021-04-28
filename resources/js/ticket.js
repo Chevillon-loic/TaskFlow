@@ -1,6 +1,3 @@
-const { htmlPrefilter } = require("jquery");
-const { add } = require("lodash");
-
 const ADDTICKETDIV = document.getElementsByClassName("addTicket");
 const BTNADDTICKET = document.getElementById("btnAddTicket");
 const divAddTicket = document.querySelector(".addTicket");
@@ -190,7 +187,7 @@ for (const ticket of DIVTICKET) {
                 try {
                     const response = await fetch(url, options);
                     console.log(response);
-                    // location.reload();
+                    location.reload();
                 } catch (error) {
                     console.log(error);
                 }
