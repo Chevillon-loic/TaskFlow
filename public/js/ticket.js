@@ -1007,6 +1007,7 @@ try {
     var ticket = _step2.value;
     var titleTicket = ticket.querySelector(".ticket");
     var btnSupp = ticket.querySelector("#removeTicket");
+    var titleTicketInTicket = ticket.querySelector(".titleTicketTop");
     var divModalTicket = ticket.querySelector("#modalContainerTicket");
     var cancelRemoveTicket = ticket.querySelector("#cancelRemoveTicket");
     btnSupp.addEventListener("click", function (e) {
@@ -1024,6 +1025,7 @@ try {
     b.id = "btnAddComment";
     b.style.backgroundColor = board.color;
     addComment.addEventListener("click", function (e) {
+      addComment.style.borderColor = board.color;
       b.innerText = "Valider";
       addComment.insertAdjacentElement("afterend", b);
       b.style.display = "block";
@@ -1093,6 +1095,8 @@ try {
     }());
     titleTicket.addEventListener("click", function (e) {
       commentModal.style.display = "block";
+      titleTicketInTicket.style.backgroundColor = board.color;
+      cancelComment.style.backgroundColor = board.color;
     });
     cancelComment.addEventListener("click", function (e) {
       e.stopPropagation();
