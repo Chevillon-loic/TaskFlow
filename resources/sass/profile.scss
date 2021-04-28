@@ -56,7 +56,7 @@
                 font-size: 1.1rem;
                 font-weight: 500;
                 text-align: center;
-                margin: 30px;
+                margin: 0 0 30px;
                 color: $black;
             }
             label {
@@ -71,6 +71,16 @@
                 padding: 7px;
                 font-size: 1rem;
                 margin-bottom: 15px;
+            }
+            #closeProfileModification {
+                border: none;
+                background-color: transparent;
+                font-size: 1.3rem;
+                font-weight: 700;
+                cursor: pointer;
+                color: $secondary;
+                align-self: flex-end;
+                margin: 10px 30px 0;
             }
             button:not(#closeProfileModification) {
                 @include buttonStyle();
@@ -138,7 +148,7 @@
 
     #grayBackground {
         height: 100vh;
-        background-color: #999999bd;
+        background-color: #00000062;
         position: absolute;
         top: 0;
         width: 100%;

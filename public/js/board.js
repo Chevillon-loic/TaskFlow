@@ -984,28 +984,34 @@ BTNADDLIST.addEventListener("click", function (e) {
   });
 }); //BOUTON INVITER
 
-var INVITECONTAINER = document.getElementById("inviteContainer");
-var INVITE = document.getElementById("invite");
+var INVITECONTAINER = document.getElementById("inviteContainer"); //CONTAINER
+
+var INVITE = document.getElementById("invite"); //BOUTON
+
 INVITE.addEventListener("click", function (e) {
-  var inputInvite = document.createElement("input");
-  var closeInvite = document.createElement("button");
-  var btnToInvite = document.createElement("button");
-  inputInvite.placeholder = "Rechercher une personne...";
-  closeInvite.innerText = "X";
-  btnToInvite.innerText = "Inviter";
-  INVITECONTAINER.insertAdjacentElement("beforeend", inputInvite);
-  INVITECONTAINER.insertAdjacentElement("beforeend", closeInvite);
-  INVITECONTAINER.insertAdjacentElement("beforeend", btnToInvite);
-  INVITE.style.display = "none";
+  INVITE.disabled = true;
+  INVITE.id = "btnDisabled";
+  var divForInvite = document.createElement("div");
+  divForInvite.id = "divForInvite";
+  divForInvite.innerHTML = "\n        <span>\n        <p>Inviter sur le tableau</p>\n        <button id=\"closeInvite\">X</button>\n        </span>\n        <input type=\"text\" id=\"inputInvite\" placeholder=\"nom, prenom ou email...\">\n        <div id=\"usersToInvite\">\n        </div>\n        <button id=\"btnToInvite\">Inviter</button>\n    "; //Variable recup du innerHTML
+
+  var closeInvite = divForInvite.querySelector("#closeInvite");
+  var inputInvite = divForInvite.querySelector("#inputInvite");
+  var usersToInvite = divForInvite.querySelector("#usersToInvite");
+  var btnToInvite = divForInvite.querySelector("#btnToInvite"); //styles invite
+
+  btnToInvite.style.backgroundColor = board.color;
+  inputInvite.style.borderColor = board.color; //ajout au DOM
+
+  INVITECONTAINER.insertAdjacentElement("afterend", divForInvite);
   inputInvite.select(); //CLOSE BTN
 
   closeInvite.addEventListener("click", function (e) {
-    inputInvite.remove();
-    closeInvite.remove();
-    btnToInvite.remove();
-    INVITE.style.display = "initial";
-    var pToRemove = INVITECONTAINER.getElementsByClassName("p");
-    console.log(pToRemove);
+    divForInvite.remove();
+    INVITE.disabled = false;
+    INVITE.id = "invite"; //! A VOIR et changé---------------------------------------
+
+    var pToRemove = usersToInvite.getElementsByClassName("p");
 
     var _iterator = _createForOfIteratorHelper(pToRemove),
         _step;
@@ -1014,7 +1020,8 @@ INVITE.addEventListener("click", function (e) {
       for (_iterator.s(); !(_step = _iterator.n()).done;) {
         var p = _step.value;
         p.remove();
-      }
+      } //!--------------------------------------------------------
+
     } catch (err) {
       _iterator.e(err);
     } finally {
@@ -1024,14 +1031,13 @@ INVITE.addEventListener("click", function (e) {
 
   inputInvite.addEventListener("keyup", /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
-      var q, url, token, options, divToRemove, _iterator2, _step2, p, response, users;
+      var q, url, token, options, divToRemove, _iterator2, _step2, p, userstoShow, response, users;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               q = inputInvite.value;
-              console.log(q);
               url = document.location.origin + "/board/search/" + q;
               token = document.querySelector('meta[name="csrf-token"]').getAttribute("content"); //Corps de la requete
 
@@ -1041,7 +1047,7 @@ INVITE.addEventListener("click", function (e) {
                   "X-CSRF-TOKEN": token
                 }
               };
-              divToRemove = INVITECONTAINER.getElementsByClassName("p");
+              divToRemove = usersToInvite.getElementsByClassName("p");
               _iterator2 = _createForOfIteratorHelper(divToRemove);
 
               try {
@@ -1056,46 +1062,46 @@ INVITE.addEventListener("click", function (e) {
               }
 
               if (!(q.length > 3)) {
-                _context2.next = 24;
+                _context2.next = 23;
                 break;
               }
 
-              _context2.prev = 9;
-              _context2.next = 12;
+              _context2.prev = 8;
+              _context2.next = 11;
               return fetch(url, options);
 
-            case 12:
+            case 11:
               response = _context2.sent;
-              _context2.next = 15;
+              _context2.next = 14;
               return response.json();
 
-            case 15:
+            case 14:
               users = _context2.sent;
-              console.log(users);
+              userstoShow = users;
+              _context2.next = 21;
+              break;
+
+            case 18:
+              _context2.prev = 18;
+              _context2.t0 = _context2["catch"](8);
+              console.log(_context2.t0);
+
+            case 21:
+              console.log(userstoShow);
               setTimeout(function () {
-                users.forEach(function (user) {
+                userstoShow.forEach(function (user) {
                   var div = document.createElement("div");
-                  div.innerHTML = "\n                        <p class=\"p\"> ".concat(user.first_name, " ").concat(user.last_name, "</p>");
-                  INVITECONTAINER.insertAdjacentElement("beforeend", div);
+                  div.innerHTML = "\n                    <p class=\"p\"> ".concat(user.first_name, " ").concat(user.last_name, "</p>");
+                  usersToInvite.appendChild(div);
                 });
               }, 1000);
 
-              if (users.length >= 1) {}
-
-              _context2.next = 24;
-              break;
-
-            case 21:
-              _context2.prev = 21;
-              _context2.t0 = _context2["catch"](9);
-              console.log(_context2.t0);
-
-            case 24:
+            case 23:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[9, 21]]);
+      }, _callee2, null, [[8, 18]]);
     }));
 
     return function (_x2) {

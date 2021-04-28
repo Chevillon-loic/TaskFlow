@@ -79,11 +79,13 @@
                         </div>
                     </div>
                     {{-- Ticket --}}
-                    <div class="ticketContainer" id="columnDropZone" ondragover="onDragOver(event);" ondrop="onDrop(event);">
+                    <div class="ticketContainer" id="columnDropZone" ondragover="onDragOver(event);"
+                        ondrop="onDrop(event);">
                         @foreach ($tickets as $ticket)
                             @if ($ticket->column_id == $column->id)
 
-                                <div class="boxTicket" draggable="true" id="draggableElement" ondragstart="onDragStart(event)">
+                                <div class="boxTicket" draggable="true" id="draggableElement"
+                                    ondragstart="onDragStart(event)">
 
                                     <div class="ticket">
                                         {{ $ticket->task }}
@@ -114,7 +116,9 @@
                                         <div id="removeConfirmationContainerComment">
                                             <button id="removeTicket">Supprimer le ticket</button>
                                             <button class="cancelComment">X</button>
-                                            <textarea name="" data_url="{{ route('comment.store', [$ticket->id]) }}" id="addComment" class="addComment" cols="30" rows="3" placeholder="Écrivez un commentaire"></textarea>
+                                            <textarea name="" data_url="{{ route('comment.store', [$ticket->id]) }}"
+                                                id="addComment" class="addComment" cols="30" rows="3"
+                                                placeholder="Écrivez un commentaire"></textarea>
                                             <p>comment</p>
                                         </div>
                                     </div>
