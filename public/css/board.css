@@ -419,6 +419,9 @@
 #modalContainerComment #removeConfirmationContainerComment textarea {
   resize: none;
   min-height: 50px;
+  margin-top: 50px;
+  width: 50%;
+  outline: none;
 }
 
 #modalContainerComment #removeConfirmationContainerComment #btnAddComment {
@@ -443,6 +446,13 @@
 
 #modalContainerComment #removeConfirmationContainerComment .userInformations .contentComment {
   margin-top: 10px;
+}
+
+#modalContainerComment #removeConfirmationContainerComment .userInformations p {
+  border: solid 1px #c5c5c5;
+  border-radius: 10px;
+  padding: 5 20;
+  background-color: #f1f1f1;
 }
 
 #modalContainerComment #removeConfirmationContainerComment #flexReverse {

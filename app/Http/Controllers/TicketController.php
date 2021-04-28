@@ -77,6 +77,14 @@ class TicketController extends Controller
         //
     }
 
+    public function updateTitle(Request $request, $id)
+    {
+        $ticket = Ticket::find($id);
+        $ticket->task = $request->task;
+        $ticket->save();
+        return response("success");
+    }
+
     /**
      * Remove the specified resource from storage.
      *

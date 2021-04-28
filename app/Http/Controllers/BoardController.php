@@ -18,7 +18,6 @@ class BoardController extends Controller
      */
     public function index($id)
     {
-
         $columns = Column::all()->where('board_id', $id);
         $tickets = Ticket::all();
         $comments = Comment::all();
@@ -27,7 +26,6 @@ class BoardController extends Controller
             'columns' => $columns,
             'tickets' => $tickets,
             'board' => Board::where('id', $id)->first(),
-            'column' => Column::where('id', 1),
             'user' => User::where('id', \Auth::user()->id)->first(),
             'comments' => $comments,
         ]);

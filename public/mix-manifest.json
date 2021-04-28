@@ -1,10 +1,12 @@
 {
+    "/js/admin.js": "/js/admin.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/welcome.css": "/css/welcome.css",
     "/css/home.css": "/css/home.css",
     "/css/profile.css": "/css/profile.css",
     "/css/board.css": "/css/board.css",
+    "/css/admin.css": "/css/admin.css",
     "/js/board.js": "/js/board.js",
     "/js/comment.js": "/js/comment.js",
     "/js/profile.js": "/js/profile.js",

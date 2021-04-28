@@ -104,7 +104,7 @@
                                                     <form action="{{ route('ticket.destroy') }}" method="post">
                                                         @method('delete')
                                                         @csrf
-                                                        <input type="hidden" name="id" value="{{ $ticket->id }}">
+                                                        <input type="hidden" name="id" class="id" value="{{ $ticket->id }}">
                                                         <button type="submit">Confirmer</button>
                                                     </form>
                                                 </div>
@@ -117,7 +117,7 @@
                                     <div id="modalContainerComment">
                                         <div id="removeConfirmationContainerComment">
                                             <div class="titleTicketTop">
-                                                <h3>{{ $ticket->task }}</h3>
+                                                <h3 class="titleTicket" data_url="{{ route('ticket.updatetitle', [$ticket->id]) }}">{{ $ticket->task }}</h3>
                                                 <button class="cancelComment">X</button>
                                             </div>
                                             <div class="titleColumnTop">
@@ -146,7 +146,8 @@
                                             @endif
 
 
-                                            @endforeach</div>
+                                            @endforeach
+                                        </div>
 
                                         </div>
                                     </div>

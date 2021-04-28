@@ -370,6 +370,9 @@
         textarea {
             resize: none;
             min-height: 50px;
+            margin-top: 50px;
+            width: 50%;
+            outline: none;
         }
         #btnAddComment {
             width: 20%;
@@ -389,6 +392,12 @@
             margin-top: 10px;
             .contentComment {
                 margin-top: 10px;
+            }
+            p {
+                border: solid 1px #c5c5c5;
+                border-radius: 10px;
+                padding: 5 20;
+                background-color: #f1f1f1;
             }
         }
         #flexReverse {
