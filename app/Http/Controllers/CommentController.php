@@ -33,15 +33,15 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $comment = new Comment();
         $comment->description = $request->description;
-        $comment->ticket_id = $request->ticket_id;
+        $comment->ticket_id = $id;
         $comment->user_id = $request->user_id;
         $comment->save();
 
-        return response()->json('Le Fetch a fonctionné', 200);
+        return response("success");
     }
 
     /**

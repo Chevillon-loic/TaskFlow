@@ -76,13 +76,13 @@ for (const ticket of ADDTICKETDIV) {
 }
 const DIVTICKET = document.getElementsByClassName("boxTicket");
 // console.log(DIVTICKET[0]);
-for (const tickets of DIVTICKET) {
-    const titleTicket = tickets.querySelector(".ticket");
-    let btnSupp = tickets.querySelector("#removeTicket");
+for (const ticket of DIVTICKET) {
+    const titleTicket = ticket.querySelector(".ticket");
+    let btnSupp = ticket.querySelector("#removeTicket");
 
-    let divModalTicket = tickets.querySelector("#modalContainerTicket");
+    let divModalTicket = ticket.querySelector("#modalContainerTicket");
 
-    let cancelRemoveTicket = tickets.querySelector("#cancelRemoveTicket");
+    let cancelRemoveTicket = ticket.querySelector("#cancelRemoveTicket");
 
     btnSupp.addEventListener("click", function(e) {
         divModalTicket.style.display = "block";
@@ -93,15 +93,51 @@ for (const tickets of DIVTICKET) {
         divModalTicket.style.display = "none";
     });
 
-    let commentModal = tickets.querySelector("#modalContainerComment");
-    let cancelComment = tickets.querySelector(".cancelComment");
-    let addComment = tickets.querySelector(".addComment");
+    let commentModal = ticket.querySelector("#modalContainerComment");
+    let cancelComment = ticket.querySelector(".cancelComment");
+    let addComment = ticket.querySelector(".addComment");
     commentModal.style.display = "none";
 
+    let b = document.createElement("button");
+    b.id = "btnAddComment";
     addComment.addEventListener("click", function(e) {
-        let b = document.createElement("button");
         b.innerText = "Valider";
         addComment.insertAdjacentElement("afterend", b);
+        b.style.display = "block";
+    });
+
+    b.addEventListener("click", async function(e) {
+        b.style.display = "none";
+
+        let url = addComment.getAttribute("data_url");
+        let token = document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content");
+
+        let comment = addComment.value;
+
+        let body = {
+            description: comment,
+            user_id: user.id
+        };
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": token
+            },
+            body: JSON.stringify(body)
+        };
+        if (comment.length > 2) {
+            try {
+                const response = await fetch(url, options);
+                addComment.value = "";
+            } catch (error) {
+                console.log(error);
+            }
+        } else {
+            addComment.value = "";
+        }
     });
 
     titleTicket.addEventListener("click", function(e) {

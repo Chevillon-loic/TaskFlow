@@ -79,38 +79,56 @@ BTNADDLIST.addEventListener("click", function(e) {
 });
 
 //BOUTON INVITER
-const INVITECONTAINER = document.getElementById("inviteContainer");
-const INVITE = document.getElementById("invite");
+const INVITECONTAINER = document.getElementById("inviteContainer"); //CONTAINER
+const INVITE = document.getElementById("invite"); //BOUTON
 
 INVITE.addEventListener("click", function(e) {
-    let inputInvite = document.createElement("input");
-    let closeInvite = document.createElement("button");
-    let btnToInvite = document.createElement("button");
-    inputInvite.placeholder = "Rechercher une personne...";
-    closeInvite.innerText = "X";
-    btnToInvite.innerText = "Inviter";
-    INVITECONTAINER.insertAdjacentElement("beforeend", inputInvite);
-    INVITECONTAINER.insertAdjacentElement("beforeend", closeInvite);
-    INVITECONTAINER.insertAdjacentElement("beforeend", btnToInvite);
-    INVITE.style.display = "none";
+    INVITE.disabled = true;
+    INVITE.id = "btnDisabled";
+    let divForInvite = document.createElement("div");
+    divForInvite.id = "divForInvite";
+    divForInvite.innerHTML = `
+        <span>
+        <p>Inviter sur le tableau</p>
+        <button id="closeInvite">X</button>
+        </span>
+        <input type="text" id="inputInvite" placeholder="nom, prenom ou email...">
+        <div id="usersToInvite">
+        </div>
+        <button id="btnToInvite">Inviter</button>
+    `;
+
+    //Variable recup du innerHTML
+    let closeInvite = divForInvite.querySelector("#closeInvite");
+    let inputInvite = divForInvite.querySelector("#inputInvite");
+    let usersToInvite = divForInvite.querySelector("#usersToInvite");
+    let btnToInvite = divForInvite.querySelector("#btnToInvite");
+
+    //styles invite
+    btnToInvite.style.backgroundColor = board.color;
+    inputInvite.style.borderColor = board.color;
+
+    //ajout au DOM
+    INVITECONTAINER.insertAdjacentElement("afterend", divForInvite);
     inputInvite.select();
+
     //CLOSE BTN
     closeInvite.addEventListener("click", function(e) {
-        inputInvite.remove();
-        closeInvite.remove();
-        btnToInvite.remove();
-        INVITE.style.display = "initial";
-        let pToRemove = INVITECONTAINER.getElementsByClassName("p");
-        console.log(pToRemove);
+        divForInvite.remove();
+        INVITE.disabled = false;
+        INVITE.id = "invite";
+
+        //! A VOIR et changé---------------------------------------
+        let pToRemove = usersToInvite.getElementsByClassName("p");
         for (const p of pToRemove) {
             p.remove();
         }
+        //!--------------------------------------------------------
     });
 
     //Input listener KEYUP
     inputInvite.addEventListener("keyup", async function(e) {
         let q = inputInvite.value;
-        console.log(q);
         let url = document.location.origin + "/board/search/" + q;
         let token = document
             .querySelector('meta[name="csrf-token"]')
@@ -122,30 +140,29 @@ INVITE.addEventListener("click", function(e) {
                 "X-CSRF-TOKEN": token
             }
         };
-        let divToRemove = INVITECONTAINER.getElementsByClassName("p");
+        let divToRemove = usersToInvite.getElementsByClassName("p");
         for (const p of divToRemove) {
             p.remove();
         }
+        let userstoShow;
         if (q.length > 3) {
             //Promesse (requete GET)
             try {
                 const response = await fetch(url, options);
                 const users = await response.json();
-                console.log(users);
-                setTimeout(() => {
-                    users.forEach(user => {
-                        let div = document.createElement("div");
-                        div.innerHTML = `
-                        <p class="p"> ${user.first_name} ${user.last_name}</p>`;
-                        INVITECONTAINER.insertAdjacentElement("beforeend", div);
-                    });
-                }, 1000);
-
-                if (users.length >= 1) {
-                }
+                userstoShow = users;
             } catch (error) {
                 console.log(error);
             }
+            console.log(userstoShow);
+            setTimeout(() => {
+                userstoShow.forEach(user => {
+                    let div = document.createElement("div");
+                    div.innerHTML = `
+                    <p class="p"> ${user.first_name} ${user.last_name}</p>`;
+                    usersToInvite.appendChild(div);
+                });
+            }, 1000);
         }
     });
 });
@@ -226,51 +243,56 @@ BTNCXLDELETETAB.addEventListener("click", function(e) {
     MODALDELETETAB.classList.toggle("displayNone");
 });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0a53c3d13a8d24febec64a1183a444257a11d03d
 //-------------------------------------------------------
 
 //MODIFIER TITRE TABLEAU
 
 const TITLETAB = document.getElementById("titleTab");
 
-TITLETAB.addEventListener("click", function(e){
+TITLETAB.addEventListener("click", function(e) {
     let i = document.createElement("input");
     TITLETAB.insertAdjacentElement("beforebegin", i);
     i.value = board.label;
     i.select();
     TITLETAB.classList.add("displayNone");
 
-    i.addEventListener("keydown", async function(e){
-        if(e.key === "Enter"){
+    i.addEventListener("keydown", async function(e) {
+        if (e.key === "Enter") {
             let url = TITLETAB.getAttribute("data_url");
             console.log(url);
             let token = document
-            .querySelector('meta[name="csrf-token"]')
-            .getAttribute("content");
-        let body = {
-            label: i.value
-        };
+                .querySelector('meta[name="csrf-token"]')
+                .getAttribute("content");
+            let body = {
+                label: i.value
+            };
 
-        console.log(body);
-                //Corps de la requete
-                const options = {
-                    method: "PUT",
-                    headers: {
-                        "X-CSRF-TOKEN": token,
-                        Accept: "application/json",
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(body)
-                };
-                try {
-                    const response = await fetch(url, options);
-                    console.log(response);
-                    location.reload();
-                } catch (error) {
-                    console.log(error);
-                }
+            console.log(body);
+            //Corps de la requete
+            const options = {
+                method: "PUT",
+                headers: {
+                    "X-CSRF-TOKEN": token,
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(body)
+            };
+            try {
+                const response = await fetch(url, options);
+                console.log(response);
+                location.reload();
+            } catch (error) {
+                console.log(error);
+            }
         }
-
     });
 });
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0a53c3d13a8d24febec64a1183a444257a11d03d

@@ -30,6 +30,68 @@
   width: 300px;
 }
 
+.mainContainer .topContainer .containerInviteDelete #divForInvite {
+  position: absolute;
+  top: 135px;
+  right: 216px;
+  height: 350px;
+  width: 250px;
+  background-color: white;
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 0 10px;
+}
+
+.mainContainer .topContainer .containerInviteDelete #divForInvite span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.mainContainer .topContainer .containerInviteDelete #divForInvite span p {
+  color: #353535;
+  font-size: 14px;
+  margin: 10px 0 10px 45px;
+}
+
+.mainContainer .topContainer .containerInviteDelete #divForInvite span #closeInvite {
+  border: none;
+  background-color: transparent;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #616161;
+  cursor: pointer;
+}
+
+.mainContainer .topContainer .containerInviteDelete #divForInvite #inputInvite {
+  padding: 7px;
+  border-radius: 5px;
+  border: 2px solid;
+  margin: 7px 0;
+  width: 100%;
+  font-size: 14px;
+  outline: none;
+}
+
+.mainContainer .topContainer .containerInviteDelete #divForInvite #usersToInvite {
+  height: 225px;
+}
+
+.mainContainer .topContainer .containerInviteDelete #divForInvite #btnToInvite {
+  width: 100%;
+  padding: 7px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
 .mainContainer .topContainer .containerInviteDelete #inviteContainer #invite {
   width: 100px;
   height: 40px;
@@ -48,6 +110,24 @@
 .mainContainer .topContainer .containerInviteDelete #inviteContainer #invite:hover {
   transform: scale(1.05);
   background-color: #c3c3c3;
+}
+
+.mainContainer .topContainer .containerInviteDelete #inviteContainer #btnDisabled {
+  width: 100px;
+  height: 40px;
+  border-style: none;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  margin: 5px;
+  outline: none;
+  background-color: #f1f1f1;
+  color: #909090;
+}
+
+.mainContainer .topContainer .containerInviteDelete #inviteContainer #btnDisabled:hover {
+  transform: none;
+  background-color: #f1f1f1;
 }
 
 .mainContainer .topContainer .containerInviteDelete #deleteTab {
