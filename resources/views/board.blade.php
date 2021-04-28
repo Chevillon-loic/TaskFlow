@@ -111,6 +111,34 @@
                                         {{-- Modal comment --}}
                                         <div id="modalContainerComment">
                                             <div id="removeConfirmationContainerComment">
+                                                {{-- <div class="etiquettes">
+                                                    <label for="ecolor1" class="ecolor ecolor1">
+                                                        <input type="radio" name="ecolor" id="ecolor1" value="#62bd50">
+                                                    </label>
+
+                                                    <label for="ecolor2" class="ecolor ecolor2">
+                                                        <input type="radio" name="ecolor" id="ecolor2" value="#f2d602">
+                                                    </label>
+
+                                                    <label for="ecolor3" class="ecolor ecolor3">
+                                                        <input type="radio" name="ecolor" id="ecolor3" value="#fda426">
+                                                    </label>
+
+                                                    <label for="ecolor4" class="ecolor ecolor4">
+                                                        <input type="radio" name="ecolor" id="ecolor4" value="#eb5b46">
+                                                    </label>
+
+                                                    <label for="ecolor5" class="ecolor ecolor5">
+                                                        <input type="radio" name="ecolor" id="ecolor5" value="#c278e0">
+                                                    </label>
+
+                                                    <label for="ecolor6" class="ecolor ecolor6 valid">
+                                                        <input type="radio" name="ecolor" id="ecolor6" value="#007abf">
+                                                    </label>
+
+                                                    <button id="addEtiquette">Add etiquette</button>
+
+                                                </div> --}}
                                                 <div class="titleTicketTop">
                                                     <h3 class="titleTicket"
                                                         data_url="{{ route('ticket.updatetitle', [$ticket->id]) }}">
