@@ -80,16 +80,23 @@
                     </div>
                     {{-- Ticket --}}
                     <div class="ticketContainer">
+                        <div class="ticketDropZone" data_id="{{ $column->id }}" ondragover="onDragOver(event);">
+                        </div>
                         @foreach ($tickets as $ticket)
-                            <div class="ticketDropZone" data_id={{ $column->id }} ondragover="onDragOver(event);">
-                                @if ($ticket->column_id == $column->id)
+                            @if ($ticket->column_id == $column->id)
+                                <div class="ticketDropZone" data_id="{{ $column->id }}" ondragover="onDragOver(event);">
                                     <div class="boxTicket" draggable="true" id="draggableElement{{ $ticket->id }}"
                                         ondragstart="onDragStart(event)">
+
                                         <span data_url="{{ route('ticket.update', [$ticket->id]) }}"
                                             id="span_data_url"></span>
+
                                         <div class="ticket">
                                             {{ $ticket->task }}
+
                                         </div>
+
+
                                         {{-- Modal ticket --}}
                                         <div id="modalContainerTicket" class="displayNoneTicket">
                                             <div id="removeConfirmationContainer" class="displayNoneTicket">
@@ -108,6 +115,8 @@
                                                 </span>
                                             </div>
                                         </div>
+
+
                                         {{-- Modal comment --}}
                                         <div id="modalContainerComment">
                                             <div id="removeConfirmationContainerComment">
@@ -121,29 +130,38 @@
                                                     <p>Dans la colonne {{ $column->label }}</p>
                                                     <button id="removeTicket">Supprimer le <br> ticket</button>
                                                 </div>
+
                                                 <textarea name="" data_url="{{ route('comment.store', [$ticket->id]) }}"
                                                     id="addComment" class="addComment" cols="30" rows="3"
                                                     placeholder="Écrivez un commentaire"></textarea>
                                                 <div id="flexReverse">
+
                                                     @foreach ($comments as $comment)
+
                                                         @if ($comment->ticket_id == $ticket->id)
                                                             <div class="userInformations">
                                                                 <img class="pictureComment" src="{{ $user->picture }}"
                                                                     alt="picture">
+
                                                                 <div class="contentComment">
                                                                     <span>{{ $user->last_name }}
                                                                         {{ $user->first_name }}</span><br>
                                                                     <p>{{ $comment->description }}</p>
                                                                 </div>
+
                                                             </div>
+
                                                         @endif
+
+
                                                     @endforeach
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
-                                @endif
-                            </div>
+                                </div>
+                            @endif
                         @endforeach
                         {{-- Ajouter ticket --}}
                         <div class="addTicket">

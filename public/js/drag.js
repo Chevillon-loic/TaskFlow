@@ -8,7 +8,8 @@ function onDragOver(event) {
 }
 
 //LA DROPZONE (COLONNE)
-document.querySelectorAll(".ticketDropZone").forEach(function(dropzone) {
+let ticket = document.querySelectorAll(".ticketDropZone");
+ticket.forEach(function(dropzone) {
     dropzone.addEventListener("drop", async function(event) {
         const id = event.dataTransfer.getData("text");
         const draggableElement = document.getElementById(id);
