@@ -1,3 +1,6 @@
+const { Button } = require("bootstrap");
+const { replace, remove } = require("lodash");
+
 let btnProfilUsers = document.getElementById('adminProfilsUsers');
 let modalUsers = document.getElementById('modalUsers');
 let closeUsers = document.getElementById('cancelContentUsers')
@@ -26,3 +29,4 @@ let adminProfilTeam = document.getElementById("adminProfilTeam")
 adminProfilTeam.addEventListener("click", function(e){
     alert("Pas encore disponible")
 })
+

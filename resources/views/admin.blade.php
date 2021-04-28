@@ -37,10 +37,18 @@
 <!-- Modale des profils-->
 <div id="modalUsers" class="displayNone">
     <div id="modalContentUsers">
-        <div class="modalButtons">
-            <button id="cancelContentUsers">Retour</button>
+        <div id="headerBox">
+            <div>
+                <p>Gestion des utilisateurs enregistrés</p>
+            </div>
+            <div class="modalButtons">
+                <button id="cancelContentUsers">Retour</button>
+            </div>
+
+
+
         </div>
-        <p>Tableau des utilisateurs enregistrés</p>
+
         <div id="tableUsers">
         <table>
             <tr>
@@ -48,25 +56,31 @@
                 <th>Firstname</th>
                 <th>Lastname</th>
                 <th>Email</th>
-                <th>Password</th>
                 <th>Date de création</th>
                 <th>Dernière mise à jour</th>
             </tr>
 
             @foreach ($dataUsers as $user)
-
             <tr>
+            <form action="{{route('admin.update')  }}" method="POST">
+
+            @csrf
+            <input type="hidden" name="id" value="{{ $user->id }}">
             <td>{{ $user->id }}</td>
-            <td>{{ $user->first_name }}<br>
-                <input name="first_name"  type="text"></td>
-            <td>{{ $user->last_name }}</td>
-            <td>{{ $user->email }}</td>
-            <td>{{ $user->password }}</td>
+            <td><input value="{{ $user->first_name }}" name="first_name" type="text"></td>
+            <td><input value="{{ $user->last_name }}" name="last_name"  type="text"></td>
+            <td><input value="{{ $user->email}}" name="email"  type="text"></td>
             <td>{{ $user->created_at }}</td>
             <td>{{ $user->updated_at }}</td>
-            <td><input type="submit"></td>
-        </tr>
-
+            <td id="btnValidate"><button>Modifier</button></td>
+        </form>
+        <form action="{{ route('admin.destroy') }}" method="POST">
+            @method('delete')
+            @csrf
+            <input type="hidden" name="id" value="{{ $user->id }}">
+          <td> <button>Supprimer</button></td>
+        </form>
+            </tr>
 
         @endforeach
 
@@ -86,6 +100,7 @@
         <div id="tableUsers">
         <table>
             <tr>
+
                 <th>ID</th>
                 <th>Owner</th>
                 <th>Guest</th>
@@ -93,10 +108,12 @@
                 <th>Color</th>
                 <th>Date de création</th>
                 <th>Dernière mise à jour</th>
+
             </tr>
 
             @foreach ($dataBoards as $board)
             <tr>
+
                 <td>{{ $board->id }}</td>
                 <td>{{ $board->owner_id }}</td>
                 <td>{{ $board->guest_id }}</td>
@@ -106,6 +123,7 @@
                 <td>{{ $board->updated_at }}</td>
                 <td><button>Modifier</button></td>
                <td> <button>Supprimer</button></td>
+
             </tr>
         @endforeach
 
