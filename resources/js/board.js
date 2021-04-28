@@ -243,10 +243,6 @@ BTNCXLDELETETAB.addEventListener("click", function(e) {
     MODALDELETETAB.classList.toggle("displayNone");
 });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 0a53c3d13a8d24febec64a1183a444257a11d03d
 //-------------------------------------------------------
 
 //MODIFIER TITRE TABLEAU
@@ -292,7 +288,3 @@ TITLETAB.addEventListener("click", function(e) {
         }
     });
 });
-<<<<<<< HEAD
-
-=======
->>>>>>> 0a53c3d13a8d24febec64a1183a444257a11d03d

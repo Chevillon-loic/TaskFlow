@@ -11,14 +11,27 @@ function onDragStart(event) {
   }
 
 //LA DROPZONE (COLONNE)
-  function onDrop(event) {
+document.querySelectorAll(".ticketDropZone").forEach(function(dropzone){
+    dropzone.addEventListener("drop", function(event){
 
-    const id = event.dataTransfer.getData('text');
+        const id = event.dataTransfer.getData('text');
+        const draggableElement = document.getElementById(id);
 
-      const draggableElement = document.getElementById(id);
-      const dropzone = event.target;
+        dropzone.appendChild(draggableElement);
+        console.log(dropzone)
 
-      dropzone.appendChild(draggableElement);
+        event.dataTransfer.clearData();
+    })
+})
 
-      event.dataTransfer.clearData();
-  }
+/*
+
+  const draggables = document.querySelector('.boxTicket')
+  const dropzone = document.querySelectorAll('.ticketDropZone')
+
+  draggables.forEach(draggable => {
+    draggable.addEventListener('dragstart', () => {
+      draggable.classList.add('dragging')
+    })
+  })
+*/
