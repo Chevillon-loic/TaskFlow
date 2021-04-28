@@ -28,6 +28,7 @@ class BoardController extends Controller
             'columns' => $columns,
             'tickets' => $tickets,
             'board' => Board::where('id', $id)->first(),
+
             'user' => User::where('id', \Auth::user()->id)->first(),
             'comments' => $comments,
         ]);
