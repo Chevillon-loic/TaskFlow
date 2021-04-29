@@ -127,7 +127,7 @@
 #modalUsers #modalContentUsers,
 #modalBoards #modalContentBoards,
 #modalBoards #modalContentUsers {
-  overflow: scroll;
+  overflow: auto;
   background-color: white;
   margin: auto;
   padding: 48px 28px 28px 28px;
@@ -161,8 +161,7 @@
 
 #tableUsers,
 #tableBoards {
-  overflow: scroll;
-  overflow: hidden;
+  overflow: auto;
 }
 
 #tableUsers table,

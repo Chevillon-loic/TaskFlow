@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Board;
 use App\Guest;
 use App\User;
+use App\UserBoard;
 use Illuminate\Http\Request;
 
 
@@ -25,7 +26,7 @@ class HomeController extends Controller
         //$boards = $user->board();
         //$boards = Board::all();
         //$boards = $board->user()->withPivot('');
-
+        //$boards = UserBoard::select(['id', 'label', 'color'])->where('user_id', \Auth::user()->id)->get();
         return view("home", [
 
             'boards' => $boards

@@ -53,9 +53,9 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
     // Provide many guests for User
-    public function guest()
+    public function user_board()
     {
-        return $this->hasMany(Guest::class);
+        return $this->hasMany(UserBoard::class);
     }
 
     /*     public function board()

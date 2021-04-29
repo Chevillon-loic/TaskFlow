@@ -115,8 +115,7 @@ body {
 
     #modalContentBoards,
     #modalContentUsers {
-        overflow: scroll;
-
+        overflow: auto;
         background-color: white;
         margin: auto;
         padding: 48px 28px 28px 28px;
@@ -144,8 +143,7 @@ body {
 
 #tableUsers,
 #tableBoards {
-    overflow: scroll;
-    overflow: hidden;
+    overflow: auto;
     table {
         display: flex;
         flex-wrap: wrap;
