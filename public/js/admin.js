@@ -35363,6 +35363,13 @@ adminAllBoards.addEventListener('click', function (e) {
 var adminProfilTeam = document.getElementById("adminProfilTeam");
 adminProfilTeam.addEventListener("click", function (e) {
   alert("Pas encore disponible");
+}); /////////////////////////////////////
+
+var btnAdd = document.getElementById('test1');
+var boxAdd = document.getElementById('boxAdd');
+var backAdd = document.getElementById('backAdd');
+btnAdd.addEventListener('click', function (e) {
+  alert('test');
 });
 
 /***/ }),

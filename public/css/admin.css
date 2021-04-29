@@ -127,11 +127,12 @@
 #modalUsers #modalContentUsers,
 #modalBoards #modalContentBoards,
 #modalBoards #modalContentUsers {
+  overflow: scroll;
   background-color: white;
   margin: auto;
   padding: 48px 28px 28px 28px;
   width: 90%;
-  height: 400px;
+  height: 500px;
   border-radius: 4px;
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
@@ -263,8 +264,8 @@
 
 #btnModif:hover {
   color: white;
-  background-color: green;
-  border: 1px solid green;
+  background-color: orange;
+  border: 1px solid orange;
 }
 
 #btnDelete {
@@ -283,5 +284,33 @@
   color: white;
   background-color: red;
   border: 1px solid red;
+}
+
+#boxAdd {
+  padding: 5px;
+  margin-top: 10px;
+  box-shadow: 0 0 5px 2px black;
+}
+
+#boxAdd table {
+  margin: auto;
+}
+
+#btnValidate {
+  padding: 5px;
+  width: 100px;
+  color: #242e38;
+  border: none;
+  border: 1px solid #2c3844;
+  background-color: transparent;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#btnValidate:hover {
+  color: white;
+  background-color: green;
+  border: 1px solid green;
 }
 

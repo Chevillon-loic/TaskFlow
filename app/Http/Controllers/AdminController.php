@@ -83,7 +83,24 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+
+        ]);
+        $newUser = new User();
+        $newUser->first_name = $request->first_name;
+        $newUser->last_name = $request->last_name;
+        $newUser->email = $request->email;
+        $newUser->password = $request->password;
+        $newUser->picture = $request->picture;
+        $newUser->save();
+
+        return back()->with([
+            'success' => 'Contenu modifié avec succès !'
+        ]);
     }
 
     /**
