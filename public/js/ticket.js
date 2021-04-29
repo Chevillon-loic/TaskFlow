@@ -892,7 +892,8 @@ try {
     var ticket = _step.value;
     var t = ticket.getElementsByTagName("input");
     var id = t[0].value;
-    var btnAdd = ticket.getElementsByTagName("button");
+    var btnAdd = ticket.getElementsByTagName("button"); // Listener ajout Ticket
+
     btnAdd[0].addEventListener("click", function (e) {
       var input = document.createElement("input");
       var btn = document.createElement("button");
@@ -909,13 +910,15 @@ try {
       input.select();
       input.placeholder = "Titre du ticket...";
       input.id = "inputAddTicket";
-      input.style.borderColor = board.color;
+      input.style.borderColor = board.color; // listener close d'ajout de ticket
+
       close.addEventListener("click", function (e) {
         input.remove();
         btn.remove();
         close.remove();
         btnAdd[0].style.display = "initial";
-      });
+      }); // Listener ajout de ticket en BDD en fetch
+
       btn.addEventListener("click", /*#__PURE__*/function () {
         var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
           var url, token, task, body, options, response;
@@ -1009,7 +1012,8 @@ try {
     var btnSupp = tick.querySelector("#removeTicket");
     var titleTicketInTicket = tick.querySelector(".titleTicketTop");
     var divModalTicket = tick.querySelector("#modalContainerTicket");
-    var cancelRemoveTicket = tick.querySelector("#cancelRemoveTicket");
+    var cancelRemoveTicket = tick.querySelector("#cancelRemoveTicket"); // Supprimer le ticket en BDD
+
     btnSupp.addEventListener("click", function (e) {
       divModalTicket.style.display = "block";
       commentModal.style.display = "none";
@@ -1028,7 +1032,8 @@ try {
       } finally {
         _iterator3.f();
       }
-    });
+    }); // Confirmation pour femrer le modal comment
+
     cancelRemoveTicket.addEventListener("click", function (e) {
       divModalTicket.style.display = "none";
       location.reload();
@@ -1039,13 +1044,15 @@ try {
     commentModal.style.display = "none";
     var b = document.createElement("button");
     b.id = "btnAddComment";
-    b.style.backgroundColor = board.color;
+    b.style.backgroundColor = board.color; // TextArea Comment
+
     addComment.addEventListener("click", function (e) {
       addComment.style.borderColor = board.color;
       b.innerText = "Valider";
       addComment.insertAdjacentElement("afterend", b);
       b.style.display = "block";
-    });
+    }); // Ajout comment en BDD
+
     b.addEventListener("click", /*#__PURE__*/function () {
       var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
         var url, token, comment, body, options, response, _iterator4, _step4, _e2;
@@ -1127,7 +1134,7 @@ try {
       };
     }());
     titleTicket.addEventListener("click", function (e) {
-      var DIVTICKET = document.getElementsByClassName("boxTicket");
+      var DIVTICKET = document.getElementsByClassName("boxTicket"); // Drag and drop a false
 
       var _iterator5 = _createForOfIteratorHelper(DIVTICKET),
           _step5;
@@ -1146,7 +1153,8 @@ try {
       commentModal.style.display = "block";
       titleTicketInTicket.style.backgroundColor = board.color;
       cancelComment.style.backgroundColor = board.color;
-    });
+    }); // fermer le modal comments
+
     cancelComment.addEventListener("click", function (e) {
       e.stopPropagation();
       commentModal.style.display = "none";
@@ -1154,7 +1162,8 @@ try {
     });
     var hTitleTicket = tick.querySelector(".titleTicket");
     var id = tick.querySelector(".id");
-    id = id.value;
+    id = id.value; // modification titre ticket
+
     hTitleTicket.addEventListener("click", function (e) {
       var input = document.createElement("input");
       hTitleTicket.insertAdjacentElement("beforebegin", input);
@@ -1240,7 +1249,7 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/ticket.js */"./resources/js/ticket.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/ticket.js */"./resources/js/ticket.js");
 
 
 /***/ })
