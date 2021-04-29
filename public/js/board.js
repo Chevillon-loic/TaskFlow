@@ -1025,10 +1025,70 @@ INVITE.addEventListener("click", function (e) {
     } finally {
       _iterator.f();
     }
-  }); //Input listener KEYUP
+  }); //LISTENER BTN Invitation et FETCH
+
+  btnToInvite.addEventListener("click", /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
+      var guestID, url, token, options, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              e.preventDefault();
+              e.stopPropagation();
+              usersToInvite.childNodes.forEach(function (div) {
+                var checkbox = div.getElementsByTagName("input");
+
+                if (checkbox.checked) {
+                  guestID = div.getAttribute("guest_id");
+                }
+              });
+              console.log(guestID + " guestID : boardID " + board.id);
+              console.log(e.target); //FETCH
+
+              url = document.location.origin + "/board/guestinvite/" + board.id + "/" + guestID;
+              token = document.querySelector('meta[name="csrf-token"]').getAttribute("content"); //Corps de la requete
+
+              options = {
+                method: "POST",
+                headers: {
+                  "X-CSRF-TOKEN": token,
+                  Accept: "application/json",
+                  "Content-Type": "application/json"
+                }
+              };
+              console.log(options);
+              _context2.prev = 9;
+              _context2.next = 12;
+              return fetch(url, options);
+
+            case 12:
+              response = _context2.sent;
+              console.log(response);
+              location.reload();
+              _context2.next = 20;
+              break;
+
+            case 17:
+              _context2.prev = 17;
+              _context2.t0 = _context2["catch"](9);
+              console.log(_context2.t0);
+
+            case 20:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[9, 17]]);
+    }));
+
+    return function (_x2) {
+      return _ref.apply(this, arguments);
+    };
+  }()); //Input listener KEYUP
 
   inputInvite.addEventListener("keyup", /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(e) {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(e) {
       var q, url, token, options, userstoShow, response, users;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
         while (1) {
@@ -1050,7 +1110,7 @@ INVITE.addEventListener("click", function (e) {
               usersToInvite.innerHTML = ""; //Promesse (requete GET)
 
               if (!(q.length > 3)) {
-                _context3.next = 24;
+                _context3.next = 25;
                 break;
               }
 
@@ -1079,7 +1139,8 @@ INVITE.addEventListener("click", function (e) {
               console.log(_context3.t0);
 
             case 23:
-              //Boucle pour créer une div et l'afficher
+              usersToInvite.innerHTML = ""; //Boucle pour créer une div et l'afficher
+
               userstoShow.forEach(function (elem) {
                 //console.log(elem);
                 if (elem.id != user.id) {
@@ -1100,77 +1161,16 @@ INVITE.addEventListener("click", function (e) {
                     });
                     btnToInvite.disabled = true;
                     btnToInvite.style.backgroundColor = "rgb(241, 241, 241)";
-                    checkbox.checked = true;
                     this.style.backgroundColor = board.color;
                     this.style.color = "white";
                     btnToInvite.disabled = false;
                     btnToInvite.style.backgroundColor = board.color;
                     checkbox.checked = true;
-                  }); //LISTENER BTN Invitation et FETCH
-
-                  btnToInvite.addEventListener("click", /*#__PURE__*/function () {
-                    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
-                      var guestID, url, token, options, _response;
-
-                      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-                        while (1) {
-                          switch (_context2.prev = _context2.next) {
-                            case 0:
-                              e.preventDefault();
-                              e.stopPropagation();
-                              usersToInvite.childNodes.forEach(function (div) {
-                                var checkbox = div.getElementsByTagName("input");
-
-                                if (checkbox.checked) {
-                                  guestID = div.getAttribute("guest_id");
-                                }
-                              });
-                              console.log(guestID + " guestID : boardID " + board.id); //FETCH
-
-                              url = document.location.origin + "/board/guestinvite/" + board.id + "/" + guestID;
-                              token = document.querySelector('meta[name="csrf-token"]').getAttribute("content"); //Corps de la requete
-
-                              options = {
-                                method: "POST",
-                                headers: {
-                                  "X-CSRF-TOKEN": token,
-                                  Accept: "application/json",
-                                  "Content-Type": "application/json"
-                                }
-                              };
-                              console.log(options);
-                              _context2.prev = 8;
-                              _context2.next = 11;
-                              return fetch(url, options);
-
-                            case 11:
-                              _response = _context2.sent;
-                              console.log(_response); //!---------------------location.reload();
-
-                              _context2.next = 18;
-                              break;
-
-                            case 15:
-                              _context2.prev = 15;
-                              _context2.t0 = _context2["catch"](8);
-                              console.log(_context2.t0);
-
-                            case 18:
-                            case "end":
-                              return _context2.stop();
-                          }
-                        }
-                      }, _callee2, null, [[8, 15]]);
-                    }));
-
-                    return function (_x3) {
-                      return _ref2.apply(this, arguments);
-                    };
-                  }());
+                  });
                 }
               });
 
-            case 24:
+            case 25:
             case "end":
               return _context3.stop();
           }
@@ -1178,8 +1178,8 @@ INVITE.addEventListener("click", function (e) {
       }, _callee3, null, [[8, 20]]);
     }));
 
-    return function (_x2) {
-      return _ref.apply(this, arguments);
+    return function (_x3) {
+      return _ref2.apply(this, arguments);
     };
   }());
 }); //Bouton Supprimer Column
@@ -1210,7 +1210,6 @@ try {
     plabelColumn.addEventListener("click", function (e) {
       var i = document.createElement("input");
       plabelColumn.insertAdjacentElement("beforebegin", i);
-      i.value = column.label;
       i.id = "updateLabelColumInput";
       i.select();
       plabelColumn.classList.add("displayNone");
@@ -1301,6 +1300,7 @@ TITLETAB.addEventListener("click", function (e) {
   var i = document.createElement("input");
   TITLETAB.insertAdjacentElement("beforebegin", i);
   i.value = board.label;
+  i.id = "inputupdateTitleBoard";
   i.select();
   TITLETAB.classList.add("displayNone");
   i.addEventListener("keydown", /*#__PURE__*/function () {
@@ -1371,7 +1371,7 @@ TITLETAB.addEventListener("click", function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\wamp64\www\taskflow\resources\js\board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/board.js */"./resources/js/board.js");
 
 
 /***/ })

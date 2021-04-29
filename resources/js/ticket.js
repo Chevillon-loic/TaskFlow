@@ -1,6 +1,3 @@
-const { htmlPrefilter } = require("jquery");
-const { add } = require("lodash");
-
 const ADDTICKETDIV = document.getElementsByClassName("addTicket");
 const BTNADDTICKET = document.getElementById("btnAddTicket");
 const divAddTicket = document.querySelector(".addTicket");
@@ -84,6 +81,7 @@ const DIVTICKET = document.getElementsByClassName("boxTicket");
 for (const ticket of DIVTICKET) {
     const titleTicket = ticket.querySelector(".ticket");
     let btnSupp = ticket.querySelector("#removeTicket");
+    let titleTicketInTicket = ticket.querySelector(".titleTicketTop");
 
     let divModalTicket = ticket.querySelector("#modalContainerTicket");
 
@@ -107,6 +105,7 @@ for (const ticket of DIVTICKET) {
     b.id = "btnAddComment";
     b.style.backgroundColor = board.color;
     addComment.addEventListener("click", function(e) {
+        addComment.style.borderColor = board.color;
         b.innerText = "Valider";
         addComment.insertAdjacentElement("afterend", b);
         b.style.display = "block";
@@ -148,6 +147,8 @@ for (const ticket of DIVTICKET) {
 
     titleTicket.addEventListener("click", function(e) {
         commentModal.style.display = "block";
+        titleTicketInTicket.style.backgroundColor = board.color;
+        cancelComment.style.backgroundColor = board.color;
     });
 
     cancelComment.addEventListener("click", function(e) {
@@ -190,7 +191,7 @@ for (const ticket of DIVTICKET) {
                 try {
                     const response = await fetch(url, options);
                     console.log(response);
-                    // location.reload();
+                    location.reload();
                 } catch (error) {
                     console.log(error);
                 }

@@ -124,6 +124,49 @@ INVITE.addEventListener("click", function(e) {
         }
     });
 
+    //LISTENER BTN Invitation et FETCH
+    btnToInvite.addEventListener("click", async function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        let guestID;
+        usersToInvite.childNodes.forEach(function(div) {
+            let checkbox = div.getElementsByTagName("input");
+            if (checkbox.checked) {
+                guestID = div.getAttribute("guest_id");
+            }
+        });
+        console.log(guestID + " guestID : boardID " + board.id);
+        console.log(e.target);
+        //FETCH
+        let url =
+            document.location.origin +
+            "/board/guestinvite/" +
+            board.id +
+            "/" +
+            guestID;
+        let token = document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content");
+        //Corps de la requete
+        const options = {
+            method: "POST",
+            headers: {
+                "X-CSRF-TOKEN": token,
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            }
+        };
+        console.log(options);
+        try {
+            //console.log(url);
+            const response = await fetch(url, options);
+            console.log(response);
+            location.reload();
+        } catch (error) {
+            console.log(error);
+        }
+    });
+
     //Input listener KEYUP
     inputInvite.addEventListener("keyup", async function(e) {
         //réinitialisation du bouton inviter
@@ -153,7 +196,7 @@ INVITE.addEventListener("click", function(e) {
             } catch (error) {
                 console.log(error);
             }
-
+            usersToInvite.innerHTML = "";
             //Boucle pour créer une div et l'afficher
             userstoShow.forEach(elem => {
                 //console.log(elem);
@@ -182,55 +225,11 @@ INVITE.addEventListener("click", function(e) {
                         btnToInvite.style.backgroundColor =
                             "rgb(241, 241, 241)";
 
-                        checkbox.checked = true;
                         this.style.backgroundColor = board.color;
                         this.style.color = "white";
                         btnToInvite.disabled = false;
                         btnToInvite.style.backgroundColor = board.color;
                         checkbox.checked = true;
-                    });
-
-                    //LISTENER BTN Invitation et FETCH
-                    btnToInvite.addEventListener("click", async function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        let guestID;
-                        usersToInvite.childNodes.forEach(function(div) {
-                            let checkbox = div.getElementsByTagName("input");
-                            if (checkbox.checked) {
-                                guestID = div.getAttribute("guest_id");
-                            }
-                        });
-                        console.log(guestID + " guestID : boardID " + board.id);
-
-                        //FETCH
-                        let url =
-                            document.location.origin +
-                            "/board/guestinvite/" +
-                            board.id +
-                            "/" +
-                            guestID;
-                        let token = document
-                            .querySelector('meta[name="csrf-token"]')
-                            .getAttribute("content");
-                        //Corps de la requete
-                        const options = {
-                            method: "POST",
-                            headers: {
-                                "X-CSRF-TOKEN": token,
-                                Accept: "application/json",
-                                "Content-Type": "application/json"
-                            }
-                        };
-                        console.log(options);
-                        try {
-                            //console.log(url);
-                            const response = await fetch(url, options);
-                            console.log(response);
-                            //!---------------------location.reload();
-                        } catch (error) {
-                            console.log(error);
-                        }
                     });
                 }
             });
@@ -262,7 +261,6 @@ for (const elem of TITLECONTAINER) {
     plabelColumn.addEventListener("click", function(e) {
         let i = document.createElement("input");
         plabelColumn.insertAdjacentElement("beforebegin", i);
-        i.value = column.label;
         i.id = "updateLabelColumInput";
         i.select();
         plabelColumn.classList.add("displayNone");
@@ -324,6 +322,7 @@ TITLETAB.addEventListener("click", function(e) {
     let i = document.createElement("input");
     TITLETAB.insertAdjacentElement("beforebegin", i);
     i.value = board.label;
+    i.id = "inputupdateTitleBoard";
     i.select();
     TITLETAB.classList.add("displayNone");
 

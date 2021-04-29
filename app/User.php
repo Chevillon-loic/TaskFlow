@@ -38,8 +38,27 @@ class User extends Authenticatable
     ];
 
     // Provide many Board for User
-    public function board()
+    public function boards()
     {
         return $this->hasMany(Board::class);
+    }
+    // Provide many Ticket for User
+    public function ticket()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+    // Provide many Comments for User
+    public function comment()
+    {
+        return $this->hasMany(Comment::class);
+    }
+    // Provide many guests for User
+    public function guest()
+    {
+        return $this->hasMany(Guest::class);
+    }
+    public function board()
+    {
+        return $this->belongsToMany(Board::class);
     }
 }

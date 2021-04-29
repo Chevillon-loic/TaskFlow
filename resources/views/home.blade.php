@@ -3,16 +3,14 @@
 @section('custom_styles')
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
 @endsection
-
+{{-- dd($boards) --}}
 @section('content')
-
     <div class="container">
-
         <h1>Mes tableaux</h1>
 
         <div class="content-board">
             <!-- Foreach all boards (->owner_id) -->
-            @foreach ($boards as  $board)
+            @foreach ($boards as $board)
                 <div style="background-color:{{ $board->color }} " class="card-board">
                     <a href="{{ route('board.index', [$board->id]) }}" class="card-board-tr">
                         <p> {{ $board->label }}</p>
@@ -43,7 +41,9 @@
                                 @csrf
 
                                 <!-- Input Label for board -->
-                                <input id="inputTitle" name="label" type="text" placeholder="Ajoutez un titre au tableau" required pattern=".*\S.*" oninvalid="setCustomValidity('Veuillez entrer un titre de tableau valide. ')">
+                                <input id="inputTitle" name="label" type="text" placeholder="Ajoutez un titre au tableau"
+                                    required pattern=".*\S.*"
+                                    oninvalid="setCustomValidity('Veuillez entrer un titre de tableau valide. ')">
                                 <span class="close">&times;</span>
 
                         </div>
@@ -93,7 +93,8 @@
             </div>
 
         </div>
-<div id="accessPannel">
-<a id="btnPannel" href="{{ route('admin.index') }}">Accès Pannel Admin</a></div>
-</div>
+        <div id="accessPannel">
+            <a id="btnPannel" href="{{ route('admin.index') }}">Accès Pannel Admin</a>
+        </div>
+    </div>
 @endsection
