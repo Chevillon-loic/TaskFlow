@@ -8,8 +8,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'TaskFlow') }}</title>
+    <title>@yield('title')</title>
 
+    {{-- Favicon --}}
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('custom_styles')

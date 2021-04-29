@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'TaskFlow - Mes tableaux')
 
 @section('custom_styles')
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
