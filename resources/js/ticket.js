@@ -13,14 +13,19 @@ for (const ticket of ADDTICKETDIV) {
         let close = document.createElement("button");
         btnAdd[0].style.display = "none";
 
-        btn.innerText = "plus";
+        btn.innerText = "Ajouter";
+        btn.id = "validateTicket";
+        btn.style.backgroundColor = board.color;
         close.innerText = "X";
+        close.id = "closeTicket";
 
         ticket.insertAdjacentElement("beforeend", input);
         ticket.insertAdjacentElement("beforeend", btn);
         ticket.insertAdjacentElement("beforeend", close);
         input.select();
-        input.placeholder = "Ajouter un ticket";
+        input.placeholder = "Titre du ticket...";
+        input.id = "inputAddTicket";
+        input.style.borderColor = board.color;
 
         close.addEventListener("click", function(e) {
             input.remove();
@@ -70,21 +75,147 @@ for (const ticket of ADDTICKETDIV) {
             }
         });
     });
+}
+let DIVTICKET = document.getElementsByClassName("boxTicket");
 
-    const DIVTICKET = document.getElementsByClassName("divTicket");
+for (const tick of DIVTICKET) {
+    const titleTicket = tick.querySelector(".ticket");
+    let btnSupp = tick.querySelector("#removeTicket");
+    let titleTicketInTicket = tick.querySelector(".titleTicketTop");
 
-    for (const ticket of DIVTICKET) {
-        let btnSupp = ticket.querySelector("#removeTicket");
-        let divModalTicket = ticket.querySelector("#modalContainerTicket");
+    let divModalTicket = tick.querySelector("#modalContainerTicket");
 
-        let cancelRemoveTicket = ticket.querySelector("#cancelRemoveTicket");
+    let cancelRemoveTicket = tick.querySelector("#cancelRemoveTicket");
 
-        btnSupp.addEventListener("click", function(e) {
-            divModalTicket.style.display = "block";
+    btnSupp.addEventListener("click", function(e) {
+        divModalTicket.style.display = "block";
+        commentModal.style.display = "none";
+        for (const e of DIVTICKET) {
+            e.draggable = true;
+            console.log(e);
+        }
+    });
+
+    cancelRemoveTicket.addEventListener("click", function(e) {
+        divModalTicket.style.display = "none";
+        location.reload();
+    });
+
+    let commentModal = tick.querySelector("#modalContainerComment");
+    let cancelComment = tick.querySelector(".cancelComment");
+    let addComment = tick.querySelector(".addComment");
+    commentModal.style.display = "none";
+
+    let b = document.createElement("button");
+    b.id = "btnAddComment";
+    b.style.backgroundColor = board.color;
+    addComment.addEventListener("click", function(e) {
+        addComment.style.borderColor = board.color;
+
+        b.innerText = "Valider";
+        addComment.insertAdjacentElement("afterend", b);
+        b.style.display = "block";
+    });
+
+    b.addEventListener("click", async function(e) {
+        b.style.display = "none";
+        addComment.style.border = "2px solid rgba(0, 0, 0, 0.2)";
+
+        let url = addComment.getAttribute("data_url");
+        let token = document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content");
+
+        let comment = addComment.value;
+
+        let body = {
+            description: comment,
+            user_id: user.id
+        };
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": token
+            },
+            body: JSON.stringify(body)
+        };
+        if (comment.length > 2) {
+            try {
+                const response = await fetch(url, options);
+                addComment.value = "";
+                location.reload();
+                for (const e of DIVTICKET) {
+                    e.draggable = false;
+                    console.log(e);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        } else {
+            addComment.value = "";
+        }
+    });
+
+    titleTicket.addEventListener("click", function(e) {
+        let DIVTICKET = document.getElementsByClassName("boxTicket");
+        for (const e of DIVTICKET) {
+            e.draggable = false;
+        }
+        commentModal.style.display = "block";
+        titleTicketInTicket.style.backgroundColor = board.color;
+        cancelComment.style.backgroundColor = board.color;
+    });
+
+    cancelComment.addEventListener("click", function(e) {
+        e.stopPropagation();
+        commentModal.style.display = "none";
+        location.reload();
+    });
+
+    let hTitleTicket = tick.querySelector(".titleTicket");
+    let id = tick.querySelector(".id");
+    id = id.value;
+
+    hTitleTicket.addEventListener("click", function(e) {
+        let input = document.createElement("input");
+        hTitleTicket.insertAdjacentElement("beforebegin", input);
+        input.id = "updateTitleTicket";
+        let task_name = tick.querySelector(".ticket").innerText;
+        input.value = task_name;
+        input.select();
+
+        console.log(task_name);
+        hTitleTicket.classList.add("displayNone");
+        input.addEventListener("keydown", async function(e) {
+            if (e.key === "Enter") {
+                let url = hTitleTicket.getAttribute("data_url");
+                let token = document
+                    .querySelector('meta[name="csrf-token"]')
+                    .getAttribute("content");
+
+                let body = {
+                    id: id,
+                    task: input.value
+                };
+
+                const options = {
+                    method: "PUT",
+                    headers: {
+                        "X-CSRF-TOKEN": token,
+                        Accept: "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(body)
+                };
+                try {
+                    const response = await fetch(url, options);
+                    console.log(response);
+                    location.reload();
+                } catch (error) {
+                    console.log(error);
+                }
+            }
         });
-
-        cancelRemoveTicket.addEventListener("click", function(e) {
-            divModalTicket.style.display = "none";
-        });
-    }
+    });
 }

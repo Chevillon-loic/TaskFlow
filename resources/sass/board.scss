@@ -7,7 +7,8 @@
 .mainContainer {
     display: flex;
     flex-direction: column;
-    margin: 5vh;
+    justify-content: space-around;
+    height: calc(100vh-40px);
     h2 {
         text-transform: uppercase;
         font-weight: 600;
@@ -15,49 +16,296 @@
         line-height: 17px;
         letter-spacing: 0.05em;
     }
+    #inputupdateTitleBoard {
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 17px;
+        letter-spacing: 0.05em;
+        padding: 3px;
+        outline: none;
+        border: 2px solid rgb(180, 180, 180);
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.3);
+        color: rgb(182, 182, 182);
+    }
 
-    //COLUMNS
-    .columnContainer {
-        flex-shrink: 0;
-        margin: 24px;
-        .columTitleDiv {
-            background-color: rgb(119, 119, 119);
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
-            padding: 18px;
-            p {
-                margin: 0;
-                padding: 0;
+    //INVITER
+
+    .topContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 5vh 5vh 0;
+
+        //SUPPRIMER TABLEAU
+        .containerInviteDelete {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 300px;
+            #divForInvite {
+                position: absolute;
+                top: 135px;
+                right: 216px;
+                height: 350px;
+                width: 250px;
+                background-color: white;
+                border: 1px solid rgb(228, 228, 228);
+                border-radius: 5px;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+                padding: 0 10px;
+                span {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 1px solid rgb(228, 228, 228);
+                    p {
+                        color: rgb(53, 53, 53);
+                        font-size: 14px;
+                        margin: 10px 0 10px 45px;
+                    }
+                    #closeInvite {
+                        border: none;
+                        background-color: transparent;
+                        font-weight: 700;
+                        font-size: 1rem;
+                        color: rgb(97, 97, 97);
+                        cursor: pointer;
+                        transition: 0.2s;
+                        &:hover {
+                            color: rgb(114, 75, 75);
+                        }
+                    }
+                }
+                #inputInvite {
+                    padding: 7px;
+                    border-radius: 5px;
+                    border: 2px solid;
+                    margin: 7px 0;
+                    width: 100%;
+                    font-size: 14px;
+                    outline: none;
+                }
+                #usersToInvite {
+                    div {
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        border-radius: 5px;
+                        transition: 0.2s;
+                        &:hover {
+                            background-color: rgba(241, 241, 241, 0.8);
+                        }
+                    }
+                    img {
+                        height: 25px;
+                        width: 25px;
+                        border-radius: 50%;
+                        margin-left: 5px;
+                    }
+                    label {
+                        margin-left: 5px;
+                        font-size: 0.9rem;
+                        cursor: pointer;
+                        padding: 10px 0;
+                        width: 100%;
+                    }
+                    input[type="checkbox"] {
+                        visibility: hidden;
+                    }
+                }
+                #btnToInvite {
+                    position: absolute;
+                    bottom: 5px;
+                    width: 93%;
+                    padding: 7px;
+                    border: none;
+                    font-size: 16px;
+                    font-weight: 500;
+                    letter-spacing: 1.2px;
+                    border-radius: 5px;
+                    color: white;
+                    cursor: pointer;
+                    &:disabled {
+                        background-color: rgb(241, 241, 241);
+                        color: rgb(144, 144, 144);
+                        cursor: unset;
+                    }
+                }
+            }
+            #inviteContainer {
+                #invite {
+                    width: 100px;
+                    height: 40px;
+                    background-color: rgb(223, 223, 223);
+                    border-style: none;
+                    border-radius: 5px;
+                    font-family: "Montserrat", sans-serif;
+                    font-weight: 500;
+                    color: $black;
+                    margin: 5px;
+                    outline: none;
+                    cursor: pointer;
+                    transition: 0.3s;
+                    &:hover {
+                        transform: scale(1.05);
+                        background-color: rgb(195, 195, 195);
+                    }
+                }
+                #btnDisabled {
+                    width: 100px;
+                    height: 40px;
+                    border-style: none;
+                    border-radius: 5px;
+                    font-family: "Montserrat", sans-serif;
+                    font-weight: 500;
+                    margin: 5px;
+                    outline: none;
+                    background-color: rgb(241, 241, 241);
+                    color: rgb(144, 144, 144);
+                    &:hover {
+                        transform: none;
+                        background-color: rgb(241, 241, 241);
+                    }
+                }
+            }
+            #deleteTab {
+                width: 100px;
+                height: 40px;
+                background-color: white;
+                border-color: lightgray;
+                border-style: solid;
+                color: rgb(158, 158, 158);
+                font-family: "Montserrat", sans-serif;
+                margin: 5px;
+                border-radius: 5px;
+                outline: none;
+                cursor: pointer;
+                transition: 0.3s;
+                &:hover {
+                    transform: scale(1.05);
+                    border-color: rgb(175, 174, 174);
+                    color: rgb(175, 174, 174);
+                }
             }
         }
     }
-}
 
-.allColumns {
-    display: flex;
-    flex-direction: row;
-    overflow-x: scroll;
+    .allColumns {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        overflow-x: auto;
+        margin: 0vh calc(5vh - 24px);
+        position: absolute;
+        bottom: 0;
+        height: 80vh;
+        width: 95vw;
+        //COLUMNS
+        .columnContainer {
+            flex-shrink: 0;
+            margin: 24px;
+            .columTitleDiv {
+                background-color: rgb(119, 119, 119);
+                border-top-left-radius: 4px;
+                border-top-right-radius: 4px;
+                height: 45px;
+                display: flex;
+                padding: 0 15px 0 18px;
+                justify-content: space-between;
+                align-items: center;
+                p {
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+    }
     .columnContainer {
-        width: 280px;
+        width: 300px;
         border-radius: 4px;
         background-color: lightgray;
         .columnTitle {
             height: 24px;
-            background-color: #777777;
+            width: 270px;
             color: white;
             font-weight: 700;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            #updateLabelColumInput {
+                padding: 5px;
+                outline: none;
+                border: none;
+                border-radius: 5px;
+                background-color: rgba(255, 255, 255, 0.3);
+                font-size: 1rem;
+                font-weight: 700;
+                color: white;
+            }
         }
+        #removeColumn {
+            background-color: transparent;
+            border-style: none;
+            color: white;
+            cursor: pointer;
+        }
+
         #btnAddTicket {
             cursor: pointer;
+            width: 100%;
+            height: 30px;
+            border: none;
+            background-color: #d3d3d3;
+            font-weight: 500;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            &:hover {
+                background-color: #c2c2c2;
+            }
+        }
+        #inputAddTicket {
+            outline: none;
+            width: 100%;
+            height: 30px;
+            border-color: rgb(29, 112, 180);
+            border-style: solid;
+            border-radius: 5px;
+            margin: 0 0 5px;
+        }
+
+        #validateTicket {
+            border-style: solid;
+            border-color: transparent;
+            border-radius: 5px;
+            width: 90px;
+            height: 25px;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        #closeTicket {
+            border: none;
+            background-color: #d3d3d3;
+            font-size: 17px;
+            color: rgb(85, 85, 85);
+            cursor: pointer;
+            &:hover {
+                color: black;
+            }
         }
     }
 }
 
 #modalContainer,
-#modalContainerTicket {
+#modalContainerTicket,
+#modalContainerTAB {
     position: fixed; /* Stay in place */
     z-index: 10; /* Sit on top */
     padding-top: 40vh; /* Location of the box */
@@ -67,7 +315,8 @@
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.3); /* Black w/ opacity */
-    #removeConfirmationContainer {
+    #removeConfirmationContainer,
+    #removeConfirmationContainerTAB {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -96,46 +345,248 @@
         }
     }
 }
+#modalContainerComment {
+    position: fixed;
+    z-index: 10;
+    padding-top: 13vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    #removeConfirmationContainerComment {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        margin: auto;
+        width: 400px;
+        height: 65vh;
+        border-radius: 4px;
+        overflow: auto;
+        .titleTicketTop {
+            .titleLeft {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color: white;
+                margin-left: 15px;
+                margin-right: 15px;
+                height: 70px;
+                .titleTicket {
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+                #updateTitleTicket {
+                    padding: 5px;
+                    outline: none;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: rgba(255, 255, 255, 0.3);
+                    color: white;
+                    text-align: center;
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+                #removeTicket {
+                    background-color: rgba(255, 255, 255, 0.5);
+                    border: none;
+                    border-radius: 5px;
+                    padding: 7px;
+                    cursor: pointer;
+                    color: white;
+                    font-size: 1rem;
+                }
+            }
+            .cancelComment {
+                border: none;
+                color: white;
+                font-size: 20px;
+                height: 30px;
+                width: 30px;
+                cursor: pointer;
+
+                &:hover {
+                    color: rgb(209, 209, 209);
+                    border-radius: 50%;
+                }
+            }
+        }
+        .titleColumnTop {
+            display: flex;
+            justify-content: space-between;
+        }
+        #containerComment {
+            margin-left: 15px;
+        }
+        textarea {
+            font-family: "Montserrat", sans-serif;
+            resize: none;
+            min-height: 50px;
+            width: 50%;
+            outline: none;
+            font-family: "Montserrat", sans-serif;
+        }
+        #addComment {
+            margin-top: 10px;
+            font-size: 1rem;
+            border-radius: 5px 0 0 5px;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            padding: 7px;
+            height: 70px;
+            border-radius: 5px 5px 5px 5px;
+            width: 360px;
+        }
+        #btnAddComment {
+            margin-top: 2px;
+            border: none;
+            border-radius: 5px 5px 5px 5px;
+            color: white;
+            height: 35px;
+            width: 100px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .pictureComment {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .userInformations {
+            display: flex;
+            margin-top: 10px;
+            .contentComment {
+                margin-top: 10px;
+            }
+            p {
+                border: solid 1px #c5c5c5be;
+                border-radius: 5px;
+                padding: 5px 20px;
+                background-color: #f1f1f1b6;
+            }
+        }
+        #flexReverse {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        // .etiquettes {
+        //     input {
+        //         // visibility: hidden;
+        //     }
+        //     .ecolor {
+        //         width: 30px;
+        //         height: 30px;
+        //     }
+        //     .ecolor1 {
+        //         background-color: #62bd50;
+        //     }
+        //     .ecolor2 {
+        //         background-color: #f2d602;
+        //     }
+        //     .ecolor3 {
+        //         background-color: #fda426;
+        //     }
+        //     .ecolor4 {
+        //         background-color: #eb5b46;
+        //     }
+        //     .ecolor5 {
+        //         background-color: #c278e0;
+        //     }
+        //     .ecolor6 {
+        //         background-color: #007abf;
+        //     }
+        // }
+    }
+}
 
 //ADD LIST/COLOLUMN
 
 #btnAddList,
-#addColumn,
-#newaddList {
+#addColumn {
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 16px;
-    width: 280px;
-    height: 60px;
+    width: 300px;
+    height: 45px;
     border-radius: 4px;
     border-style: none;
     border-color: none;
     color: white;
+    cursor: pointer;
 }
 #addColumn {
     margin: 24px;
 }
 
+#newaddList {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    height: 32px;
+    width: 147.5px;
+    border-radius: 4px;
+    border-style: none;
+    border-color: none;
+    color: white;
+    cursor: pointer;
+    margin: 5px 0;
+}
+#newListInput {
+    padding: 5px 10px;
+    width: 300px;
+    height: 45px;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 5px;
+    border-style: solid;
+    color: rgb(31, 31, 31);
+}
+
+#newListCXL {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    height: 32px;
+    width: 147.5px;
+    padding: 7px 25px;
+    border-radius: 4px;
+    border-style: none;
+    border-color: none;
+    background-color: #d3d3d3;
+    color: rgb(90, 90, 90);
+    cursor: pointer;
+    margin: 5px 0 0 5px;
+}
+
 //TICKETS
 
 .ticketContainer {
-    padding: 18px;
+    padding: 0px 12px;
+    .ticketDropZone {
+        height: max-content;
+        padding: 5px 0;
+        width: 100%;
+        margin: 5px 0;
+    }
 }
 
 .boxTicket {
     background-color: white;
-    border-radius: 4px;
+    border-radius: 2px;
     padding: 4px;
-    margin-bottom: 5px;
-    cursor: pointer;
+    margin: 5px 0;
 
     &:hover {
         background-color: rgb(245, 245, 245);
     }
-}
-
-.addComment {
-    margin: 24px;
+    .ticket {
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+    }
 }
 
 // COMMENTAIRES
@@ -191,7 +642,13 @@
         opacity: 0.6;
     }
 }
+
 .displayNone,
 .displayNoneTicket {
     display: none;
+}
+
+// TEMPORAIRE - Bouton Pannel Admin
+#btnPannel {
+    color: red;
 }

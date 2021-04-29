@@ -874,7 +874,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e4) { throw _e4; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e5) { didErr = true; err = _e5; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
@@ -898,13 +898,18 @@ try {
       var btn = document.createElement("button");
       var close = document.createElement("button");
       btnAdd[0].style.display = "none";
-      btn.innerText = "plus";
+      btn.innerText = "Ajouter";
+      btn.id = "validateTicket";
+      btn.style.backgroundColor = board.color;
       close.innerText = "X";
+      close.id = "closeTicket";
       ticket.insertAdjacentElement("beforeend", input);
       ticket.insertAdjacentElement("beforeend", btn);
       ticket.insertAdjacentElement("beforeend", close);
       input.select();
-      input.placeholder = "Ajouter un ticket";
+      input.placeholder = "Titre du ticket...";
+      input.id = "inputAddTicket";
+      input.style.borderColor = board.color;
       close.addEventListener("click", function (e) {
         input.remove();
         btn.remove();
@@ -981,33 +986,6 @@ try {
         };
       }());
     });
-    var DIVTICKET = document.getElementsByClassName("divTicket");
-
-    var _iterator2 = _createForOfIteratorHelper(DIVTICKET),
-        _step2;
-
-    try {
-      var _loop2 = function _loop2() {
-        var ticket = _step2.value;
-        var btnSupp = ticket.querySelector("#removeTicket");
-        var divModalTicket = ticket.querySelector("#modalContainerTicket");
-        var cancelRemoveTicket = ticket.querySelector("#cancelRemoveTicket");
-        btnSupp.addEventListener("click", function (e) {
-          divModalTicket.style.display = "block";
-        });
-        cancelRemoveTicket.addEventListener("click", function (e) {
-          divModalTicket.style.display = "none";
-        });
-      };
-
-      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-        _loop2();
-      }
-    } catch (err) {
-      _iterator2.e(err);
-    } finally {
-      _iterator2.f();
-    }
   };
 
   for (_iterator.s(); !(_step = _iterator.n()).done;) {
@@ -1017,6 +995,240 @@ try {
   _iterator.e(err);
 } finally {
   _iterator.f();
+}
+
+var DIVTICKET = document.getElementsByClassName("boxTicket");
+
+var _iterator2 = _createForOfIteratorHelper(DIVTICKET),
+    _step2;
+
+try {
+  var _loop2 = function _loop2() {
+    var tick = _step2.value;
+    var titleTicket = tick.querySelector(".ticket");
+    var btnSupp = tick.querySelector("#removeTicket");
+    var titleTicketInTicket = tick.querySelector(".titleTicketTop");
+    var divModalTicket = tick.querySelector("#modalContainerTicket");
+    var cancelRemoveTicket = tick.querySelector("#cancelRemoveTicket");
+    btnSupp.addEventListener("click", function (e) {
+      divModalTicket.style.display = "block";
+      commentModal.style.display = "none";
+
+      var _iterator3 = _createForOfIteratorHelper(DIVTICKET),
+          _step3;
+
+      try {
+        for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+          var _e = _step3.value;
+          _e.draggable = true;
+          console.log(_e);
+        }
+      } catch (err) {
+        _iterator3.e(err);
+      } finally {
+        _iterator3.f();
+      }
+    });
+    cancelRemoveTicket.addEventListener("click", function (e) {
+      divModalTicket.style.display = "none";
+      location.reload();
+    });
+    var commentModal = tick.querySelector("#modalContainerComment");
+    var cancelComment = tick.querySelector(".cancelComment");
+    var addComment = tick.querySelector(".addComment");
+    commentModal.style.display = "none";
+    var b = document.createElement("button");
+    b.id = "btnAddComment";
+    b.style.backgroundColor = board.color;
+    addComment.addEventListener("click", function (e) {
+      addComment.style.borderColor = board.color;
+      b.innerText = "Valider";
+      addComment.insertAdjacentElement("afterend", b);
+      b.style.display = "block";
+    });
+    b.addEventListener("click", /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
+        var url, token, comment, body, options, response, _iterator4, _step4, _e2;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                b.style.display = "none";
+                addComment.style.border = "2px solid rgba(0, 0, 0, 0.2)";
+                url = addComment.getAttribute("data_url");
+                token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+                comment = addComment.value;
+                body = {
+                  description: comment,
+                  user_id: user.id
+                };
+                options = {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": token
+                  },
+                  body: JSON.stringify(body)
+                };
+
+                if (!(comment.length > 2)) {
+                  _context2.next = 23;
+                  break;
+                }
+
+                _context2.prev = 8;
+                _context2.next = 11;
+                return fetch(url, options);
+
+              case 11:
+                response = _context2.sent;
+                addComment.value = "";
+                location.reload();
+                _iterator4 = _createForOfIteratorHelper(DIVTICKET);
+
+                try {
+                  for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+                    _e2 = _step4.value;
+                    _e2.draggable = false;
+                    console.log(_e2);
+                  }
+                } catch (err) {
+                  _iterator4.e(err);
+                } finally {
+                  _iterator4.f();
+                }
+
+                _context2.next = 21;
+                break;
+
+              case 18:
+                _context2.prev = 18;
+                _context2.t0 = _context2["catch"](8);
+                console.log(_context2.t0);
+
+              case 21:
+                _context2.next = 24;
+                break;
+
+              case 23:
+                addComment.value = "";
+
+              case 24:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[8, 18]]);
+      }));
+
+      return function (_x2) {
+        return _ref2.apply(this, arguments);
+      };
+    }());
+    titleTicket.addEventListener("click", function (e) {
+      var DIVTICKET = document.getElementsByClassName("boxTicket");
+
+      var _iterator5 = _createForOfIteratorHelper(DIVTICKET),
+          _step5;
+
+      try {
+        for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+          var _e3 = _step5.value;
+          _e3.draggable = false;
+        }
+      } catch (err) {
+        _iterator5.e(err);
+      } finally {
+        _iterator5.f();
+      }
+
+      commentModal.style.display = "block";
+      titleTicketInTicket.style.backgroundColor = board.color;
+      cancelComment.style.backgroundColor = board.color;
+    });
+    cancelComment.addEventListener("click", function (e) {
+      e.stopPropagation();
+      commentModal.style.display = "none";
+      location.reload();
+    });
+    var hTitleTicket = tick.querySelector(".titleTicket");
+    var id = tick.querySelector(".id");
+    id = id.value;
+    hTitleTicket.addEventListener("click", function (e) {
+      var input = document.createElement("input");
+      hTitleTicket.insertAdjacentElement("beforebegin", input);
+      input.id = "updateTitleTicket";
+      var task_name = tick.querySelector(".ticket").innerText;
+      input.value = task_name;
+      input.select();
+      console.log(task_name);
+      hTitleTicket.classList.add("displayNone");
+      input.addEventListener("keydown", /*#__PURE__*/function () {
+        var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(e) {
+          var url, token, body, options, response;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+            while (1) {
+              switch (_context3.prev = _context3.next) {
+                case 0:
+                  if (!(e.key === "Enter")) {
+                    _context3.next = 16;
+                    break;
+                  }
+
+                  url = hTitleTicket.getAttribute("data_url");
+                  token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+                  body = {
+                    id: id,
+                    task: input.value
+                  };
+                  options = {
+                    method: "PUT",
+                    headers: {
+                      "X-CSRF-TOKEN": token,
+                      Accept: "application/json",
+                      "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(body)
+                  };
+                  _context3.prev = 5;
+                  _context3.next = 8;
+                  return fetch(url, options);
+
+                case 8:
+                  response = _context3.sent;
+                  console.log(response);
+                  location.reload();
+                  _context3.next = 16;
+                  break;
+
+                case 13:
+                  _context3.prev = 13;
+                  _context3.t0 = _context3["catch"](5);
+                  console.log(_context3.t0);
+
+                case 16:
+                case "end":
+                  return _context3.stop();
+              }
+            }
+          }, _callee3, null, [[5, 13]]);
+        }));
+
+        return function (_x3) {
+          return _ref3.apply(this, arguments);
+        };
+      }());
+    });
+  };
+
+  for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+    _loop2();
+  }
+} catch (err) {
+  _iterator2.e(err);
+} finally {
+  _iterator2.f();
 }
 
 /***/ }),

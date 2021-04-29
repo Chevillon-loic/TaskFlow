@@ -7,8 +7,7 @@
 }
 
 .mainContainer h1 {
-  padding-top: 40px;
-  padding-left: 40px;
+  padding: 32px 0px 24px;
   font-weight: 600;
   font-size: 25px;
   line-height: 17px;
@@ -41,7 +40,7 @@
   font-size: 1.1rem;
   font-weight: 500;
   text-align: center;
-  margin: 30px;
+  margin: 0 0 30px;
   color: #292929;
 }
 
@@ -58,6 +57,17 @@
   padding: 7px;
   font-size: 1rem;
   margin-bottom: 15px;
+}
+
+.mainContainer .profileModificationForm .profileModificationFormIn #closeProfileModification {
+  border: none;
+  background-color: transparent;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #a558c0;
+  align-self: flex-end;
+  margin: 10px 30px 0;
 }
 
 .mainContainer .profileModificationForm .profileModificationFormIn button:not(#closeProfileModification) {
@@ -103,7 +113,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 500px;
+  height: 480px;
   width: 600px;
   border-radius: 10px;
   background: linear-gradient(to right, #a558c0, #23b5b5);
@@ -111,7 +121,7 @@
 }
 
 .mainContainer .profile .profileIn {
-  height: 490px;
+  height: 470px;
   width: 590px;
   border-radius: 7px;
   background-color: #fbfbfb;
@@ -121,7 +131,7 @@
 }
 
 .mainContainer .profile .profileIn #profilePicture {
-  margin-top: 3vh;
+  margin-top: 8vh;
   height: 150px;
   width: 150px;
   border-radius: 100%;
@@ -133,20 +143,21 @@
 }
 
 .mainContainer .profile .profileIn .bloc-infos .bloc-left {
-  margin: 3vh 2vh;
+  margin: 3vh 10px;
 }
 
 .mainContainer .profile .profileIn .bloc-infos .bloc-left p {
   color: #23b5b5;
-  font-weight: 600;
-}
-
-.mainContainer .profile .profileIn .bloc-infos .bloc-right {
-  margin: 3vh 2vh;
   font-weight: 500;
 }
 
-.mainContainer .profile .profileIn #buttonProfileModification {
+.mainContainer .profile .profileIn .bloc-infos .bloc-right {
+  margin: 3vh 10px;
+  font-weight: 500;
+}
+
+.mainContainer .profile .profileIn #buttonProfileModification,
+.mainContainer .profile .profileIn .dropdown-item {
   margin-top: 10px;
   outline: none;
   color: whitesmoke;
@@ -159,18 +170,54 @@
   width: 150px;
   cursor: pointer;
   transition: 0.5s;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
-.mainContainer .profile .profileIn #buttonProfileModification:hover {
+.mainContainer .profile .profileIn #buttonProfileModification:hover,
+.mainContainer .profile .profileIn .dropdown-item:hover {
   transform: scale(1.05);
 }
 
 .mainContainer #grayBackground {
   height: 100vh;
-  background-color: #999999bd;
+  background-color: #00000062;
   position: absolute;
   top: 0;
   width: 100%;
   display: none;
+}
+
+#accessPannel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#accessPannel #btnPannel {
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid grey;
+  color: #292929;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  padding: 7px;
+  width: 150px;
+  outline: none;
+}
+
+#accessPannel #btnPannel:hover {
+  transform: scale(1.01);
+  color: #a558c0;
+  border: 1px solid #a558c0;
 }
 

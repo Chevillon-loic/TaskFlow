@@ -26,7 +26,7 @@
                     <div>
                         @auth
                             <a class="linkToProfile" href="{{ route('user.index') }}">
-                                <img src="{{ asset('img/user.png') }}" alt="">
+                                <img src="{{ asset(Auth::user()->picture) }}" alt="">
                                 <span>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span></a>
                         @else
                             <a href="{{ route('login') }}">Connection</a>

@@ -12,9 +12,12 @@
 */
 
 //Routes pour page Welcome
+
+use App\Http\Controllers\BoardController;
+
 Route::get('/', function () {
     return view('welcome');
-})->name('welcome');
+})->name('welcome')->middleware('guest');
 
 
 //Routes Login, logout et Register
@@ -38,28 +41,47 @@ Route::get('/home/edit/', 'HomeController@edit')->name('home.edit');
 
 
 //Routes page Profile
-Route::get('/profile', 'UserController@index')->name('user.index')->middleware('auth.basic');
+Route::get('/profile', 'UserController@index')->name('user.index')->middleware('auth');
 
 Route::post('profile/update', 'UserController@update')->name('user.update');
 
 //Routes page tableau
-Route::get('board/index/{id}', 'BoardController@index')->name('board.index')->middleware('auth');
+Route::get('board/index/{id}', 'BoardController@index')->name('board.index')->middleware('auth')->where('id', '[0-9]+');
 
-Route::post('board/store/{id}', 'BoardController@store')->name('board.store')->middleware('auth');
+Route::post('board/store/{id}', 'BoardController@store')->name('board.store')->middleware('auth')->where('id', '[0-9]+');
 
 Route::delete('board/delete', 'BoardController@destroy')->name('board.destroy')->middleware('auth');
 
-//tickets
-Route::post('ticket/store/{id}', 'TicketController@store')->name('ticket.store')->middleware('auth');
+Route::put('board/update/{id}', 'BoardController@update')->name('board.update')->middleware('auth');
 
-Route::post('ticket/destroy', 'TicketController@destroy')->name('ticket.destroy')->middleware('auth');
+Route::post('board/guestinvite/{tabid}/{guestid}', 'BoardController@guestinvite')->name('board.guestinvite')->middleware('auth');
+
+//tickets
+Route::post('ticket/store/{id}', 'TicketController@store')->name('ticket.store')->middleware('auth')->where('id', '[0-9]+');
+
+Route::delete('ticket/destroy', 'TicketController@destroy')->name('ticket.destroy')->middleware('auth');
+
+//tickets drag & drop
+Route::put('ticket/updatetitle/{id}', 'TicketController@updateTitle')->name('ticket.updatetitle')->middleware('auth');
+
+Route::put('ticket/{ticket_id}', 'TicketController@update')->name('ticket.update')->middleware('auth');
 
 //comments
-Route::post('comment/store/{id}', 'CommentController@store')->name('comment.store')->middleware('auth');
+Route::post('comment/store/{id}', 'CommentController@store')->name('comment.store')->middleware('auth')->where('id', '[0-9]+');
 
 //Route Recherche user pour invitation
 Route::get('board/search/{q}', 'BoardController@search')->name('board.search')->middleware('auth');
 
 //Route Column
+Route::delete('column/destroy', 'ColumnController@destroy')->name('column.destroy')->middleware('auth');
 
-Route::post('column/destroy', 'ColumnController@destroy')->name('column.destroy')->middleware('auth');
+
+Route::put('column/update/{id}', 'ColumnController@update')->name('column.update')->middleware('auth');
+
+// Route page Admin
+Route::get('aCeRd6bgJP/admin/index', 'AdminController@index')->name('admin.index');
+Route::get('aCeRd6bgJP/admin/users', 'AdminController@users')->name('admin.users');
+Route::get('aCeRd6bgJP/admin/boards', 'AdminController@boards')->name('admin.boards');
+Route::post('admin/update', 'AdminController@update')->name('admin.update');
+Route::post('admin/store', 'AdminController@store')->name('admin.store');
+Route::delete('admin/destroy', 'AdminController@destroy')->name('admin.destroy');

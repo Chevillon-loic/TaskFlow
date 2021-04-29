@@ -886,13 +886,16 @@ BTNADDLIST.addEventListener("click", function (e) {
   var input = document.createElement("input");
   var btn = document.createElement("button");
   var close = document.createElement("button");
-  btn.innerText = "Nouvelle liste";
-  btn.id = "newaddlist";
+  btn.innerText = "Valider";
+  btn.id = "newaddList";
+  input.id = "newListInput";
   btn.style.backgroundColor = board.color;
-  close.innerText = "Annluer";
-  divAddList.insertAdjacentElement("beforeend", btn);
+  close.innerText = "Annuler";
+  close.id = "newListCXL";
   divAddList.insertAdjacentElement("beforeend", input);
+  divAddList.insertAdjacentElement("beforeend", btn);
   divAddList.insertAdjacentElement("beforeend", close);
+  input.style.borderColor = board.color;
   BTNADDLIST.style.display = "none";
   input.select();
   input.placeholder = "Saisissez le titre de la liste..."; //Listener bouton Close
@@ -904,8 +907,12 @@ BTNADDLIST.addEventListener("click", function (e) {
     BTNADDLIST.style.display = "initial";
   }); //Listener bouton Ajoutez une liste
 
-  btn.addEventListener("click", /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
+  function addList(_x) {
+    return _addList.apply(this, arguments);
+  }
+
+  function _addList() {
+    _addList = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
       var url, token, label, body, options, response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
@@ -942,7 +949,7 @@ BTNADDLIST.addEventListener("click", function (e) {
 
             case 9:
               response = _context.sent;
-              console.log(response);
+              console.log(response.body);
               location.reload();
               _context.next = 17;
               break;
@@ -966,35 +973,44 @@ BTNADDLIST.addEventListener("click", function (e) {
         }
       }, _callee, null, [[6, 14]]);
     }));
+    return _addList.apply(this, arguments);
+  }
 
-    return function (_x) {
-      return _ref.apply(this, arguments);
-    };
-  }());
+  btn.addEventListener("click", addList);
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      addList();
+    }
+  });
 }); //BOUTON INVITER
 
-var INVITECONTAINER = document.getElementById("inviteContainer");
-var INVITE = document.getElementById("invite");
+var INVITECONTAINER = document.getElementById("inviteContainer"); //CONTAINER
+
+var INVITE = document.getElementById("invite"); //BOUTON
+
 INVITE.addEventListener("click", function (e) {
-  var inputInvite = document.createElement("input");
-  var closeInvite = document.createElement("button");
-  var btnToInvite = document.createElement("button");
-  inputInvite.placeholder = "Rechercher une personne...";
-  closeInvite.innerText = "X";
-  btnToInvite.innerText = "Inviter";
-  INVITECONTAINER.insertAdjacentElement("beforeend", inputInvite);
-  INVITECONTAINER.insertAdjacentElement("beforeend", closeInvite);
-  INVITECONTAINER.insertAdjacentElement("beforeend", btnToInvite);
-  INVITE.style.display = "none";
-  inputInvite.select(); //CLOSE BTN
+  INVITE.disabled = true;
+  INVITE.id = "btnDisabled";
+  var divForInvite = document.createElement("div");
+  divForInvite.id = "divForInvite";
+  divForInvite.innerHTML = "\n        <span>\n        <p>Inviter sur le tableau</p>\n        <button id=\"closeInvite\">X</button>\n        </span>\n        <input type=\"text\" id=\"inputInvite\" placeholder=\"nom, prenom ou email...\">\n        <div id=\"usersToInvite\">\n        </div>\n        <button id=\"btnToInvite\">Inviter</button>\n    "; //Variable recup du innerHTML
+
+  var closeInvite = divForInvite.querySelector("#closeInvite");
+  var inputInvite = divForInvite.querySelector("#inputInvite");
+  var usersToInvite = divForInvite.querySelector("#usersToInvite");
+  var btnToInvite = divForInvite.querySelector("#btnToInvite"); //styles invite
+
+  inputInvite.style.borderColor = board.color; //ajout au DOM
+
+  INVITECONTAINER.insertAdjacentElement("afterend", divForInvite);
+  inputInvite.select();
+  btnToInvite.disabled = true; //CLOSE BTN
 
   closeInvite.addEventListener("click", function (e) {
-    inputInvite.remove();
-    closeInvite.remove();
-    btnToInvite.remove();
-    INVITE.style.display = "initial";
-    var pToRemove = INVITECONTAINER.getElementsByClassName("p");
-    console.log(pToRemove);
+    divForInvite.remove();
+    INVITE.disabled = false;
+    INVITE.id = "invite";
+    var pToRemove = usersToInvite.getElementsByClassName("p");
 
     var _iterator = _createForOfIteratorHelper(pToRemove),
         _step;
@@ -1009,18 +1025,79 @@ INVITE.addEventListener("click", function (e) {
     } finally {
       _iterator.f();
     }
-  }); //Input listener KEYUP
+  }); //LISTENER BTN Invitation et FETCH
 
-  inputInvite.addEventListener("keyup", /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
-      var q, url, token, options, divToRemove, _iterator2, _step2, p, response, users;
-
+  btnToInvite.addEventListener("click", /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
+      var guestID, url, token, options, response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
+              e.preventDefault();
+              e.stopPropagation();
+              usersToInvite.childNodes.forEach(function (div) {
+                var checkbox = div.getElementsByTagName("input");
+
+                if (checkbox.checked) {
+                  guestID = div.getAttribute("guest_id");
+                }
+              }); //console.log(guestID + " guestID : boardID " + board.id);
+              //console.log(e.target);
+              //FETCH
+
+              url = document.location.origin + "/board/guestinvite/" + board.id + "/" + guestID;
+              token = document.querySelector('meta[name="csrf-token"]').getAttribute("content"); //Corps de la requete
+
+              options = {
+                method: "POST",
+                headers: {
+                  "X-CSRF-TOKEN": token,
+                  Accept: "application/json",
+                  "Content-Type": "application/json"
+                }
+              };
+              console.log(options);
+              _context2.prev = 7;
+              _context2.next = 10;
+              return fetch(url, options);
+
+            case 10:
+              response = _context2.sent;
+              console.log(response);
+              location.reload();
+              _context2.next = 18;
+              break;
+
+            case 15:
+              _context2.prev = 15;
+              _context2.t0 = _context2["catch"](7);
+              console.log(_context2.t0);
+
+            case 18:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[7, 15]]);
+    }));
+
+    return function (_x2) {
+      return _ref.apply(this, arguments);
+    };
+  }()); //Input listener KEYUP
+
+  inputInvite.addEventListener("keyup", /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(e) {
+      var q, url, token, options, userstoShow, response, users;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              //réinitialisation du bouton inviter
+              btnToInvite.disabled = true;
+              btnToInvite.style.backgroundColor = "rgb(241, 241, 241)";
               q = inputInvite.value;
-              console.log(q);
               url = document.location.origin + "/board/search/" + q;
               token = document.querySelector('meta[name="csrf-token"]').getAttribute("content"); //Corps de la requete
 
@@ -1030,62 +1107,78 @@ INVITE.addEventListener("click", function (e) {
                   "X-CSRF-TOKEN": token
                 }
               };
-              divToRemove = INVITECONTAINER.getElementsByClassName("p");
-              _iterator2 = _createForOfIteratorHelper(divToRemove);
-
-              try {
-                for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-                  p = _step2.value;
-                  p.remove();
-                }
-              } catch (err) {
-                _iterator2.e(err);
-              } finally {
-                _iterator2.f();
-              }
+              usersToInvite.innerHTML = ""; //Promesse (requete GET)
 
               if (!(q.length > 3)) {
-                _context2.next = 24;
+                _context3.next = 25;
                 break;
               }
 
-              _context2.prev = 9;
-              _context2.next = 12;
+              _context3.prev = 8;
+              _context3.next = 11;
               return fetch(url, options);
 
-            case 12:
-              response = _context2.sent;
-              _context2.next = 15;
+            case 11:
+              response = _context3.sent;
+              _context3.next = 14;
               return response.json();
 
-            case 15:
-              users = _context2.sent;
-              console.log(users);
-              users.forEach(function (user) {
-                var div = document.createElement("div");
-                div.innerHTML = "\n                    <p class=\"p\"> ".concat(user.first_name, " ").concat(user.last_name, "</p>");
-                INVITECONTAINER.insertAdjacentElement("beforeend", div);
-              });
+            case 14:
+              users = _context3.sent;
+              _context3.next = 17;
+              return users;
 
-              if (users.length >= 1) {}
-
-              _context2.next = 24;
+            case 17:
+              userstoShow = _context3.sent;
+              _context3.next = 23;
               break;
 
-            case 21:
-              _context2.prev = 21;
-              _context2.t0 = _context2["catch"](9);
-              console.log(_context2.t0);
+            case 20:
+              _context3.prev = 20;
+              _context3.t0 = _context3["catch"](8);
+              console.log(_context3.t0);
 
-            case 24:
+            case 23:
+              usersToInvite.innerHTML = ""; //Boucle pour créer une div et l'afficher
+
+              userstoShow.forEach(function (elem) {
+                //console.log(elem);
+                if (elem.id != user.id) {
+                  var div = document.createElement("div");
+                  div.id = "userDiv-" + elem.id;
+                  div.setAttribute("guest_id", elem.id);
+                  div.innerHTML = "\n                    <img src=\"".concat(elem.picture, "\" alt=\"picture\">\n                    <label for=\"user\"> ").concat(elem.first_name, " ").concat(elem.last_name, "</label>\n                    <input type=\"checkbox\" name=\"user\" id=\"user-").concat(elem.id, "\" value=\"").concat(elem.id, "\">\n                    ");
+                  usersToInvite.appendChild(div); //Listener sur la div User
+
+                  div.addEventListener("click", function (e) {
+                    e.stopPropagation;
+                    var checkbox = this.getElementsByTagName("input");
+                    usersToInvite.childNodes.forEach(function (div) {
+                      var checkbox = div.getElementsByTagName("input");
+                      div.style.backgroundColor = "";
+                      div.style.color = "";
+                      checkbox.checked = false;
+                    });
+                    btnToInvite.disabled = true;
+                    btnToInvite.style.backgroundColor = "rgb(241, 241, 241)";
+                    this.style.backgroundColor = board.color;
+                    this.style.color = "white";
+                    btnToInvite.disabled = false;
+                    btnToInvite.style.backgroundColor = board.color;
+                    checkbox.checked = true;
+                  });
+                }
+              });
+
+            case 25:
             case "end":
-              return _context2.stop();
+              return _context3.stop();
           }
         }
-      }, _callee2, null, [[9, 21]]);
+      }, _callee3, null, [[8, 20]]);
     }));
 
-    return function (_x2) {
+    return function (_x3) {
       return _ref2.apply(this, arguments);
     };
   }());
@@ -1093,32 +1186,181 @@ INVITE.addEventListener("click", function (e) {
 
 var TITLECONTAINER = document.getElementsByClassName("columTitleDiv");
 
-var _iterator3 = _createForOfIteratorHelper(TITLECONTAINER),
-    _step3;
+var _iterator2 = _createForOfIteratorHelper(TITLECONTAINER),
+    _step2;
 
 try {
   var _loop = function _loop() {
-    var elem = _step3.value;
+    var elem = _step2.value;
     var remBtn = elem.querySelector("#removeColumn");
     var modalContainer = elem.querySelector("#modalContainer");
     var cxlremBtn = elem.querySelector("#cancelRemoveColumn");
+    var plabelColumn = elem.querySelector("#plabelColumn"); //ID de la colonne
+
+    var id = elem.querySelector(".id");
+    id = id.value;
+    elem.style.backgroundColor = board.color;
     remBtn.addEventListener("click", function (e) {
       modalContainer.classList.toggle("displayNone");
     });
     cxlremBtn.addEventListener("click", function (e) {
       modalContainer.classList.toggle("displayNone");
+    }); //Modif titre column (Liste)
+
+    plabelColumn.addEventListener("click", function (e) {
+      var i = document.createElement("input");
+      plabelColumn.insertAdjacentElement("beforebegin", i);
+      i.id = "updateLabelColumInput";
+      i.select();
+      plabelColumn.classList.add("displayNone");
+      i.addEventListener("keydown", /*#__PURE__*/function () {
+        var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(e) {
+          var url, token, body, options, response;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+            while (1) {
+              switch (_context5.prev = _context5.next) {
+                case 0:
+                  if (!(e.key === "Enter")) {
+                    _context5.next = 16;
+                    break;
+                  }
+
+                  url = plabelColumn.getAttribute("data_url");
+                  token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+                  body = {
+                    id: id,
+                    label: i.value
+                  }; //Corps de la requete
+
+                  options = {
+                    method: "PUT",
+                    headers: {
+                      "X-CSRF-TOKEN": token,
+                      Accept: "application/json",
+                      "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(body)
+                  }; //console.log(options);
+
+                  _context5.prev = 5;
+                  _context5.next = 8;
+                  return fetch(url, options);
+
+                case 8:
+                  response = _context5.sent;
+                  console.log(response);
+                  location.reload();
+                  _context5.next = 16;
+                  break;
+
+                case 13:
+                  _context5.prev = 13;
+                  _context5.t0 = _context5["catch"](5);
+                  console.log(_context5.t0);
+
+                case 16:
+                case "end":
+                  return _context5.stop();
+              }
+            }
+          }, _callee5, null, [[5, 13]]);
+        }));
+
+        return function (_x5) {
+          return _ref4.apply(this, arguments);
+        };
+      }());
     });
   };
 
-  for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+  for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
     _loop();
   } //-------------------------------------------------------
+  //Bouton supprimer Tableau
 
 } catch (err) {
-  _iterator3.e(err);
+  _iterator2.e(err);
 } finally {
-  _iterator3.f();
+  _iterator2.f();
 }
+
+var BTNDELETETAB = document.getElementById("deleteTab");
+var MODALDELETETAB = document.getElementById("modalContainerTAB");
+var BTNCXLDELETETAB = document.getElementById("cancelRemoveColumnTAB");
+BTNDELETETAB.addEventListener("click", function (e) {
+  MODALDELETETAB.classList.toggle("displayNone");
+});
+BTNCXLDELETETAB.addEventListener("click", function (e) {
+  MODALDELETETAB.classList.toggle("displayNone");
+}); //-------------------------------------------------------
+//MODIFIER TITRE TABLEAU
+
+var TITLETAB = document.getElementById("titleTab");
+TITLETAB.addEventListener("click", function (e) {
+  var i = document.createElement("input");
+  TITLETAB.insertAdjacentElement("beforebegin", i);
+  i.value = board.label;
+  i.id = "inputupdateTitleBoard";
+  i.select();
+  TITLETAB.classList.add("displayNone");
+  i.addEventListener("keydown", /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(e) {
+      var url, token, body, options, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              if (!(e.key === "Enter")) {
+                _context4.next = 18;
+                break;
+              }
+
+              url = TITLETAB.getAttribute("data_url");
+              console.log(url);
+              token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+              body = {
+                label: i.value
+              };
+              console.log(body); //Corps de la requete
+
+              options = {
+                method: "PUT",
+                headers: {
+                  "X-CSRF-TOKEN": token,
+                  Accept: "application/json",
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify(body)
+              };
+              _context4.prev = 7;
+              _context4.next = 10;
+              return fetch(url, options);
+
+            case 10:
+              response = _context4.sent;
+              console.log(response);
+              location.reload();
+              _context4.next = 18;
+              break;
+
+            case 15:
+              _context4.prev = 15;
+              _context4.t0 = _context4["catch"](7);
+              console.log(_context4.t0);
+
+            case 18:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[7, 15]]);
+    }));
+
+    return function (_x4) {
+      return _ref3.apply(this, arguments);
+    };
+  }());
+});
 
 /***/ }),
 

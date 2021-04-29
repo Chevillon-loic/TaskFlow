@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Board;
+use App\Guest;
 use App\User;
+use App\UserBoard;
 use Illuminate\Http\Request;
 
 
@@ -16,12 +18,18 @@ class HomeController extends Controller
      */
 
 
-    public function index()
+    public function index(Board $board, User $user)
     {
-        $boards = Board::select(['id', 'label', 'color'])->where('owner_id', \Auth::user()->id);
-        $boards = Board::select(['id', 'label', 'color'])->where('guest_id', \Auth::user()->id);
+        $boards = Board::select(['id', 'label', 'color'])
+            ->where('owner_id', \Auth::user()->id)->get();
+        //$boards = Board::where('owner_id', \Auth::user()->id);
+        //$boards = $user->board();
+        //$boards = Board::all();
+        //$boards = $board->user()->withPivot('');
+        //$boards = UserBoard::select(['id', 'label', 'color'])->where('user_id', \Auth::user()->id)->get();
         return view("home", [
-            'boards' => $boards->get()
+
+            'boards' => $boards
         ]);
     }
 
@@ -55,7 +63,6 @@ class HomeController extends Controller
         $request->color ?? $request->color = '#61676b';
         $board = new Board();
         $board->owner_id = \Auth::user()->id;
-        $board->guest_id = \Auth::user()->id;
         $board->label = $request->label;
         $board->color = $request->color;
         $board->save();

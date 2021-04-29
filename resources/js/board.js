@@ -6,15 +6,18 @@ BTNADDLIST.addEventListener("click", function(e) {
     let btn = document.createElement("button");
     let close = document.createElement("button");
 
-    btn.innerText = "Nouvelle liste";
-    btn.id = "newaddlist";
+    btn.innerText = "Valider";
+    btn.id = "newaddList";
+    input.id = "newListInput";
     btn.style.backgroundColor = board.color;
-    close.innerText = "Annluer";
+    close.innerText = "Annuler";
+    close.id = "newListCXL";
 
-    divAddList.insertAdjacentElement("beforeend", btn);
     divAddList.insertAdjacentElement("beforeend", input);
+    divAddList.insertAdjacentElement("beforeend", btn);
     divAddList.insertAdjacentElement("beforeend", close);
 
+    input.style.borderColor = board.color;
     BTNADDLIST.style.display = "none";
     input.select();
     input.placeholder = "Saisissez le titre de la liste...";
@@ -29,7 +32,7 @@ BTNADDLIST.addEventListener("click", function(e) {
 
     //Listener bouton Ajoutez une liste
 
-    btn.addEventListener("click", async function(e) {
+    async function addList(e) {
         //recup de l'url
         let url = document.location.origin + "/board/store/" + board.id;
         let token = document
@@ -57,7 +60,7 @@ BTNADDLIST.addEventListener("click", function(e) {
             //Promesse (requete POST)
             try {
                 const response = await fetch(url, options);
-                console.log(response);
+                console.log(response.body);
                 location.reload();
             } catch (error) {
                 console.log(error);
@@ -65,42 +68,112 @@ BTNADDLIST.addEventListener("click", function(e) {
         } else {
             input.value = "";
         }
+    }
+
+    btn.addEventListener("click", addList);
+    input.addEventListener("keydown", function(e) {
+        if (e.key === "Enter") {
+            addList();
+        }
     });
 });
 
 //BOUTON INVITER
-const INVITECONTAINER = document.getElementById("inviteContainer");
-const INVITE = document.getElementById("invite");
+const INVITECONTAINER = document.getElementById("inviteContainer"); //CONTAINER
+const INVITE = document.getElementById("invite"); //BOUTON
 
 INVITE.addEventListener("click", function(e) {
-    let inputInvite = document.createElement("input");
-    let closeInvite = document.createElement("button");
-    let btnToInvite = document.createElement("button");
-    inputInvite.placeholder = "Rechercher une personne...";
-    closeInvite.innerText = "X";
-    btnToInvite.innerText = "Inviter";
-    INVITECONTAINER.insertAdjacentElement("beforeend", inputInvite);
-    INVITECONTAINER.insertAdjacentElement("beforeend", closeInvite);
-    INVITECONTAINER.insertAdjacentElement("beforeend", btnToInvite);
-    INVITE.style.display = "none";
+    INVITE.disabled = true;
+    INVITE.id = "btnDisabled";
+    let divForInvite = document.createElement("div");
+    divForInvite.id = "divForInvite";
+
+    divForInvite.innerHTML = `
+        <span>
+        <p>Inviter sur le tableau</p>
+        <button id="closeInvite">X</button>
+        </span>
+        <input type="text" id="inputInvite" placeholder="nom, prenom ou email...">
+        <div id="usersToInvite">
+        </div>
+        <button id="btnToInvite">Inviter</button>
+    `;
+
+    //Variable recup du innerHTML
+    let closeInvite = divForInvite.querySelector("#closeInvite");
+    let inputInvite = divForInvite.querySelector("#inputInvite");
+    let usersToInvite = divForInvite.querySelector("#usersToInvite");
+    let btnToInvite = divForInvite.querySelector("#btnToInvite");
+
+    //styles invite
+    inputInvite.style.borderColor = board.color;
+
+    //ajout au DOM
+    INVITECONTAINER.insertAdjacentElement("afterend", divForInvite);
     inputInvite.select();
+    btnToInvite.disabled = true;
     //CLOSE BTN
     closeInvite.addEventListener("click", function(e) {
-        inputInvite.remove();
-        closeInvite.remove();
-        btnToInvite.remove();
-        INVITE.style.display = "initial";
-        let pToRemove = INVITECONTAINER.getElementsByClassName("p");
-        console.log(pToRemove);
+        divForInvite.remove();
+        INVITE.disabled = false;
+        INVITE.id = "invite";
+
+        let pToRemove = usersToInvite.getElementsByClassName("p");
         for (const p of pToRemove) {
             p.remove();
         }
     });
 
+    //LISTENER BTN Invitation et FETCH
+    btnToInvite.addEventListener("click", async function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        let guestID;
+        usersToInvite.childNodes.forEach(function(div) {
+            let checkbox = div.getElementsByTagName("input");
+            if (checkbox.checked) {
+                guestID = div.getAttribute("guest_id");
+            }
+        });
+        //console.log(guestID + " guestID : boardID " + board.id);
+        //console.log(e.target);
+        //FETCH
+        let url =
+            document.location.origin +
+            "/board/guestinvite/" +
+            board.id +
+            "/" +
+            guestID;
+        let token = document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content");
+        //Corps de la requete
+        const options = {
+            method: "POST",
+            headers: {
+                "X-CSRF-TOKEN": token,
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            }
+        };
+        console.log(options);
+        try {
+            //console.log(url);
+            const response = await fetch(url, options);
+            console.log(response);
+            location.reload();
+        } catch (error) {
+            console.log(error);
+        }
+    });
+
     //Input listener KEYUP
     inputInvite.addEventListener("keyup", async function(e) {
+        //réinitialisation du bouton inviter
+        btnToInvite.disabled = true;
+        btnToInvite.style.backgroundColor = "rgb(241, 241, 241)";
+
         let q = inputInvite.value;
-        console.log(q);
         let url = document.location.origin + "/board/search/" + q;
         let token = document
             .querySelector('meta[name="csrf-token"]')
@@ -112,29 +185,54 @@ INVITE.addEventListener("click", function(e) {
                 "X-CSRF-TOKEN": token
             }
         };
-        let divToRemove = INVITECONTAINER.getElementsByClassName("p");
-        for (const p of divToRemove) {
-            p.remove();
-        }
+        usersToInvite.innerHTML = "";
+        //Promesse (requete GET)
+        let userstoShow;
         if (q.length > 3) {
-            //Promesse (requete GET)
             try {
                 const response = await fetch(url, options);
                 const users = await response.json();
-                console.log(users);
-
-                users.forEach(user => {
-                    let div = document.createElement("div");
-                    div.innerHTML = `
-                    <p class="p"> ${user.first_name} ${user.last_name}</p>`;
-                    INVITECONTAINER.insertAdjacentElement("beforeend", div);
-                });
-
-                if (users.length >= 1) {
-                }
+                userstoShow = await users;
             } catch (error) {
                 console.log(error);
             }
+            usersToInvite.innerHTML = "";
+            //Boucle pour créer une div et l'afficher
+            userstoShow.forEach(elem => {
+                //console.log(elem);
+                if (elem.id != user.id) {
+                    let div = document.createElement("div");
+                    div.id = "userDiv-" + elem.id;
+                    div.setAttribute("guest_id", elem.id);
+                    div.innerHTML = `
+                    <img src="${elem.picture}" alt="picture">
+                    <label for="user"> ${elem.first_name} ${elem.last_name}</label>
+                    <input type="checkbox" name="user" id="user-${elem.id}" value="${elem.id}">
+                    `;
+                    usersToInvite.appendChild(div);
+                    //Listener sur la div User
+                    div.addEventListener("click", function(e) {
+                        e.stopPropagation;
+                        let checkbox = this.getElementsByTagName("input");
+
+                        usersToInvite.childNodes.forEach(function(div) {
+                            let checkbox = div.getElementsByTagName("input");
+                            div.style.backgroundColor = "";
+                            div.style.color = "";
+                            checkbox.checked = false;
+                        });
+                        btnToInvite.disabled = true;
+                        btnToInvite.style.backgroundColor =
+                            "rgb(241, 241, 241)";
+
+                        this.style.backgroundColor = board.color;
+                        this.style.color = "white";
+                        btnToInvite.disabled = false;
+                        btnToInvite.style.backgroundColor = board.color;
+                        checkbox.checked = true;
+                    });
+                }
+            });
         }
     });
 });
@@ -145,9 +243,12 @@ const TITLECONTAINER = document.getElementsByClassName("columTitleDiv");
 for (const elem of TITLECONTAINER) {
     let remBtn = elem.querySelector("#removeColumn");
     let modalContainer = elem.querySelector("#modalContainer");
-
     let cxlremBtn = elem.querySelector("#cancelRemoveColumn");
-
+    let plabelColumn = elem.querySelector("#plabelColumn");
+    //ID de la colonne
+    let id = elem.querySelector(".id");
+    id = id.value;
+    elem.style.backgroundColor = board.color;
     remBtn.addEventListener("click", function(e) {
         modalContainer.classList.toggle("displayNone");
     });
@@ -155,5 +256,105 @@ for (const elem of TITLECONTAINER) {
     cxlremBtn.addEventListener("click", function(e) {
         modalContainer.classList.toggle("displayNone");
     });
+
+    //Modif titre column (Liste)
+    plabelColumn.addEventListener("click", function(e) {
+        let i = document.createElement("input");
+        plabelColumn.insertAdjacentElement("beforebegin", i);
+        i.id = "updateLabelColumInput";
+        i.select();
+        plabelColumn.classList.add("displayNone");
+
+        i.addEventListener("keydown", async function(e) {
+            if (e.key === "Enter") {
+                let url = plabelColumn.getAttribute("data_url");
+                let token = document
+                    .querySelector('meta[name="csrf-token"]')
+                    .getAttribute("content");
+                let body = {
+                    id: id,
+                    label: i.value
+                };
+                //Corps de la requete
+                const options = {
+                    method: "PUT",
+                    headers: {
+                        "X-CSRF-TOKEN": token,
+                        Accept: "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(body)
+                };
+                //console.log(options);
+                try {
+                    //console.log(url);
+                    const response = await fetch(url, options);
+                    console.log(response);
+                    location.reload();
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+        });
+    });
 }
 //-------------------------------------------------------
+
+//Bouton supprimer Tableau
+const BTNDELETETAB = document.getElementById("deleteTab");
+const MODALDELETETAB = document.getElementById("modalContainerTAB");
+const BTNCXLDELETETAB = document.getElementById("cancelRemoveColumnTAB");
+
+BTNDELETETAB.addEventListener("click", function(e) {
+    MODALDELETETAB.classList.toggle("displayNone");
+});
+BTNCXLDELETETAB.addEventListener("click", function(e) {
+    MODALDELETETAB.classList.toggle("displayNone");
+});
+
+//-------------------------------------------------------
+
+//MODIFIER TITRE TABLEAU
+
+const TITLETAB = document.getElementById("titleTab");
+
+TITLETAB.addEventListener("click", function(e) {
+    let i = document.createElement("input");
+    TITLETAB.insertAdjacentElement("beforebegin", i);
+    i.value = board.label;
+    i.id = "inputupdateTitleBoard";
+    i.select();
+    TITLETAB.classList.add("displayNone");
+
+    i.addEventListener("keydown", async function(e) {
+        if (e.key === "Enter") {
+            let url = TITLETAB.getAttribute("data_url");
+            console.log(url);
+            let token = document
+                .querySelector('meta[name="csrf-token"]')
+                .getAttribute("content");
+            let body = {
+                label: i.value
+            };
+
+            console.log(body);
+            //Corps de la requete
+            const options = {
+                method: "PUT",
+                headers: {
+                    "X-CSRF-TOKEN": token,
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(body)
+            };
+            try {
+                const response = await fetch(url, options);
+                console.log(response);
+                location.reload();
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    });
+});
