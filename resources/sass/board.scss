@@ -18,16 +18,16 @@
     }
     #inputupdateTitleBoard {
         text-transform: uppercase;
-        font-weight: 600;
-        font-size: 25px;
+        font-weight: 500;
+        font-size: 20px;
         line-height: 17px;
         letter-spacing: 0.05em;
-        padding: 5px;
+        padding: 3px;
         outline: none;
-        border: 2px solid rgba(0, 0, 0, 0.5);
-        border-radius: 5px;
+        border: 2px solid rgb(180, 180, 180);
+        border-radius: 4px;
         background-color: rgba(255, 255, 255, 0.3);
-        color: rgb(42, 42, 42);
+        color: rgb(182, 182, 182);
     }
 
     //INVITER
@@ -355,6 +355,7 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.3);
+
     #removeConfirmationContainerComment {
         display: flex;
         flex-direction: column;
@@ -418,6 +419,7 @@
             margin-left: 15px;
         }
         textarea {
+            font-family: "Montserrat", sans-serif;
             resize: none;
             min-height: 50px;
             width: 50%;
