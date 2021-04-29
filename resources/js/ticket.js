@@ -76,29 +76,34 @@ for (const ticket of ADDTICKETDIV) {
         });
     });
 }
-const DIVTICKET = document.getElementsByClassName("boxTicket");
+let DIVTICKET = document.getElementsByClassName("boxTicket");
 
-for (const ticket of DIVTICKET) {
-    const titleTicket = ticket.querySelector(".ticket");
-    let btnSupp = ticket.querySelector("#removeTicket");
-    let titleTicketInTicket = ticket.querySelector(".titleTicketTop");
+for (const tick of DIVTICKET) {
+    const titleTicket = tick.querySelector(".ticket");
+    let btnSupp = tick.querySelector("#removeTicket");
+    let titleTicketInTicket = tick.querySelector(".titleTicketTop");
 
-    let divModalTicket = ticket.querySelector("#modalContainerTicket");
+    let divModalTicket = tick.querySelector("#modalContainerTicket");
 
-    let cancelRemoveTicket = ticket.querySelector("#cancelRemoveTicket");
+    let cancelRemoveTicket = tick.querySelector("#cancelRemoveTicket");
 
     btnSupp.addEventListener("click", function(e) {
         divModalTicket.style.display = "block";
         commentModal.style.display = "none";
+        for (const e of DIVTICKET) {
+            e.draggable = true;
+            console.log(e);
+        }
     });
 
     cancelRemoveTicket.addEventListener("click", function(e) {
         divModalTicket.style.display = "none";
+        location.reload();
     });
 
-    let commentModal = ticket.querySelector("#modalContainerComment");
-    let cancelComment = ticket.querySelector(".cancelComment");
-    let addComment = ticket.querySelector(".addComment");
+    let commentModal = tick.querySelector("#modalContainerComment");
+    let cancelComment = tick.querySelector(".cancelComment");
+    let addComment = tick.querySelector(".addComment");
     commentModal.style.display = "none";
 
     let b = document.createElement("button");
@@ -106,6 +111,7 @@ for (const ticket of DIVTICKET) {
     b.style.backgroundColor = board.color;
     addComment.addEventListener("click", function(e) {
         addComment.style.borderColor = board.color;
+
         b.innerText = "Valider";
         addComment.insertAdjacentElement("afterend", b);
         b.style.display = "block";
@@ -113,6 +119,7 @@ for (const ticket of DIVTICKET) {
 
     b.addEventListener("click", async function(e) {
         b.style.display = "none";
+        addComment.style.border = "2px solid rgba(0, 0, 0, 0.2)";
 
         let url = addComment.getAttribute("data_url");
         let token = document
@@ -137,6 +144,11 @@ for (const ticket of DIVTICKET) {
             try {
                 const response = await fetch(url, options);
                 addComment.value = "";
+                location.reload();
+                for (const e of DIVTICKET) {
+                    e.draggable = false;
+                    console.log(e);
+                }
             } catch (error) {
                 console.log(error);
             }
@@ -146,6 +158,10 @@ for (const ticket of DIVTICKET) {
     });
 
     titleTicket.addEventListener("click", function(e) {
+        let DIVTICKET = document.getElementsByClassName("boxTicket");
+        for (const e of DIVTICKET) {
+            e.draggable = false;
+        }
         commentModal.style.display = "block";
         titleTicketInTicket.style.backgroundColor = board.color;
         cancelComment.style.backgroundColor = board.color;
@@ -154,19 +170,23 @@ for (const ticket of DIVTICKET) {
     cancelComment.addEventListener("click", function(e) {
         e.stopPropagation();
         commentModal.style.display = "none";
+        location.reload();
     });
 
-    let hTitleTicket = ticket.querySelector(".titleTicket");
-    let id = ticket.querySelector(".id");
+    let hTitleTicket = tick.querySelector(".titleTicket");
+    let id = tick.querySelector(".id");
     id = id.value;
 
     hTitleTicket.addEventListener("click", function(e) {
         let input = document.createElement("input");
         hTitleTicket.insertAdjacentElement("beforebegin", input);
         input.id = "updateTitleTicket";
+        let task_name = tick.querySelector(".ticket").innerText;
+        input.value = task_name;
         input.select();
-        hTitleTicket.classList.add("displayNone");
 
+        console.log(task_name);
+        hTitleTicket.classList.add("displayNone");
         input.addEventListener("keydown", async function(e) {
             if (e.key === "Enter") {
                 let url = hTitleTicket.getAttribute("data_url");

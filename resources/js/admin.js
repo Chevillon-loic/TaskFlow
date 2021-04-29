@@ -29,4 +29,12 @@ let adminProfilTeam = document.getElementById("adminProfilTeam")
 adminProfilTeam.addEventListener("click", function(e){
     alert("Pas encore disponible")
 })
+/////////////////////////////////////
+let btnAdd = document.getElementById('test1')
+let boxAdd = document.getElementById('boxAdd')
+let backAdd = document.getElementById('backAdd')
 
+btnAdd.addEventListener('click', function(e){
+    alert('test')
+
+})

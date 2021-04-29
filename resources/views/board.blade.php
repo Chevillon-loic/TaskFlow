@@ -150,19 +150,18 @@
                                                 </div> --}}
                                                 <div class="titleTicketTop">
                                                     <div class="titleLeft">
+                                                        <button id="removeTicket">Supprimer</button>
                                                         <h3 class="titleTicket"
                                                             data_url="{{ route('ticket.updatetitle', [$ticket->id]) }}">
                                                             {{ $ticket->task }}</h3>
-                                                        <button id="removeTicket">Supprimer</button>
 
+                                                            <button class="cancelComment">X</button>
                                                     </div>
-                                                    <button class="cancelComment">X</button>
                                                 </div>
-                                                <div class="titleColumnTop">
-                                                </div>
+
 
                                                 <div id="containerComment">
-                                                    <div style="display: flex" style="flex-direction: column">
+                                                    <div>
                                                         <textarea name=""
                                                             data_url="{{ route('comment.store', [$ticket->id]) }}"
                                                             id="addComment" class="addComment" cols="30" rows="3"

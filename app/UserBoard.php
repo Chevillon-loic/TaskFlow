@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Guest extends Model
+class UserBoard extends Model
 {
     public function user()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class);
     }
     public function board()
     {
-        return $this->belongsToMany(Board::class);
+        return $this->belongsTo(Board::class);
     }
 }

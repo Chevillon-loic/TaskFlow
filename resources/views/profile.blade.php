@@ -40,6 +40,11 @@
                         Déconnexion
                     </a>
 
+                    <!-- Temporaire buttin accès pannel -->
+                    <div id="accessPannel">
+                        <a id="btnPannel" href="{{ route('admin.index') }}">Pannel Admin</a>
+                    </div>
+
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
@@ -96,6 +101,7 @@
                                 Modifier
                             </button>
                         </div>
+
 
                     </form>
                 </div>
