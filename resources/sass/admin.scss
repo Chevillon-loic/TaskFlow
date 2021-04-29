@@ -1,7 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
 // Variables
 @import "variables";
+body {
+    font-family: "Roboto", sans-serif;
+}
 
 .containerAdmin {
     background: #ffffff;
@@ -15,15 +17,16 @@
             padding: 20px;
 
             a {
-                color: $secondary;
+                color: #2c3844;
+                background-color: white;
                 text-decoration: none;
                 width: 100px;
-                border: 1px solid $secondary;
+                border: 1px solid #2c3844;
                 border-radius: 5px;
                 padding: 7px;
                 &:hover {
                     color: white;
-                    background-color: $secondary;
+                    background-color: #2c3844;
                 }
             }
         }
@@ -31,13 +34,18 @@
     h3 {
         display: flex;
         justify-content: center;
-        padding-top: 40px;
-        padding-left: 40px;
+        margin: auto;
+        padding: 20px;
+        margin-top: 50px;
+        margin-bottom: 50px;
         font-weight: 600;
+        width: 50%;
         font-size: 35px;
         line-height: 17px;
         letter-spacing: 0.05em;
-        color: $primary;
+        border-radius: 4px;
+        box-shadow: 0 0 5px 2px #242e38;
+        color: #2c3844;
     }
 }
 .contentAdmin {
@@ -57,8 +65,10 @@
         width: 420px;
         height: 200px;
         cursor: pointer;
+        text-decoration: none;
 
         p {
+            color: black;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -91,12 +101,6 @@
     }
 }
 
-// ! Les modals
-
-.displayNone {
-    display: none;
-}
-
 #modalUsers,
 #modalBoards {
     position: fixed; /* Stay in place */
@@ -111,11 +115,13 @@
 
     #modalContentBoards,
     #modalContentUsers {
+        overflow: scroll;
+
         background-color: white;
         margin: auto;
         padding: 48px 28px 28px 28px;
         width: 90%;
-        height: 400px;
+        height: 500px;
         border-radius: 4px;
         -webkit-animation-name: animatetop;
         -webkit-animation-duration: 0.4s;
@@ -136,8 +142,10 @@
     }
 }
 
-#tableUsers {
+#tableUsers,
+#tableBoards {
     overflow: scroll;
+    overflow: hidden;
     table {
         display: flex;
         flex-wrap: wrap;
@@ -193,16 +201,76 @@
         padding: 10px;
         box-shadow: 0 0 5px 1px #242e38;
     }
-    button {
+    a {
         background-color: white;
-        border: 1px solid $secondary;
+        padding: 7px;
+        text-decoration: none;
+        border: 1px solid #2c3844;
         border-radius: 5px;
-        color: $secondary;
+        color: #242e38;
+        height: 20px;
         cursor: pointer;
         &:hover {
-            background-color: $secondary;
+            background-color: #2c3844;
             color: white;
             transform: scale(1.1);
         }
+    }
+}
+
+#btnModif {
+    padding: 5px;
+    color: white;
+    border: none;
+    border: 1px solid white;
+    background-color: transparent;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    &:hover {
+        color: white;
+        background-color: orange;
+        border: 1px solid orange;
+    }
+}
+
+#btnDelete {
+    margin: 5px;
+    padding: 5px;
+    color: white;
+    border: none;
+    border: 1px solid white;
+    background-color: transparent;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    &:hover {
+        color: white;
+        background-color: red;
+        border: 1px solid red;
+    }
+}
+#boxAdd {
+    padding: 5px;
+    margin-top: 10px;
+    box-shadow: 0 0 5px 2px black;
+    table {
+        margin: auto;
+    }
+}
+#btnValidate {
+    padding: 5px;
+    width: 100px;
+    color: #242e38;
+    border: none;
+    border: 1px solid #2c3844;
+    background-color: transparent;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    &:hover {
+        color: white;
+        background-color: green;
+        border: 1px solid green;
     }
 }
