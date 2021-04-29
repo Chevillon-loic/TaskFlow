@@ -14,18 +14,21 @@
 <!-- Modale des Tableaux-->
 <div id="modalBoards"   >
     <div id="modalContentBoards">
+        <div id="headerBox">
+        <div>
+            <p>Gestion des tableaux</p>
+        </div>
         <div class="modalButtons">
-            <a href="{{route('admin.index')  }}">Retour</a>
-         </div>
+           <a href="{{route('admin.index')  }}">Retour</a>
+        </div>
+        </div>
 
-        <p>Gestion des tableaux</p>
         <div id="tableUsers">
         <table>
             <tr>
 
                 <th>ID</th>
                 <th>Owner</th>
-                <th>Guest</th>
                 <th>Label</th>
                 <th>Color</th>
                 <th>Date de création</th>
@@ -38,13 +41,12 @@
 
                 <td>{{ $board->id }}</td>
                 <td>{{ $board->owner_id }}</td>
-                <td>{{ $board->guest_id }}</td>
                 <td>{{ $board->label }}</td>
                 <td>{{ $board->color }}</td>
                 <td>{{ $board->created_at }}</td>
                 <td>{{ $board->updated_at }}</td>
-                <td><button>Modifier</button></td>
-               <td> <button>Supprimer</button></td>
+                <td ><button id="btnModif">Modifier</button></td>
+               <td> <button id="btnDelete">Supprimer</button></td>
 
             </tr>
         @endforeach

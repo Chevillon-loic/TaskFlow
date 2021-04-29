@@ -46,12 +46,12 @@
                 <td><input value="{{ $user->email}}" name="email"  type="text"></td>
                 <td>{{ $user->created_at }}</td>
                 <td>{{ $user->updated_at }}</td>
-                <td id="btnValidate"><button>Modifier</button></td>
+                <td class="displayNone" > <button id="btnModif">Modifier</button></td>
             </form>
             <form action="{{ route('admin.destroy') }}" method="POST">
                 @method('delete')
                 @csrf
-              <td>  <button>Supprimer</button></td>
+              <td class="displayNone">  <button id="btnDelete">Supprimer</button></td>
             </form>
                 </tr>
 

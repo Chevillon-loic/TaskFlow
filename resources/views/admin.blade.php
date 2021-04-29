@@ -26,8 +26,8 @@
 
           <!-- Boite des Utilisateurs -->
 
-          <a href="{{ route('admin.users') }}"><div class="boxAdmin" id="adminProfilsUsers">
-            <p>Nombre d'utilisateurs : {{ $numberUsers }}</p>
+          <a style="text-decoration: none" href="{{ route('admin.users') }}"><div class="boxAdmin" id="adminProfilsUsers">
+            <p>Nombre d'utilisateurs : #{{ $numberUsers }}</p>
         </div></a>
 
           {{-- <!-- Boite des Administrateurs -->
@@ -36,8 +36,8 @@
           </div> --}}
 
           <!-- Boite des Tableaux -->
-          <a href="{{ route('admin.boards') }}"><div class="boxAdmin" id="adminAllBoards">
-            <p>Nombre tableaux : {{ $numberBoards }}</p>
+          <a style="text-decoration: none" href="{{ route('admin.boards') }}"><div class="boxAdmin" id="adminAllBoards">
+            <p>Nombre tableaux : #{{ $numberBoards }}</p>
         </div></a>
 
 

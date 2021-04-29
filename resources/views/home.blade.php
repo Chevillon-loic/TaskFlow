@@ -93,8 +93,6 @@
             </div>
 
         </div>
-        <div id="accessPannel">
-            <a id="btnPannel" href="{{ route('admin.index') }}">Accès Pannel Admin</a>
-        </div>
+
     </div>
 @endsection
