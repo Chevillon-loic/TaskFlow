@@ -17,16 +17,26 @@
             <h2 id="titleTab" data_url="{{ route('board.update', [$board->id]) }}">
                 {{ $board->label }}</h2>
 
-            {{-- Invite user --}}
-            <div class="containerInviteDelete">
-                <div id="inviteContainer">
-                    <button id="invite">Inviter</button>
+            @if ($board->owner_id == $user->id)
+                {{-- Invite user --}}
+                <div class="containerInviteDelete">
+                    <div id="inviteContainer">
+                        <button id="invite">Inviter</button>
+                    </div>
+
+                    {{-- Supprimer le tableau --}}
+                    <button id="deleteTab">Supprimer le tableau</button>
                 </div>
+            @else
+                <div class="containerInviteDelete" style="display: none">
+                    <div id="inviteContainer">
+                        <button id="invite">Inviter</button>
+                    </div>
 
-                {{-- Supprimer le tableau --}}
-
-                <button id="deleteTab">Supprimer le tableau</button>
-            </div>
+                    {{-- Supprimer le tableau --}}
+                    <button id="deleteTab">Supprimer le tableau</button>
+                </div>
+            @endif
         </div>
 
         {{-- Modal tableau --}}
@@ -92,8 +102,14 @@
                                             id="span_data_url"></span>
 
                                         <div class="ticket">
-                                            {{ $ticket->task }}
-
+                                            <div class="taskTicket">
+                                                {{ $ticket->task }}
+                                                <img src="{{ asset('images/trash.png') }}" alt="">
+                                            </div>
+                                            <div class="cxlTicket">
+                                                <button id="removeTicket"> <img src="{{ asset('images/trash.png') }}"
+                                                        alt=""> </button>
+                                            </div>
                                         </div>
 
 
@@ -150,12 +166,11 @@
                                                 </div> --}}
                                                 <div class="titleTicketTop">
                                                     <div class="titleLeft">
-                                                        <button id="removeTicket">Supprimer</button>
                                                         <h3 class="titleTicket"
                                                             data_url="{{ route('ticket.updatetitle', [$ticket->id]) }}">
                                                             {{ $ticket->task }}</h3>
 
-                                                            <button class="cancelComment">X</button>
+                                                        <button class="cancelComment">X</button>
                                                     </div>
                                                 </div>
 
@@ -176,15 +191,14 @@
                                                                         src="{{ $user->picture }}" alt="picture">
 
                                                                     <div class="contentComment">
-                                                                        <span>{{ $user->last_name }}
-                                                                            {{ $user->first_name }}</span><br>
+                                                                        <span>{{ $comment->user->last_name }}
+                                                                            {{ $comment->user->first_name }}</span><br>
                                                                         <p>{{ $comment->description }}</p>
                                                                     </div>
 
                                                                 </div>
 
                                                             @endif
-
 
                                                         @endforeach
                                                     </div>
@@ -212,7 +226,6 @@
         </div>
     </div>
 @endsection
-
 
 <script>
     let tickets = @json($tickets);

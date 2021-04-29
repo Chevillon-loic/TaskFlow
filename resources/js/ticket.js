@@ -7,6 +7,7 @@ for (const ticket of ADDTICKETDIV) {
     let id = t[0].value;
     let btnAdd = ticket.getElementsByTagName("button");
 
+    // Listener ajout Ticket
     btnAdd[0].addEventListener("click", function(e) {
         let input = document.createElement("input");
         let btn = document.createElement("button");
@@ -27,6 +28,7 @@ for (const ticket of ADDTICKETDIV) {
         input.id = "inputAddTicket";
         input.style.borderColor = board.color;
 
+        // listener close d'ajout de ticket
         close.addEventListener("click", function(e) {
             input.remove();
             btn.remove();
@@ -34,6 +36,7 @@ for (const ticket of ADDTICKETDIV) {
             btnAdd[0].style.display = "initial";
         });
 
+        // Listener ajout de ticket en BDD en fetch
         btn.addEventListener("click", async function(e) {
             let url = document.location.origin + "/ticket/store/" + board.id;
             let token = document
@@ -79,7 +82,7 @@ for (const ticket of ADDTICKETDIV) {
 let DIVTICKET = document.getElementsByClassName("boxTicket");
 
 for (const tick of DIVTICKET) {
-    const titleTicket = tick.querySelector(".ticket");
+    const titleTicket = tick.querySelector(".taskTicket");
     let btnSupp = tick.querySelector("#removeTicket");
     let titleTicketInTicket = tick.querySelector(".titleTicketTop");
 
@@ -87,15 +90,17 @@ for (const tick of DIVTICKET) {
 
     let cancelRemoveTicket = tick.querySelector("#cancelRemoveTicket");
 
+    // Supprimer le ticket en BDD
     btnSupp.addEventListener("click", function(e) {
         divModalTicket.style.display = "block";
         commentModal.style.display = "none";
         for (const e of DIVTICKET) {
             e.draggable = true;
-            console.log(e);
+            //console.log(e);
         }
     });
 
+    // Confirmation pour femrer le modal comment
     cancelRemoveTicket.addEventListener("click", function(e) {
         divModalTicket.style.display = "none";
         location.reload();
@@ -105,18 +110,19 @@ for (const tick of DIVTICKET) {
     let cancelComment = tick.querySelector(".cancelComment");
     let addComment = tick.querySelector(".addComment");
     commentModal.style.display = "none";
-
     let b = document.createElement("button");
     b.id = "btnAddComment";
     b.style.backgroundColor = board.color;
+
+    // TextArea Comment
     addComment.addEventListener("click", function(e) {
         addComment.style.borderColor = board.color;
-
         b.innerText = "Valider";
         addComment.insertAdjacentElement("afterend", b);
         b.style.display = "block";
     });
 
+    // Ajout comment en BDD
     b.addEventListener("click", async function(e) {
         b.style.display = "none";
         addComment.style.border = "2px solid rgba(0, 0, 0, 0.2)";
@@ -147,7 +153,7 @@ for (const tick of DIVTICKET) {
                 location.reload();
                 for (const e of DIVTICKET) {
                     e.draggable = false;
-                    console.log(e);
+                    //console.log(e);
                 }
             } catch (error) {
                 console.log(error);
@@ -159,6 +165,7 @@ for (const tick of DIVTICKET) {
 
     titleTicket.addEventListener("click", function(e) {
         let DIVTICKET = document.getElementsByClassName("boxTicket");
+        // Drag and drop a false
         for (const e of DIVTICKET) {
             e.draggable = false;
         }
@@ -167,6 +174,7 @@ for (const tick of DIVTICKET) {
         cancelComment.style.backgroundColor = board.color;
     });
 
+    // fermer le modal comments
     cancelComment.addEventListener("click", function(e) {
         e.stopPropagation();
         commentModal.style.display = "none";
@@ -177,6 +185,7 @@ for (const tick of DIVTICKET) {
     let id = tick.querySelector(".id");
     id = id.value;
 
+    // modification titre ticket
     hTitleTicket.addEventListener("click", function(e) {
         let input = document.createElement("input");
         hTitleTicket.insertAdjacentElement("beforebegin", input);
@@ -185,7 +194,7 @@ for (const tick of DIVTICKET) {
         input.value = task_name;
         input.select();
 
-        console.log(task_name);
+        //console.log(task_name);
         hTitleTicket.classList.add("displayNone");
         input.addEventListener("keydown", async function(e) {
             if (e.key === "Enter") {
@@ -217,5 +226,35 @@ for (const tick of DIVTICKET) {
                 }
             }
         });
+    });
+}
+
+//Bouton supprimer on hover
+let taskTicket = document.querySelectorAll(".taskTicket");
+let cxlTicket = document.querySelectorAll(".cxlTicket");
+
+for (const ticket of taskTicket) {
+    let cxlTicket = ticket.querySelector("img");
+    cxlTicket.style.opacity = 0;
+    ticket.addEventListener("mouseover", e => {
+        cxlTicket.style.transition = "0.3s";
+        cxlTicket.style.opacity = 1;
+    });
+    ticket.addEventListener("mouseout", e => {
+        cxlTicket.style.transition = "0.3s";
+        cxlTicket.style.opacity = 0;
+    });
+}
+
+for (const ticket of cxlTicket) {
+    let cxlTicket = ticket.parentNode.querySelector(".taskTicket img");
+    cxlTicket.style.opacity = 0;
+    ticket.addEventListener("mouseover", e => {
+        cxlTicket.style.transition = "0.3s";
+        cxlTicket.style.opacity = 1;
+    });
+    ticket.addEventListener("mouseout", e => {
+        cxlTicket.style.transition = "0.3s";
+        cxlTicket.style.opacity = 0;
     });
 }

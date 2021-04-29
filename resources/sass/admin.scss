@@ -2,7 +2,7 @@
 // Variables
 @import "variables";
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 .containerAdmin {
@@ -77,7 +77,6 @@ body {
             height: 40px;
             background-color: rgba(255, 255, 255);
             border-radius: 5px;
-            box-shadow: 0px 0px 8px 1px rgba(0, 0, 0);
             &:hover {
                 transform: scale(1.05);
             }
@@ -127,7 +126,7 @@ body {
         animation-name: animatetop;
         animation-duration: 0.4s;
         text-align: center;
-        .modalButtons {
+        .backButton {
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
@@ -154,21 +153,25 @@ body {
             font-size: 15px;
 
             th {
-                color: white;
+                font-family: "Montserrat", sans-serif;
+                font-weight: 600;
+                color: $primary;
+                background-color: rgb(252, 252, 252);
                 padding: 10px;
-                background-color: #202832;
             }
             td {
+                font-family: "Montserrat", sans-serif;
                 height: 50px;
-                color: white;
+                color: black;
                 min-width: 80px;
 
                 input {
-                    min-width: 250px;
+                    font-family: "Montserrat", sans-serif;
+                    min-width: 100px;
                     font-size: 15px;
                     margin: 7px;
                     height: 48px;
-                    color: white;
+                    color: black;
                     background-color: transparent;
                     border: none;
                     outline: none;
@@ -179,28 +182,33 @@ body {
             }
         }
         tr:nth-child(even) td {
-            background-color: #242e38;
+            font-family: "Montserrat", sans-serif;
+            color: black;
+            background-color: rgb(252, 252, 252);
         }
         tr:nth-child(odd) td {
-            background-color: #2c3844;
+            font-family: "Montserrat", sans-serif;
+            color: black;
+            background-color: rgb(252, 252, 252);
         }
     }
 }
 #headerBox {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
 
     p {
         font-size: 25px;
         font-weight: 600;
-        color: #2c3844;
+        color: $secondary;
         border-radius: 4px;
-        padding: 10px;
-        box-shadow: 0 0 5px 1px #242e38;
+        //padding: 10px;
     }
     a {
         background-color: white;
+        //margin-left: 400px;
         padding: 7px;
         text-decoration: none;
         border: 1px solid #2c3844;
@@ -221,10 +229,11 @@ body {
     color: white;
     border: none;
     border: 1px solid white;
-    background-color: transparent;
+    background-color: $secondary;
     font-size: 15px;
     cursor: pointer;
     border-radius: 4px;
+    width: 80px;
     &:hover {
         color: white;
         background-color: orange;
@@ -238,7 +247,7 @@ body {
     color: white;
     border: none;
     border: 1px solid white;
-    background-color: transparent;
+    background-color: $primary;
     font-size: 15px;
     cursor: pointer;
     border-radius: 4px;
@@ -248,27 +257,34 @@ body {
         border: 1px solid red;
     }
 }
+
 #boxAdd {
+    width: 100%;
     padding: 5px;
     margin-top: 10px;
-    box-shadow: 0 0 5px 2px black;
+
     table {
+        width: 90%;
         margin: auto;
+        input {
+            width: 200px;
+        }
     }
-}
-#btnValidate {
-    padding: 5px;
-    width: 100px;
-    color: #242e38;
-    border: none;
-    border: 1px solid #2c3844;
-    background-color: transparent;
-    font-size: 15px;
-    cursor: pointer;
-    border-radius: 4px;
-    &:hover {
-        color: white;
-        background-color: green;
-        border: 1px solid green;
+    #btnValidate {
+        margin-left: 100px;
+        padding: 5px;
+        width: 100px;
+        color: #242e38;
+        border: none;
+        border: 1px solid #2c3844;
+        background-color: transparent;
+        font-size: 15px;
+        cursor: pointer;
+        border-radius: 4px;
+        &:hover {
+            color: white;
+            background-color: green;
+            border: 1px solid green;
+        }
     }
 }

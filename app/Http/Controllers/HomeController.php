@@ -27,9 +27,13 @@ class HomeController extends Controller
         //$boards = Board::all();
         //$boards = $board->user()->withPivot('');
         //$boards = UserBoard::select(['id', 'label', 'color'])->where('user_id', \Auth::user()->id)->get();
-        return view("home", [
 
-            'boards' => $boards
+        $guestBoardsId = UserBoard::where('user_id', \Auth::user()->id)->get('board_id');
+
+        $guestBoards = Board::find($guestBoardsId)->all();
+        return view("home", [
+            'boards' => $boards,
+            'guestBoards' => $guestBoards
         ]);
     }
 

@@ -892,7 +892,8 @@ try {
     var ticket = _step.value;
     var t = ticket.getElementsByTagName("input");
     var id = t[0].value;
-    var btnAdd = ticket.getElementsByTagName("button");
+    var btnAdd = ticket.getElementsByTagName("button"); // Listener ajout Ticket
+
     btnAdd[0].addEventListener("click", function (e) {
       var input = document.createElement("input");
       var btn = document.createElement("button");
@@ -909,13 +910,15 @@ try {
       input.select();
       input.placeholder = "Titre du ticket...";
       input.id = "inputAddTicket";
-      input.style.borderColor = board.color;
+      input.style.borderColor = board.color; // listener close d'ajout de ticket
+
       close.addEventListener("click", function (e) {
         input.remove();
         btn.remove();
         close.remove();
         btnAdd[0].style.display = "initial";
-      });
+      }); // Listener ajout de ticket en BDD en fetch
+
       btn.addEventListener("click", /*#__PURE__*/function () {
         var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
           var url, token, task, body, options, response;
@@ -1005,30 +1008,31 @@ var _iterator2 = _createForOfIteratorHelper(DIVTICKET),
 try {
   var _loop2 = function _loop2() {
     var tick = _step2.value;
-    var titleTicket = tick.querySelector(".ticket");
+    var titleTicket = tick.querySelector(".taskTicket");
     var btnSupp = tick.querySelector("#removeTicket");
     var titleTicketInTicket = tick.querySelector(".titleTicketTop");
     var divModalTicket = tick.querySelector("#modalContainerTicket");
-    var cancelRemoveTicket = tick.querySelector("#cancelRemoveTicket");
+    var cancelRemoveTicket = tick.querySelector("#cancelRemoveTicket"); // Supprimer le ticket en BDD
+
     btnSupp.addEventListener("click", function (e) {
       divModalTicket.style.display = "block";
       commentModal.style.display = "none";
 
-      var _iterator3 = _createForOfIteratorHelper(DIVTICKET),
-          _step3;
+      var _iterator5 = _createForOfIteratorHelper(DIVTICKET),
+          _step5;
 
       try {
-        for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-          var _e = _step3.value;
-          _e.draggable = true;
-          console.log(_e);
+        for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+          var _e = _step5.value;
+          _e.draggable = true; //console.log(e);
         }
       } catch (err) {
-        _iterator3.e(err);
+        _iterator5.e(err);
       } finally {
-        _iterator3.f();
+        _iterator5.f();
       }
-    });
+    }); // Confirmation pour femrer le modal comment
+
     cancelRemoveTicket.addEventListener("click", function (e) {
       divModalTicket.style.display = "none";
       location.reload();
@@ -1039,16 +1043,18 @@ try {
     commentModal.style.display = "none";
     var b = document.createElement("button");
     b.id = "btnAddComment";
-    b.style.backgroundColor = board.color;
+    b.style.backgroundColor = board.color; // TextArea Comment
+
     addComment.addEventListener("click", function (e) {
       addComment.style.borderColor = board.color;
       b.innerText = "Valider";
       addComment.insertAdjacentElement("afterend", b);
       b.style.display = "block";
-    });
+    }); // Ajout comment en BDD
+
     b.addEventListener("click", /*#__PURE__*/function () {
       var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
-        var url, token, comment, body, options, response, _iterator4, _step4, _e2;
+        var url, token, comment, body, options, response, _iterator6, _step6, _e2;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
@@ -1085,18 +1091,17 @@ try {
                 response = _context2.sent;
                 addComment.value = "";
                 location.reload();
-                _iterator4 = _createForOfIteratorHelper(DIVTICKET);
+                _iterator6 = _createForOfIteratorHelper(DIVTICKET);
 
                 try {
-                  for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
-                    _e2 = _step4.value;
-                    _e2.draggable = false;
-                    console.log(_e2);
+                  for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+                    _e2 = _step6.value;
+                    _e2.draggable = false; //console.log(e);
                   }
                 } catch (err) {
-                  _iterator4.e(err);
+                  _iterator6.e(err);
                 } finally {
-                  _iterator4.f();
+                  _iterator6.f();
                 }
 
                 _context2.next = 21;
@@ -1127,26 +1132,27 @@ try {
       };
     }());
     titleTicket.addEventListener("click", function (e) {
-      var DIVTICKET = document.getElementsByClassName("boxTicket");
+      var DIVTICKET = document.getElementsByClassName("boxTicket"); // Drag and drop a false
 
-      var _iterator5 = _createForOfIteratorHelper(DIVTICKET),
-          _step5;
+      var _iterator7 = _createForOfIteratorHelper(DIVTICKET),
+          _step7;
 
       try {
-        for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
-          var _e3 = _step5.value;
+        for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
+          var _e3 = _step7.value;
           _e3.draggable = false;
         }
       } catch (err) {
-        _iterator5.e(err);
+        _iterator7.e(err);
       } finally {
-        _iterator5.f();
+        _iterator7.f();
       }
 
       commentModal.style.display = "block";
       titleTicketInTicket.style.backgroundColor = board.color;
       cancelComment.style.backgroundColor = board.color;
-    });
+    }); // fermer le modal comments
+
     cancelComment.addEventListener("click", function (e) {
       e.stopPropagation();
       commentModal.style.display = "none";
@@ -1154,15 +1160,16 @@ try {
     });
     var hTitleTicket = tick.querySelector(".titleTicket");
     var id = tick.querySelector(".id");
-    id = id.value;
+    id = id.value; // modification titre ticket
+
     hTitleTicket.addEventListener("click", function (e) {
       var input = document.createElement("input");
       hTitleTicket.insertAdjacentElement("beforebegin", input);
       input.id = "updateTitleTicket";
       var task_name = tick.querySelector(".ticket").innerText;
       input.value = task_name;
-      input.select();
-      console.log(task_name);
+      input.select(); //console.log(task_name);
+
       hTitleTicket.classList.add("displayNone");
       input.addEventListener("keydown", /*#__PURE__*/function () {
         var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(e) {
@@ -1224,11 +1231,69 @@ try {
 
   for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
     _loop2();
-  }
+  } //Bouton supprimer on hover
+
 } catch (err) {
   _iterator2.e(err);
 } finally {
   _iterator2.f();
+}
+
+var taskTicket = document.querySelectorAll(".taskTicket");
+var cxlTicket = document.querySelectorAll(".cxlTicket");
+
+var _iterator3 = _createForOfIteratorHelper(taskTicket),
+    _step3;
+
+try {
+  var _loop3 = function _loop3() {
+    var ticket = _step3.value;
+    var cxlTicket = ticket.querySelector("img");
+    cxlTicket.style.opacity = 0;
+    ticket.addEventListener("mouseover", function (e) {
+      cxlTicket.style.transition = "0.3s";
+      cxlTicket.style.opacity = 1;
+    });
+    ticket.addEventListener("mouseout", function (e) {
+      cxlTicket.style.transition = "0.3s";
+      cxlTicket.style.opacity = 0;
+    });
+  };
+
+  for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+    _loop3();
+  }
+} catch (err) {
+  _iterator3.e(err);
+} finally {
+  _iterator3.f();
+}
+
+var _iterator4 = _createForOfIteratorHelper(cxlTicket),
+    _step4;
+
+try {
+  var _loop4 = function _loop4() {
+    var ticket = _step4.value;
+    var cxlTicket = ticket.parentNode.querySelector(".taskTicket img");
+    cxlTicket.style.opacity = 0;
+    ticket.addEventListener("mouseover", function (e) {
+      cxlTicket.style.transition = "0.3s";
+      cxlTicket.style.opacity = 1;
+    });
+    ticket.addEventListener("mouseout", function (e) {
+      cxlTicket.style.transition = "0.3s";
+      cxlTicket.style.opacity = 0;
+    });
+  };
+
+  for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+    _loop4();
+  }
+} catch (err) {
+  _iterator4.e(err);
+} finally {
+  _iterator4.f();
 }
 
 /***/ }),
