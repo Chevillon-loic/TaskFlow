@@ -150,13 +150,13 @@
                                                 </div> --}}
                                                 <div class="titleTicketTop">
                                                     <div class="titleLeft">
+                                                        <button id="removeTicket">Supprimer</button>
                                                         <h3 class="titleTicket"
                                                             data_url="{{ route('ticket.updatetitle', [$ticket->id]) }}">
                                                             {{ $ticket->task }}</h3>
-                                                        <button id="removeTicket">Supprimer</button>
 
+                                                            <button class="cancelComment">X</button>
                                                     </div>
-                                                    <button class="cancelComment">X</button>
                                                 </div>
                                                 <div class="titleColumnTop">
                                                 </div>

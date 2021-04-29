@@ -365,14 +365,17 @@
         border-radius: 4px;
         overflow: auto;
         .titleTicketTop {
-            display: flex;
-            justify-content: space-between;
-
             .titleLeft {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 color: white;
                 margin-left: 15px;
+                margin-right: 15px;
+                height: 70px;
                 .titleTicket {
-                    margin: 15px 0 5px;
+                    font-size: 20px;
+                    font-weight: 500;
                 }
                 #updateTitleTicket {
                     padding: 5px;
@@ -380,17 +383,16 @@
                     border: none;
                     border-radius: 5px;
                     background-color: rgba(255, 255, 255, 0.3);
-                    font-size: 1rem;
-                    font-weight: 700;
                     color: white;
-                    margin-top: 15px;
+                    text-align: center;
+                    font-size: 20px;
+                    font-weight: 500;
                 }
                 #removeTicket {
                     background-color: rgba(255, 255, 255, 0.5);
                     border: none;
                     border-radius: 5px;
                     padding: 7px;
-                    margin: 0 0 10px;
                     cursor: pointer;
                     color: white;
                     font-size: 1rem;
@@ -422,6 +424,7 @@
             min-height: 50px;
             width: 50%;
             outline: none;
+            font-family: "Montserrat", sans-serif;
         }
         #addComment {
             margin-top: 10px;
@@ -430,6 +433,7 @@
             border: 2px solid rgba(0, 0, 0, 0.2);
             padding: 7px;
             height: 70px;
+            border-radius: 5px 5px 5px 5px;
         }
         #btnAddComment {
             margin-top: 10px;

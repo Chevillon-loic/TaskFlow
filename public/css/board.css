@@ -411,18 +411,19 @@
   overflow: auto;
 }
 
-#modalContainerComment #removeConfirmationContainerComment .titleTicketTop {
+#modalContainerComment #removeConfirmationContainerComment .titleTicketTop .titleLeft {
   display: flex;
   justify-content: space-between;
-}
-
-#modalContainerComment #removeConfirmationContainerComment .titleTicketTop .titleLeft {
+  align-items: center;
   color: white;
   margin-left: 15px;
+  margin-right: 15px;
+  height: 70px;
 }
 
 #modalContainerComment #removeConfirmationContainerComment .titleTicketTop .titleLeft .titleTicket {
-  margin: 15px 0 5px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 #modalContainerComment #removeConfirmationContainerComment .titleTicketTop .titleLeft #updateTitleTicket {
@@ -431,10 +432,10 @@
   border: none;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.3);
-  font-size: 1rem;
-  font-weight: 700;
   color: white;
-  margin-top: 15px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 #modalContainerComment #removeConfirmationContainerComment .titleTicketTop .titleLeft #removeTicket {
@@ -442,7 +443,6 @@
   border: none;
   border-radius: 5px;
   padding: 7px;
-  margin: 0 0 10px;
   cursor: pointer;
   color: white;
   font-size: 1rem;
@@ -476,6 +476,7 @@
   min-height: 50px;
   width: 50%;
   outline: none;
+  font-family: "Montserrat", sans-serif;
 }
 
 #modalContainerComment #removeConfirmationContainerComment #addComment {
@@ -485,6 +486,7 @@
   border: 2px solid rgba(0, 0, 0, 0.2);
   padding: 7px;
   height: 70px;
+  border-radius: 5px 5px 5px 5px;
 }
 
 #modalContainerComment #removeConfirmationContainerComment #btnAddComment {

@@ -874,7 +874,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e4) { throw _e4; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e5) { didErr = true; err = _e5; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
@@ -1004,40 +1004,60 @@ var _iterator2 = _createForOfIteratorHelper(DIVTICKET),
 
 try {
   var _loop2 = function _loop2() {
-    var ticket = _step2.value;
-    var titleTicket = ticket.querySelector(".ticket");
-    var btnSupp = ticket.querySelector("#removeTicket");
-    var titleTicketInTicket = ticket.querySelector(".titleTicketTop");
-    var divModalTicket = ticket.querySelector("#modalContainerTicket");
-    var cancelRemoveTicket = ticket.querySelector("#cancelRemoveTicket");
+    var tick = _step2.value;
+    var titleTicket = tick.querySelector(".ticket");
+    var btnSupp = tick.querySelector("#removeTicket");
+    var titleTicketInTicket = tick.querySelector(".titleTicketTop");
+    var divModalTicket = tick.querySelector("#modalContainerTicket");
+    var cancelRemoveTicket = tick.querySelector("#cancelRemoveTicket");
     btnSupp.addEventListener("click", function (e) {
       divModalTicket.style.display = "block";
       commentModal.style.display = "none";
+
+      var _iterator3 = _createForOfIteratorHelper(DIVTICKET),
+          _step3;
+
+      try {
+        for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+          var _e = _step3.value;
+          _e.draggable = true;
+          console.log(_e);
+        }
+      } catch (err) {
+        _iterator3.e(err);
+      } finally {
+        _iterator3.f();
+      }
     });
     cancelRemoveTicket.addEventListener("click", function (e) {
       divModalTicket.style.display = "none";
+      location.reload();
     });
-    var commentModal = ticket.querySelector("#modalContainerComment");
-    var cancelComment = ticket.querySelector(".cancelComment");
-    var addComment = ticket.querySelector(".addComment");
+    var commentModal = tick.querySelector("#modalContainerComment");
+    var cancelComment = tick.querySelector(".cancelComment");
+    var addComment = tick.querySelector(".addComment");
     commentModal.style.display = "none";
     var b = document.createElement("button");
     b.id = "btnAddComment";
     b.style.backgroundColor = board.color;
     addComment.addEventListener("click", function (e) {
       addComment.style.borderColor = board.color;
+      addComment.style.borderRadius = "5px 0 0 5px";
       b.innerText = "Valider";
       addComment.insertAdjacentElement("afterend", b);
       b.style.display = "block";
     });
     b.addEventListener("click", /*#__PURE__*/function () {
       var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
-        var url, token, comment, body, options, response;
+        var url, token, comment, body, options, response, _iterator4, _step4, _e2;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 b.style.display = "none";
+                addComment.style.border = "2px solid rgba(0, 0, 0, 0.2)";
+                addComment.style.borderRadius = "5px";
                 url = addComment.getAttribute("data_url");
                 token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
                 comment = addComment.value;
@@ -1055,38 +1075,53 @@ try {
                 };
 
                 if (!(comment.length > 2)) {
-                  _context2.next = 19;
+                  _context2.next = 24;
                   break;
                 }
 
-                _context2.prev = 7;
-                _context2.next = 10;
+                _context2.prev = 9;
+                _context2.next = 12;
                 return fetch(url, options);
 
-              case 10:
+              case 12:
                 response = _context2.sent;
                 addComment.value = "";
-                _context2.next = 17;
-                break;
+                location.reload();
+                _iterator4 = _createForOfIteratorHelper(DIVTICKET);
 
-              case 14:
-                _context2.prev = 14;
-                _context2.t0 = _context2["catch"](7);
-                console.log(_context2.t0);
+                try {
+                  for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+                    _e2 = _step4.value;
+                    _e2.draggable = false;
+                    console.log(_e2);
+                  }
+                } catch (err) {
+                  _iterator4.e(err);
+                } finally {
+                  _iterator4.f();
+                }
 
-              case 17:
-                _context2.next = 20;
+                _context2.next = 22;
                 break;
 
               case 19:
+                _context2.prev = 19;
+                _context2.t0 = _context2["catch"](9);
+                console.log(_context2.t0);
+
+              case 22:
+                _context2.next = 25;
+                break;
+
+              case 24:
                 addComment.value = "";
 
-              case 20:
+              case 25:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[7, 14]]);
+        }, _callee2, null, [[9, 19]]);
       }));
 
       return function (_x2) {
@@ -1094,6 +1129,22 @@ try {
       };
     }());
     titleTicket.addEventListener("click", function (e) {
+      var DIVTICKET = document.getElementsByClassName("boxTicket");
+
+      var _iterator5 = _createForOfIteratorHelper(DIVTICKET),
+          _step5;
+
+      try {
+        for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+          var _e3 = _step5.value;
+          _e3.draggable = false;
+        }
+      } catch (err) {
+        _iterator5.e(err);
+      } finally {
+        _iterator5.f();
+      }
+
       commentModal.style.display = "block";
       titleTicketInTicket.style.backgroundColor = board.color;
       cancelComment.style.backgroundColor = board.color;
@@ -1101,15 +1152,19 @@ try {
     cancelComment.addEventListener("click", function (e) {
       e.stopPropagation();
       commentModal.style.display = "none";
+      location.reload();
     });
-    var hTitleTicket = ticket.querySelector(".titleTicket");
-    var id = ticket.querySelector(".id");
+    var hTitleTicket = tick.querySelector(".titleTicket");
+    var id = tick.querySelector(".id");
     id = id.value;
     hTitleTicket.addEventListener("click", function (e) {
       var input = document.createElement("input");
       hTitleTicket.insertAdjacentElement("beforebegin", input);
       input.id = "updateTitleTicket";
+      var task_name = tick.querySelector(".ticket").innerText;
+      input.value = task_name;
       input.select();
+      console.log(task_name);
       hTitleTicket.classList.add("displayNone");
       input.addEventListener("keydown", /*#__PURE__*/function () {
         var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(e) {
