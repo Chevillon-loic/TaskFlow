@@ -286,6 +286,7 @@
   border-radius: 5px;
   margin-bottom: 5px;
   transition: 0.3s;
+  padding: 5px;
 }
 
 .mainContainer .columnContainer #btnAddTicket:hover {
@@ -609,12 +610,9 @@
 }
 
 .ticketContainer .ticketDropZone {
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
+  height: 0;
   padding: 5px 0;
   width: 100%;
-  margin: 5px 0;
 }
 
 .boxTicket {
