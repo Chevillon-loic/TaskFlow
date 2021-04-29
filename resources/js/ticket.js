@@ -111,7 +111,7 @@ for (const tick of DIVTICKET) {
     b.style.backgroundColor = board.color;
     addComment.addEventListener("click", function(e) {
         addComment.style.borderColor = board.color;
-        addComment.style.borderRadius = "5px 0 0 5px";
+
         b.innerText = "Valider";
         addComment.insertAdjacentElement("afterend", b);
         b.style.display = "block";
@@ -120,7 +120,6 @@ for (const tick of DIVTICKET) {
     b.addEventListener("click", async function(e) {
         b.style.display = "none";
         addComment.style.border = "2px solid rgba(0, 0, 0, 0.2)";
-        addComment.style.borderRadius = "5px";
 
         let url = addComment.getAttribute("data_url");
         let token = document

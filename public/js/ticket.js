@@ -1042,7 +1042,6 @@ try {
     b.style.backgroundColor = board.color;
     addComment.addEventListener("click", function (e) {
       addComment.style.borderColor = board.color;
-      addComment.style.borderRadius = "5px 0 0 5px";
       b.innerText = "Valider";
       addComment.insertAdjacentElement("afterend", b);
       b.style.display = "block";
@@ -1057,7 +1056,6 @@ try {
               case 0:
                 b.style.display = "none";
                 addComment.style.border = "2px solid rgba(0, 0, 0, 0.2)";
-                addComment.style.borderRadius = "5px";
                 url = addComment.getAttribute("data_url");
                 token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
                 comment = addComment.value;
@@ -1075,15 +1073,15 @@ try {
                 };
 
                 if (!(comment.length > 2)) {
-                  _context2.next = 24;
+                  _context2.next = 23;
                   break;
                 }
 
-                _context2.prev = 9;
-                _context2.next = 12;
+                _context2.prev = 8;
+                _context2.next = 11;
                 return fetch(url, options);
 
-              case 12:
+              case 11:
                 response = _context2.sent;
                 addComment.value = "";
                 location.reload();
@@ -1101,27 +1099,27 @@ try {
                   _iterator4.f();
                 }
 
-                _context2.next = 22;
+                _context2.next = 21;
                 break;
 
-              case 19:
-                _context2.prev = 19;
-                _context2.t0 = _context2["catch"](9);
+              case 18:
+                _context2.prev = 18;
+                _context2.t0 = _context2["catch"](8);
                 console.log(_context2.t0);
 
-              case 22:
-                _context2.next = 25;
+              case 21:
+                _context2.next = 24;
                 break;
 
-              case 24:
+              case 23:
                 addComment.value = "";
 
-              case 25:
+              case 24:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[9, 19]]);
+        }, _callee2, null, [[8, 18]]);
       }));
 
       return function (_x2) {
@@ -1242,7 +1240,7 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/ticket.js */"./resources/js/ticket.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/ticket.js */"./resources/js/ticket.js");
 
 
 /***/ })

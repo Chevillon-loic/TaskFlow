@@ -158,11 +158,10 @@
                                                             <button class="cancelComment">X</button>
                                                     </div>
                                                 </div>
-                                                <div class="titleColumnTop">
-                                                </div>
+
 
                                                 <div id="containerComment">
-                                                    <div style="display: flex" style="flex-direction: column">
+                                                    <div>
                                                         <textarea name=""
                                                             data_url="{{ route('comment.store', [$ticket->id]) }}"
                                                             id="addComment" class="addComment" cols="30" rows="3"
