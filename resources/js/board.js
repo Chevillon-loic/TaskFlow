@@ -135,8 +135,8 @@ INVITE.addEventListener("click", function(e) {
                 guestID = div.getAttribute("guest_id");
             }
         });
-        console.log(guestID + " guestID : boardID " + board.id);
-        console.log(e.target);
+        //console.log(guestID + " guestID : boardID " + board.id);
+        //console.log(e.target);
         //FETCH
         let url =
             document.location.origin +

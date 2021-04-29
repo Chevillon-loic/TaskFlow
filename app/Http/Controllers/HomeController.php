@@ -17,16 +17,18 @@ class HomeController extends Controller
      */
 
 
-    public function index()
+    public function index(Board $board, User $user)
     {
-        /* $boards = Board::select(['id', 'label', 'color'])
-            ->where('owner_id', \Auth::user()->id); */
-        /* $boards = Board::select(['id', 'label', 'color'])
-            ->where('owner_id', \Auth::user()->id); */
-        $boards = Board::where('owner_id', \Auth::user()->id);
+        $boards = Board::select(['id', 'label', 'color'])
+            ->where('owner_id', \Auth::user()->id)->get();
+        //$boards = Board::where('owner_id', \Auth::user()->id);
+        //$boards = $user->board();
+        //$boards = Board::all();
+        //$boards = $board->user()->withPivot('');
+
         return view("home", [
 
-            'boards' => $boards->get()
+            'boards' => $boards
         ]);
     }
 

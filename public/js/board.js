@@ -1042,9 +1042,9 @@ INVITE.addEventListener("click", function (e) {
                 if (checkbox.checked) {
                   guestID = div.getAttribute("guest_id");
                 }
-              });
-              console.log(guestID + " guestID : boardID " + board.id);
-              console.log(e.target); //FETCH
+              }); //console.log(guestID + " guestID : boardID " + board.id);
+              //console.log(e.target);
+              //FETCH
 
               url = document.location.origin + "/board/guestinvite/" + board.id + "/" + guestID;
               token = document.querySelector('meta[name="csrf-token"]').getAttribute("content"); //Corps de la requete
@@ -1058,28 +1058,28 @@ INVITE.addEventListener("click", function (e) {
                 }
               };
               console.log(options);
-              _context2.prev = 9;
-              _context2.next = 12;
+              _context2.prev = 7;
+              _context2.next = 10;
               return fetch(url, options);
 
-            case 12:
+            case 10:
               response = _context2.sent;
               console.log(response);
               location.reload();
-              _context2.next = 20;
+              _context2.next = 18;
               break;
 
-            case 17:
-              _context2.prev = 17;
-              _context2.t0 = _context2["catch"](9);
+            case 15:
+              _context2.prev = 15;
+              _context2.t0 = _context2["catch"](7);
               console.log(_context2.t0);
 
-            case 20:
+            case 18:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[9, 17]]);
+      }, _callee2, null, [[7, 15]]);
     }));
 
     return function (_x2) {
@@ -1371,7 +1371,7 @@ TITLETAB.addEventListener("click", function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/board.js */"./resources/js/board.js");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/board.js */"./resources/js/board.js");
 
 
 /***/ })
