@@ -384,7 +384,6 @@
                     border-radius: 5px;
                     background-color: rgba(255, 255, 255, 0.3);
                     color: white;
-                    text-align: center;
                     font-size: 20px;
                     font-weight: 500;
                 }
@@ -397,6 +396,7 @@
                     cursor: pointer;
                     color: white;
                     font-size: 1rem;
+                    z-index: 1000;
                 }
             }
             .cancelComment {
@@ -586,6 +586,31 @@
         display: flex;
         justify-content: space-between;
         cursor: pointer;
+        .taskTicket {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+            img {
+                height: 17px;
+                position: relative;
+                left: 25px;
+                opacity: 0;
+            }
+        }
+        .cxlTicket {
+            button {
+                border: none;
+                outline: none;
+                background-color: transparent;
+                cursor: pointer;
+                opacity: 0;
+                img {
+                    height: 15px;
+                }
+            }
+        }
     }
 }
 

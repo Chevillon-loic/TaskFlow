@@ -102,8 +102,14 @@
                                             id="span_data_url"></span>
 
                                         <div class="ticket">
-                                            {{ $ticket->task }}
-
+                                            <div class="taskTicket">
+                                                {{ $ticket->task }}
+                                                <img src="{{ asset('images/trash.png') }}" alt="">
+                                            </div>
+                                            <div class="cxlTicket">
+                                                <button id="removeTicket"> <img src="{{ asset('images/trash.png') }}"
+                                                        alt=""> </button>
+                                            </div>
                                         </div>
 
 
@@ -160,7 +166,6 @@
                                                 </div> --}}
                                                 <div class="titleTicketTop">
                                                     <div class="titleLeft">
-                                                        <button id="removeTicket">Supprimer</button>
                                                         <h3 class="titleTicket"
                                                             data_url="{{ route('ticket.updatetitle', [$ticket->id]) }}">
                                                             {{ $ticket->task }}</h3>
@@ -186,15 +191,14 @@
                                                                         src="{{ $user->picture }}" alt="picture">
 
                                                                     <div class="contentComment">
-                                                                        <span>{{ $user->last_name }}
-                                                                            {{ $user->first_name }}</span><br>
+                                                                        <span>{{ $comment->user->last_name }}
+                                                                            {{ $comment->user->first_name }}</span><br>
                                                                         <p>{{ $comment->description }}</p>
                                                                     </div>
 
                                                                 </div>
 
                                                             @endif
-
 
                                                         @endforeach
                                                     </div>

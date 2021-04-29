@@ -432,7 +432,6 @@
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.3);
   color: white;
-  text-align: center;
   font-size: 20px;
   font-weight: 500;
 }
@@ -446,6 +445,7 @@
   cursor: pointer;
   color: white;
   font-size: 1rem;
+  z-index: 1000;
 }
 
 #modalContainerComment #removeConfirmationContainerComment .titleTicketTop .cancelComment {
@@ -616,6 +616,33 @@
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+}
+
+.boxTicket .ticket .taskTicket {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.boxTicket .ticket .taskTicket img {
+  height: 17px;
+  position: relative;
+  left: 25px;
+  opacity: 0;
+}
+
+.boxTicket .ticket .cxlTicket button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.boxTicket .ticket .cxlTicket button img {
+  height: 15px;
 }
 
 #comment {

@@ -82,7 +82,7 @@ for (const ticket of ADDTICKETDIV) {
 let DIVTICKET = document.getElementsByClassName("boxTicket");
 
 for (const tick of DIVTICKET) {
-    const titleTicket = tick.querySelector(".ticket");
+    const titleTicket = tick.querySelector(".taskTicket");
     let btnSupp = tick.querySelector("#removeTicket");
     let titleTicketInTicket = tick.querySelector(".titleTicketTop");
 
@@ -96,7 +96,7 @@ for (const tick of DIVTICKET) {
         commentModal.style.display = "none";
         for (const e of DIVTICKET) {
             e.draggable = true;
-            console.log(e);
+            //console.log(e);
         }
     });
 
@@ -153,7 +153,7 @@ for (const tick of DIVTICKET) {
                 location.reload();
                 for (const e of DIVTICKET) {
                     e.draggable = false;
-                    console.log(e);
+                    //console.log(e);
                 }
             } catch (error) {
                 console.log(error);
@@ -194,7 +194,7 @@ for (const tick of DIVTICKET) {
         input.value = task_name;
         input.select();
 
-        console.log(task_name);
+        //console.log(task_name);
         hTitleTicket.classList.add("displayNone");
         input.addEventListener("keydown", async function(e) {
             if (e.key === "Enter") {
@@ -226,5 +226,35 @@ for (const tick of DIVTICKET) {
                 }
             }
         });
+    });
+}
+
+//Bouton supprimer on hover
+let taskTicket = document.querySelectorAll(".taskTicket");
+let cxlTicket = document.querySelectorAll(".cxlTicket");
+
+for (const ticket of taskTicket) {
+    let cxlTicket = ticket.querySelector("img");
+    cxlTicket.style.opacity = 0;
+    ticket.addEventListener("mouseover", e => {
+        cxlTicket.style.transition = "0.3s";
+        cxlTicket.style.opacity = 1;
+    });
+    ticket.addEventListener("mouseout", e => {
+        cxlTicket.style.transition = "0.3s";
+        cxlTicket.style.opacity = 0;
+    });
+}
+
+for (const ticket of cxlTicket) {
+    let cxlTicket = ticket.parentNode.querySelector(".taskTicket img");
+    cxlTicket.style.opacity = 0;
+    ticket.addEventListener("mouseover", e => {
+        cxlTicket.style.transition = "0.3s";
+        cxlTicket.style.opacity = 1;
+    });
+    ticket.addEventListener("mouseout", e => {
+        cxlTicket.style.transition = "0.3s";
+        cxlTicket.style.opacity = 0;
     });
 }
