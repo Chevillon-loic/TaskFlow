@@ -1,4 +1,4 @@
-const { Button } = require("bootstrap");
+/*const { Button } = require("bootstrap");
 const { replace, remove } = require("lodash");
 
 let btnProfilUsers = document.getElementById('adminProfilsUsers');
@@ -38,3 +38,4 @@ btnAdd.addEventListener('click', function(e){
     alert('test')
 
 })
+*/
