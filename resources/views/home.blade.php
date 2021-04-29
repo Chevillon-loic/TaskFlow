@@ -16,6 +16,14 @@
                     </a>
                 </div>
             @endforeach
+            @foreach ($guestBoards as $board)
+                <div style="background-color:{{ $board->color }} " class="card-board">
+                    <a href="{{ route('board.index', [$board->id]) }}" class="card-board-tr">
+                        <p> {{ $board->label }}</p>
+                    </a>
+                    <span class="guestBoard">Invité</span>
+                </div>
+            @endforeach
 
             <!-- Button for display Modal -->
             <div class="card-board">

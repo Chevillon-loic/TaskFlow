@@ -1,6 +1,7 @@
 const BTNADDLIST = document.getElementById("btnAddList");
 const divAddList = document.querySelector(".addColumn");
 
+//Ajoutez une liste
 BTNADDLIST.addEventListener("click", function(e) {
     let input = document.createElement("input");
     let btn = document.createElement("button");

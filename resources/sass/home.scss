@@ -4,12 +4,18 @@
 // Variables
 @import "variables";
 
+body {
+    background-image: url("public/img/Flat-Mountains.png");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 .container {
-    background: #ffffff;
+    //background: #ffffffd8;
     margin: 20px;
-    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    min-height: 87vh;
+    //box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    min-height: 90vh;
     h1 {
         padding-top: 40px;
         padding-left: 40px;
@@ -26,7 +32,7 @@
         justify-content: center;
         align-items: center;
         .card-board {
-            border-radius: 1px;
+            border-radius: 5px;
             margin: 30px;
             width: 420px;
             height: 200px;
@@ -46,16 +52,24 @@
             }
             p {
                 text-align: center;
-                background-color: rgba(255, 255, 255, 0.8);
-                box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-                color: $black;
-                font-size: 1.1rem;
+                color: whitesmoke;
+                font-size: 1.7rem;
                 font-weight: 600;
                 letter-spacing: 1.5px;
                 padding: 7px;
                 width: 310px;
                 border: none;
                 outline: none;
+            }
+            .guestBoard {
+                position: relative;
+                top: -65px;
+                left: 185px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.7);
             }
         }
     }
@@ -64,6 +78,7 @@
         height: 100%;
         background-color: #c4c4c4;
         border: none;
+        border-radius: 5px;
         cursor: pointer;
         display: flex;
         justify-content: center;

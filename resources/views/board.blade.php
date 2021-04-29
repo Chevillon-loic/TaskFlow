@@ -17,16 +17,26 @@
             <h2 id="titleTab" data_url="{{ route('board.update', [$board->id]) }}">
                 {{ $board->label }}</h2>
 
-            {{-- Invite user --}}
-            <div class="containerInviteDelete">
-                <div id="inviteContainer">
-                    <button id="invite">Inviter</button>
+            @if ($board->owner_id == $user->id)
+                {{-- Invite user --}}
+                <div class="containerInviteDelete">
+                    <div id="inviteContainer">
+                        <button id="invite">Inviter</button>
+                    </div>
+
+                    {{-- Supprimer le tableau --}}
+                    <button id="deleteTab">Supprimer le tableau</button>
                 </div>
+            @else
+                <div class="containerInviteDelete" style="display: none">
+                    <div id="inviteContainer">
+                        <button id="invite">Inviter</button>
+                    </div>
 
-                {{-- Supprimer le tableau --}}
-
-                <button id="deleteTab">Supprimer le tableau</button>
-            </div>
+                    {{-- Supprimer le tableau --}}
+                    <button id="deleteTab">Supprimer le tableau</button>
+                </div>
+            @endif
         </div>
 
         {{-- Modal tableau --}}
@@ -155,7 +165,7 @@
                                                             data_url="{{ route('ticket.updatetitle', [$ticket->id]) }}">
                                                             {{ $ticket->task }}</h3>
 
-                                                            <button class="cancelComment">X</button>
+                                                        <button class="cancelComment">X</button>
                                                     </div>
                                                 </div>
 
@@ -212,7 +222,6 @@
         </div>
     </div>
 @endsection
-
 
 <script>
     let tickets = @json($tickets);

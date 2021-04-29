@@ -371,8 +371,7 @@
                 justify-content: space-between;
                 align-items: center;
                 color: white;
-                margin-left: 15px;
-                margin-right: 15px;
+                margin: 0 10px;
                 height: 70px;
                 .titleTicket {
                     font-size: 20px;
@@ -393,6 +392,7 @@
                     background-color: rgba(255, 255, 255, 0.5);
                     border: none;
                     border-radius: 5px;
+                    font-size: 0.9rem;
                     padding: 7px;
                     cursor: pointer;
                     color: white;
@@ -417,29 +417,25 @@
             display: flex;
             justify-content: space-between;
         }
-        #containerComment {
-            margin-left: 15px;
-        }
+
         textarea {
             font-family: "Montserrat", sans-serif;
             resize: none;
             min-height: 50px;
-            width: 50%;
             outline: none;
             font-family: "Montserrat", sans-serif;
         }
         #addComment {
-            margin-top: 10px;
+            margin: 2.5% 2.5% 0;
             font-size: 1rem;
-            border-radius: 5px 0 0 5px;
+            border-radius: 5px;
             border: 2px solid rgba(0, 0, 0, 0.2);
             padding: 7px;
             height: 70px;
-            border-radius: 5px 5px 5px 5px;
-            width: 360px;
+            width: 95%;
         }
         #btnAddComment {
-            margin-top: 2px;
+            margin: 4px 0 0 2.5%;
             border: none;
             border-radius: 5px 5px 5px 5px;
             color: white;
@@ -449,22 +445,26 @@
             cursor: pointer;
         }
         .pictureComment {
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
-            margin-right: 10px;
+            margin: 5px 2.5% 10px;
         }
         .userInformations {
             display: flex;
-            margin-top: 10px;
+            margin-top: 5px;
+            span {
+                color: rgb(54, 54, 54);
+                font-size: 0.9rem;
+                font-weight: 600;
+            }
             .contentComment {
                 margin-top: 10px;
-            }
-            p {
-                border: solid 1px #c5c5c5be;
-                border-radius: 5px;
-                padding: 5px 20px;
-                background-color: #f1f1f1b6;
+                p {
+                    margin: 10px 5px;
+                    border-left: solid 3px #c5c5c5be;
+                    padding: 0 5px;
+                }
             }
         }
         #flexReverse {
