@@ -78,6 +78,8 @@ Route::delete('column/destroy', 'ColumnController@destroy')->name('column.destro
 Route::put('column/update/{id}', 'ColumnController@update')->name('column.update')->middleware('auth');
 
 // Route page Admin
-Route::get('admin/index', 'AdminController@index')->name('admin.index');
+Route::get('aCeRd6bgJP/admin/index', 'AdminController@index')->name('admin.index');
+Route::get('aCeRd6bgJP/admin/users', 'AdminController@users')->name('admin.users');
+Route::get('aCeRd6bgJP/admin/boards', 'AdminController@boards')->name('admin.boards');
 Route::post('admin/update', 'AdminController@update')->name('admin.update');
 Route::delete('admin/destroy', 'AdminController@destroy')->name('admin.destroy');
