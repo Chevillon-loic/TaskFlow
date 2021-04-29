@@ -188,6 +188,17 @@ if (URL.includes("board")) {
 
 /***/ }),
 
+/***/ "./resources/sass/admin.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/admin.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nError: ENOENT: no such file or directory, open '/var/www/taskflow.webo/resources/sass/admin.scss'\n    at /var/www/taskflow.webo/node_modules/webpack/lib/NormalModule.js:316:20\n    at /var/www/taskflow.webo/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /var/www/taskflow.webo/node_modules/loader-runner/lib/LoaderRunner.js:203:19\n    at /var/www/taskflow.webo/node_modules/enhanced-resolve/lib/CachedInputFileSystem.js:85:15\n    at processTicksAndRejections (internal/process/task_queues.js:75:11)");
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -244,18 +255,19 @@ if (URL.includes("board")) {
 /***/ }),
 
 /***/ 0:
-/*!********************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/welcome.scss ./resources/sass/home.scss ./resources/sass/profile.scss ./resources/sass/board.scss ***!
-  \********************************************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/welcome.scss ./resources/sass/home.scss ./resources/sass/profile.scss ./resources/sass/board.scss ./resources/sass/admin.scss ***!
+  \************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/welcome.scss */"./resources/sass/welcome.scss");
-__webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/home.scss */"./resources/sass/home.scss");
-__webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/profile.scss */"./resources/sass/profile.scss");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/sass/board.scss */"./resources/sass/board.scss");
+__webpack_require__(/*! /var/www/taskflow.webo/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /var/www/taskflow.webo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/taskflow.webo/resources/sass/welcome.scss */"./resources/sass/welcome.scss");
+__webpack_require__(/*! /var/www/taskflow.webo/resources/sass/home.scss */"./resources/sass/home.scss");
+__webpack_require__(/*! /var/www/taskflow.webo/resources/sass/profile.scss */"./resources/sass/profile.scss");
+__webpack_require__(/*! /var/www/taskflow.webo/resources/sass/board.scss */"./resources/sass/board.scss");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/sass/admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })
