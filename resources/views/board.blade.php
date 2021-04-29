@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'TaskFlow - ' . $board->label)
 
 @section('custom_styles')
     <link href="{{ asset('css/board.css') }}" rel="stylesheet">
@@ -212,7 +213,7 @@
                         @endforeach
                         {{-- Ajouter ticket --}}
                         <div class="addTicket">
-                            <button id="btnAddTicket">+ Ajoutez un ticket</button>
+                            <button id="btnAddTicket"><span>+</span>Ajoutez un ticket</button>
                             <input type="hidden" id="columnId" value="{{ $column->id }}">
                         </div>
                     </div>
