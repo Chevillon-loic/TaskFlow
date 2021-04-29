@@ -1,6 +1,10 @@
-@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300;
 
-0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);.containerAdmin {
+400&display=swap);body {
+  font-family: "Roboto", sans-serif;
+}
+
+.containerAdmin {
   background: #ffffff;
   margin: 20px;
   box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.25);
@@ -13,29 +17,35 @@
 }
 
 .containerAdmin #headerPannel #ancre a {
-  color: #a558c0;
+  color: #2c3844;
+  background-color: white;
   text-decoration: none;
   width: 100px;
-  border: 1px solid #a558c0;
+  border: 1px solid #2c3844;
   border-radius: 5px;
   padding: 7px;
 }
 
 .containerAdmin #headerPannel #ancre a:hover {
   color: white;
-  background-color: #a558c0;
+  background-color: #2c3844;
 }
 
 .containerAdmin h3 {
   display: flex;
   justify-content: center;
-  padding-top: 40px;
-  padding-left: 40px;
+  margin: auto;
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   font-weight: 600;
+  width: 50%;
   font-size: 35px;
   line-height: 17px;
   letter-spacing: 0.05em;
-  color: #23b5b5;
+  border-radius: 4px;
+  box-shadow: 0 0 5px 2px #242e38;
+  color: #2c3844;
 }
 
 .contentAdmin {
@@ -55,9 +65,11 @@
   width: 420px;
   height: 200px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .contentAdmin .boxAdmin p {
+  color: black;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -91,10 +103,6 @@
   background-size: cover;
 }
 
-.displayNone {
-  display: none;
-}
-
 #modalUsers,
 #modalBoards {
   position: fixed;
@@ -119,11 +127,12 @@
 #modalUsers #modalContentUsers,
 #modalBoards #modalContentBoards,
 #modalBoards #modalContentUsers {
+  overflow: scroll;
   background-color: white;
   margin: auto;
   padding: 48px 28px 28px 28px;
   width: 90%;
-  height: 400px;
+  height: 500px;
   border-radius: 4px;
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
@@ -150,34 +159,41 @@
   margin-top: 20px;
 }
 
-#tableUsers {
+#tableUsers,
+#tableBoards {
   overflow: scroll;
+  overflow: hidden;
 }
 
-#tableUsers table {
+#tableUsers table,
+#tableBoards table {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
-#tableUsers table tr {
+#tableUsers table tr,
+#tableBoards table tr {
   font-size: 15px;
 }
 
-#tableUsers table tr th {
+#tableUsers table tr th,
+#tableBoards table tr th {
   color: white;
   padding: 10px;
   background-color: #202832;
 }
 
-#tableUsers table tr td {
+#tableUsers table tr td,
+#tableBoards table tr td {
   height: 50px;
   color: white;
   min-width: 80px;
 }
 
-#tableUsers table tr td input {
+#tableUsers table tr td input,
+#tableBoards table tr td input {
   min-width: 250px;
   font-size: 15px;
   margin: 7px;
@@ -188,15 +204,18 @@
   outline: none;
 }
 
-#tableUsers table tr td input:focus {
+#tableUsers table tr td input:focus,
+#tableBoards table tr td input:focus {
   color: red;
 }
 
-#tableUsers table tr:nth-child(even) td {
+#tableUsers table tr:nth-child(even) td,
+#tableBoards table tr:nth-child(even) td {
   background-color: #242e38;
 }
 
-#tableUsers table tr:nth-child(odd) td {
+#tableUsers table tr:nth-child(odd) td,
+#tableBoards table tr:nth-child(odd) td {
   background-color: #2c3844;
 }
 
@@ -215,17 +234,83 @@
   box-shadow: 0 0 5px 1px #242e38;
 }
 
-#headerBox button {
+#headerBox a {
   background-color: white;
-  border: 1px solid #a558c0;
+  padding: 7px;
+  text-decoration: none;
+  border: 1px solid #2c3844;
   border-radius: 5px;
-  color: #a558c0;
+  color: #242e38;
+  height: 20px;
   cursor: pointer;
 }
 
-#headerBox button:hover {
-  background-color: #a558c0;
+#headerBox a:hover {
+  background-color: #2c3844;
   color: white;
   transform: scale(1.1);
+}
+
+#btnModif {
+  padding: 5px;
+  color: white;
+  border: none;
+  border: 1px solid white;
+  background-color: transparent;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#btnModif:hover {
+  color: white;
+  background-color: orange;
+  border: 1px solid orange;
+}
+
+#btnDelete {
+  margin: 5px;
+  padding: 5px;
+  color: white;
+  border: none;
+  border: 1px solid white;
+  background-color: transparent;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#btnDelete:hover {
+  color: white;
+  background-color: red;
+  border: 1px solid red;
+}
+
+#boxAdd {
+  padding: 5px;
+  margin-top: 10px;
+  box-shadow: 0 0 5px 2px black;
+}
+
+#boxAdd table {
+  margin: auto;
+}
+
+#btnValidate {
+  padding: 5px;
+  width: 100px;
+  color: #242e38;
+  border: none;
+  border: 1px solid #2c3844;
+  background-color: transparent;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#btnValidate:hover {
+  color: white;
+  background-color: green;
+  border: 1px solid green;
 }
 

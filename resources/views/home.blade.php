@@ -3,11 +3,10 @@
 @section('custom_styles')
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
 @endsection
-{{-- dd($boards) --}}
 @section('content')
     <div class="container">
         <h1>Mes tableaux</h1>
-
+        {{-- dd($boards) --}}
         <div class="content-board">
             <!-- Foreach all boards (->owner_id) -->
             @foreach ($boards as $board)
@@ -93,8 +92,6 @@
             </div>
 
         </div>
-        <div id="accessPannel">
-            <a id="btnPannel" href="{{ route('admin.index') }}">Accès Pannel Admin</a>
-        </div>
+
     </div>
 @endsection

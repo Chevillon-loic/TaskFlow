@@ -192,3 +192,32 @@
   display: none;
 }
 
+#accessPannel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#accessPannel #btnPannel {
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid grey;
+  color: #292929;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  padding: 7px;
+  width: 150px;
+  outline: none;
+}
+
+#accessPannel #btnPannel:hover {
+  transform: scale(1.01);
+  color: #a558c0;
+  border: 1px solid #a558c0;
+}
+

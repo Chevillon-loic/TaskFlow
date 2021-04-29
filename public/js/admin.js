@@ -35363,6 +35363,13 @@ adminAllBoards.addEventListener('click', function (e) {
 var adminProfilTeam = document.getElementById("adminProfilTeam");
 adminProfilTeam.addEventListener("click", function (e) {
   alert("Pas encore disponible");
+}); /////////////////////////////////////
+
+var btnAdd = document.getElementById('test1');
+var boxAdd = document.getElementById('boxAdd');
+var backAdd = document.getElementById('backAdd');
+btnAdd.addEventListener('click', function (e) {
+  alert('test');
 });
 
 /***/ }),
@@ -35374,7 +35381,7 @@ adminProfilTeam.addEventListener("click", function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/taskflow/resources/js/admin.js */"./resources/js/admin.js");
+module.exports = __webpack_require__(/*! /var/www/taskflow.webo/resources/js/admin.js */"./resources/js/admin.js");
 
 
 /***/ })

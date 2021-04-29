@@ -29,7 +29,35 @@ class AdminController extends Controller
         $dataUsers = User::all();
         $dataBoards = Board::all();
 
+
         return view('admin', [
+            'numberUsers' => $numberUsers,
+            'dataUsers' => $dataUsers,
+            'numberBoards' => $numberBoards,
+            'dataBoards' => $dataBoards,
+        ]);
+    }
+
+    public function users()
+    {
+        $numberUsers = User::select('id')->count();
+        $numberBoards = Board::select('id')->count();
+        $dataUsers = User::all();
+        $dataBoards = Board::all();
+        return view('manageUsers', [
+            'numberUsers' => $numberUsers,
+            'dataUsers' => $dataUsers,
+            'numberBoards' => $numberBoards,
+            'dataBoards' => $dataBoards,
+        ]);
+    }
+    public function boards()
+    {
+        $numberUsers = User::select('id')->count();
+        $numberBoards = Board::select('id')->count();
+        $dataUsers = User::all();
+        $dataBoards = Board::all();
+        return view('manageBoards', [
             'numberUsers' => $numberUsers,
             'dataUsers' => $dataUsers,
             'numberBoards' => $numberBoards,
@@ -55,7 +83,24 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+
+        ]);
+        $newUser = new User();
+        $newUser->first_name = $request->first_name;
+        $newUser->last_name = $request->last_name;
+        $newUser->email = $request->email;
+        $newUser->password = $request->password;
+        $newUser->picture = $request->picture;
+        $newUser->save();
+
+        return back()->with([
+            'success' => 'Contenu modifié avec succès !'
+        ]);
     }
 
     /**
@@ -113,5 +158,8 @@ class AdminController extends Controller
     {
 
         $deleteUser = User::find($request->id)->delete();
+        return back()->with([
+            'success' => 'Contenu modifié avec succès !'
+        ]);
     }
 }
