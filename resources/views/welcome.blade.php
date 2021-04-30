@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('title', 'TaskFlow - Gestion de projets')
 
+@section('title')
+    <title>Accueil - TaskFlow</title>
+@endsection
+
 @section('custom_styles')
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
 @endsection

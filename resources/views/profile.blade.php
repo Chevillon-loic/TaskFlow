@@ -6,6 +6,10 @@
 
 @endsection
 
+@section('title')
+    <title>Profil - TaskFlow</title>
+@endsection
+
 @section('content')
     <div class="mainContainer">
 
