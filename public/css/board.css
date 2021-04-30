@@ -37,6 +37,14 @@
   margin: 5vh 5vh 0;
 }
 
+.mainContainer .topContainer #editTitleIcon {
+  position: relative;
+  padding: 0;
+  height: 15px;
+  left: 5px;
+  opacity: 0.8;
+}
+
 .mainContainer .topContainer .containerInviteDelete {
   display: flex;
   justify-content: space-around;
@@ -257,6 +265,13 @@
 .mainContainer .columnContainer .columnTitle #plabelColumn {
   display: flex;
   align-items: center;
+}
+
+.mainContainer .columnContainer .columnTitle #plabelColumn .editColumnIcon {
+  position: relative;
+  height: 15px;
+  left: 10px;
+  opacity: 0.8;
 }
 
 .mainContainer .columnContainer .columnTitle #updateLabelColumInput {
@@ -739,19 +754,5 @@
 
 #btnPannel {
   color: red;
-}
-
-#editTitleIcon {
-  position: absolute;
-  height: 20px;
-  left: 180px;
-  opacity: 0.8;
-}
-
-.editColumnIcon {
-  position: relative;
-  height: 20px;
-  left: 10px;
-  opacity: 0.8;
 }
 

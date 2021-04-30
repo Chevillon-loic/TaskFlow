@@ -38,7 +38,14 @@
         align-items: center;
         justify-content: space-between;
         margin: 5vh 5vh 0;
-
+        #editTitleIcon {
+            position: relative;
+            //margin: -2px;
+            padding: 0;
+            height: 15px;
+            left: 5px;
+            opacity: 0.8;
+        }
         //SUPPRIMER TABLEAU
         .containerInviteDelete {
             display: flex;
@@ -239,6 +246,12 @@
             #plabelColumn {
                 display: flex;
                 align-items: center;
+                .editColumnIcon {
+                    position: relative;
+                    height: 15px;
+                    left: 10px;
+                    opacity: 0.8;
+                }
             }
             #updateLabelColumInput {
                 padding: 5px;
@@ -698,18 +711,4 @@
 // TEMPORAIRE - Bouton Pannel Admin
 #btnPannel {
     color: red;
-}
-
-//Icone edition de titre
-#editTitleIcon {
-    position: absolute;
-    height: 20px;
-    left: 180px;
-    opacity: 0.8;
-}
-.editColumnIcon {
-    position: relative;
-    height: 20px;
-    left: 10px;
-    opacity: 0.8;
 }

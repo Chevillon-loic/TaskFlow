@@ -21,8 +21,9 @@
         <div class="topContainer">
 
             <h2 id="titleTab" data_url="{{ route('board.update', [$board->id]) }}">
-                {{ $board->label }}</h2>
-            <img id="editTitleIcon" class="displayNone" src="{{ asset('img/edit.svg') }}" alt="edit">
+                {{ $board->label }}
+                <img id="editTitleIcon" class="displayNone" src="{{ asset('img/edit.svg') }}" alt="edit">
+            </h2>
             @if ($board->owner_id == $user->id)
                 {{-- Invite user --}}
                 <div class="containerInviteDelete">
