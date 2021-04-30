@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'TaskFlow - Gestion de projets')
 
 @section('title')
     <title>Accueil - TaskFlow</title>

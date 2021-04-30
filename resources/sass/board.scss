@@ -255,16 +255,26 @@
         }
 
         #btnAddTicket {
+            display: flex;
+            align-items: center;
             cursor: pointer;
             width: 100%;
             height: 30px;
             border: none;
             background-color: #d3d3d3;
+            color: rgb(87, 87, 87);
             font-weight: 500;
+            font-size: 1rem;
             border-radius: 5px;
             margin-bottom: 5px;
+            transition: 0.3s;
+            padding: 5px;
             &:hover {
                 background-color: #c2c2c2;
+            }
+            span {
+                font-size: 1.5rem;
+                margin-right: 5px;
             }
         }
         #inputAddTicket {
@@ -348,13 +358,16 @@
 #modalContainerComment {
     position: fixed;
     z-index: 10;
-    padding-top: 13vh;
+    padding-top: 25vh;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.3);
+    #containerComment {
+        padding-bottom: 20px;
+    }
 
     #removeConfirmationContainerComment {
         display: flex;
@@ -362,8 +375,8 @@
         background-color: white;
         margin: auto;
         width: 400px;
-        height: 65vh;
-        border-radius: 4px;
+        height: auto;
+        border-radius: 5px;
         overflow: auto;
         .titleTicketTop {
             .titleLeft {
@@ -372,8 +385,9 @@
                 align-items: center;
                 color: white;
                 margin: 0 10px;
-                height: 70px;
+                height: 50px;
                 .titleTicket {
+                    border-radius: 5px 5px 0 0;
                     font-size: 20px;
                     font-weight: 500;
                 }
@@ -464,6 +478,7 @@
                     margin: 10px 5px;
                     border-left: solid 3px #c5c5c5be;
                     padding: 0 5px;
+                    color: rgb(100, 100, 100);
                 }
             }
         }
@@ -566,19 +581,21 @@
 .ticketContainer {
     padding: 0px 12px;
     .ticketDropZone {
-        height: max-content;
+        height: 0;
         padding: 5px 0;
         width: 100%;
-        margin: 5px 0;
     }
 }
 
 .boxTicket {
     background-color: white;
-    border-radius: 2px;
-    padding: 4px;
+    border-radius: 3px;
+    padding: 5px 10px;
     margin: 5px 0;
-
+    color: rgb(44, 44, 44);
+    transition: 0.3s;
+    font-size: 1rem;
+    font-weight: 500;
     &:hover {
         background-color: rgb(245, 245, 245);
     }

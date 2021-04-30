@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'TaskFlow - ' . Auth::user()->first_name . ' ' . Auth::user()->last_name)
 
 @section('custom_styles')
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
@@ -40,7 +41,7 @@
 
                     {{-- disconnect button --}}
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
+                                                            document.getElementById('logout-form').submit();">
                         Déconnexion
                     </a>
 

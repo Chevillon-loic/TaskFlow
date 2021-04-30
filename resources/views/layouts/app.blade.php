@@ -8,10 +8,16 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+<<<<<<< HEAD
     @yield('title')
 
     <link rel="icon" href="{{ URL::asset('favicon.ico') }}" type="image/x-icon"/>
+=======
+    <title>@yield('title')</title>
+>>>>>>> 740d0d69001efb2f427c947ca7f4743d6374507b
 
+    {{-- Favicon --}}
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('custom_styles')

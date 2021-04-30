@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'TaskFlow - ' . $board->label)
 
 @section('custom_styles')
     <link href="{{ asset('css/board.css') }}" rel="stylesheet">
@@ -99,49 +100,49 @@
                         </div>
                         @foreach ($tickets as $ticket)
                             @if ($ticket->column_id == $column->id)
-                                <div class="ticketDropZone" data_id="{{ $column->id }}" ondragover="onDragOver(event);">
-                                    <div class="boxTicket" draggable="true" id="draggableElement{{ $ticket->id }}"
-                                        ondragstart="onDragStart(event)">
+                                {{-- <div class="ticketDropZone" data_id="{{ $column->id }}" ondragover="onDragOver(event);"> --}}
+                                <div class="boxTicket" draggable="true" id="draggableElement{{ $ticket->id }}"
+                                    ondragstart="onDragStart(event)">
 
-                                        <span data_url="{{ route('ticket.update', [$ticket->id]) }}"
-                                            id="span_data_url"></span>
+                                    <span data_url="{{ route('ticket.update', [$ticket->id]) }}"
+                                        id="span_data_url"></span>
 
-                                        <div class="ticket">
-                                            <div class="taskTicket">
-                                                {{ $ticket->task }}
-                                                <img src="{{ asset('images/trash.png') }}" alt="">
-                                            </div>
-                                            <div class="cxlTicket">
-                                                <button id="removeTicket"> <img src="{{ asset('images/trash.png') }}"
-                                                        alt=""> </button>
-                                            </div>
+                                    <div class="ticket">
+                                        <div class="taskTicket">
+                                            {{ $ticket->task }}
+                                            <img src="{{ asset('images/trash.png') }}" alt="">
                                         </div>
-
-
-                                        {{-- Modal ticket --}}
-                                        <div id="modalContainerTicket" class="displayNoneTicket">
-                                            <div id="removeConfirmationContainer" class="displayNoneTicket">
-                                                <p>Êtes vous sûr de vouloir supprimer ce ticket ?</p>
-                                                <span>
-                                                    <div class="modalButtons">
-                                                        <button id="cancelRemoveTicket">Annuler</button>
-                                                        <form action="{{ route('ticket.destroy') }}" method="post">
-                                                            @method('delete')
-                                                            @csrf
-                                                            <input type="hidden" name="id" class="id"
-                                                                value="{{ $ticket->id }}">
-                                                            <button type="submit">Confirmer</button>
-                                                        </form>
-                                                    </div>
-                                                </span>
-                                            </div>
+                                        <div class="cxlTicket">
+                                            <button id="removeTicket"> <img src="{{ asset('images/trash.png') }}" alt="">
+                                            </button>
                                         </div>
+                                    </div>
 
 
-                                        {{-- Modal comment --}}
-                                        <div id="modalContainerComment">
-                                            <div id="removeConfirmationContainerComment">
-                                                {{-- <div class="etiquettes">
+                                    {{-- Modal ticket --}}
+                                    <div id="modalContainerTicket" class="displayNoneTicket">
+                                        <div id="removeConfirmationContainer" class="displayNoneTicket">
+                                            <p>Êtes vous sûr de vouloir supprimer ce ticket ?</p>
+                                            <span>
+                                                <div class="modalButtons">
+                                                    <button id="cancelRemoveTicket">Annuler</button>
+                                                    <form action="{{ route('ticket.destroy') }}" method="post">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <input type="hidden" name="id" class="id"
+                                                            value="{{ $ticket->id }}">
+                                                        <button type="submit">Confirmer</button>
+                                                    </form>
+                                                </div>
+                                            </span>
+                                        </div>
+                                    </div>
+
+
+                                    {{-- Modal comment --}}
+                                    <div id="modalContainerComment">
+                                        <div id="removeConfirmationContainerComment">
+                                            {{-- <div class="etiquettes">
                                                     <label for="ecolor1" class="ecolor ecolor1">
                                                         <input type="radio" name="ecolor" id="ecolor1" value="#62bd50">
                                                     </label>
@@ -169,55 +170,55 @@
                                                     <button id="addEtiquette">Add etiquette</button>
 
                                                 </div> --}}
-                                                <div class="titleTicketTop">
-                                                    <div class="titleLeft">
-                                                        <h3 class="titleTicket"
-                                                            data_url="{{ route('ticket.updatetitle', [$ticket->id]) }}">
-                                                            {{ $ticket->task }}</h3>
+                                            <div class="titleTicketTop">
+                                                <div class="titleLeft">
+                                                    <h3 class="titleTicket"
+                                                        data_url="{{ route('ticket.updatetitle', [$ticket->id]) }}">
+                                                        {{ $ticket->task }}</h3>
 
-                                                        <button class="cancelComment">X</button>
-                                                    </div>
+                                                    <button class="cancelComment">X</button>
                                                 </div>
+                                            </div>
 
 
-                                                <div id="containerComment">
-                                                    <div>
-                                                        <textarea name=""
-                                                            data_url="{{ route('comment.store', [$ticket->id]) }}"
-                                                            id="addComment" class="addComment" cols="30" rows="3"
-                                                            placeholder="Écrivez un commentaire"></textarea>
-                                                    </div>
-                                                    <div id="flexReverse">
-                                                        @foreach ($comments as $comment)
+                                            <div id="containerComment">
+                                                <div>
+                                                    <textarea name=""
+                                                        data_url="{{ route('comment.store', [$ticket->id]) }}"
+                                                        id="addComment" class="addComment" cols="30" rows="3"
+                                                        placeholder="Écrivez un commentaire"></textarea>
+                                                </div>
+                                                <div id="flexReverse">
+                                                    @foreach ($comments as $comment)
 
-                                                            @if ($comment->ticket_id == $ticket->id)
-                                                                <div class="userInformations">
-                                                                    <img class="pictureComment"
-                                                                        src="{{ $user->picture }}" alt="picture">
+                                                        @if ($comment->ticket_id == $ticket->id)
+                                                            <div class="userInformations">
+                                                                <img class="pictureComment" src="{{ $user->picture }}"
+                                                                    alt="picture">
 
-                                                                    <div class="contentComment">
-                                                                        <span>{{ $comment->user->last_name }}
-                                                                            {{ $comment->user->first_name }}</span><br>
-                                                                        <p>{{ $comment->description }}</p>
-                                                                    </div>
-
+                                                                <div class="contentComment">
+                                                                    <span>{{ $comment->user->last_name }}
+                                                                        {{ $comment->user->first_name }}</span><br>
+                                                                    <p>{{ $comment->description }}</p>
                                                                 </div>
 
-                                                            @endif
+                                                            </div>
 
-                                                        @endforeach
-                                                    </div>
+                                                        @endif
+
+                                                    @endforeach
                                                 </div>
-
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
+                                {{-- </div> --}}
                             @endif
                         @endforeach
                         {{-- Ajouter ticket --}}
                         <div class="addTicket">
-                            <button id="btnAddTicket">+ Ajoutez un ticket</button>
+                            <button id="btnAddTicket"><span>+</span>Ajoutez un ticket</button>
                             <input type="hidden" id="columnId" value="{{ $column->id }}">
                         </div>
                     </div>
