@@ -199,6 +199,9 @@
 }
 
 #accessPannel #btnPannel {
+  opacity: 0;
+  position: relative;
+  top: 60px;
   border: none;
   text-decoration: none;
   cursor: pointer;
