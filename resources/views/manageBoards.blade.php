@@ -5,11 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<<<<<<< HEAD
-    <title>Tableaux - TaskFlow</title>
-=======
     <title>TaskFlow - Gestion Tableau</title>
->>>>>>> 740d0d69001efb2f427c947ca7f4743d6374507b
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 </head>
 

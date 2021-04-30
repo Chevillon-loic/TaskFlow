@@ -8,11 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<<<<<<< HEAD
-    <title>Interface admin - TaskFlow</title>
-=======
     <title>TaskFlow - ADMIN</title>
->>>>>>> 740d0d69001efb2f427c947ca7f4743d6374507b
 
     <!-- Styles -->
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
