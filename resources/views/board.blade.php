@@ -17,7 +17,7 @@
 
             <h2 id="titleTab" data_url="{{ route('board.update', [$board->id]) }}">
                 {{ $board->label }}</h2>
-
+            <img id="editTitleIcon" class="displayNone" src="{{ asset('img/edit.svg') }}" alt="edit">
             @if ($board->owner_id == $user->id)
                 {{-- Invite user --}}
                 <div class="containerInviteDelete">
@@ -66,8 +66,13 @@
                     <div class="columTitleDiv">
                         <div class="titleClosed">
                             <span class="columnTitle">
-                                <p id="plabelColumn" data_url="{{ route('column.update', [$column->id]) }}">
-                                    {{ $column->label }}</p>
+                                <p id="plabelColumn" data_label="{{ $column->label }}"
+                                    data_url="{{ route('column.update', [$column->id]) }}">
+                                    {{ $column->label }}
+                                    <img class=" editColumnIcon displayNone" src="{{ asset('img/edit.svg') }}"
+                                        alt="edit">
+                                </p>
+
                                 <button id="removeColumn"><i class="fas fa-times-circle"></i></button>
                             </span>
                         </div>

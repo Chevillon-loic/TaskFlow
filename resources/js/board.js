@@ -259,12 +259,23 @@ for (const elem of TITLECONTAINER) {
     });
 
     //Modif titre column (Liste)
+
+    let editColumnIcon = elem.querySelector(".editColumnIcon");
+    elem.addEventListener("mouseover", e => {
+        editColumnIcon.classList.toggle("displayNone");
+    });
+    elem.addEventListener("mouseout", e => {
+        editColumnIcon.classList.toggle("displayNone");
+    });
+
     plabelColumn.addEventListener("click", function(e) {
+        let dataLabel = this.getAttribute("data_label");
         let i = document.createElement("input");
         plabelColumn.insertAdjacentElement("beforebegin", i);
         i.id = "updateLabelColumInput";
+        i.value = dataLabel;
         i.select();
-        plabelColumn.classList.add("displayNone");
+        plabelColumn.style.display = "none";
 
         i.addEventListener("keydown", async function(e) {
             if (e.key === "Enter") {
@@ -318,6 +329,14 @@ BTNCXLDELETETAB.addEventListener("click", function(e) {
 //MODIFIER TITRE TABLEAU
 
 const TITLETAB = document.getElementById("titleTab");
+const EDITTITLEICON = document.getElementById("editTitleIcon");
+
+TITLETAB.addEventListener("mouseover", e => {
+    EDITTITLEICON.classList.toggle("displayNone");
+});
+TITLETAB.addEventListener("mouseout", e => {
+    EDITTITLEICON.classList.toggle("displayNone");
+});
 
 TITLETAB.addEventListener("click", function(e) {
     let i = document.createElement("input");

@@ -236,6 +236,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            #plabelColumn {
+                display: flex;
+                align-items: center;
+            }
             #updateLabelColumInput {
                 padding: 5px;
                 outline: none;
@@ -244,6 +248,7 @@
                 background-color: rgba(255, 255, 255, 0.3);
                 font-size: 1rem;
                 font-weight: 700;
+                letter-spacing: 1.2px;
                 color: white;
             }
         }
@@ -693,4 +698,18 @@
 // TEMPORAIRE - Bouton Pannel Admin
 #btnPannel {
     color: red;
+}
+
+//Icone edition de titre
+#editTitleIcon {
+    position: absolute;
+    height: 20px;
+    left: 180px;
+    opacity: 0.8;
+}
+.editColumnIcon {
+    position: relative;
+    height: 20px;
+    left: 10px;
+    opacity: 0.8;
 }

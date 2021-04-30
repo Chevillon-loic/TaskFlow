@@ -1208,12 +1208,21 @@ try {
       modalContainer.classList.toggle("displayNone");
     }); //Modif titre column (Liste)
 
+    var editColumnIcon = elem.querySelector(".editColumnIcon");
+    elem.addEventListener("mouseover", function (e) {
+      editColumnIcon.classList.toggle("displayNone");
+    });
+    elem.addEventListener("mouseout", function (e) {
+      editColumnIcon.classList.toggle("displayNone");
+    });
     plabelColumn.addEventListener("click", function (e) {
+      var dataLabel = this.getAttribute("data_label");
       var i = document.createElement("input");
       plabelColumn.insertAdjacentElement("beforebegin", i);
       i.id = "updateLabelColumInput";
+      i.value = dataLabel;
       i.select();
-      plabelColumn.classList.add("displayNone");
+      plabelColumn.style.display = "none";
       i.addEventListener("keydown", /*#__PURE__*/function () {
         var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(e) {
           var url, token, body, options, response;
@@ -1297,6 +1306,13 @@ BTNCXLDELETETAB.addEventListener("click", function (e) {
 //MODIFIER TITRE TABLEAU
 
 var TITLETAB = document.getElementById("titleTab");
+var EDITTITLEICON = document.getElementById("editTitleIcon");
+TITLETAB.addEventListener("mouseover", function (e) {
+  EDITTITLEICON.classList.toggle("displayNone");
+});
+TITLETAB.addEventListener("mouseout", function (e) {
+  EDITTITLEICON.classList.toggle("displayNone");
+});
 TITLETAB.addEventListener("click", function (e) {
   var i = document.createElement("input");
   TITLETAB.insertAdjacentElement("beforebegin", i);

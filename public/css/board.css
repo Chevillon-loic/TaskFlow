@@ -254,6 +254,11 @@
   align-items: center;
 }
 
+.mainContainer .columnContainer .columnTitle #plabelColumn {
+  display: flex;
+  align-items: center;
+}
+
 .mainContainer .columnContainer .columnTitle #updateLabelColumInput {
   padding: 5px;
   outline: none;
@@ -262,6 +267,7 @@
   background-color: rgba(255, 255, 255, 0.3);
   font-size: 1rem;
   font-weight: 700;
+  letter-spacing: 1.2px;
   color: white;
 }
 
@@ -733,5 +739,19 @@
 
 #btnPannel {
   color: red;
+}
+
+#editTitleIcon {
+  position: absolute;
+  height: 20px;
+  left: 180px;
+  opacity: 0.8;
+}
+
+.editColumnIcon {
+  position: relative;
+  height: 20px;
+  left: 10px;
+  opacity: 0.8;
 }
 
